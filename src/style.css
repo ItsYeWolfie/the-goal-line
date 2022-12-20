@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.header {
+	@apply text-4xl font-bold tracking-tight sm:text-center sm:text-6xl hover:text-red-600 dark:text-black
+}
