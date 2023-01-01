@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.fixture{
+    @apply flex justify-around align-middle w-3/5 h-40 mt-2 bg-white rounded-md;
+}
+
+.team{
+    @apply flex flex-col mt-6;
+}
+
+.goal{
+    @apply text-xs ml-12;
+}
+
+.info{
+    @apply w-3/5 h-10 pt-1 bg-white flex align-middle justify-around rounded-md;
+}
+
+.fusha{
+    @apply mt-4 bg-green flex p-1;
+}
+
+.line{
+    @apply border-solid border-2 border-white;
+}
