@@ -20,9 +20,25 @@
 }
 
 .fusha{
-    @apply mt-4 bg-green flex p-1;
+    @apply bg-green flex p-0.5;
 }
 
 .line{
-    @apply border-solid border-2 border-white;
+    @apply border-solid border-2 border-white absolute;
+}
+
+.stat{
+    @apply bg-slate-300 flex w-72 h-2 rounded-md;
+}
+
+.lime{
+    @apply text-lime-700;
+}
+
+.gray{
+    @apply text-gray-600;
+}
+
+.player{
+    @apply flex justify-center align-middle rounded-full w-8 h-8 text-center absolute text-white;
 }
