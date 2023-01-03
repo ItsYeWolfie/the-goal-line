@@ -1,7 +1,6 @@
 class HalfHorizontalLine extends HTMLElement {
 	constructor() {
 		super();
-		this.attachShadow({ mode: 'open' });
 	}
 
 	connectedCallback() {
@@ -9,13 +8,8 @@ class HalfHorizontalLine extends HTMLElement {
 	}
 
 	render() {
-		this.shadowRoot.innerHTML = `
-			<style>
-				.horizontal-line-half {
-					@apply border-gray-400 w-1/2 translate-x-1/2;
-				}
-			</style>
-			<hr class="horizontal-line-half" />
+		this.innerHTML = `
+			<hr class="border-gray-400 w-1/2 translate-x-1/2" />
 		`;
 	}
 }

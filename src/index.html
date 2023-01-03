@@ -7,99 +7,78 @@
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
-		<style>
-			.nav-item {
-				@apply flex items-center;
-			}
-			.nav-item__link {
-				@apply transition-colors duration-500;
-			}
-			.nav-item__link:hover {
-				@apply text-sky-600;
-			}
-			.nav-item__header {
-				@apply text-xs uppercase text-gray-400;
-			}
-			.nav-item__header:not(:only-child) {
-				@apply mb-5;
-			}
-		</style>
 		<div id="app">
 			<section class="flex h-full">
 				<header class="flex basis-96">
 					<nav
 						class="flex flex-col h-full gap-y-8 basis-[25%] py-8 border-2 border-gray-300 text-center"
 					>
-						<div class="flex flex-col gap-8 text-sm text-gray-400">
-							<i class="fa-solid fa-bars-staggered">
-								<span class="sr-only">Menu</span>
-							</i>
-						</div>
+						<g-nav-icon-holder>
+							<g-nav-icon
+								title="Menu"
+								icon="fa-solid fa-bars-staggered"
+							></g-nav-icon>
+						</g-nav-icon-holder>
 						<g-hr-half></g-hr-half>
-						<div class="flex flex-col gap-8 text-sm text-gray-400">
-							<i class="fa-solid fa-fire-flame-curved">
-								<span class="sr-only">Trending</span>
-							</i>
-							<i class="fa-brands fa-safari">
-								<span class="sr-only">Location</span>
-							</i>
-							<i class="fa-regular fa-envelope">
-								<span class="sr-only">Messages</span>
-							</i>
-						</div>
-						<hr class="horizontal-line" />
-						<div class="flex flex-col gap-8 text-sm text-gray-400">
-							<i class="fa-regular fa-futbol">
-								<span class="sr-only">Football</span>
-							</i>
-							<i class="fa-solid fa-globe">
-								<span class="sr-only">World</span>
-							</i>
-							<i class="fa-solid fa-book-open-reader">
-								<span class="sr-only">Legend</span>
-							</i>
-							<i class="fa-regular fa-calendar-days">
-								<span class="sr-only">Calendar</span>
-							</i>
-							<i class="fa-solid fa-ring">
-								<span class="sr-only">Stadiums</span>
-							</i>
-						</div>
-						<hr class="horizontal-line" />
-						<div
-							class="mt-auto justify-self-end mb-8 flex flex-col gap-8 text-sm text-gray-400"
-						>
-							<i class="fa-solid fa-circle-info">
-								<span class="sr-only">Info</span>
-							</i>
-							<i class="fa-solid fa-headset">
-								<span class="sr-only">Support</span>
-							</i>
-						</div>
+						<g-nav-icon-holder>
+							<g-nav-icon
+								title="Trending"
+								icon="fa-solid fa-fire-flame-curved"
+							></g-nav-icon>
+							<g-nav-icon
+								title="Location"
+								icon="fa-brands fa-safari"
+							></g-nav-icon>
+							<g-nav-icon
+								title="Messages"
+								icon="fa-regular fa-envelope"
+							></g-nav-icon>
+						</g-nav-icon-holder>
+						<g-hr-half></g-hr-half>
+						<g-nav-icon-holder>
+							<g-nav-icon
+								title="Football"
+								icon="fa-regular fa-futbol"
+							></g-nav-icon>
+							<g-nav-icon title="World" icon="fa-solid fa-globe"></g-nav-icon>
+							<g-nav-icon
+								title="Legend"
+								icon="fa-solid fa-book-open-reader"
+							></g-nav-icon>
+							<g-nav-icon
+								title="Calendar"
+								icon="fa-regular fa-calendar-days"
+							></g-nav-icon>
+							<g-nav-icon title="Stadiums" icon="fa-solid fa-ring"></g-nav-icon>
+						</g-nav-icon-holder>
+						<g-hr-half></g-hr-half>
+						<g-nav-icon-holder class="mt-auto">
+							<g-nav-icon
+								title="Info"
+								icon="fa-solid fa-circle-info"
+							></g-nav-icon>
+							<g-nav-icon
+								title="Support"
+								icon="fa-solid fa-headset"
+							></g-nav-icon>
+						</g-nav-icon-holder>
 					</nav>
 					<aside
 						class="bg-gray-100 p-6 flex w-full flex-col gap-10 text-gray-500"
 					>
-						<header class="nav-item gap-2">
+						<header class="flex items-center gap-2">
 							<span class="fa-regular fa-paper-plane text-sky-600">
 								<span class="sr-only">Logo</span>
 							</span>
 							<h1 class="text-lg font-medium">The Goal Line</h1>
 						</header>
 						<section>
-							<header class="nav-item__header">Menu</header>
-							<div>
-								<a class="nav-item nav-item__link" href="./">
-									<i class="fa-solid fa-table-columns text-2xl">
-										<span class="sr-only">Dashboard Icon</span>
-									</i>
-									<span class="ml-2 text-sm">Dashboard</span>
-								</a>
-							</div>
+							<header class="text-xs uppercase text-gray-400 mb-5">Menu</header>
+							<div class="flex flex-col gap-4" id="main-links"></div>
 						</section>
 						<section id="leagues-section">
 							<header
-								class="nav-item__header flex justify-between items-center"
+								class="text-xs uppercase text-gray-400 mb-5 flex justify-between items-center"
 							>
 								<p>Leagues</p>
 								<span
@@ -110,7 +89,10 @@
 								</span>
 							</header>
 							<div class="flex flex-col gap-2 hidden" id="league-list">
-								<a class="nav-item nav-item__link" href="./">
+								<a
+									class="flex items-center transition-colors duration-500 hover:text-sky-600"
+									href="./"
+								>
 									<img
 										src="https://media.api-sports.io/football/leagues/4.png"
 										alt="Euro 2020"
@@ -121,9 +103,14 @@
 							</div>
 						</section>
 						<section>
-							<header class="nav-item__header">Favorite Club(s)</header>
+							<header class="text-xs uppercase text-gray-400 mb-5">
+								Favorite Club(s)
+							</header>
 							<div>
-								<a class="nav-item nav-item__link" href="./">
+								<a
+									class="flex items-center transition-colors duration-500 hover:text-sky-600"
+									href="./"
+								>
 									<img
 										src="https://media.api-sports.io/football/teams/33.png"
 										alt="Manchester United"
@@ -147,14 +134,5 @@
 			crossorigin="anonymous"
 			defer
 		></script>
-		<script>
-			const leaguesSection = document.getElementById('leagues-section');
-			const leaguesList = document.getElementById('league-list');
-			const leaguesDropdown = document.getElementById('leagues-dropdown');
-			leaguesDropdown.addEventListener('click', () => {
-				leaguesList.classList.toggle('hidden');
-				leaguesDropdown.classList.toggle('-rotate-180');
-			});
-		</script>
 	</body>
 </html>
