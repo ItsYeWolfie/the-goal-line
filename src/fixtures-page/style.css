@@ -1,10 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap'); 
 
+*{
+    @apply font-inter;
+}
 
 .fixture{
-    @apply flex justify-around align-middle w-3/5 h-40 mt-2 bg-white rounded-md;
+    @apply flex justify-around align-middle md:w-4/5 lg:w-3/6 w-full lg:h-40 h-auto lg:mt-2 bg-white rounded-md;
 }
 
 .team{
@@ -16,7 +20,7 @@
 }
 
 .info{
-    @apply w-3/5 h-10 pt-1 bg-white flex align-middle justify-around rounded-md;
+    @apply lg:w-3/6 md:w-4/5 w-full h-10 pt-1 bg-white flex justify-around align-middle lg:flex lg:justify-around rounded-md;
 }
 
 .fusha{
@@ -28,7 +32,7 @@
 }
 
 .stat{
-    @apply bg-slate-300 flex w-72 h-2 rounded-md;
+    @apply bg-slate-300 flex w-44 md:w-72 lg:w-80 h-2 rounded-md;
 }
 
 .lime{
