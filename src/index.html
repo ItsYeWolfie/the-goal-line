@@ -8,9 +8,82 @@
 	</head>
 	<body>
 		<div id="app">
-			<section class="flex h-full">
-				<g-header class="flex basis-96"></g-header>
-				<div class="w-full"></div>
+			<section class="flex h-auto">
+				<g-header class="flex basis-100 border-gray-300 border-2 " ></g-header>
+				<div class="w-full">
+					<header id="header-nav" class="border-gray-300 border-2  border-t-0 border-l-0">
+						<nav
+							class="flex flex-wrap items-center justify-between w-full py-4 md:py-0 px-4 text-xs text-black bg-gray-100 "
+						>
+							<div class="sm:w-1/2 lg:w-1/2   w-2/3">
+								
+<form>   
+    <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search...</label>
+    <div class="relative">
+        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+            <svg aria-hidden="true" class="w-5 h-5 text-black dark:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        </div>
+        <input type="search" id="default-search" class="block w-full p-4 pl-10 h-[25px] my-4 text-sm text-gray-900 bord rounded-lg bg-gray-400 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-300 dark:border-gray-500 dark:placeholder-black dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search..." required>
+    </div>
+</form>
+
+							</div>
+
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								id="menu-button"
+								class="h-6 w-6 cursor-pointer md:hidden block"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M4 6h16M4 12h16M4 18h16"
+								/>
+							</svg>
+
+							<div
+								class="hidden w-full md:flex  md:w-auto md:items-end mt-[10px]"
+								id="menu"
+							>
+								<ul
+									class="pt-4 text-base text-gray-700 md:flex md:justify-between text-center md:pt-0"
+								>
+									
+								
+									<li>
+										<a class="md:p-4  block rounded-xl  hover:text-black-400" href="#"
+											><button class=" bg-violet-600 text-white text-[14px] px-[14px] py-[4px] rounded-[5px] ">Go Premium</button> </a
+										>
+									</li>
+									
+									<li>
+										<a
+											class="md:p-4 py-2 block hover:text-purple-400 text-purple-500"
+											href="#"
+											><button class=" text-violet-600 text-[20px]  py-[4px]  "><i class="fa-regular fa-moon"></i></button> </a
+										>
+									</li>
+									<li>
+										<a
+											class="md:p-4 py-2 block hover:text-purple-400 text-purple-500"
+											href="#"
+											><button class=" text-violet-600 text-[20px]  py-[2px]  "><img
+												src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+												class="rounded-full w-8"
+												alt="Avatar"
+											  /></button> </a
+										>
+									</li>
+									
+								</ul>
+							</div>
+						</nav>
+					</header>
+				</div>
 			</section>
 		</div>
 		<script type="module" src="./main.js"></script>
@@ -21,3 +94,4 @@
 		></script>
 	</body>
 </html>
+
