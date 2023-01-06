@@ -8,7 +8,7 @@
 }
 
 .fixture{
-    @apply flex justify-around align-middle md:w-4/5 lg:w-3/6 w-full lg:h-40 h-auto lg:mt-2 dark:bg-slate-700 bg-white rounded-md;
+    @apply  justify-around align-middle md:w-4/5 lg:w-3/6 w-full lg:h-40 h-auto lg:mt-2 dark:bg-slate-700 bg-white rounded-md;
 }
 
 .team{
@@ -40,7 +40,7 @@
 }
 
 .gray{
-    @apply text-gray-600 dark:text-neutral-400;
+    @apply text-gray-600 dark:text-sky-500;
 }
 
 .player{
