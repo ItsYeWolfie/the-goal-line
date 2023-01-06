@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<style>
+			.information-block {
+				@apply mt-2;
+			}
+			.information-header {
+				@apply text-gray-500 -mt-1 text-sm;
+			}
+
+			.information-value {
+				@apply font-medium;
+			}
+		</style>
+		<div id="app" class="flex">
+			<g-header class="h-full"></g-header>
+			<section class="grid grid-cols-12 container">
+				<div class="col-span-9">
+					<team-tabs></team-tabs>
+					<div class="flex flex-wrap">
+						<g-transparent-table
+							class="min-w-full divide-y divide-gray-300"
+							headers="Versus,League,Season,Round,Time/Date,Side,Status,Score"
+						>
+						</g-transparent-table>
+
+						<div class="basis-4/12">
+							<team-standings></team-standings>
+						</div>
+					</div>
+				</div>
+				<div class="p-8 col-span-3 text-center h-full">
+					<header class="text-2xl font-bold">Manchester United</header>
+					<img
+						src="https://media.api-sports.io/football/teams/33.png"
+						alt="Manchester United Logo"
+						class="mx-auto"
+					/>
+					<img
+						src="https://media.api-sports.io/flags/gb.svg"
+						alt="England Flag"
+						class="w-5 inline-block"
+					/>
+					<span class="information-value">England</span>
+					<div class="information-block">
+						<p class="information-value">1878</p>
+						<p class="information-header">Year Founded</p>
+					</div>
+					<div class="information-block">
+						<p class="information-value">National</p>
+						<p class="information-header">League</p>
+					</div>
+					<header class="text-2xl font-bold mt-4">Venue</header>
+					<div class="information-block">
+						<p class="information-value">Old Trafford</p>
+						<p class="information-header">Name</p>
+					</div>
+					<div class="information-block">
+						<p class="information-value">Sir Matt Busby Way</p>
+						<p class="information-header">Address</p>
+					</div>
+					<div class="information-block">
+						<p class="information-value">Manchester</p>
+						<p class="information-header">City</p>
+					</div>
+					<div class="information-block">
+						<p class="information-value">76212</p>
+						<p class="information-header">Capacity</p>
+					</div>
+					<div class="information-block">
+						<p class="information-value">Grass</p>
+						<p class="information-header">Surface</p>
+					</div>
+					<img
+						src="https://media.api-sports.io/football/venues/556.png"
+						alt="Old Trafford Stadium"
+						class="mx-auto"
+					/>
+				</div>
+			</section>
+		</div>
+	</body>
+	<script src="./main.js" type="module" defer></script>
+	<script src="./team.js" type="module" defer></script>
+	<script
+		src="https://kit.fontawesome.com/93f4c9f245.js"
+		crossorigin="anonymous"
+		defer
+	></script>
+</html>

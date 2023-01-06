@@ -1,20 +1,20 @@
-class NavIcon extends HTMLElement {
-	constructor() {
-		super();
-		this.title = this.getAttribute('title');
-		this.icon = this.getAttribute('icon');
-	}
+import { html } from 'lit';
+import { LitLightElement } from '../../lib/LitElement';
 
-	connectedCallback() {
-		this.render();
+class NavIcon extends LitLightElement {
+	static get properties() {
+		return {
+			title: { type: String },
+			icon: { type: String },
+			href: { type: String },
+		};
 	}
 
 	render() {
-		this.innerHTML = `
+		return html`
 			<a
-				class="${
-					this.icon
-				} text-lg cursor-pointer hover:text-sky-600 transition-colors duration-500"
+				class="${this
+					.icon} text-lg cursor-pointer hover:text-sky-600 transition-colors duration-500"
 				${this.href ? `href="${this.href}"` : ''}
 			>
 				<span class="sr-only">${this.title}</span>
@@ -22,5 +22,4 @@ class NavIcon extends HTMLElement {
 		`;
 	}
 }
-
 customElements.define('g-nav-icon', NavIcon);

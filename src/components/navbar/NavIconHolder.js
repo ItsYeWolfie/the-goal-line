@@ -1,7 +1,6 @@
 class NavIconHolder extends HTMLElement {
 	constructor() {
 		super();
-		console.log(this.children);
 	}
 
 	connectedCallback() {

@@ -6,6 +6,7 @@ import './NavItem';
 class GHeader extends HTMLElement {
 	constructor() {
 		super();
+		this.classList.add('flex');
 	}
 
 	connectedCallback() {
@@ -14,14 +15,15 @@ class GHeader extends HTMLElement {
 
 	render() {
 		this.innerHTML = `
-			<header class="flex">
+			<header class="flex w-80">
 				<nav
-					class="flex flex-col h-full gap-y-8 basis-[25%] py-8 border-2 border-gray-300 text-center"
+					class="flex flex-col h-full gap-y-8 basis-14 grow-0 shrink-0 py-8 border-2 border-gray-300 text-center"
 				>
 					<g-nav-icon-holder>
 						<g-nav-icon
 							title="Menu"
 							icon="fa-solid fa-bars-staggered"
+							id="menu-toggle"
 						></g-nav-icon>
 					</g-nav-icon-holder>
 					<g-hr-half></g-hr-half>
@@ -70,6 +72,7 @@ class GHeader extends HTMLElement {
 				</nav>
 				<aside
 					class="bg-gray-100 p-6 flex w-full flex-col gap-10 text-gray-500"
+					id="sidebar-extended"
 				>
 					<header class="flex items-center gap-2">
 						<span class="fa-regular fa-paper-plane text-sky-600">
@@ -135,6 +138,13 @@ class GHeader extends HTMLElement {
 }
 
 customElements.define('g-header', GHeader);
+
+const menuToggle = document.getElementById('menu-toggle');
+const sidebarExtended = document.getElementById('sidebar-extended');
+
+menuToggle.addEventListener('click', () => {
+	sidebarExtended.classList.toggle('hidden');
+});
 
 const leaguesList = document.getElementById('league-list');
 const leaguesDropdown = document.getElementById('leagues-dropdown');
