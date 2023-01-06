@@ -1,12 +1,12 @@
 import { html } from 'lit';
 import moment from 'moment/moment';
 import { LitLightElement } from '../../lib/LitElement';
-import '../tables/FixtureRow';
 
 class TeamFixturesTable extends LitLightElement {
 	static properties = {
 		headers: {},
 		loading: {},
+		teamID: { type: Number },
 	};
 
 	constructor() {
@@ -34,7 +34,7 @@ class TeamFixturesTable extends LitLightElement {
 	async connectedCallback() {
 		super.connectedCallback();
 		this.classList.add(
-			'h-screen',
+			'h-[40rem]',
 			'overflow-y-auto',
 			'bg-white',
 			'shadow-md',
@@ -79,7 +79,7 @@ class TeamFixturesTable extends LitLightElement {
 								${this.fixtures.map((fixture) => {
 									const { fixture: match, goals, league, teams } = fixture;
 									const { home, away } = teams;
-									const isHome = home.name === 'Manchester United';
+									const isHome = home.id === this.teamID;
 									const isWinner =
 										(isHome && goals.home > goals.away) ||
 										(!isHome && goals.away > goals.home);
@@ -90,15 +90,11 @@ class TeamFixturesTable extends LitLightElement {
 									return html` <tr class="border-b divide-x">
 										<td class="relative py-4 pl-4 sm:pl-6 pr-3 text-sm">
 											<div class="font-medium text-gray-900">
-												${isHome ? `${away.name}` : `${home.name}`}
+												${isHome ? away.name : home.name}
 											</div>
 											<div
 												class="mt-1 flex flex-col text-gray-500 sm:block lg:hidden"
-											>
-												<span>4 GB RAM / 4 CPUs</span>
-												<span class="hidden sm:inline">·</span>
-												<span>128 GB SSD disk</span>
-											</div>
+											></div>
 										</td>
 										<td
 											class="hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell"
