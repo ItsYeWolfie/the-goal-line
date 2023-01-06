@@ -1,4 +1,4 @@
 import './components/navbar/GHeader';
 
-import './components/TeamTabs';
-import './components/tables/UppercaseCollapsed';
+import './components/team/TeamTabs';
+import './components/team/TeamFixturesTable';
