@@ -15,7 +15,7 @@
     "autoprefixer": "^10.4.13",
     "eslint": "^8.29.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.1.1",
@@ -26,6 +26,7 @@
     "vite": "^4.0.0"
   },
   "dependencies": {
+    "lit": "^2.5.0",
     "start-dom-jsx": "^1.0.0-beta.1",
     "vite-plugin-vue-jsx": "^0.0.4"
   }
