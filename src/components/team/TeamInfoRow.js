@@ -11,7 +11,7 @@ class TeamInfoRow extends LitLightElement {
 		return html`
 			<div class="mt-2">
 				<p class="font-medium">${this.value}</p>
-				<p class="text-gray-500 -mt-1 text-sm">${this.key}</p>
+				<p class="-mt-1 text-sm text-gray-500">${this.key}</p>
 			</div>
 		`;
 	}

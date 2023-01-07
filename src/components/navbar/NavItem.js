@@ -1,18 +1,20 @@
-class NavItem extends HTMLElement {
-	constructor() {
-		super();
-		this.href = this.getAttribute('href');
-		this.icon = this.getAttribute('icon');
-		this.iconAlt = this.getAttribute('icon-alt');
-		this.title = this.getAttribute('title');
-	}
+import { html } from 'lit';
+import { LitLightElement } from '../../lib/LitElement';
+
+class NavItem extends LitLightElement {
+	static properties = {
+		title: {},
+		href: {},
+		icon: {},
+		iconAlt: { attribute: 'icon-alt' },
+	};
 
 	connectedCallback() {
-		this.render();
+		super.connectedCallback();
 	}
 
 	render() {
-		this.innerHTML = `
+		return html`
 			<a
 				class="flex items-center transition-colors duration-500 hover:text-sky-600"
 				href="${this.href}"

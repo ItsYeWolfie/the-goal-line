@@ -31,7 +31,7 @@ class TeamPage extends LitLightElement {
 
 	render() {
 		return html`
-			<section class="grid grid-cols-12 container">
+			<section class="container grid grid-cols-12">
 				<div class="col-span-9">
 					<team-tabs></team-tabs>
 					<div class="flex flex-wrap">
@@ -47,36 +47,36 @@ class TeamPage extends LitLightElement {
 						</div>
 					</div>
 				</div>
-				<div class="p-8 col-span-3 text-center h-full">
+				<div class="col-span-3 h-full p-8 text-center">
 					${this.loading
 						? html`<p>Loading...</p>`
 						: html`
 								<header class="text-2xl font-bold">${this.team.name}</header>
 								<img
+									class="mx-auto"
 									src="${this.team.logo}"
 									alt="${this.team.name} Logo"
-									class="mx-auto"
 								/>
 
 								<t-info-row
-									key="Country"
 									value="${this.team.country}"
+									key="Country"
 								></t-info-row>
-								<header class="text-2xl font-bold mt-4">Venue</header>
-								<t-info-row key="Name" value="${this.venue.name}"></t-info-row>
+								<header class="mt-4 text-2xl font-bold">Venue</header>
+								<t-info-row value="${this.venue.name}" key="Name"></t-info-row>
 								<t-info-row
-									key="Address"
 									value="${this.venue.address}"
+									key="Address"
 								></t-info-row>
-								<t-info-row key="City" value="${this.venue.city}"></t-info-row>
+								<t-info-row value="${this.venue.city}" key="City"></t-info-row>
 								<t-info-row
-									key="Capacity"
 									value="${this.venue.capacity}"
+									key="Capacity"
 								></t-info-row>
 								<img
+									class="mx-auto"
 									src="${this.venue.image}"
 									alt="${this.venue.name} Stadium"
-									class="mx-auto"
 								/>
 						  `}
 				</div>

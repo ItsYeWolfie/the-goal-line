@@ -1,16 +1,11 @@
-class NavIconHolder extends HTMLElement {
-	constructor() {
-		super();
-	}
+import { html } from 'lit';
+import { LitLightElement } from '../../lib/LitElement';
 
-	connectedCallback() {
-		this.render();
-	}
-
+class NavIconHolder extends LitLightElement {
 	render() {
-		this.innerHTML = `
-			<div class="flex flex-col gap-8 text-xs text-gray-400 ${this.classList}">
-				${this.innerHTML}
+		return html`
+			<div class="${this.classList} flex flex-col gap-8 text-xs text-gray-400">
+				<slot></slot>
 			</div>
 		`;
 	}

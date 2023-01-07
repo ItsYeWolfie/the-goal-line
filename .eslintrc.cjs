@@ -7,12 +7,16 @@ module.exports = {
 		'airbnb-base',
 		'plugin:import/recommended',
 		'plugin:promise/recommended',
+		'plugin:tailwindcss/recommended',
 		'plugin:prettier/recommended',
 	],
+	plugins: ['tailwindcss'],
 	overrides: [],
 	parserOptions: {
 		ecmaVersion: 'latest',
 		sourceType: 'module',
 	},
-	rules: {},
+	rules: {
+		'class-methods-use-this': 0,
+	},
 };

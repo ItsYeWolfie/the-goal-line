@@ -2,5 +2,7 @@
 	"tabWidth": 2,
 	"useTabs": true,
 	"semi": true,
-	"singleQuote": true
+	"singleQuote": true,
+	"plugins": ["prettier-plugin-organize-attributes","prettier-plugin-tailwindcss"],
+	"attributeGroups": ["$CODE_GUIDE"]
 }

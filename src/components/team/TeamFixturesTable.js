@@ -1,7 +1,7 @@
 import { html } from 'lit';
 import moment from 'moment/moment';
 import { LitLightElement } from '../../lib/LitElement';
-import StickyBackgroundTable from '../tables/StickyBackgroundTable';
+import '../tables/StickyBackgroundTable';
 
 class TeamFixturesTable extends LitLightElement {
 	static properties = {
@@ -16,8 +16,8 @@ class TeamFixturesTable extends LitLightElement {
 	}
 
 	fetchFixtures = async () => {
-		return new Promise(async (resolve, reject) => {
-			await fetch('https://api.npoint.io/3d56ae8265c24b49d6f8')
+		return new Promise((resolve, reject) => {
+			fetch('https://api.npoint.io/3d56ae8265c24b49d6f8')
 				.then((response) => response.json())
 				.then((data) => {
 					return resolve(data);
@@ -54,7 +54,7 @@ class TeamFixturesTable extends LitLightElement {
 				${this.loading
 					? html`
 							<div class="table-row">
-								<div class="py-4 text-center table-cell align-middle w-full">
+								<div class="table-cell w-full py-4 text-center align-middle">
 									Loading... <span class="animate-spin">⚽</span>
 								</div>
 							</div>
@@ -71,8 +71,8 @@ class TeamFixturesTable extends LitLightElement {
 								const { status } = match;
 								const { timestamp } = match;
 								const date = moment.unix(timestamp).format('LL');
-								return html` <div class="border-b table-row">
-									<div class="py-4 pl-4 sm:pl-6 pr-3 text-sm table-cell">
+								return html` <div class="table-row border-b">
+									<div class="table-cell py-4 pl-4 pr-3 text-sm sm:pl-6">
 										<div class="font-medium text-gray-900">
 											${isHome ? away.name : home.name}
 										</div>
@@ -83,17 +83,17 @@ class TeamFixturesTable extends LitLightElement {
 									<div
 										class="hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell"
 									>
-										<div class="flex gap-2 items-center">
+										<div class="flex items-center gap-2">
 											<img
+												class="inline-block h-6 w-6"
 												src="${league.logo}"
 												alt="${league.name} logo"
-												class="w-6 h-6 inline-block"
 											/><span>${league.name}</span>
 											${league.flag &&
 											html`<img
+												class="inline-block h-4 w-4"
 												src=${league.flag}
 												alt="${league.country} flag"
-												class="w-4 h-4 inline-block"
 											/>`}
 										</div>
 									</div>
@@ -114,12 +114,12 @@ class TeamFixturesTable extends LitLightElement {
 										${date}
 									</div>
 									<div
-										class="hidden px-3 py-3.5 text-xs text-gray-500 lg:table-cell uppercase"
+										class="hidden px-3 py-3.5 text-xs uppercase text-gray-500 lg:table-cell"
 									>
 										${isHome ? 'Home' : 'Away'}
 									</div>
 									<div
-										class="hidden px-3 py-3.5 text-xs text-gray-500 lg:table-cell uppercase"
+										class="hidden px-3 py-3.5 text-xs uppercase text-gray-500 lg:table-cell"
 									>
 										${status.short}
 										${isWinner
@@ -129,7 +129,7 @@ class TeamFixturesTable extends LitLightElement {
 											: ''}
 									</div>
 									<div
-										class="hidden px-3 py-3.5 text-xs text-gray-500 lg:table-cell uppercase"
+										class="hidden px-3 py-3.5 text-xs uppercase text-gray-500 lg:table-cell"
 									>
 										${goals.home} - ${goals.away}
 									</div>

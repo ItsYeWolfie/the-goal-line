@@ -1,16 +1,9 @@
-class HalfHorizontalLine extends HTMLElement {
-	constructor() {
-		super();
-	}
+import { html } from 'lit';
+import { LitLightElement } from '../../lib/LitElement';
 
-	connectedCallback() {
-		this.render();
-	}
-
+class HalfHorizontalLine extends LitLightElement {
 	render() {
-		this.innerHTML = `
-			<hr class="border-gray-400 w-1/2 translate-x-1/2" />
-		`;
+		return html`<hr class="w-1/2 translate-x-1/2 border-gray-400" />`;
 	}
 }
 

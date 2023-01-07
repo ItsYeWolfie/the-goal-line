@@ -13,17 +13,17 @@ export default class StickyBackgroundTable extends LitLightElement {
 
 	render() {
 		return html`
-			<div class="min-w-full divide-gray-300 table relative">
-				<div class="uppercase text-xs table-header-group sticky">
-					<div class="table-row bg-gray-400 sticky top-0">
+			<div class="relative table min-w-full divide-gray-300">
+				<div class="table-header-group text-xs uppercase">
+					<div class="sticky top-0 table-row bg-gray-400">
 						${this.headers.map(
 							(header) => html`
 								<div
-									scope="col"
 									class="${this.headers.indexOf(header) === 0
 										? 'pl-4 pr-3 sm:pl-6'
 										: 'px-3 py-3.5'}
-										text-left font-semibold text-gray-900 lg:table-cell border-b"
+										border-b text-left font-semibold text-gray-900 lg:table-cell"
+									scope="col"
 								>
 									${header}
 								</div>
