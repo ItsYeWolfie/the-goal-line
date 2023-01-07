@@ -2,6 +2,7 @@ import { html } from 'lit';
 import { LitLightElement } from '../../lib/LitElement';
 import './TeamFixturesTable';
 import './TeamTabs';
+import './TeamInfoRow';
 import { fetchData } from '../../lib/helpers/fetch';
 
 class TeamPage extends LitLightElement {
@@ -23,8 +24,6 @@ class TeamPage extends LitLightElement {
 		);
 		this.loading = false;
 
-		console.log(teamObject);
-
 		const { team, venue } = teamObject;
 		this.team = team;
 		this.venue = venue;
@@ -40,6 +39,7 @@ class TeamPage extends LitLightElement {
 							headers="Versus,League,Season,Round,Time/Date,Side,Status,Score"
 							teamID="${this.teamID}"
 						>
+							asd
 						</t-fixtures-table>
 
 						<div class="basis-4/12">
@@ -57,32 +57,22 @@ class TeamPage extends LitLightElement {
 									alt="${this.team.name} Logo"
 									class="mx-auto"
 								/>
-								<div class="mt-2">
-									<p class="font-medium">${this.team.country}</p>
-									<p class="text-gray-500 -mt-1 text-sm">Country</p>
-								</div>
-								${this.teamHTML}
+
+								<t-info-row
+									key="Country"
+									value="${this.team.country}"
+								></t-info-row>
 								<header class="text-2xl font-bold mt-4">Venue</header>
-								<div class="mt-2">
-									<p class="font-medium">${this.venue.name}</p>
-									<p class="text-gray-500 -mt-1 text-sm">Name</p>
-								</div>
-								<div class="mt-2">
-									<p class="font-medium">${this.venue.address}</p>
-									<p class="text-gray-500 -mt-1 text-sm">Address</p>
-								</div>
-								<div class="mt-2">
-									<p class="font-medium">${this.venue.city}</p>
-									<p class="text-gray-500 -mt-1 text-sm">City</p>
-								</div>
-								<div class="mt-2">
-									<p class="font-medium">${this.venue.capacity}</p>
-									<p class="text-gray-500 -mt-1 text-sm">Capacity</p>
-								</div>
-								<div class="mt-2">
-									<p class="font-medium">${this.venue.surface}</p>
-									<p class="text-gray-500 -mt-1 text-sm">Surface</p>
-								</div>
+								<t-info-row key="Name" value="${this.venue.name}"></t-info-row>
+								<t-info-row
+									key="Address"
+									value="${this.venue.address}"
+								></t-info-row>
+								<t-info-row key="City" value="${this.venue.city}"></t-info-row>
+								<t-info-row
+									key="Capacity"
+									value="${this.venue.capacity}"
+								></t-info-row>
 								<img
 									src="${this.venue.image}"
 									alt="${this.venue.name} Stadium"
