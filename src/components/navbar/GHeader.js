@@ -14,7 +14,6 @@ class GHeader extends LitLightElement {
 	constructor() {
 		super();
 		this.darkMode = this.getDarkMode();
-		this.classList.add('flex');
 		this.expandedSidebar = false;
 		this.mainLinks = [
 			{
@@ -91,7 +90,9 @@ class GHeader extends LitLightElement {
 	render() {
 		return html`
 			<header
-				class="${this.expandedSidebar ? 'w-80' : 'w-16'} flex dark:bg-gray-800"
+				class="${this.expandedSidebar
+					? 'w-80'
+					: 'w-16'} flex h-full transition-all duration-300 ease-in-out"
 			>
 				<nav
 					class="flex h-full shrink-0 grow-0 basis-14 flex-col gap-y-8 border-2 border-gray-300 py-8 text-center"
