@@ -46,3 +46,11 @@
 .player{
     @apply flex justify-center align-middle rounded-full w-8 h-8 text-center absolute text-white;
 }
+
+.table-row{
+    @apply border-solid border-[0.2px] rounded-md border-gray-400 h-8;
+}
+
+.table-cell{
+    @apply pl-1 text-sm;
+}
