@@ -8,7 +8,7 @@
 }
 
 .fixture{
-    @apply  justify-around align-middle md:w-4/5 lg:w-3/6 w-full lg:h-40 h-auto lg:mt-2 dark:bg-slate-700 bg-white rounded-md;
+    @apply  justify-around align-middle md:w-4/5 lg:w-4/5 w-full lg:h-40 h-auto lg:mt-2 dark:bg-slate-700 bg-white rounded-md;
 }
 
 .team{
@@ -20,7 +20,7 @@
 }
 
 .info{
-    @apply lg:w-3/6 md:w-4/5 w-full h-10 pt-1 dark:bg-slate-700 bg-white flex justify-around align-middle lg:flex lg:justify-around rounded-md;
+    @apply lg:w-4/5 md:w-4/5 w-full h-10 pt-1 dark:bg-slate-700 bg-white flex justify-around align-middle lg:flex lg:justify-around rounded-md;
 }
 
 .fusha{
