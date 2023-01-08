@@ -1,271 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div id="app">
-      <section class="flex w-[100%]">
-        <g-header
-          class="hidden md:flex md:basis-100 border-gray-300 border-2"
-        ></g-header>
-        <div class="w-full">
-          <header
-            id="header-nav"
-            class="border-gray-300 border-2 border-t-0 border-l-0 max-v3-full"
-          >
-            <nav
-              class="flex flex-wrap items-center justify-between w-full py-4 md:py-0 px-4 text-xs text-black bg-gray-100"
-            >
-              <div class="sm:w-1/2 lg:w-1/2 w-2/3">
-                <form>
-                  <label
-                    for="default-search"
-                    class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
-                    >Search...</label
-                  >
-                  <div class="relative">
-                    <div
-                      class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="w-5 h-5 text-black dark:text-black"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                        ></path>
-                      </svg>
-                    </div>
-                    <input
-                      type="search"
-                      id="default-search"
-                      class="block w-full p-4 pl-10 h-[25px] my-4 text-sm text-gray-900 bord rounded-lg bg-gray-400 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-300 dark:border-gray-500 dark:placeholder-black dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="Search..."
-                      required
-                    />
-                  </div>
-                </form>
-              </div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Vite App</title>
+		<link href="style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<div id="app">
+			<section class="flex h-full w-[100%]">
+				<g-header class="hidden md:block"></g-header>
+				<div class="w-full">
+					<header
+						class="max-v3-full border-2 border-t-0 border-l-0 border-gray-300"
+						id="header-nav"
+					>
+						<nav
+							class="flex w-full flex-wrap items-center justify-between bg-gray-100 py-4 px-4 text-xs text-black md:py-0"
+						>
+							<div class="w-2/3 sm:w-1/2 lg:w-1/2">
+								<form>
+									<label
+										class="sr-only mb-2 text-sm font-medium text-gray-900 dark:text-white"
+										for="default-search"
+										>Search...</label
+									>
+									<div class="relative">
+										<div
+											class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"
+										>
+											<svg
+												class="h-5 w-5 text-black dark:text-black"
+												aria-hidden="true"
+												fill="none"
+												stroke="currentColor"
+												viewBox="0 0 24 24"
+												xmlns="http://www.w3.org/2000/svg"
+											>
+												<path
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+													d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+												></path>
+											</svg>
+										</div>
+										<input
+											class="bord my-4 block h-[25px] w-full rounded-lg bg-gray-400 p-4 pl-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-500 dark:bg-gray-300 dark:text-black dark:placeholder-black dark:focus:border-blue-500 dark:focus:ring-blue-500"
+											id="default-search"
+											type="search"
+											placeholder="Search..."
+											required
+										/>
+									</div>
+								</form>
+							</div>
 
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                id="menu-button"
-                class="h-6 w-6 cursor-pointer md:hidden block"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
+							<svg
+								class="block h-6 w-6 cursor-pointer md:hidden"
+								id="menu-button"
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M4 6h16M4 12h16M4 18h16"
+								/>
+							</svg>
 
-              <div
-                class="hidden w-full md:flex md:w-auto md:items-end mt-[10px]"
-                id="menu"
-              >
-                <ul
-                  class="pt-4 text-base text-gray-700 md:flex md:justify-between text-center md:pt-0"
-                >
-                  <li>
-                    <a
-                      class="md:p-4 block rounded-xl hover:text-black-400"
-                      href="#"
-                      ><button
-                        class="bg-violet-600 text-white text-[14px] px-[14px] py-[4px] rounded-[5px]"
-                      >
-                        Go Premium
-                      </button>
-                    </a>
-                  </li>
+							<div
+								class="mt-[10px] hidden w-full md:flex md:w-auto md:items-end"
+								id="menu"
+							>
+								<ul
+									class="pt-4 text-center text-base text-gray-700 md:flex md:justify-between md:pt-0"
+								>
+									<li>
+										<a
+											class="hover:text-black-400 block rounded-xl md:p-4"
+											href="#"
+											><button
+												class="rounded-[5px] bg-violet-600 px-[14px] py-[4px] text-[14px] text-white"
+											>
+												Go Premium
+											</button>
+										</a>
+									</li>
 
-                  <li>
-                    <a
-                      class="md:p-4 py-2 block hover:text-purple-400 text-purple-500"
-                      href="#"
-                      ><button class="text-violet-600 text-[20px] py-[4px]">
-                        <i class="fa-regular fa-moon"></i>
-                      </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="md:p-4 py-2 block hover:text-purple-400 text-purple-500"
-                      href="#"
-                      ><button class="text-violet-600 text-[20px] py-[2px]">
-                        <img
-                          src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-                          class="rounded-full w-8"
-                          alt="Avatar"
-                        />
-                      </button>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </nav>
-          </header>
-          <section class="m-[3%]">
-            <div class="w-[100%] h-[35h] grid grid-cols-3 gap-[1%]">
-              <div class=" relative col-span-2 width-[100%] h-[100%]">
-                <img
-                  src="./images/derby3.jpg"
-                  class="rounded-[10px] w-[100%] h-[100%]"
-                />
-                 <p class="absolute z-1 text-yellow-300 font-semibold top-[5%] left-[25%] md:left-[33%] sm:left-[35%] lg:left-[30%]   text-[0.8rem] md:text-[1rem] lg:text-[1.3rem]"  >Real Madrid vs Barcelona</p>
-                 <p class="absolute z-1 text-yellow-300 top-[80%] font-semibold left-[5%] md:left-[10%] lg:left-[5%]   text-[0.6rem] md:text-[0.9rem] sm:text-[0.7rem] lg:text-[0.9rem]"  >19 March - 2023</p>
-                 <p  class="absolute z-1 text-yellow-300 top-[90%] font-semibold left-[5%] md:left-[10%] lg:left-[5%]   text-[0.6rem] md:text-[0.9rem] sm:text-[0.7rem] lg:text-[0.9rem]"  >Santiago Bernabeu</p>
-                 <p id="demo" class="absolute z-1 top-[90%] right-[5%]  bg-yellow-300 rounded-[3px]   text-black  text-[0.6rem] md:text-[0.7rem] sm:text-[0.7rem] lg:text-[0.7rem]"  ></p>
-
-              </div>
-              <div>
-                <div
-                  class="col-span-1 relative bg-white rounded-[20px] w-[100%] h-[100%]"
-                >
-
-
-                  <h3 class="text-center font-medium pt-[10%]">Live Match</h3>
-                  <p class="text-center text-[13px] text-lime-400 color mt-[5%] mb-[8%]">
-                    62 : 24
-                  </p>
-                  <img
-                    src=" https://i.pinimg.com/564x/6b/cf/50/6bcf5098d8250e99fadaeaa1c0fb04b8.jpg"
-                    class="absolute w-[15%] h-[10%] rounded-full top-[33%] right-[10%] md:right-[4%] md:top-[30%] md:w-[18%] md:h-[15%]"
-                  />
-                  <img
-                    src=" https://i.pinimg.com/564x/a6/7a/f9/a67af9c593ba25a687b95e35d294dc18.jpg"
-                    class="absolute w-[15%] h-[10%] rounded-full top-[33%] left-[10%] md:left-[4%] md:top-[30%] md:w-[18%] md:h-[15%]"
-                  />
-                  <p
-                    class="text-center mt-[5%] bg-violet-200 w-[30%] md:w-[30%] text-[13px] ml-[35%] rounded-[15px] text-violet-800 py-[1%]"
-                  >
-                    2 - 2
-                  </p>
-                  <div class="relative mt-[10%]">
-                    <p class="text-center text-[12px] font-medium mb-[7%]">
-                      Possession
-                    </p>
-                    <p
-                      class="absolute top-[28%] left-[6%] text-blue-600 text-[12px]"
-                    >
-                      7
-                    </p>
-                    <p
-                      class="absolute top-[28%] right-[6%] text-orange-600 text-[12px]"
-                    >
-                      3
-                    </p>
-                    <div class="flex gap-[10%] mt-[5%]">
-                      <div
-                        class="w-[40%] ml-[5%] bg-gray-200 rounded-full h-1.5 dark:bg-gray-300"
-                      >
-                        <div
-                          class="bg-blue-600 h-1.5 rounded-full float-right"
-                          style="width: 60%"
-                        ></div>
-                      </div>
-                      <div
-                        class="w-[40%] bg-gray-200 rounded-full h-1.5 dark:bg-gray-300"
-                      >
-                        <div
-                          class="bg-orange-600 h-1.5 rounded-full"
-                          style="width: 45%"
-                        ></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="relative mt-[4%]">
-                    <p class="text-center text-[12px] font-medium mb-[4%]">
-                      Shoot
-                    </p>
-                    <p
-                      class="absolute top-[28%] left-[6%] text-blue-600 text-[12px]"
-                    >
-                      12
-                    </p>
-                    <p
-                      class="absolute top-[28%] right-[6%] text-orange-600 text-[12px]"
-                    >
-                      7
-                    </p>
-                    <div class="flex gap-[10%] mt-[5%]">
-                      <div
-                        class="w-[40%] ml-[5%] bg-gray-200 rounded-full h-1.5 dark:bg-gray-300"
-                      >
-                        <div
-                          class="bg-blue-600 h-1.5 rounded-full float-right"
-                          style="width: 80%"
-                        ></div>
-                      </div>
-                      <div
-                        class="w-[40%] bg-gray-200 rounded-full h-1.5 dark:bg-gray-300"
-                      >
-                        <div
-                          class="bg-orange-600 h-1.5 rounded-full"
-                          style="width: 60%"
-                        ></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="relative mt-[5%]">
-                    <p class="text-center text-[12px] font-medium mb-[4%]">
-                      Fouls
-                    </p>
-                    <p
-                      class="absolute top-[28%] left-[6%] text-blue-600 text-[12px]"
-                    >
-                      7
-                    </p>
-                    <p
-                      class="absolute top-[28%] right-[6%] text-orange-600 text-[12px]"
-                    >
-                      3
-                    </p>
-                    <div class="flex gap-[10%] mt-[5%] mb-[5%]">
-                      <div
-                        class="w-[40%] ml-[5%] bg-gray-200 rounded-full h-1.5 dark:bg-gray-300"
-                      >
-                        <div
-                          class="bg-blue-600 h-1.5 rounded-full float-right"
-                          style="width: 60%"
-                        ></div>
-                      </div>
-                      <div
-                        class="w-[40%] bg-gray-200 rounded-full h-1.5 dark:bg-gray-300"
-                      >
-                        <div
-                          class="bg-orange-600 h-1.5 rounded-full"
-                          style="width: 45%"
-                        ></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-      </section>
-    </div>
-    <script type="module" src="./main.js"></script>
-    <script
-      src="https://kit.fontawesome.com/93f4c9f245.js"
-      crossorigin="anonymous"
-      defer
-    ></script>
-  </body>
+									<li>
+										<a
+											class="block py-2 text-purple-500 hover:text-purple-400 md:p-4"
+											href="#"
+											><button class="py-[4px] text-[20px] text-violet-600">
+												<i class="fa-regular fa-moon"></i>
+											</button>
+										</a>
+									</li>
+									<li>
+										<a
+											class="block py-2 text-purple-500 hover:text-purple-400 md:p-4"
+											href="#"
+											><button class="py-[2px] text-[20px] text-violet-600">
+												<img
+													class="w-8 rounded-full"
+													src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+													alt="Avatar"
+												/>
+											</button>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</nav>
+					</header>
+					<section class="m-[3%]">
+						<div class="grid h-[35h] w-[100%] grid-cols-3 gap-[1%]">
+							<div class="width-[100%] relative col-span-2 h-[100%]">
+								<img
+									class="h-[100%] w-[100%] rounded-[10px]"
+									src="./images/derby3.jpg"
+								/>
+								<p
+									class="z-1 absolute top-[5%] left-[25%] text-[0.8rem] font-semibold text-yellow-300 sm:left-[35%] md:left-[33%] md:text-[1rem] lg:left-[30%] lg:text-[1.3rem]"
+								>
+									Real Madrid vs Barcelona
+								</p>
+								<p
+									class="z-1 absolute top-[80%] left-[5%] text-[0.6rem] font-semibold text-yellow-300 sm:text-[0.7rem] md:left-[10%] md:text-[0.9rem] lg:left-[5%] lg:text-[0.9rem]"
+								>
+									19 March - 2023
+								</p>
+								<p
+									class="z-1 absolute top-[90%] left-[5%] text-[0.6rem] font-semibold text-yellow-300 sm:text-[0.7rem] md:left-[10%] md:text-[0.9rem] lg:left-[5%] lg:text-[0.9rem]"
+								>
+									Santiago Bernabeu
+								</p>
+								<p
+									class="z-1 absolute top-[90%] right-[5%] rounded-[3px] bg-yellow-300 text-[0.6rem] text-black sm:text-[0.7rem] md:text-[0.7rem] lg:text-[0.7rem]"
+									id="demo"
+								></p>
+							</div>
+							<div>
+								<div
+									class="relative col-span-1 h-[100%] w-[100%] rounded-[20px] bg-white"
+								>
+									<h3 class="pt-[10%] text-center font-medium">Live Match</h3>
+									<p
+										class="color mt-[5%] mb-[8%] text-center text-[13px] text-lime-400"
+									>
+										62 : 24
+									</p>
+									<img
+										class="absolute top-[33%] right-[10%] h-[10%] w-[15%] rounded-full md:right-[4%] md:top-[30%] md:h-[15%] md:w-[18%]"
+										src=" https://i.pinimg.com/564x/6b/cf/50/6bcf5098d8250e99fadaeaa1c0fb04b8.jpg"
+									/>
+									<img
+										class="absolute top-[33%] left-[10%] h-[10%] w-[15%] rounded-full md:left-[4%] md:top-[30%] md:h-[15%] md:w-[18%]"
+										src=" https://i.pinimg.com/564x/a6/7a/f9/a67af9c593ba25a687b95e35d294dc18.jpg"
+									/>
+									<p
+										class="mt-[5%] ml-[35%] w-[30%] rounded-[15px] bg-violet-200 py-[1%] text-center text-[13px] text-violet-800 md:w-[30%]"
+									>
+										2 - 2
+									</p>
+									<div class="relative mt-[10%]">
+										<p class="mb-[7%] text-center text-[12px] font-medium">
+											Possession
+										</p>
+										<p
+											class="absolute top-[28%] left-[6%] text-[12px] text-blue-600"
+										>
+											7
+										</p>
+										<p
+											class="absolute top-[28%] right-[6%] text-[12px] text-orange-600"
+										>
+											3
+										</p>
+										<div class="mt-[5%] flex gap-[10%]">
+											<div
+												class="ml-[5%] h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300"
+											>
+												<div
+													class="float-right h-1.5 rounded-full bg-blue-600"
+													style="width: 60%"
+												></div>
+											</div>
+											<div
+												class="h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300"
+											>
+												<div
+													class="h-1.5 rounded-full bg-orange-600"
+													style="width: 45%"
+												></div>
+											</div>
+										</div>
+									</div>
+									<div class="relative mt-[4%]">
+										<p class="mb-[4%] text-center text-[12px] font-medium">
+											Shoot
+										</p>
+										<p
+											class="absolute top-[28%] left-[6%] text-[12px] text-blue-600"
+										>
+											12
+										</p>
+										<p
+											class="absolute top-[28%] right-[6%] text-[12px] text-orange-600"
+										>
+											7
+										</p>
+										<div class="mt-[5%] flex gap-[10%]">
+											<div
+												class="ml-[5%] h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300"
+											>
+												<div
+													class="float-right h-1.5 rounded-full bg-blue-600"
+													style="width: 80%"
+												></div>
+											</div>
+											<div
+												class="h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300"
+											>
+												<div
+													class="h-1.5 rounded-full bg-orange-600"
+													style="width: 60%"
+												></div>
+											</div>
+										</div>
+									</div>
+									<div class="relative mt-[5%]">
+										<p class="mb-[4%] text-center text-[12px] font-medium">
+											Fouls
+										</p>
+										<p
+											class="absolute top-[28%] left-[6%] text-[12px] text-blue-600"
+										>
+											7
+										</p>
+										<p
+											class="absolute top-[28%] right-[6%] text-[12px] text-orange-600"
+										>
+											3
+										</p>
+										<div class="mt-[5%] mb-[5%] flex gap-[10%]">
+											<div
+												class="ml-[5%] h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300"
+											>
+												<div
+													class="float-right h-1.5 rounded-full bg-blue-600"
+													style="width: 60%"
+												></div>
+											</div>
+											<div
+												class="h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300"
+											>
+												<div
+													class="h-1.5 rounded-full bg-orange-600"
+													style="width: 45%"
+												></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+			</section>
+		</div>
+		<script src="./main.js" type="module"></script>
+		<script
+			src="https://kit.fontawesome.com/93f4c9f245.js"
+			crossorigin="anonymous"
+			defer
+		></script>
+		<script src="./index.js" type="module" defer></script>
+	</body>
 </html>
