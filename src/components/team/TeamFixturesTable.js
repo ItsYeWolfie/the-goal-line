@@ -34,12 +34,10 @@ class TeamFixturesTable extends LitLightElement {
 	async connectedCallback() {
 		super.connectedCallback();
 		this.classList.add(
-			'h-[40rem]',
 			'overflow-y-auto',
 			'bg-white',
 			'shadow-md',
 			'rounded-md',
-			'min-w-full',
 			'divide-y'
 		);
 		this.headers = this.headers.split(',');
@@ -49,7 +47,8 @@ class TeamFixturesTable extends LitLightElement {
 	render() {
 		return html`
 			<sticky-background-table
-				headers="Versus,League,Season,Round,Time/Date,Side,Status,Score"
+				class="h-96"
+				headers="Versus,Round,Date,Side,Status,Score"
 			>
 				${this.loading
 					? html`
@@ -69,8 +68,8 @@ class TeamFixturesTable extends LitLightElement {
 									(!isHome && goals.away > goals.home);
 
 								const { status } = match;
-								const { timestamp } = match;
-								const date = moment.unix(timestamp).format('LL');
+								const { date } = match;
+								const formattedDate = moment(date).format('DD.MM.YYYY');
 								return html` <div class="table-row border-b">
 									<div class="table-cell py-4 pl-4 pr-3 text-sm sm:pl-6">
 										<div class="font-medium text-gray-900">
@@ -83,35 +82,13 @@ class TeamFixturesTable extends LitLightElement {
 									<div
 										class="hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell"
 									>
-										<div class="flex items-center gap-2">
-											<img
-												class="inline-block h-6 w-6"
-												src="${league.logo}"
-												alt="${league.name} logo"
-											/><span>${league.name}</span>
-											${league.flag &&
-											html`<img
-												class="inline-block h-4 w-4"
-												src=${league.flag}
-												alt="${league.country} flag"
-											/>`}
-										</div>
-									</div>
-									<div
-										class="hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell"
-									>
-										${league.season}
-									</div>
-									<div
-										class="hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell"
-									>
 										${league.round}
 									</div>
 									<div
 										class="hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell"
 										id="fixture-date"
 									>
-										${date}
+										${formattedDate}
 									</div>
 									<div
 										class="hidden px-3 py-3.5 text-xs uppercase text-gray-500 lg:table-cell"

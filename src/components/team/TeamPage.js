@@ -3,7 +3,9 @@ import { LitLightElement } from '../../lib/LitElement';
 import './TeamFixturesTable';
 import './TeamTabs';
 import './TeamInfoRow';
+import './TeamStandings';
 import { fetchData } from '../../lib/helpers/fetch';
+import '../tables/StickyBackgroundTable';
 
 class TeamPage extends LitLightElement {
 	static properties = {
@@ -13,6 +15,7 @@ class TeamPage extends LitLightElement {
 	constructor() {
 		super();
 		this.loading = true;
+		this.classList.add('container', 'mx-auto', 'p-8');
 	}
 
 	async connectedCallback() {
@@ -31,21 +34,15 @@ class TeamPage extends LitLightElement {
 
 	render() {
 		return html`
-			<section class="container grid grid-cols-12">
+			<section class="grid grid-cols-12">
 				<div class="col-span-9">
 					<team-tabs></team-tabs>
-					<div class="flex flex-wrap">
-						<t-fixtures-table
-							headers="Versus,League,Season,Round,Time/Date,Side,Status,Score"
-							teamID="${this.teamID}"
-						>
-							asd
-						</t-fixtures-table>
-
-						<div class="basis-4/12">
-							<team-standings></team-standings>
-						</div>
-					</div>
+					<team-standings></team-standings>
+					<t-fixtures-table
+						headers="Versus,League,Season,Round,Time/Date,Side,Status,Score"
+						teamID="${this.teamID}"
+					>
+					</t-fixtures-table>
 				</div>
 				<div class="col-span-3 h-full p-8 text-center">
 					${this.loading

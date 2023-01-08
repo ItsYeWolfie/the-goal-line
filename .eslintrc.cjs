@@ -10,7 +10,7 @@ module.exports = {
 		'plugin:tailwindcss/recommended',
 		'plugin:prettier/recommended',
 	],
-	plugins: ['tailwindcss'],
+	plugins: ['tailwindcss', 'html'],
 	overrides: [],
 	parserOptions: {
 		ecmaVersion: 'latest',
