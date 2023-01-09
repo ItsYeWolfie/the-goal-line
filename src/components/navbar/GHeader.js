@@ -8,10 +8,12 @@ import { LitLightElement } from '../../lib/LitElement';
 class GHeader extends LitLightElement {
 	static properties = {
 		expandedSidebar: {},
+		darkMode: {},
 	};
 
 	constructor() {
 		super();
+		this.darkMode = this.getDarkMode();
 		this.classList.add('flex');
 		this.expandedSidebar = false;
 		this.mainLinks = [
@@ -54,13 +56,43 @@ class GHeader extends LitLightElement {
 		];
 	}
 
+	getDarkMode() {
+		return (
+			localStorage.theme === 'dark' ||
+			(!('theme' in localStorage) &&
+				window.matchMedia('(prefers-color-scheme: dark)').matches)
+		);
+	}
+
+	toggleDarkMode(toggle) {
+		switch (toggle) {
+			case 'dark':
+				localStorage.theme = 'dark';
+				break;
+			case 'light':
+				localStorage.theme = 'light';
+				break;
+			default:
+				if (document.documentElement.classList.contains('dark')) {
+					localStorage.theme = 'dark';
+				} else {
+					localStorage.theme = 'light';
+				}
+		}
+
+		document.documentElement.classList.toggle('dark');
+		this.darkMode = !this.darkMode;
+	}
+
 	connectedCallback() {
 		super.connectedCallback();
 	}
 
 	render() {
 		return html`
-			<header class="${this.expandedSidebar ? 'w-80' : 'w-16'} flex">
+			<header
+				class="${this.expandedSidebar ? 'w-80' : 'w-16'} flex dark:bg-gray-800"
+			>
 				<nav
 					class="flex h-full shrink-0 grow-0 basis-14 flex-col gap-y-8 border-2 border-gray-300 py-8 text-center"
 				>
@@ -104,6 +136,21 @@ class GHeader extends LitLightElement {
 					</g-nav-icon-holder>
 					<g-hr-half></g-hr-half>
 					<g-nav-icon-holder class="mt-auto">
+						${this.darkMode
+							? html`
+									<g-nav-icon
+										title="Toggle to Light Mode"
+										icon="fa-solid fa-toggle-on"
+										@click="${() => this.toggleDarkMode('light')}"
+									></g-nav-icon>
+							  `
+							: html`
+									<g-nav-icon
+										title="Toggle to Dark Mode"
+										icon="fa-solid fa-toggle-off"
+										@click="${() => this.toggleDarkMode('dark')}"
+									></g-nav-icon>
+							  `}
 						<g-nav-icon
 							title="Info"
 							icon="fa-solid fa-circle-info"
