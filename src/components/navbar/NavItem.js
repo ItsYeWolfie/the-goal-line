@@ -19,10 +19,10 @@ class NavItem extends LitLightElement {
 				class="flex items-center transition-colors duration-500 hover:text-sky-600"
 				href="${this.href}"
 			>
-				<i class="${this.icon} text-2xl">
+				<i class="${this.icon} text-lg md:text-2xl">
 					<span class="sr-only">${this.iconAlt}</span>
 				</i>
-				<span class="ml-2 text-sm">${this.title}</span>
+				<span class="ml-2 text-[12px] md:text-sm">${this.title}</span>
 			</a>
 		`;
 	}

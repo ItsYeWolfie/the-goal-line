@@ -91,11 +91,11 @@ class GHeader extends LitLightElement {
 		return html`
 			<header
 				class="${this.expandedSidebar
-					? 'w-80'
-					: 'w-16'} flex h-full transition-all duration-300 ease-in-out"
+					? 'w-20 sm:w-55 md:w-65 lg:w-80'
+					: 'w-14'} flex h-full width-[100%] z-100 transition-all duration-300 ease-in-out"
 			>
 				<nav
-					class="flex h-full shrink-0 grow-0 basis-14 flex-col gap-y-8 border-2 border-gray-300 py-8 text-center"
+					class="flex h-full  shrink-0 grow-0 basis-14 flex-col gap-y-8 border-2 border-gray-300 py-8 text-center"
 				>
 					<g-nav-icon-holder>
 						<button @click="${this.toggleSidebar}">
@@ -162,13 +162,13 @@ class GHeader extends LitLightElement {
 				${this.expandedSidebar
 					? html`
 				<aside
-					class="flex w-full flex-col gap-10 bg-gray-100 p-6 text-gray-500"
+					class="flex w-100% flex-col z-10 gap-10 border-[2px]  border-gray-300 border-t-0 bg-gray-100 border-l-0 p-6 text-gray-500 "
 				>
 					<header class="flex items-center gap-2">
 						<span class="fa-regular fa-paper-plane text-sky-600">
 							<span class="sr-only">Logo</span>
 						</span>
-						<h1 class="text-lg font-medium">The Goal Line</h1>
+						<h1 class="text-lg font-medium ">The Goal Line</h1>
 					</header>
 					<section>
 						<header class="mb-5 text-xs uppercase text-gray-400">Menu</header>
@@ -226,7 +226,7 @@ class GHeader extends LitLightElement {
 									src="https://media.api-sports.io/football/teams/33.png"
 									alt="Manchester United"
 								/>
-								<p class="ml-2">Manchester United</p>
+								<p class="ml-2 text-[14px] md:text-lg">Manchester United</p>
 								<i class="fa-solid fa-star ml-auto text-sm text-yellow-400">
 									<span class="sr-only">Star Icon</span>
 								</i>
