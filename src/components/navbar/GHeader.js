@@ -91,10 +91,12 @@ class GHeader extends LitLightElement {
 	render() {
 		return html`
 			<header
-				class="${this.expandedSidebar ? 'w-80' : 'w-16'} flex dark:bg-gray-800"
+				class="${this.expandedSidebar
+					? 'w-80'
+					: 'w-16'} sticky top-0 flex h-screen"
 			>
 				<nav
-					class="flex h-full shrink-0 grow-0 basis-14 flex-col gap-y-8 border-2 border-gray-300 py-8 text-center"
+					class="flex h-full shrink-0 grow-0 basis-14 flex-col gap-y-8 border-r-2 border-gray-800 py-8 text-center"
 				>
 					<g-nav-icon-holder>
 						<button @click="${this.toggleSidebar}">
@@ -160,20 +162,19 @@ class GHeader extends LitLightElement {
 				</nav>
 				${this.expandedSidebar
 					? html`
-				<aside
-					class="flex w-full flex-col gap-10 bg-gray-100 p-6 text-gray-500"
-					id="sidebar-extended"
-				>
-					<header class="flex items-center gap-2">
-						<span class="fa-regular fa-paper-plane text-sky-600">
-							<span class="sr-only">Logo</span>
-						</span>
-						<h1 class="text-lg font-medium">The Goal Line</h1>
-					</header>
-					<section>
-						<header class="mb-5 text-xs uppercase text-gray-400">Menu</header>
-						<div class="flex flex-col gap-4">
-							${this.mainLinks.map((link) => {
+        <aside
+          class="flex w-full flex-col gap-10 p-6 text-gray-500"
+        >
+          <header class="flex items-center gap-2">
+            <span class="fa-regular fa-paper-plane text-sky-600">
+              <span class="sr-only">Logo</span>
+            </span>
+            <h1 class="text-lg font-medium">The Goal Line</h1>
+          </header>
+          <section>
+            <header class="mb-5 text-xs uppercase text-gray-400">Menu</header>
+            <div class="flex flex-col gap-4">
+              ${this.mainLinks.map((link) => {
 								return html`
 									<g-nav-item
 										href="${link.href}"
@@ -185,57 +186,56 @@ class GHeader extends LitLightElement {
 								`;
 							})}
             </div>
-						</div>
-					</section>
-					<section id="leagues-section">
-						<header
-							class="mb-5 flex items-center justify-between text-xs uppercase text-gray-400"
-						>
-							<p>Leagues</p>
-							<span
-								class="fa-solid fa-chevron-down h-fit transform-gpu text-xs transition-transform duration-300 ease-in-out"
-								id="leagues-dropdown"
-							>
-								<span class="sr-only">Expand Icon</span>
-							</span>
-						</header>
-						<div class="flex hidden flex-col gap-2" id="league-list">
-							<a
-								class="flex items-center transition-colors duration-500 hover:text-sky-600"
-								href="./"
-							>
-								<img
-									class="h-6 w-6"
-									src="https://media.api-sports.io/football/leagues/4.png"
-									alt="Euro 2020"
-								/>
-								<p class="ml-2">Euro 2020</p>
-							</a>
-						</div>
-					</section>
-					<section>
-						<header class="mb-5 text-xs uppercase text-gray-400">
-							Favorite Club(s)
-						</header>
-						<div>
-							<a
-								class="flex items-center transition-colors duration-500 hover:text-sky-600"
-								href="./"
-							>
-								<img
-									class="h-6 w-6"
-									src="https://media.api-sports.io/football/teams/33.png"
-									alt="Manchester United"
-								/>
-								<p class="ml-2">Manchester United</p>
-								<i class="fa-solid fa-star ml-auto text-sm text-yellow-400">
-									<span class="sr-only">Star Icon</span>
-								</i>
-							</a>
-						</div>
-					</section>
-				</aside>
-				`
+            </div>
+          </section>
+          <section>
+            <header
+              class="mb-5 flex items-center justify-between text-xs uppercase text-gray-400"
+            >
+              <p>Leagues</p>
+              <span
+                class="fa-solid fa-chevron-down h-fit transform-gpu text-xs transition-transform duration-300 ease-in-out"
+              >
+                <span class="sr-only">Expand Icon</span>
+              </span>
+            </header>
+            <div class="flex hidden flex-col gap-2">
+              <a
+                class="flex items-center transition-colors duration-500 hover:text-sky-600"
+                href="./"
+              >
+                <img
+                  class="h-6 w-6"
+                  src="https://media.api-sports.io/football/leagues/4.png"
+                  alt="Euro 2020"
+                />
+                <p class="ml-2">Euro 2020</p>
+              </a>
+            </div>
+          </section>
+          <section>
+            <header class="mb-5 text-xs uppercase text-gray-400">
+              Favorite Club(s)
+            </header>
+            <div>
+              <a
+                class="flex items-center transition-colors duration-500 hover:text-sky-600"
+                href="./"
+              >
+                <img
+                  class="h-6 w-6"
+                  src="https://media.api-sports.io/football/teams/33.png"
+                  alt="Manchester United"
+                />
+                <p class="ml-2">Manchester United</p>
+                <i class="fa-solid fa-star ml-auto text-sm text-yellow-400">
+                  <span class="sr-only">Star Icon</span>
+                </i>
+              </a>
+            </div>
+          </section>
+        </aside>
+        `
 					: ''}
 			</header>
 		`;

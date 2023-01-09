@@ -27,30 +27,28 @@ class TeamStandings extends LitLightElement {
 	render() {
 		return html`
 			<sticky-background-table
-				class="w-auto"
 				headers="#, Team, MP, W, D, L, GF, GA, PTS, Form"
 			>
-				<div class="table-row-group divide-y">
+				<div class="table-row-group divide-y divide-gray-500">
 					${this.loading
-						? html`<div class="table-row border-t border-b">
+						? html`<div class="table-row">
 								<div class="table-cell w-full py-4 text-center align-middle">
 									Loading... <span class="animate-spin">⚽</span>
 								</div>
 						  </div>`
 						: html`
 								${this.standings.map((standing) => {
-									console.log(standing);
 									const { team, form } = standing;
 									const formArray = form.split('');
 									return html`
 										<div class="table-row">
 											<div
-												class="px-6 py-3.5 text-sm text-gray-500 lg:table-cell"
+												class="px-6 py-3.5 text-sm text-gray-300 lg:table-cell"
 											>
 												${standing.rank}
 											</div>
 											<div
-												class="px-3 py-3.5 text-sm text-gray-500 lg:table-cell"
+												class="px-3 py-3.5 text-sm text-gray-300 lg:table-cell"
 											>
 												<img
 													class="inline-block h-6 w-6"
@@ -60,42 +58,42 @@ class TeamStandings extends LitLightElement {
 												<span class="ml-2 font-semibold">${team.name}</span>
 											</div>
 											<div
-												class="px-3 py-3.5 text-sm text-gray-500 lg:table-cell"
+												class="px-3 py-3.5 text-sm text-gray-300 lg:table-cell"
 											>
 												${standing.all.played}
 											</div>
 											<div
-												class="px-3 py-3.5 text-sm text-gray-500 lg:table-cell"
+												class="px-3 py-3.5 text-sm text-gray-300 lg:table-cell"
 											>
 												${standing.all.win}
 											</div>
 											<div
-												class="px-3 py-3.5 text-sm text-gray-500 lg:table-cell"
+												class="px-3 py-3.5 text-sm text-gray-300 lg:table-cell"
 											>
 												${standing.all.draw}
 											</div>
 											<div
-												class="px-3 py-3.5 text-sm text-gray-500 lg:table-cell"
+												class="px-3 py-3.5 text-sm text-gray-300 lg:table-cell"
 											>
 												${standing.all.lose}
 											</div>
 											<div
-												class="px-3 py-3.5 text-sm text-gray-500 lg:table-cell"
+												class="px-3 py-3.5 text-sm text-gray-300 lg:table-cell"
 											>
 												${standing.all.goals.for}
 											</div>
 											<div
-												class="px-3 py-3.5 text-sm text-gray-500 lg:table-cell"
+												class="px-3 py-3.5 text-sm text-gray-300 lg:table-cell"
 											>
 												${standing.all.goals.against}
 											</div>
 											<div
-												class="px-3 py-3.5 text-sm text-gray-500 lg:table-cell"
+												class="px-3 py-3.5 text-sm text-gray-300 lg:table-cell"
 											>
 												${standing.points}
 											</div>
 											<div
-												class="px-3 py-3.5 text-sm text-gray-500 lg:table-cell"
+												class="px-3 py-3.5 text-sm text-gray-300 lg:table-cell"
 											>
 												${formArray.map((f) => {
 													let color = 'bg-gray-500';

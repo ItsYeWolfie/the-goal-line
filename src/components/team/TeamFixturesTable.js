@@ -37,8 +37,7 @@ class TeamFixturesTable extends LitLightElement {
 			'overflow-y-auto',
 			'bg-white',
 			'shadow-md',
-			'rounded-md',
-			'divide-y'
+			'rounded-md'
 		);
 		this.headers = this.headers.split(',');
 		this.fixtures = await this.fetchFixtures();
@@ -48,7 +47,7 @@ class TeamFixturesTable extends LitLightElement {
 		return html`
 			<sticky-background-table
 				class="h-96"
-				headers="Versus,Round,Date,Side,Status,Score"
+				headers="Opponent,Round,Date,Side,Status,Score"
 			>
 				${this.loading
 					? html`
@@ -70,38 +69,38 @@ class TeamFixturesTable extends LitLightElement {
 								const { status } = match;
 								const { date } = match;
 								const formattedDate = moment(date).format('DD.MM.YYYY');
-								return html` <div class="table-row border-b">
+								return html` <div class="table-row">
 									<div class="table-cell py-4 pl-4 pr-3 text-sm sm:pl-6">
-										<div class="font-medium text-gray-900">
+										<div class="font-medium text-gray-200">
 											${isHome ? away.name : home.name}
 										</div>
 										<div
-											class="mt-1 flex flex-col text-gray-500 sm:block lg:hidden"
+											class="mt-1 flex flex-col text-gray-300 sm:block lg:hidden"
 										></div>
 									</div>
 									<div
-										class="hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell"
+										class="hidden px-3 py-3.5 text-sm text-gray-300 lg:table-cell"
 									>
 										${league.round}
 									</div>
 									<div
-										class="hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell"
+										class="hidden px-3 py-3.5 text-sm text-gray-300 lg:table-cell"
 										id="fixture-date"
 									>
 										${formattedDate}
 									</div>
 									<div
-										class="hidden px-3 py-3.5 text-xs uppercase text-gray-500 lg:table-cell"
+										class="hidden px-3 py-3.5 text-xs uppercase text-gray-300 lg:table-cell"
 									>
 										${isHome ? 'Home' : 'Away'}
 									</div>
 									<div
-										class="hidden px-3 py-3.5 text-xs uppercase text-gray-500 lg:table-cell"
+										class="hidden px-3 py-3.5 text-xs uppercase text-gray-300 lg:table-cell"
 									>
 										${status.short}
 									</div>
 									<div
-										class="hidden px-3 py-3.5 text-xs uppercase text-gray-500 lg:table-cell"
+										class="hidden px-3 py-3.5 text-xs uppercase text-gray-300 lg:table-cell"
 									>
 										${goals.home} -
 										${goals.away}${isWinner

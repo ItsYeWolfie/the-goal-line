@@ -34,7 +34,7 @@ class TeamPage extends LitLightElement {
 
 	render() {
 		return html`
-			<section class="grid grid-cols-12">
+			<section class="relative grid grid-cols-12">
 				<div class="col-span-9">
 					<team-tabs></team-tabs>
 					<team-standings></team-standings>
@@ -44,7 +44,9 @@ class TeamPage extends LitLightElement {
 					>
 					</t-fixtures-table>
 				</div>
-				<div class="col-span-3 h-full p-8 text-center">
+				<div
+					class="sticky top-0 col-span-3 h-auto place-self-start p-8 text-center"
+				>
 					${this.loading
 						? html`<p>Loading...</p>`
 						: html`
