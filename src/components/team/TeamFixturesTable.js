@@ -99,16 +99,16 @@ class TeamFixturesTable extends LitLightElement {
 										class="hidden px-3 py-3.5 text-xs uppercase text-gray-500 lg:table-cell"
 									>
 										${status.short}
-										${isWinner
-											? html`<i class="fas fa-trophy">
-													<span class="sr-only">Winner</span>
-											  </i>`
-											: ''}
 									</div>
 									<div
 										class="hidden px-3 py-3.5 text-xs uppercase text-gray-500 lg:table-cell"
 									>
-										${goals.home} - ${goals.away}
+										${goals.home} -
+										${goals.away}${isWinner
+											? html`<i class="fas fa-trophy ml-2 text-green-500">
+													<span class="sr-only">Winner</span>
+											  </i>`
+											: ''}
 									</div>
 								</div>`;
 							})}
