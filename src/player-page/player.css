@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.player-img{
+ @apply w-32 rounded-lg ml-6 mb-6 mt-3;
+}
+.player-info{
+    @apply flex flex-col w-4/5 bg-white border-black ml-auto mr-auto p-6;
+}
+.specific-info{
+    @apply font-bold;
+}
