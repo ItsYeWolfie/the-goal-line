@@ -4,11 +4,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap'); 
 
 *{
-    @apply font-inter dark:text-white;
+    @apply font-sans dark:text-white box-border;
 }
 
 .fixture{
-    @apply  justify-around align-middle md:w-4/5 lg:w-4/5 w-full lg:h-40 h-auto lg:mt-2 dark:bg-slate-700 bg-white rounded-md;
+    @apply  justify-around align-middle md:w-4/5 lg:w-4/5 w-full lg:h-40 h-auto lg:mt-2 dark:bg-gray-800 bg-white rounded-md;
 }
 
 .team{
@@ -20,11 +20,11 @@
 }
 
 .info{
-    @apply lg:w-4/5 md:w-4/5 w-full h-10 pt-1 dark:bg-slate-700 bg-white flex justify-around align-middle lg:flex lg:justify-around rounded-md;
+    @apply lg:w-4/5 md:w-4/5 w-full h-10 pt-1 dark:bg-gray-800 bg-white flex justify-around align-middle lg:flex lg:justify-around rounded-md;
 }
 
 .fusha{
-    @apply bg-green flex p-0.5;
+    @apply bg-green-900 flex p-0.5;
 }
 
 .line{
