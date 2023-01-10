@@ -2,12 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+
+*{
+    @apply box-border;
+}
+.first-section{
+    @apply flex mt-12;
+}
+
 .player-img{
- @apply w-32 rounded-lg ml-6 mb-6 mt-4;
+    @apply w-36 rounded-full ml-6;
 }
 .player-info{
-    @apply flex flex-col w-4/5 bg-white border-black ml-auto mr-auto p-6;
+    @apply flex flex-col w-4/5 bg-gray-800 border-black ml-auto mr-auto p-6;
 }
 .specific-info{
     @apply font-bold;
+}
+.app {
+	@apply  w-full max-h-full bg-gray-900 border-gray-300 border-[2%]  ;
+}
+.banner-counter-wrapper{
+    @apply flex mt-12 ml-6;
+}
+.banner-counter-item{
+    @apply flex items-center pr-6 ;
+}
+.content{
+   @apply pl-4 text-white;
 }
