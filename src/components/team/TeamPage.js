@@ -7,11 +7,13 @@ import { fetchData } from '../../lib/helpers/fetch';
 import '../tables/StickyBackgroundTable';
 import '../errors/404';
 import './TeamStatistics';
+import '../pages/Breadcrumb';
 
 class TeamPage extends LitLightElement {
 	static properties = {
 		loading: {},
 		activeTab: {},
+		breadcrumb: {},
 	};
 
 	constructor() {
@@ -60,6 +62,13 @@ class TeamPage extends LitLightElement {
 			},
 		];
 
+		this.breadcrumb = [
+			{
+				name: 'Teams',
+				href: '/teams',
+			},
+		];
+
 		this.slug = url.searchParams.get('tab') || this.tabs[1].slug;
 		this.activeTab = this.slug;
 	}
@@ -74,6 +83,10 @@ class TeamPage extends LitLightElement {
 		const { team, venue } = teamObject;
 		this.team = team;
 		this.venue = venue;
+		this.breadcrumb.push({
+			name: team.name,
+			href: `/team.html?id=${team.id}`,
+		});
 	}
 
 	setActiveTab(tabName) {
@@ -88,9 +101,14 @@ class TeamPage extends LitLightElement {
 
 	render() {
 		return html`
+			${this.loading
+				? html`<nav-breadcrumb .breadcrumb=${this.breadcrumb}></nav-breadcrumb>`
+				: html`<nav-breadcrumb
+						.breadcrumb=${this.breadcrumb}
+				  ></nav-breadcrumb>`}
 			${this.teamID
 				? html`<section class="relative grid grid-cols-12">
-						<div class="col-span-9">
+						<div class="col-span-9 px-8">
 							<div class="sm:hidden">
 								<label class="sr-only" for="tabs">Select a tab</label>
 								<select
@@ -108,26 +126,24 @@ class TeamPage extends LitLightElement {
 								</select>
 							</div>
 							<div class="hidden sm:block">
-								<div class="border-b border-gray-700">
-									<nav
-										class="-mb-px flex flex-wrap items-center justify-between px-8"
-									>
-										${this.tabs.map(
-											(tab) => html` <button
-												class="${tab.slug === this.activeTab
-													? 'border-indigo-400 text-indigo-500'
-													: 'border-transparent text-gray-200 hover:text-gray-400 hover:border-gray-300'} tab-button border-b-2 p-4 text-center text-sm font-medium transition-colors duration-300 ease-in-out"
-												type="button"
-												href="#"
-												@click="${() => this.setActiveTab(tab.slug)}"
-											>
-												${tab.name}
-											</button>`
-										)}
-									</nav>
-								</div>
+								<nav
+									class="-mb-px flex flex-wrap items-center justify-between border-b border-gray-500"
+								>
+									${this.tabs.map(
+										(tab) => html` <button
+											class="${tab.slug === this.activeTab
+												? 'border-indigo-400 text-indigo-500'
+												: 'border-transparent text-gray-200 hover:text-gray-400 hover:border-gray-300'} tab-button border-b-2 p-4 text-center text-sm font-medium transition-colors duration-300 ease-in-out"
+											type="button"
+											href="#"
+											@click="${() => this.setActiveTab(tab.slug)}"
+										>
+											${tab.name}
+										</button>`
+									)}
+								</nav>
 							</div>
-							<section class="p-8">
+							<section class="py-8">
 								${this.tabs.find((tab) => tab.slug === this.activeTab).html
 									? this.tabs.find((tab) => tab.slug === this.activeTab).html
 									: html`<p>Coming Soon</p>`}

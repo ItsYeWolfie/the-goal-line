@@ -53,7 +53,7 @@ class TeamFixturesTable extends LitLightElement {
 			<div class="align-center mb-8 flex items-center justify-between">
 				<div class="flex items-center gap-4">
 					<div>
-						<label class="block text-sm font-medium text-gray-100"
+						<label class="mb-1 block pl-3 text-sm font-medium text-gray-100"
 							>Select League</label
 						>
 						<select
