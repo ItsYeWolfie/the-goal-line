@@ -1,5 +1,6 @@
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
+import { liveReload } from 'vite-plugin-live-reload';
 import { webfontDownload } from 'vite-plugin-webfont-dl';
 
 const root = resolve(__dirname, './src');
@@ -17,5 +18,5 @@ export default defineConfig({
 			},
 		},
 	},
-	plugins: [webfontDownload()],
+	plugins: [webfontDownload(), liveReload('./src/**/*.{html,js,ts,jsx,tsx}')],
 });
