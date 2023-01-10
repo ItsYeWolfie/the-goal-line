@@ -101,13 +101,16 @@ class TeamPage extends LitLightElement {
 
 	render() {
 		return html`
-			${this.loading
-				? html`<nav-breadcrumb .breadcrumb=${this.breadcrumb}></nav-breadcrumb>`
-				: html`<nav-breadcrumb
-						.breadcrumb=${this.breadcrumb}
-				  ></nav-breadcrumb>`}
 			${this.teamID
-				? html`<section class="relative grid grid-cols-12">
+				? html`
+				${
+					this.loading
+						? html``
+						: html`<nav-breadcrumb
+								.breadcrumb=${this.breadcrumb}
+						  ></nav-breadcrumb>`
+				}
+					<section class="relative grid grid-cols-12">
 						<div class="col-span-9 px-8">
 							<div class="sm:hidden">
 								<label class="sr-only" for="tabs">Select a tab</label>
@@ -144,55 +147,59 @@ class TeamPage extends LitLightElement {
 								</nav>
 							</div>
 							<section class="py-8">
-								${this.tabs.find((tab) => tab.slug === this.activeTab).html
-									? this.tabs.find((tab) => tab.slug === this.activeTab).html
-									: html`<p>Coming Soon</p>`}
+								${
+									this.tabs.find((tab) => tab.slug === this.activeTab).html
+										? this.tabs.find((tab) => tab.slug === this.activeTab).html
+										: html`<p>Coming Soon</p>`
+								}
 							</section>
 						</div>
 						<div
 							class="sticky top-0 col-span-3 h-screen w-full place-self-start bg-gray-800 p-8 text-center"
 						>
-							${this.loading
-								? html`<p>Loading...</p>`
-								: html`
-										<header class="text-2xl font-bold">
-											${this.team.name}
-										</header>
-										<img
-											class="mx-auto"
-											src="${this.team.logo}"
-											alt="${this.team.name} Logo"
-										/>
+							${
+								this.loading
+									? html`<p>Loading...</p>`
+									: html`
+											<header class="text-2xl font-bold">
+												${this.team.name}
+											</header>
+											<img
+												class="mx-auto"
+												src="${this.team.logo}"
+												alt="${this.team.name} Logo"
+											/>
 
-										<t-info-row
-											value="${this.team.country}"
-											key="Country"
-										></t-info-row>
-										<header class="mt-4 text-2xl font-bold">Venue</header>
-										<t-info-row
-											value="${this.venue.name}"
-											key="Name"
-										></t-info-row>
-										<t-info-row
-											value="${this.venue.address}"
-											key="Address"
-										></t-info-row>
-										<t-info-row
-											value="${this.venue.city}"
-											key="City"
-										></t-info-row>
-										<t-info-row
-											value="${this.venue.capacity}"
-											key="Capacity"
-										></t-info-row>
-										<img
-											class="mx-auto"
-											src="${this.venue.image}"
-											alt="${this.venue.name} Stadium"
-										/>
-								  `}
+											<t-info-row
+												value="${this.team.country}"
+												key="Country"
+											></t-info-row>
+											<header class="mt-4 text-2xl font-bold">Venue</header>
+											<t-info-row
+												value="${this.venue.name}"
+												key="Name"
+											></t-info-row>
+											<t-info-row
+												value="${this.venue.address}"
+												key="Address"
+											></t-info-row>
+											<t-info-row
+												value="${this.venue.city}"
+												key="City"
+											></t-info-row>
+											<t-info-row
+												value="${this.venue.capacity}"
+												key="Capacity"
+											></t-info-row>
+											<img
+												class="mx-auto"
+												src="${this.venue.image}"
+												alt="${this.venue.name} Stadium"
+											/>
+									  `
+							}
 						</div>
-				  </section> `
+				  </$> `
 				: html`<error-404></error-404>`}
 		`;
 	}
