@@ -174,7 +174,7 @@ class TeamPage extends LitLightElement {
 								  `}
 						</div>
 				  </section> `
-				: html`<error-404></error-404`}
+				: html`<error-404></error-404>`}
 		`;
 	}
 }
