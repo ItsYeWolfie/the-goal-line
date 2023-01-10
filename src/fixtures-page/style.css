@@ -4,11 +4,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap'); 
 
 *{
-    @apply font-sans dark:text-white box-border;
+    @apply font-sans text-white box-border;
 }
 
 .fixture{
-    @apply  justify-around align-middle md:w-4/5 lg:w-4/5 w-full lg:h-40 h-auto lg:mt-2 dark:bg-gray-800 bg-white rounded-md;
+    @apply  justify-around align-middle md:w-4/5 lg:w-full w-full lg:h-40 h-auto lg:mt-2 bg-gray-800 rounded-md;
 }
 
 .team{
@@ -20,11 +20,11 @@
 }
 
 .info{
-    @apply lg:w-4/5 md:w-4/5 w-full h-10 pt-1 dark:bg-gray-800 bg-white flex justify-around align-middle lg:flex lg:justify-around rounded-md;
+    @apply lg:w-full md:w-4/5 w-full h-10 pt-1 bg-gray-800 flex justify-around align-middle lg:flex lg:justify-around rounded-md;
 }
 
 .fusha{
-    @apply bg-green-900 flex p-0.5;
+    @apply bg-green-900 flex;
 }
 
 .line{
@@ -32,7 +32,7 @@
 }
 
 .stat{
-    @apply bg-slate-300 flex w-44 md:w-72 lg:w-80 h-2 rounded-md;
+    @apply bg-slate-300 flex w-44 md:w-72 lg:w-72 h-2 rounded-md;
 }
 
 .lime{
@@ -40,7 +40,7 @@
 }
 
 .gray{
-    @apply text-gray-600 dark:text-sky-500;
+    @apply text-sky-600;
 }
 
 .player{
@@ -48,7 +48,7 @@
 }
 
 .table-row{
-    @apply border-solid border-[0.2px] rounded-md border-gray-400 h-8;
+    @apply border-solid border-b-[0.2px] rounded-md border-gray-400 h-8;
 }
 
 .table-cell{
