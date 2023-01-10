@@ -14,8 +14,6 @@ class TeamStandings extends LitLightElement {
 
 	async connectedCallback() {
 		super.connectedCallback();
-		const [, teamID] = window.location.search.split('=');
-		this.teamID = teamID;
 		const leagueData = await fetchData(
 			`https://api.npoint.io/9755c43d23971a73fe3f`
 		);
@@ -26,9 +24,7 @@ class TeamStandings extends LitLightElement {
 
 	render() {
 		return html`
-			<sticky-background-table
-				headers="#, Team, MP, W, D, L, GF, GA, PTS, Form"
-			>
+			<sticky-background-table headers="#,Team,MP,W,D,L,GF,GA,PTS,Form">
 				<div class="table-row-group divide-y divide-gray-500">
 					${this.loading
 						? html`<div class="table-row">

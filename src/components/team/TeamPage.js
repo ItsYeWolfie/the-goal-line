@@ -16,15 +16,10 @@ class TeamPage extends LitLightElement {
 		super();
 		this.loading = true;
 		this.classList.add('container', 'mx-auto', 'p-8');
-	}
-
-	async connectedCallback() {
-		super.connectedCallback();
-		const [, teamID] = window.location.search.split('=');
-		this.teamID = teamID;
 		this.tabs = [
 			{
 				name: 'Fixtures',
+				slug: 'fixtures',
 				html: html`
 					<t-fixtures-table
 						headers="Versus,League,Season,Round,Time/Date,Side,Status,Score"
@@ -35,26 +30,39 @@ class TeamPage extends LitLightElement {
 			},
 			{
 				name: 'Statistics',
+				slug: 'statistics',
 			},
 			{
 				name: 'Leagues History',
+				slug: 'leagues-history',
 			},
 			{
 				name: 'Players',
+				slug: 'players',
 			},
 			{
 				name: 'Transfers',
+				slug: 'transfers',
 			},
 			{
 				name: 'Standings (Season)',
+				slug: 'standings',
 				html: html`<team-standings></team-standings>`,
 			},
 			{
 				name: 'Coaches',
+				slug: 'coaches',
 			},
 		];
+		const url = new URL(window.location.href);
+		this.slug = url.searchParams.get('tab') || this.tabs[0].slug;
+		this.teamID = url.searchParams.get('id');
+		this.activeTab = this.slug;
+	}
 
-		this.activeTab = this.tabs[0].name;
+	async connectedCallback() {
+		super.connectedCallback();
+
 		const teamObject = await fetchData(
 			`https://api.npoint.io/585facaf04546274c0c0/`
 		);
@@ -66,6 +74,12 @@ class TeamPage extends LitLightElement {
 
 	setActiveTab(tabName) {
 		this.activeTab = tabName;
+		const url = new URL(window.location.href);
+		url.searchParams.set(
+			'tab',
+			this.tabs.find((tab) => tab.slug === tabName).slug
+		);
+		window.history.pushState({}, '', url);
 	}
 
 	render() {
@@ -95,12 +109,12 @@ class TeamPage extends LitLightElement {
 							>
 								${this.tabs.map(
 									(tab) => html` <button
-										class="${tab.name === this.activeTab
+										class="${tab.slug === this.activeTab
 											? 'border-indigo-400 text-indigo-500'
 											: 'border-transparent text-gray-200 hover:text-gray-400 hover:border-gray-300'} tab-button border-b-2 p-4 text-center text-sm font-medium transition-colors duration-300 ease-in-out"
 										type="button"
 										href="#"
-										@click="${() => this.setActiveTab(tab.name)}"
+										@click="${() => this.setActiveTab(tab.slug)}"
 									>
 										${tab.name}
 									</button>`
@@ -109,11 +123,13 @@ class TeamPage extends LitLightElement {
 						</div>
 					</div>
 					<section class="p-8">
-						${this.tabs.find((tab) => tab.name === this.activeTab).html}
+						${this.tabs.find((tab) => tab.slug === this.activeTab).html
+							? this.tabs.find((tab) => tab.slug === this.activeTab).html
+							: html`<p>Coming Soon</p>`}
 					</section>
 				</div>
 				<div
-					class="sticky top-0 col-span-3 h-auto place-self-start p-8 text-center"
+					class="sticky top-0 col-span-3 h-screen w-full place-self-start bg-gray-800 p-8 text-center"
 				>
 					${this.loading
 						? html`<p>Loading...</p>`
