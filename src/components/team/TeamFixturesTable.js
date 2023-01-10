@@ -18,6 +18,7 @@ class TeamFixturesTable extends LitLightElement {
 	}
 
 	async connectedCallback() {
+		super.connectedCallback();
 		this.headers = this.headers.split(',');
 		this.fixtures = await fetchData(
 			'https://api.npoint.io/3d56ae8265c24b49d6f8'
@@ -38,12 +39,10 @@ class TeamFixturesTable extends LitLightElement {
 		this.selectedLeague = -1;
 		this.selectedSeason = Number(this.leagues[0].season);
 		this.filteredFixtures = this.filterFixtures();
-		super.connectedCallback();
 	}
 
 	filterFixtures() {
 		return this.fixtures.filter((fixture) => {
-			console.log(this.selectedLeague);
 			if (this.selectedLeague === -1) return true;
 			return fixture.league.id === this.selectedLeague;
 		});
@@ -60,12 +59,15 @@ class TeamFixturesTable extends LitLightElement {
 						<select
 							class="bg-gray-800"
 							@change="${(e) => {
+								if (this.loading) return;
 								this.selectedLeague = Number(e.target.value);
 								this.filteredFixtures = this.filterFixtures();
 							}}"
 						>
 							<option value="${-1}">None</option>
-							${this.leagues.map((league) => {
+
+							${!this.loading &&
+							this.leagues.map((league) => {
 								return html`
 									<option value="${league.id}">${league.name}</option>
 								`;
@@ -73,7 +75,7 @@ class TeamFixturesTable extends LitLightElement {
 						</select>
 					</div>
 				</div>
-				${this.selectedLeague !== -1
+				${this.selectedLeague !== -1 && !this.loading
 					? html`
 							<div class="rounded-md bg-gray-800 p-4 text-center text-white">
 								${this.leagues
