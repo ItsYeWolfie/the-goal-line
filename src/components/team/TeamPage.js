@@ -6,6 +6,7 @@ import './TeamStandings';
 import { fetchData } from '../../lib/helpers/fetch';
 import '../tables/StickyBackgroundTable';
 import '../errors/404';
+import './TeamStatistics';
 
 class TeamPage extends LitLightElement {
 	static properties = {
@@ -17,6 +18,8 @@ class TeamPage extends LitLightElement {
 		super();
 		this.loading = true;
 		this.classList.add('container', 'mx-auto', 'p-8');
+		const url = new URL(window.location.href);
+		this.teamID = url.searchParams.get('id');
 		this.tabs = [
 			{
 				name: 'Fixtures',
@@ -32,6 +35,7 @@ class TeamPage extends LitLightElement {
 			{
 				name: 'Statistics',
 				slug: 'statistics',
+				html: html`<team-statistics teamID="${this.teamID}"></team-statistics>`,
 			},
 			{
 				name: 'Leagues History',
@@ -55,9 +59,8 @@ class TeamPage extends LitLightElement {
 				slug: 'coaches',
 			},
 		];
-		const url = new URL(window.location.href);
-		this.slug = url.searchParams.get('tab') || this.tabs[0].slug;
-		this.teamID = url.searchParams.get('id');
+
+		this.slug = url.searchParams.get('tab') || this.tabs[1].slug;
 		this.activeTab = this.slug;
 	}
 

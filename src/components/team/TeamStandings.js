@@ -24,7 +24,10 @@ class TeamStandings extends LitLightElement {
 
 	render() {
 		return html`
-			<sticky-background-table headers="#,Team,MP,W,D,L,GF,GA,PTS,Form">
+			<sticky-background-table
+				class="min-w-full"
+				headers="#,Team,MP,W,D,L,GF,GA,PTS,Form"
+			>
 				<div class="table-row-group divide-y divide-gray-500">
 					${this.loading
 						? html`<div class="table-row">
@@ -33,11 +36,13 @@ class TeamStandings extends LitLightElement {
 								</div>
 						  </div>`
 						: html`
-								${this.standings.map((standing) => {
+								${this.standings.map((standing, index) => {
 									const { team, form } = standing;
 									const formArray = form.split('');
 									return html`
-										<div class="table-row">
+										<div
+											class="${index % 2 === 1 ? 'bg-gray-600' : ''} table-row"
+										>
 											<div
 												class="px-6 py-3.5 text-sm text-gray-300 lg:table-cell"
 											>

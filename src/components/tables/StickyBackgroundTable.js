@@ -13,7 +13,7 @@ export default class StickyBackgroundTable extends LitLightElement {
 
 	render() {
 		return html`
-			<div class="relative table min-w-full border-collapse bg-gray-700">
+			<div class="${this.classList} relative table border-collapse bg-gray-700">
 				<div
 					class="sticky top-0 table-header-group bg-gray-800 text-xs uppercase"
 				>

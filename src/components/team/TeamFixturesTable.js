@@ -110,7 +110,7 @@ class TeamFixturesTable extends LitLightElement {
 					: ''}
 			</div>
 			<sticky-background-table
-				class="h-96"
+				class="min-w-full"
 				headers="Opponent,Round,Date,Side,Status,Score"
 			>
 				<div class="table-row-group divide-y divide-gray-500">
@@ -123,7 +123,7 @@ class TeamFixturesTable extends LitLightElement {
 								</div>
 						  `
 						: html`
-								${this.filteredFixtures.map((fixture) => {
+								${this.filteredFixtures.map((fixture, index) => {
 									const { fixture: match, goals, league, teams } = fixture;
 									const { home, away } = teams;
 									const isHome = home.id === this.teamID;
@@ -135,7 +135,9 @@ class TeamFixturesTable extends LitLightElement {
 									const { date } = match;
 									const formattedDate = moment(date).format('DD.MM.YYYY');
 									return html`
-										<div class="table-row">
+										<div
+											class="${index % 2 === 1 ? 'bg-gray-600' : ''} table-row"
+										>
 											<div class="table-cell py-4 pl-4 pr-3 text-sm sm:pl-6">
 												<div class="font-medium text-gray-200">
 													${isHome ? away.name : home.name}
