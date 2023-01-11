@@ -2,14 +2,27 @@ import { LitLightElement } from '../../lib/LitElement';
 import { html } from 'lit';
 
 class Banner extends LitLightElement {
-	static properties = {
-		timer: {},
-	};
-
+	static get properties() {
+		return {
+			startTime: { type: Number },
+			currentTime: { type: Number },
+			gameTime: { type: Number },
+			timer: {},
+		};
+	}
 	constructor() {
 		super();
 		this.timer = '';
-	}
+
+    this.startTime = Date.now() - (20 * 60 * 1000);
+    this.currentTime = Date.now();
+    this.gameTime = 0;
+    this._intervalId = 0;
+  }
+
+
+
+
 	async connectedCallback() {
 		super.connectedCallback();
 		this.timer = setInterval(() => {
@@ -26,12 +39,19 @@ class Banner extends LitLightElement {
 			const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 			const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-			this.requestUpdate();
+      this.currentTime = Date.now() + 1 ;
+      this.gameTime = this.currentTime - this.startTime;
+      this.requestUpdate();
+
 			this.timer = `${days}d : ${hours}h :  ${minutes}min : ${seconds}sec `;
 		}, 1000);
 	}
 
-	render() {
+  render() {
+         this.gameTime = (this.currentTime - this.startTime)/1000;
+    const seconds = Math.floor(this.gameTime % 60);
+    const minutes = Math.floor(this.gameTime / 60);
+
 		return html`
 			<section class="m-[3%]">
 				<div class="grid h-[35h] w-[100%] grid-cols-3 gap-[1%]">
@@ -74,7 +94,7 @@ class Banner extends LitLightElement {
 							<p
 								class="color mt-[5%] mb-[8%] text-center text-[13px] font-medium text-lime-500 lg:text-lg"
 							>
-								62 : 42
+								${minutes} :  ${seconds < 10  ? `0${seconds}` : seconds}
 							</p>
 							<img
 								class="] absolute top-[33%] right-[10%] h-[10%] w-[15%] rounded-full md:right-[4%] md:top-[30%] md:h-[15%] md:w-[18%] lg:top-[30%]"
@@ -87,7 +107,7 @@ class Banner extends LitLightElement {
 							<p
 								class="mt-[10%] ml-[35%] mb-[15%] w-[30%] rounded-[15px] bg-violet-100 py-[1%] text-center text-[13px] font-semibold text-violet-800 md:w-[30%] lg:text-[15px]"
 							>
-								2 - 2
+								0 - 0
 							</p>
 							<div class="relative mt-[10%]">
 								<p
