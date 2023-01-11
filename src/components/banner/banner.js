@@ -1,5 +1,6 @@
-import { LitLightElement } from '../../lib/LitElement';
+/* eslint-disable no-underscore-dangle */
 import { html } from 'lit';
+import { LitLightElement } from '../../lib/LitElement';
 
 class Banner extends LitLightElement {
 	static get properties() {
@@ -10,18 +11,16 @@ class Banner extends LitLightElement {
 			timer: {},
 		};
 	}
+
 	constructor() {
 		super();
 		this.timer = '';
 
-    this.startTime = Date.now() - (20 * 60 * 1000);
-    this.currentTime = Date.now();
-    this.gameTime = 0;
-    this._intervalId = 0;
-  }
-
-
-
+		this.startTime = Date.now() - 20 * 60 * 1000;
+		this.currentTime = Date.now();
+		this.gameTime = 0;
+		this._intervalId = 0;
+	}
 
 	async connectedCallback() {
 		super.connectedCallback();
@@ -39,18 +38,18 @@ class Banner extends LitLightElement {
 			const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 			const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      this.currentTime = Date.now() + 1 ;
-      this.gameTime = this.currentTime - this.startTime;
-      this.requestUpdate();
+			this.currentTime = Date.now() + 1;
+			this.gameTime = this.currentTime - this.startTime;
+			this.requestUpdate();
 
 			this.timer = `${days}d : ${hours}h :  ${minutes}min : ${seconds}sec `;
 		}, 1000);
 	}
 
-  render() {
-         this.gameTime = (this.currentTime - this.startTime)/1000;
-    const seconds = Math.floor(this.gameTime % 60);
-    const minutes = Math.floor(this.gameTime / 60);
+	render() {
+		this.gameTime = (this.currentTime - this.startTime) / 1000;
+		const seconds = Math.floor(this.gameTime % 60);
+		const minutes = Math.floor(this.gameTime / 60);
 
 		return html`
 			<section class="m-[3%]">
@@ -94,7 +93,7 @@ class Banner extends LitLightElement {
 							<p
 								class="color mt-[5%] mb-[8%] text-center text-[13px] font-medium text-lime-500 lg:text-lg"
 							>
-								${minutes} :  ${seconds < 10  ? `0${seconds}` : seconds}
+								${minutes} : ${seconds < 10 ? `0${seconds}` : seconds}
 							</p>
 							<img
 								class="] absolute top-[33%] right-[10%] h-[10%] w-[15%] rounded-full md:right-[4%] md:top-[30%] md:h-[15%] md:w-[18%] lg:top-[30%]"

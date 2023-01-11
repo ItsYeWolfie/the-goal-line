@@ -1,15 +1,16 @@
-import { LitLightElement } from '../../lib/LitElement';
+/* eslint-disable no-underscore-dangle */
 import { html } from 'lit';
+import { LitLightElement } from '../../lib/LitElement';
 
 class Header extends LitLightElement {
-  static get properties() {
-    return {
-      active: { type: Boolean },
-    };
-  }
+	static get properties() {
+		return {
+			active: { type: Boolean },
+		};
+	}
 
-  render() {
-    return html` <header
+	render() {
+		return html` <header
 			class="max-v3-full border-b border-gray-100"
 			id="header-nav"
 		>
@@ -74,8 +75,8 @@ class Header extends LitLightElement {
 
 				<div
 					class=${this.active
-        ? 'mt-[10px] w-full md:flex  md:w-auto md:items-end'
-        : 'mt-[10px] w-full md:flex hidden  md:w-auto md:items-end'}
+						? 'mt-[10px] w-full md:flex  md:w-auto md:items-end'
+						: 'mt-[10px] w-full md:flex hidden  md:w-auto md:items-end'}
 					id="menu"
 				>
 					<ul
@@ -119,16 +120,17 @@ class Header extends LitLightElement {
 				</div>
 			</nav>
 		</header>`;
-  }
+	}
 
-  _toggleActive() {
-    this.active = !this.active;
-  }
-  firstUpdated() {
-    this.shadowRoot
-      .querySelector('#menu')
-      .addEventListener('click', this._toggleActive.bind(this));
-  }
+	_toggleActive() {
+		this.active = !this.active;
+	}
+
+	firstUpdated() {
+		this.shadowRoot
+			.querySelector('#menu')
+			.addEventListener('click', this._toggleActive.bind(this));
+	}
 }
 
 customElements.define('header-t', Header);

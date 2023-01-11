@@ -4,7 +4,10 @@ import { LitLightElement } from '../../lib/LitElement';
 class NavIconHolder extends LitLightElement {
 	render() {
 		return html`
-			<div class="${this.classList} flex flex-col w-[100] gap-8 text-xs text-gray-400">
+			<div
+				class="${this
+					.classList} flex w-[100] flex-col gap-8 text-xs text-gray-400"
+			>
 				<slot></slot>
 			</div>
 		`;

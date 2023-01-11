@@ -92,7 +92,7 @@ class GHeader extends LitLightElement {
 			<header
 				class="${this.expandedSidebar
 					? 'w-20 sm:w-55 md:w-65 lg:w-80'
-					: 'w-14'} flex h-full width-[100%] z-100 transition-all duration-300 ease-in-out"
+					: 'w-14'} width-[100%] z-100 flex h-full transition-all duration-300 ease-in-out"
 			>
 				<nav
 					class="flex h-full  shrink-0 grow-0 basis-14 flex-col gap-y-8 border-2 border-gray-300 py-8 text-center"
