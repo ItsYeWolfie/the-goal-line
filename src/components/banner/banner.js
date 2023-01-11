@@ -61,7 +61,7 @@ class Banner extends LitLightElement {
 							src="./images/derby3.jpg"
 						/>
 						<p
-							class="z-1 absolute top-[5%] left-[25%] text-[0.8rem] font-semibold text-gray-200 sm:left-[35%] md:left-[33%] md:text-[1rem] lg:left-[33%] lg:text-[1.3rem]"
+							class="z-1 absolute top-[5%] left-[25%] text-[0.8rem] font-bold text-gray-200 sm:left-[35%] md:left-[33%] md:text-[1rem] lg:left-[33%] lg:text-[1.3rem]"
 						>
 							Real Madrid vs Barcelona
 						</p>
@@ -71,7 +71,7 @@ class Banner extends LitLightElement {
 							19 March - 2023
 						</p>
 						<p
-							class="z-1 absolute top-[90%] left-[5%] text-[0.6rem] font-semibold text-gray-200 sm:text-[0.7rem] md:left-[10%] md:text-[0.9rem] lg:left-[5%] lg:text-[0.9rem]"
+							class="z-1 absolute top-[90%] left-[5%] text-[0.6rem] font-bold text-gray-200 sm:text-[0.7rem] md:left-[10%] md:text-[0.9rem] lg:left-[5%] lg:text-[0.9rem]"
 						>
 							Santiago Bernabeu
 						</p>
@@ -87,7 +87,7 @@ class Banner extends LitLightElement {
 							class="relative col-span-1 h-[100%] w-[100%] rounded-[20px] bg-gray-800"
 						>
 							<h3
-								class="pt-[10%] text-center font-[450] text-gray-200 lg:text-xl "
+								class="pt-[10%] text-center  font-[450] text-gray-200 lg:text-xl "
 							>
 								Live Match
 							</h3>
