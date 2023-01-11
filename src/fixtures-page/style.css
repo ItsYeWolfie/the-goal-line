@@ -4,11 +4,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap'); 
 
 *{
-    @apply font-sans text-white box-border;
+    @apply font-sans text-gray-200 box-border;
 }
 
 .fixture{
-    @apply  justify-around align-middle md:w-4/5 lg:w-full w-full lg:h-40 h-auto lg:mt-2 bg-gray-800 rounded-md;
+    @apply  justify-around align-middle md:w-4/5 lg:w-full w-full lg:h-40 h-auto bg-gray-800 rounded-md;
 }
 
 .team{
@@ -44,13 +44,13 @@
 }
 
 .player{
-    @apply flex justify-center align-middle rounded-full w-8 h-8 text-center absolute text-white;
+    @apply flex justify-center align-middle rounded-full w-8 h-8 text-center absolute;
 }
 
-.table-row{
-    @apply border-solid border-b-[0.2px] rounded-md border-gray-400 h-8;
+tr{
+    @apply border-solid border-b-[0.2px] rounded-md border-gray-400 border-opacity-30 h-8;
 }
 
-.table-cell{
-    @apply pl-1 text-sm;
+td{
+    @apply pl-1 text-sm; 
 }
