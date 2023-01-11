@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 #app {
-	@apply h-[100%] w-full ;
+	@apply h-[100%] w-full  bg-gray-900;
 }

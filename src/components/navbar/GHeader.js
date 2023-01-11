@@ -162,7 +162,7 @@ class GHeader extends LitLightElement {
 				${this.expandedSidebar
 					? html`
 				<aside
-					class="flex w-100% flex-col z-10 gap-10 border-[2px]  border-gray-300 border-t-0 bg-gray-900 border-l-0 p-6 text-gray-400 "
+					class="flex w-100% flex-col z-10 gap-10 border-[2px]  border-gray-300 border-t-0 bg-gray-900 border-l-0 p-6 text-gray-500 "
 				>
 					<header class="flex items-center gap-2">
 						<span class="fa-regular fa-paper-plane text-sky-600">
