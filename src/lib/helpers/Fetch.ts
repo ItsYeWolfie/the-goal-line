@@ -1,4 +1,4 @@
-export const fetchData = async (url) => {
+export const fetchData = async (url: string): Promise<any> => {
 	return new Promise((resolve, reject) => {
 		fetch(url)
 			.then((response) => response.json())
@@ -11,7 +11,7 @@ export const fetchData = async (url) => {
 	});
 };
 
-export const fetchDataToArr = async (url, arr) => {
+export const fetchDataToArr = async (url: string, arr: any[]) => {
 	return new Promise((resolve, reject) => {
 		fetch(url)
 			.then((response) => response.json())
