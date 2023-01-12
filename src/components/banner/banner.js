@@ -53,7 +53,7 @@ class Banner extends LitLightElement {
 
 		return html`
 			<section class="m-[3%]">
-				<div class="grid h-[35h] w-[100%] grid-cols-3 gap-[1%]">
+				<div class="grid h-[35%] w-[100%] grid-cols-3 gap-[1%]">
 					<div class="width-[100%] relative col-span-2 h-[100%]">
 						<img
 							class="h-[100%] w-[100%] rounded-[25px]"
@@ -83,7 +83,7 @@ class Banner extends LitLightElement {
 					</div>
 					<div>
 						<div
-							class="relative col-span-1 h-[100%] w-[100%] rounded-[20px] bg-gray-800"
+							class="relative col-span-1 h-[100%] w-[100%] rounded-[20px] bg-gray-900"
 						>
 							<h3
 								class="pt-[10%] text-center  font-[450] text-gray-200 lg:text-xl "
