@@ -287,10 +287,8 @@ class TeamStatistics extends LitLightElement {
 						<thead class="bg-gray-800 text-sm">
 							<tr>
 								<th class="py-1 pl-3 text-left">Goals at Minute</th>
-								<th class="py-1 pl-3">Total (S)</th>
-								<th class="py-1 pl-3">% (S)</th>
-								<th class="py-1 pl-3">Total (R)</th>
-								<th class="py-1 pl-3 pr-3">% (R)</th>
+								<th class="py-1 pl-3" colspan="2">Scored</th>
+								<th class="py-1 pl-3" colspan="2">Received</th>
 							</tr>
 						</thead>
 						<tbody class="text-xs">

@@ -3,7 +3,7 @@ const forms = require('@tailwindcss/forms');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: ['./index.html', './src/**/*.{html,js,ts,jsx,tsx}'],
+	content: ['./src/**/*.{html,js,ts,jsx,tsx}'],
 	theme: {
 		extend: {
 			fontFamily: {

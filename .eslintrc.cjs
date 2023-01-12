@@ -5,16 +5,18 @@ module.exports = {
 	},
 	extends: [
 		'airbnb-base',
+		'airbnb-typescript/base',
 		'plugin:import/recommended',
 		'plugin:promise/recommended',
 		'plugin:tailwindcss/recommended',
 		'plugin:prettier/recommended',
 	],
+	parser: '@typescript-eslint/parser',
 	plugins: ['tailwindcss', 'html'],
 	overrides: [],
 	parserOptions: {
-		ecmaVersion: 'latest',
 		sourceType: 'module',
+		project: './tsconfig.json',
 	},
 	rules: {
 		'class-methods-use-this': 0,
