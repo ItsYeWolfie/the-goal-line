@@ -27,7 +27,6 @@ class Kits extends LitLightElement {
 			})
 
 			.then((data) => {
-				console.log(data);
 				this.data = data;
 				this.loading = false;
 			})
@@ -73,7 +72,7 @@ class Kits extends LitLightElement {
 						></i>
 					</div>
 					<div
-						class="no-scrollbar  row-span-5 flex h-full w-full flex-nowrap overflow-x-scroll "
+						class="no-scrollbar row-span-5  flex h-full w-full  flex-nowrap  overflow-x-scroll  scroll-smooth  "
 						id="div-s"
 					>
 						${this.data.map(
@@ -110,11 +109,11 @@ class Kits extends LitLightElement {
 	}
 
 	scrollRight() {
-		this.scrollingDiv.scrollLeft += 120;
+		this.scrollingDiv.scrollLeft += 300;
 	}
 
 	scrollLeft() {
-		this.scrollingDiv.scrollLeft -= 120;
+		this.scrollingDiv.scrollLeft -= 300;
 	}
 }
 customElements.define('kits-s', Kits);
