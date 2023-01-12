@@ -164,11 +164,8 @@ class GHeader extends LitLightElement {
 				<aside
 					class="flex w-100% flex-col z-10 gap-10 border-[2px]  border-gray-300 border-t-0 bg-gray-900 border-l-0 p-6 text-gray-500 "
 				>
-					<header class="flex items-center gap-2">
-						<span class="fa-regular fa-paper-plane text-sky-600">
-							<span class="sr-only">Logo</span>
-						</span>
-						<h1 class="text-lg font-medium ">The Goal Line</h1>
+					<header class="flex items-center mt-2 gap-2">
+							<img src="../images/logo-no-background.svg" width="180px"/>	
 					</header>
 					<section>
 						<header class="mb-5 text-xs uppercase text-gray-400">Menu</header>
