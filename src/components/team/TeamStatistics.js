@@ -1,8 +1,7 @@
 import { html } from 'lit';
 import { LitLightElement } from '../../lib/LitElement';
-import { fetchData } from '../../lib/helpers/fetch';
+import { fetchData } from '../../lib/helpers/Fetch';
 import '../tables/StickyBackgroundTable';
-import './StatisticRow';
 
 class TeamStatistics extends LitLightElement {
 	static properties = {
@@ -152,7 +151,7 @@ class TeamStatistics extends LitLightElement {
 									${this.loading ? '...' : this.fixtures.wins.away || '-'}
 								</td>
 								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.fixtures.draws.away || '-'} m
+									${this.loading ? '...' : this.fixtures.draws.away || '-'}
 								</td>
 								<td class="pl-3 text-center">
 									${this.loading ? '...' : this.fixtures.loses.away || '-'}

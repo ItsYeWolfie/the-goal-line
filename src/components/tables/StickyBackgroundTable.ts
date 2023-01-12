@@ -1,15 +1,14 @@
+import { customElement, property } from 'lit/decorators.js';
 import { html } from 'lit';
 import { LitLightElement } from '../../lib/LitElement';
 
+@customElement('sticky-background-table')
 export default class StickyBackgroundTable extends LitLightElement {
 	static properties = {
-		headers: {},
+		headers: { type: Array },
 	};
 
-	connectedCallback() {
-		super.connectedCallback();
-		this.headers = this.headers.split(',');
-	}
+	@property({ type: Array }) headers: string[] = [];
 
 	render() {
 		return html`
@@ -36,5 +35,3 @@ export default class StickyBackgroundTable extends LitLightElement {
 		`;
 	}
 }
-
-customElements.define('sticky-background-table', StickyBackgroundTable);

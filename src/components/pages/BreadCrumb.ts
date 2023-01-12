@@ -1,10 +1,15 @@
 import { html } from 'lit-html';
+import { customElement, property } from 'lit/decorators.js';
+import { Breadcrumbs } from './BreadCrumbTypes';
 import { LitLightElement } from '../../lib/LitElement';
 
+@customElement('nav-breadcrumb')
 export class BreadCrumb extends LitLightElement {
 	properties = {
 		breadcrumb: [],
 	};
+
+	@property() breadcrumb: Breadcrumbs = [];
 
 	render() {
 		return html`
@@ -55,7 +60,4 @@ export class BreadCrumb extends LitLightElement {
 		`;
 	}
 }
-
-customElements.define('nav-breadcrumb', BreadCrumb);
-
 export default BreadCrumb;

@@ -1,16 +1,14 @@
 import { html } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 import { LitLightElement } from '../../lib/LitElement';
-import { fetchData } from '../../lib/helpers/fetch';
+import { fetchData } from '../../lib/helpers/Fetch';
+import { LeagueStandings, StandingInfo } from './TeamTypes';
 
+@customElement('team-standings')
 class TeamStandings extends LitLightElement {
-	static properties = {
-		loading: {},
-	};
+	@property({ type: Boolean }) loading: boolean = true;
 
-	constructor() {
-		super();
-		this.loading = true;
-	}
+	@property({ type: Array }) standings: LeagueStandings[] = [];
 
 	async connectedCallback() {
 		super.connectedCallback();
@@ -26,7 +24,18 @@ class TeamStandings extends LitLightElement {
 		return html`
 			<sticky-background-table
 				class="min-w-full"
-				headers="#,Team,MP,W,D,L,GF,GA,PTS,Form"
+				.headers=${[
+					'#',
+					'Team',
+					'MP',
+					'W',
+					'D',
+					'L',
+					'GF',
+					'GA',
+					'PTS',
+					'Form',
+				]}
 			>
 				<div class="table-row-group divide-y divide-gray-500">
 					${this.loading
@@ -36,7 +45,7 @@ class TeamStandings extends LitLightElement {
 								</div>
 						  </div>`
 						: html`
-								${this.standings.map((standing, index) => {
+								${this.standings.map((standing: StandingInfo, index) => {
 									const { team, form } = standing;
 									const formArray = form.split('');
 									return html`
@@ -130,7 +139,5 @@ class TeamStandings extends LitLightElement {
 		`;
 	}
 }
-
-customElements.define('team-standings', TeamStandings);
 
 export default TeamStandings;

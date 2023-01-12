@@ -1,31 +1,37 @@
 import { html } from 'lit';
 import moment from 'moment/moment';
+import { customElement, property } from 'lit/decorators.js';
+import { LeagueInfo, Fixture } from './TeamTypes';
 import { LitLightElement } from '../../lib/LitElement';
 import '../tables/StickyBackgroundTable';
-import { fetchData } from '../../lib/helpers/fetch';
+import { fetchData } from '../../lib/helpers/Fetch';
 
+@customElement('t-fixtures-table')
 class TeamFixturesTable extends LitLightElement {
-	static properties = {
-		headers: {},
-		loading: {},
-		teamID: { type: Number },
-		filteredFixtures: {},
-	};
+	@property({ type: Boolean }) loading: boolean = true;
 
-	constructor() {
-		super();
-		this.loading = true;
-	}
+	@property({ type: Array }) headers: string = '';
+
+	@property({ type: Number }) teamID: number = 0;
+
+	@property() fixtures: Fixture[] = [];
+
+	@property() filteredFixtures: Fixture[] = [];
+
+	leagues: LeagueInfo[] = [];
+
+	selectedLeague: number = 0;
+
+	selectedSeason: number = 0;
 
 	async connectedCallback() {
 		super.connectedCallback();
-		this.headers = this.headers.split(',');
 		this.fixtures = await fetchData(
 			'https://api.npoint.io/3d56ae8265c24b49d6f8'
 		);
 		this.loading = false;
 
-		this.leagues = this.fixtures.map((fixture) => {
+		this.leagues = this.fixtures.map((fixture: Fixture) => {
 			const { league } = fixture;
 			return league;
 		});
@@ -58,9 +64,10 @@ class TeamFixturesTable extends LitLightElement {
 						>
 						<select
 							class="bg-gray-800"
-							@change="${(e) => {
+							@change="${(e: Event) => {
 								if (this.loading) return;
-								this.selectedLeague = Number(e.target.value);
+								const target = e.target as HTMLSelectElement;
+								this.selectedLeague = Number(target.value);
 								this.filteredFixtures = this.filterFixtures();
 							}}"
 						>
@@ -111,7 +118,7 @@ class TeamFixturesTable extends LitLightElement {
 			</div>
 			<sticky-background-table
 				class="min-w-full"
-				headers="Opponent,Round,Date,Side,Status,Score"
+				.headers=${['Opponent', 'Round', 'Date', 'Side', 'Status', 'Score']}
 			>
 				<div class="table-row-group divide-y divide-gray-500">
 					${this.loading
@@ -127,9 +134,9 @@ class TeamFixturesTable extends LitLightElement {
 									const { fixture: match, goals, league, teams } = fixture;
 									const { home, away } = teams;
 									const isHome = home.id === this.teamID;
-									const isWinner =
-										(isHome && goals.home > goals.away) ||
-										(!isHome && goals.away > goals.home);
+									const isWinner = Object.values(teams).find(
+										(team) => team.id === this.teamID && team.winner
+									);
 
 									const { status } = match;
 									const { date } = match;
@@ -187,4 +194,4 @@ class TeamFixturesTable extends LitLightElement {
 	}
 }
 
-customElements.define('t-fixtures-table', TeamFixturesTable);
+export default TeamFixturesTable;

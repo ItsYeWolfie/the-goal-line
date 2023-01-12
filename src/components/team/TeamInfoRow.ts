@@ -1,11 +1,12 @@
 import { html } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 import { LitLightElement } from '../../lib/LitElement';
 
+@customElement('t-info-row')
 class TeamInfoRow extends LitLightElement {
-	static properties = {
-		key: { type: String },
-		value: { type: String },
-	};
+	@property({ type: String }) key: string = '';
+
+	@property({ type: String }) value: string = '';
 
 	render() {
 		return html`
@@ -17,4 +18,4 @@ class TeamInfoRow extends LitLightElement {
 	}
 }
 
-customElements.define('t-info-row', TeamInfoRow);
+export default TeamInfoRow;

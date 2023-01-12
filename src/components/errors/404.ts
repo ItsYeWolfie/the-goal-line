@@ -1,20 +1,19 @@
 import { html } from 'lit';
 
+import { customElement } from 'lit/decorators.js';
 import { LitLightElement } from '../../lib/LitElement';
 
-export class PageNotFound extends LitLightElement {
-	constructor() {
-		super();
-		this.pages = [
-			{
-				title: 'Teams',
-				icon: 'fa-solid fa-users',
-				description: 'View all of the teams and their related information.',
-				href: '/teams',
-			},
-		];
-	}
+const pages = [
+	{
+		title: 'Teams',
+		icon: 'fa-solid fa-users',
+		description: 'View all of the teams and their related information.',
+		href: '/teams',
+	},
+];
 
+@customElement('error-404')
+class PageNotFound extends LitLightElement {
 	render() {
 		return html`
 			<main class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -37,7 +36,7 @@ export class PageNotFound extends LitLightElement {
 							class="mt-4 divide-y divide-gray-700 border-t border-b border-gray-700"
 							role="list"
 						>
-							${this.pages.map(
+							${pages.map(
 								(page) => html`
 									<li class="relative flex items-start space-x-4 py-6">
 										<div class="flex-shrink-0">
@@ -97,5 +96,4 @@ export class PageNotFound extends LitLightElement {
 		`;
 	}
 }
-
-customElements.define('error-404', PageNotFound);
+export default PageNotFound;

@@ -1,47 +1,18 @@
 import '../errors/404';
-import '../pages/Breadcrumb';
 import '../tables/StickyBackgroundTable';
 import './TeamFixturesTable';
 import './TeamInfoRow';
 import './TeamStandings';
 import './TeamStatistics';
-
+import '../pages/BreadCrumb';
 import { html } from 'lit-html';
 // eslint-disable-next-line import/extensions
 import { property, customElement } from 'lit/decorators.js';
+
+import { Breadcrumbs } from '../pages/BreadCrumbTypes';
 import { fetchData } from '../../lib/helpers/Fetch';
 import { LitLightElement } from '../../lib/LitElement';
-
-type Venue = {
-	id: number;
-	city: string;
-	name: string;
-	image: string;
-	address: string;
-	surface: string;
-	capacity: number;
-};
-
-type Team = {
-	id: number;
-	code: string;
-	logo: string;
-	name: string;
-	country: string;
-	founded: number;
-	national: boolean;
-};
-
-type Tabs = {
-	name: string;
-	slug: string;
-	html?: any;
-}[];
-
-type Breadcrumb = {
-	name: string;
-	href: string;
-}[];
+import { TeamDetails, Venue, Tab, Tabs } from './TeamTypes';
 
 const url = new URL(window.location.href);
 const teamID = url.searchParams.get('id')!;
@@ -51,7 +22,7 @@ const tabs: Tabs = [
 		slug: 'fixtures',
 		html: html`
 			<t-fixtures-table
-				headers="Versus,League,Season,Round,Time/Date,Side,Status,Score"
+				.headers="Versus,League,Season,Round,Time/Date,Side,Status,Score"
 				teamID=${teamID}
 			>
 			</t-fixtures-table>
@@ -84,7 +55,7 @@ const tabs: Tabs = [
 		slug: 'coaches',
 	},
 ];
-const breadcrumb: Breadcrumb = [
+const breadcrumb: Breadcrumbs = [
 	{
 		name: 'Teams',
 		href: '/teams',
@@ -94,7 +65,6 @@ const breadcrumb: Breadcrumb = [
 const slug = url.searchParams.get('tab') || tabs[1].slug;
 
 @customElement('team-page')
-// eslint-disable-next-line
 class TeamPage extends LitLightElement {
 	@property() loading: boolean = true;
 
@@ -104,11 +74,9 @@ class TeamPage extends LitLightElement {
 
 	@property() teamID: string = '';
 
-	classList: any;
-
 	venue: Venue = {} as Venue;
 
-	team: Team = {} as Team;
+	team: TeamDetails = {} as TeamDetails;
 
 	constructor() {
 		super();
@@ -124,7 +92,7 @@ class TeamPage extends LitLightElement {
 			`https://api.npoint.io/585facaf04546274c0c0/`
 		);
 		this.loading = false;
-		const { team, venue }: { team: Team; venue: Venue } = teamObject;
+		const { team, venue }: { team: TeamDetails; venue: Venue } = teamObject;
 		this.team = team;
 		this.venue = venue;
 		breadcrumb.push({
@@ -136,7 +104,10 @@ class TeamPage extends LitLightElement {
 	setActiveTab(tabName: string | null) {
 		if (!tabName) return;
 		this.activeTab = tabName;
-		url.searchParams.set('tab', tabs.find((tab) => tab.slug === tabName)!.slug);
+		url.searchParams.set(
+			'tab',
+			tabs.find((tab: Tab) => tab.slug === tabName)!.slug
+		);
 		window.history.pushState({}, '', url);
 	}
 
@@ -157,7 +128,7 @@ class TeamPage extends LitLightElement {
 									class="-mb-px flex flex-wrap items-center justify-between border-b border-gray-500"
 								>
 									${tabs.map(
-										(tab) => html` <button
+										(tab: Tab) => html` <button
 											class="${tab.slug === this.activeTab
 												? 'border-indigo-400 text-indigo-500'
 												: 'border-transparent text-gray-200 hover:text-gray-400 hover:border-gray-300'} tab-button border-b-2 p-4 text-center text-sm font-medium transition-colors duration-300 ease-in-out"
@@ -172,8 +143,8 @@ class TeamPage extends LitLightElement {
 							</div>
 							<section class="py-8">
 								${
-									tabs.find((tab) => tab.slug === this.activeTab)!.html
-										? tabs.find((tab) => tab.slug === this.activeTab)!.html
+									tabs.find((tab: Tab) => tab.slug === this.activeTab)!.html
+										? tabs.find((tab: Tab) => tab.slug === this.activeTab)!.html
 										: html`<p>Coming Soon</p>`
 								}
 							</section>
@@ -228,3 +199,4 @@ class TeamPage extends LitLightElement {
 		`;
 	}
 }
+export default TeamPage;
