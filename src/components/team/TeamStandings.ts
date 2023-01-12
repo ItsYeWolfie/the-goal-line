@@ -2,21 +2,21 @@ import { html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { LitLightElement } from '../../lib/LitElement';
 import { fetchData } from '../../lib/helpers/Fetch';
-import { LeagueStandings, StandingInfo } from './TeamTypes';
+import { ILeagueWithStanding, ILeagueStanding } from '../../types/League.types';
 
 @customElement('team-standings')
 class TeamStandings extends LitLightElement {
-	@property({ type: Boolean }) loading: boolean = true;
+	@property({ type: Boolean }) loading = true;
 
-	@property({ type: Array }) standings: LeagueStandings[] = [];
+	@property({ type: Array }) standings: ILeagueStanding[] = [];
 
 	async connectedCallback() {
 		super.connectedCallback();
-		const leagueData = await fetchData(
+		const leagueData = await fetchData<ILeagueWithStanding>(
 			`https://api.npoint.io/9755c43d23971a73fe3f`
 		);
 		this.loading = false;
-		const { standings } = leagueData.league;
+		const { standings } = leagueData;
 		this.standings = standings;
 	}
 
@@ -45,7 +45,7 @@ class TeamStandings extends LitLightElement {
 								</div>
 						  </div>`
 						: html`
-								${this.standings.map((standing: StandingInfo, index) => {
+								${this.standings.map((standing, index) => {
 									const { team, form } = standing;
 									const formArray = form.split('');
 									return html`

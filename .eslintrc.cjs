@@ -5,6 +5,7 @@ module.exports = {
 	},
 	extends: [
 		'airbnb-base',
+		'plugin:@typescript-eslint/recommended',
 		'airbnb-typescript/base',
 		'plugin:import/recommended',
 		'plugin:promise/recommended',
@@ -12,8 +13,15 @@ module.exports = {
 		'plugin:prettier/recommended',
 	],
 	parser: '@typescript-eslint/parser',
-	plugins: ['tailwindcss', 'html'],
-	overrides: [],
+	plugins: ['tailwindcss', 'html', '@typescript-eslint'],
+	overrides: [
+		{
+			files: ['*.types.ts'],
+			rules: {
+				'import/no-cycle': 0,
+			},
+		},
+	],
 	parserOptions: {
 		sourceType: 'module',
 		project: './tsconfig.json',

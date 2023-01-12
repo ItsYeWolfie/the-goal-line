@@ -4,9 +4,9 @@ import { LitLightElement } from '../../lib/LitElement';
 
 @customElement('t-info-row')
 class TeamInfoRow extends LitLightElement {
-	@property({ type: String }) key: string = '';
+	@property({ type: String }) key = '';
 
-	@property({ type: String }) value: string = '';
+	@property({ type: String }) value = '';
 
 	render() {
 		return html`

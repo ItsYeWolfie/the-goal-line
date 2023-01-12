@@ -1,26 +1,5 @@
-export const fetchData = async (url: string): Promise<any> => {
-	return new Promise((resolve, reject) => {
-		fetch(url)
-			.then((response) => response.json())
-			.then((data) => {
-				return resolve(data);
-			})
-			.catch((error) => {
-				reject(error);
-			});
-	});
+export const fetchData = async <T>(url: string): Promise<T> => {
+	return fetch(url).then((response) => response.json());
 };
 
-export const fetchDataToArr = async (url: string, arr: any[]) => {
-	return new Promise((resolve, reject) => {
-		fetch(url)
-			.then((response) => response.json())
-			.then((data) => {
-				arr.push(data);
-				return resolve(data);
-			})
-			.catch((error) => {
-				reject(error);
-			});
-	});
-};
+export default fetchData;

@@ -1,28 +1,29 @@
 import { html } from 'lit';
 import moment from 'moment/moment';
 import { customElement, property } from 'lit/decorators.js';
-import { LeagueInfo, Fixture } from './TeamTypes';
 import { LitLightElement } from '../../lib/LitElement';
 import '../tables/StickyBackgroundTable';
 import { fetchData } from '../../lib/helpers/Fetch';
+import { IFixture } from '../../types/Fixture.types';
+import { ILeague } from '../../types/League.types';
 
 @customElement('t-fixtures-table')
 class TeamFixturesTable extends LitLightElement {
-	@property({ type: Boolean }) loading: boolean = true;
+	@property({ type: Boolean }) loading = true;
 
-	@property({ type: Array }) headers: string = '';
+	@property({ type: Array }) headers = '';
 
-	@property({ type: Number }) teamID: number = 0;
+	@property({ type: Number }) teamID = 0;
 
-	@property() fixtures: Fixture[] = [];
+	@property() fixtures: IFixture[] = [];
 
-	@property() filteredFixtures: Fixture[] = [];
+	@property() filteredFixtures: IFixture[] = [];
 
-	leagues: LeagueInfo[] = [];
+	leagues: ILeague[] = [];
 
-	selectedLeague: number = 0;
+	selectedLeague = 0;
 
-	selectedSeason: number = 0;
+	selectedSeason = 0;
 
 	async connectedCallback() {
 		super.connectedCallback();
@@ -31,7 +32,7 @@ class TeamFixturesTable extends LitLightElement {
 		);
 		this.loading = false;
 
-		this.leagues = this.fixtures.map((fixture: Fixture) => {
+		this.leagues = this.fixtures.map((fixture) => {
 			const { league } = fixture;
 			return league;
 		});

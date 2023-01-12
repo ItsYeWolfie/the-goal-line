@@ -1,6 +1,6 @@
 import { html } from 'lit-html';
 import { customElement, property } from 'lit/decorators.js';
-import { Breadcrumbs } from './BreadCrumbTypes';
+import { IBreadCrumb } from '../../types/BreadCrumb.types';
 import { LitLightElement } from '../../lib/LitElement';
 
 @customElement('nav-breadcrumb')
@@ -9,7 +9,7 @@ export class BreadCrumb extends LitLightElement {
 		breadcrumb: [],
 	};
 
-	@property() breadcrumb: Breadcrumbs = [];
+	@property() breadcrumb: IBreadCrumb[] = [];
 
 	render() {
 		return html`

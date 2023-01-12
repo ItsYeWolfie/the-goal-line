@@ -13,8 +13,7 @@ export default defineConfig({
 		emptyOutDir: true,
 		rollupOptions: {
 			input: {
-				main: resolve(root, 'index.html'),
-				// ...
+				team: resolve(root, 'team.html'),
 			},
 		},
 	},
