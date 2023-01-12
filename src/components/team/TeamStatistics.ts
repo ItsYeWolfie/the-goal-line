@@ -1,33 +1,24 @@
 import { html } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 import { LitLightElement } from '../../lib/LitElement';
 import { fetchData } from '../../lib/helpers/Fetch';
 import '../tables/StickyBackgroundTable';
+import { ITeamStatistics } from '../../types/Team.types';
 
+@customElement('team-statistics')
 class TeamStatistics extends LitLightElement {
-	static properties = {
-		teamID: {},
-		loading: {},
-	};
+	@property({ type: Number }) teamID = 0;
 
-	constructor() {
-		super();
-		this.loading = true;
-	}
+	@property({ type: Boolean }) loading = true;
+
+	team: ITeamStatistics = {} as ITeamStatistics;
 
 	async connectedCallback() {
 		super.connectedCallback();
-		const teamstatistics = await fetchData(
+		this.team = await fetchData<ITeamStatistics>(
 			'https://api.npoint.io/259bb0faaedc5732aebe'
 		);
 		this.loading = false;
-		// Add every element of teamstatistics to this
-		Object.keys(teamstatistics).forEach((key) => {
-			this[key] = teamstatistics[key];
-		});
-		console.log('Form', this.form);
-		console.log('Team', this.team);
-		console.log('Cards', this.cards);
-		console.log('league', this.league);
 	}
 
 	render() {
@@ -47,14 +38,18 @@ class TeamStatistics extends LitLightElement {
 							<tr>
 								<td class="w-56 py-2 pl-3">Most goals scored (Home)</td>
 								<td class="pr-3 pl-3">
-									${this.loading ? '...' : this.biggest.goals.for.home || '-'}
+									${this.loading
+										? '...'
+										: this.team.biggest.goals.for.home || '-'}
 								</td>
 							</tr>
 
 							<tr class="bg-gray-600">
 								<td class="py-2 pl-3">Most goals scored (Away)</td>
 								<td class="pr-3 pl-3">
-									${this.loading ? '...' : this.biggest.goals.for.away || '-'}
+									${this.loading
+										? '...'
+										: this.team.biggest.goals.for.away || '-'}
 								</td>
 							</tr>
 							<tr>
@@ -62,7 +57,7 @@ class TeamStatistics extends LitLightElement {
 								<td class="pr-3 pl-3">
 									${this.loading
 										? '...'
-										: this.biggest.goals.against.home || '-'}
+										: this.team.biggest.goals.against.home || '-'}
 								</td>
 							</tr>
 
@@ -71,50 +66,54 @@ class TeamStatistics extends LitLightElement {
 								<td class="pr-3 pl-3">
 									${this.loading
 										? '...'
-										: this.biggest.goals.against.away || '-'}
+										: this.team.biggest.goals.against.away || '-'}
 								</td>
 							</tr>
 							<tr>
 								<td class="py-2 pl-3">Biggest Win (Home)</td>
 								<td class="pr-3 pl-3">
-									${this.loading ? '...' : this.biggest.wins.home || '-'}
+									${this.loading ? '...' : this.team.biggest.wins.home || '-'}
 								</td>
 							</tr>
 							<tr class="bg-gray-600">
 								<td class="py-2 pl-3">Biggest Win (Away)</td>
 								<td class="pr-3 pl-3">
-									${this.loading ? '...' : this.biggest.wins.away || '-'}
+									${this.loading ? '...' : this.team.biggest.wins.away || '-'}
 								</td>
 							</tr>
 							<tr>
 								<td class="py-2 pl-3">Biggest Loss (Home)</td>
 								<td class="pr-3 pl-3">
-									${this.loading ? '...' : this.biggest.loses?.home || '-'}
+									${this.loading ? '...' : this.team.biggest.loses?.home || '-'}
 								</td>
 							</tr>
 
 							<tr class="bg-gray-600">
 								<td class="py-2 pl-3">Biggest Loss (Away)</td>
 								<td class="pr-3 pl-3">
-									${this.loading ? '...' : this.biggest.loses.away || '-'}
+									${this.loading ? '...' : this.team.biggest.loses.away || '-'}
 								</td>
 							</tr>
 							<tr>
 								<td class="py-2 pl-3">Most Matches Won in a Row</td>
 								<td class="pr-3 pl-3">
-									${this.loading ? '...' : this.biggest.streak.wins || '-'}
+									${this.loading ? '...' : this.team.biggest.streak.wins || '-'}
 								</td>
 							</tr>
 							<tr class="bg-gray-600">
 								<td class="py-2 pl-3">Most Matches Lost in a Row</td>
 								<td class="pr-3 pl-3">
-									${this.loading ? '...' : this.biggest.streak.loses || '-'}
+									${this.loading
+										? '...'
+										: this.team.biggest.streak.loses || '-'}
 								</td>
 							</tr>
 							<tr>
 								<td class="py-2 pl-3">Most Matches With a Draw in a Row</td>
 								<td class="pr-3 pl-3">
-									${this.loading ? '...' : this.biggest.streak.draws || '-'}
+									${this.loading
+										? '...'
+										: this.team.biggest.streak.draws || '-'}
 								</td>
 							</tr>
 						</tbody>
@@ -133,31 +132,35 @@ class TeamStatistics extends LitLightElement {
 							<tr>
 								<td class="py-2 pl-3">Home</td>
 								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.fixtures.wins.home || '-'}
+									${this.loading ? '...' : this.team.fixtures.wins.home || '-'}
 								</td>
 								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.fixtures.draws.home || '-'}
+									${this.loading ? '...' : this.team.fixtures.draws.home || '-'}
 								</td>
 								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.fixtures.loses.home || '-'}
+									${this.loading ? '...' : this.team.fixtures.loses.home || '-'}
 								</td>
 								<td class="pr-3 pl-3 text-center">
-									${this.loading ? '...' : this.fixtures.played.home || '-'}
+									${this.loading
+										? '...'
+										: this.team.fixtures.played.home || '-'}
 								</td>
 							</tr>
 							<tr class="bg-gray-600">
 								<td class="py-2 pl-3">Away</td>
 								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.fixtures.wins.away || '-'}
+									${this.loading ? '...' : this.team.fixtures.wins.away || '-'}
 								</td>
 								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.fixtures.draws.away || '-'}
+									${this.loading ? '...' : this.team.fixtures.draws.away || '-'}
 								</td>
 								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.fixtures.loses.away || '-'}
+									${this.loading ? '...' : this.team.fixtures.loses.away || '-'}
 								</td>
 								<td class="pr-3 pl-3 text-center">
-									${this.loading ? '...' : this.fixtures.played.away || '-'}
+									${this.loading
+										? '...'
+										: this.team.fixtures.played.away || '-'}
 								</td>
 							</tr>
 						</tbody>
@@ -165,16 +168,22 @@ class TeamStatistics extends LitLightElement {
 							<tr class="border-t">
 								<td class="py-2 pl-3">Total</td>
 								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.fixtures.wins.total || '-'}
+									${this.loading ? '...' : this.team.fixtures.wins.total || '-'}
 								</td>
 								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.fixtures.draws.total || '-'}
+									${this.loading
+										? '...'
+										: this.team.fixtures.draws.total || '-'}
 								</td>
 								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.fixtures.loses.total || '-'}
+									${this.loading
+										? '...'
+										: this.team.fixtures.loses.total || '-'}
 								</td>
 								<td class="pr-3 pl-3 text-center">
-									${this.loading ? '...' : this.fixtures.played.total || '-'}
+									${this.loading
+										? '...'
+										: this.team.fixtures.played.total || '-'}
 								</td>
 							</tr>
 						</tfoot>
@@ -192,25 +201,31 @@ class TeamStatistics extends LitLightElement {
 							<tr>
 								<td class="py-2 pl-3">Matches With a Clean Sheet</td>
 								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.clean_sheet.home || '-'}
+									${this.loading ? '...' : this.team.clean_sheet.home || '-'}
 								</td>
 								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.clean_sheet.away || '-'}
+									${this.loading ? '...' : this.team.clean_sheet.away || '-'}
 								</td>
 								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.clean_sheet.total || '-'}
+									${this.loading ? '...' : this.team.clean_sheet.total || '-'}
 								</td>
 							</tr>
 							<tr class="bg-gray-600">
 								<td class="py-2 pl-3">Matches Without Scoring</td>
 								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.failed_to_score.home || '-'}
+									${this.loading
+										? '...'
+										: this.team.failed_to_score.home || '-'}
 								</td>
 								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.failed_to_score.away || '-'}
+									${this.loading
+										? '...'
+										: this.team.failed_to_score.away || '-'}
 								</td>
 								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.failed_to_score.total || '-'}
+									${this.loading
+										? '...'
+										: this.team.failed_to_score.total || '-'}
 								</td>
 							</tr>
 						</tbody>
@@ -227,7 +242,7 @@ class TeamStatistics extends LitLightElement {
 								? html`<tr>
 										<td class="py-2 pl-3" colspan="100">Loading...</td>
 								  </tr>`
-								: this.lineups.map(
+								: this.team.lineups.map(
 										(lineup, index) => html`
 											<tr class="${index % 2 === 1 ? 'bg-gray-600' : ''}">
 												<td class="py-2 pl-3">${lineup.formation}</td>
@@ -251,19 +266,27 @@ class TeamStatistics extends LitLightElement {
 							<tr class="bg-gray-600">
 								<td class="py-2 pl-3">Home</td>
 								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.goals.for.total.home || '-'}
+									${this.loading
+										? '...'
+										: this.team.goals.for.total.home || '-'}
 								</td>
 								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.goals.against.total.home || '-'}
+									${this.loading
+										? '...'
+										: this.team.goals.against.total.home || '-'}
 								</td>
 							</tr>
 							<tr>
 								<td class="py-2 pl-3">Away</td>
 								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.goals.for.total.away || '-'}
+									${this.loading
+										? '...'
+										: this.team.goals.for.total.away || '-'}
 								</td>
 								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.goals.against.total.away || '-'}
+									${this.loading
+										? '...'
+										: this.team.goals.against.total.away || '-'}
 								</td>
 							</tr>
 						</tbody>
@@ -271,12 +294,14 @@ class TeamStatistics extends LitLightElement {
 							<tr>
 								<td class="py-2 pl-3">Total</td>
 								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.goals.for.total.total || '-'}
+									${this.loading
+										? '...'
+										: this.team.goals.for.total.total || '-'}
 								</td>
 								<td class="pl-3 text-center">
 									${this.loading
 										? '...'
-										: this.goals.against.total.total || '-'}
+										: this.team.goals.against.total.total || '-'}
 								</td>
 							</tr>
 						</tfoot>
@@ -296,33 +321,38 @@ class TeamStatistics extends LitLightElement {
 										<td class="py-2 pl-3" colspan="100">Loading...</td>
 								  </tr>`
 								: html`
-										${Object.keys(this.goals.for.minute).map(
-											(minute, index) => html`
-												<tr class="${index % 2 === 1 ? 'bg-gray-600' : ''}">
-													<td class="py-2 pl-3">${minute}</td>
-													<td class="pl-3 text-center">
-														${this.loading
-															? '...'
-															: this.goals.for.minute[minute].total || '-'}
-													</td>
-													<td class="pl-3 text-center">
-														${this.loading
-															? '...'
-															: this.goals.for.minute[minute].percentage || '-'}
-													</td>
-													<td class="pl-3 text-center">
-														${this.loading
-															? '...'
-															: this.goals.against.minute[minute].total || '-'}
-													</td>
-													<td class="pl-3 pr-3 text-center">
-														${this.loading
-															? '...'
-															: this.goals.against.minute[minute].percentage ||
-															  '-'}
-													</td>
-												</tr>
-											`
+										${Object.keys(this.team.goals.for.minute).map(
+											(minute: string, index) => {
+												return html`
+													<tr class="${index % 2 === 1 ? 'bg-gray-600' : ''}">
+														<td class="py-2 pl-3">${minute}</td>
+														<td class="pl-3 text-center">
+															${this.loading
+																? '...'
+																: this.team.goals.for.minute[minute].total ||
+																  '-'}
+														</td>
+														<td class="pl-3 text-center">
+															${this.loading
+																? '...'
+																: this.team.goals.for.minute[minute]
+																		.percentage || '-'}
+														</td>
+														<td class="pl-3 text-center">
+															${this.loading
+																? '...'
+																: this.team.goals.against.minute[minute]
+																		.total || '-'}
+														</td>
+														<td class="pl-3 pr-3 text-center">
+															${this.loading
+																? '...'
+																: this.team.goals.against.minute[minute]
+																		.percentage || '-'}
+														</td>
+													</tr>
+												`;
+											}
 										)}
 								  `}
 						</tbody>
@@ -340,13 +370,19 @@ class TeamStatistics extends LitLightElement {
 							<tr>
 								<td class="py-2 pl-3">Scored</td>
 								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.goals.for.average.home || '-'}
+									${this.loading
+										? '...'
+										: this.team.goals.for.average.home || '-'}
 								</td>
 								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.goals.for.average.away || '-'}
+									${this.loading
+										? '...'
+										: this.team.goals.for.average.away || '-'}
 								</td>
 								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.goals.for.average.total || '-'}
+									${this.loading
+										? '...'
+										: this.team.goals.for.average.total || '-'}
 								</td>
 							</tr>
 							<tr class="bg-gray-600">
@@ -354,17 +390,17 @@ class TeamStatistics extends LitLightElement {
 								<td class="pl-3 text-center">
 									${this.loading
 										? '...'
-										: this.goals.against.average.home || '-'}
+										: this.team.goals.against.average.home || '-'}
 								</td>
 								<td class="pl-3 text-center">
 									${this.loading
 										? '...'
-										: this.goals.against.average.away || '-'}
+										: this.team.goals.against.average.away || '-'}
 								</td>
 								<td class="pl-3 text-center">
 									${this.loading
 										? '...'
-										: this.goals.against.average.total || '-'}
+										: this.team.goals.against.average.total || '-'}
 								</td>
 							</tr>
 						</tbody>
@@ -381,23 +417,27 @@ class TeamStatistics extends LitLightElement {
 							<tr class="bg-gray-600">
 								<td class="py-2 pl-3">Scored</td>
 								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.penalty.scored.total || '-'}
+									${this.loading
+										? '...'
+										: this.team.penalty.scored.total || '-'}
 								</td>
 								<td class="pl-3 text-center">
 									${this.loading
 										? '...'
-										: this.penalty.scored.percentage || '-'}
+										: this.team.penalty.scored.percentage || '-'}
 								</td>
 							</tr>
 							<tr>
 								<td class="py-2 pl-3">Missed</td>
 								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.penalty.missed.total || '-'}
+									${this.loading
+										? '...'
+										: this.team.penalty.missed.total || '-'}
 								</td>
 								<td class="pl-3 text-center">
 									${this.loading
 										? '...'
-										: this.penalty.missed.percentage || '-'}
+										: this.team.penalty.missed.percentage || '-'}
 								</td>
 							</tr>
 						</tbody>
@@ -408,4 +448,4 @@ class TeamStatistics extends LitLightElement {
 	}
 }
 
-customElements.define('team-statistics', TeamStatistics);
+export default TeamStatistics;
