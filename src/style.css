@@ -16,7 +16,7 @@
       }
     }
   }
-
+  
 #app {
 	@apply h-[100%] w-full  bg-gray-900;
 }

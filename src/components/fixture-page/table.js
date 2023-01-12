@@ -12,21 +12,15 @@ class Table extends LitLightElement {
                             <th class="text-left pl-2">Team</th>
                             <th class="w-9 text-center">
                                 <span class="cursor-help" data-tooltip-target="tooltip-bottom" data-tooltip-placement="bottom">P</span>
-                                <div id="tooltip-bottom" role="tooltip" class="tooltip absolute -mt-8 z-10 inline-block bg-gray-700 font-medium shadow-sm text-white py-1 px-3 text-sm rounded-lg opacity-0 invisible" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom">
-                                    Played
-                                </div>
+                                
                             </th>
                             <th class="w-9 text-center" >
                                 <span class="cursor-help" data-tooltip-target="tooltip-bottom1" data-tooltip-placement="bottom">GD</span>
-                                <div id="tooltip-bottom1" role="tooltip" class="tooltip absolute -mt-8 z-10 inline-block bg-gray-700 font-medium shadow-sm text-white py-1 px-3 text-sm rounded-lg opacity-0 invisible" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom">
-                                    Goals Difference
-                                </div>
+                                
                             </th>
                             <th class="w-9 text-center">
                                 <span class="cursor-help" data-tooltip-target="tooltip-bottom2" data-tooltip-placement="bottom">PTS</span>
-                                <div id="tooltip-bottom2" role="tooltip" class="tooltip absolute -mt-8 z-10 inline-block bg-gray-700 font-medium shadow-sm text-white py-1 px-3 text-sm rounded-lg opacity-0 invisible" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom">
-                                    Points
-                                </div>
+                                
                             </th>
                         </tr>
                     </thead>
@@ -35,9 +29,7 @@ class Table extends LitLightElement {
                             <td class="pl-1 text-sm relative text-center cursor-help" data-tooltip-target="tooltip-right" data-tooltip-placement="right">
                                 <span class="absolute border-b-4 top-7 rounded-t-md -ml-2 w-6 border-blue-500"></span>
                                 1 
-                                <div id="tooltip-right" role="tooltip" class="tooltip absolute z-10 inline-block bg-gray-700 font-medium shadow-sm text-white py-1 px-3 text-sm rounded-lg opacity-0 invisible" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="right">
-                                    Champions League
-                                </div>     
+                                    
                             </td>
                             <td class="text-sm w-60 pl-2"><span class="flex"><img src="" width="20px"/><p class="pl-1">Arsenal</p></span></td>
                             <td class="pl-1 text-sm w-9 text-center">17</td>
@@ -48,9 +40,7 @@ class Table extends LitLightElement {
                             <td class="pl-1 text-sm relative text-center cursor-help" data-tooltip-target="tooltip-right" data-tooltip-placement="right">
                                 <span class="absolute border-b-4 top-7 rounded-t-md -ml-2 w-6 border-blue-500"></span>
                                 2
-                                <div id="tooltip-right" role="tooltip" class="tooltip absolute z-10 inline-block bg-gray-700 font-medium shadow-sm text-white py-1 px-3 text-sm rounded-lg opacity-0 invisible" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="right">
-                                    Champions League
-                                </div>
+                                
                             </td>
                             <td class="text-sm pl-2"><span class="flex"><img src="" width="20px"/><p class="pl-1">Manchester City</p></span></td>
                             <td class="pl-1 text-sm w-9 text-center">17</td>
@@ -61,9 +51,7 @@ class Table extends LitLightElement {
                             <td class="pl-1 text-sm relative text-center cursor-help" data-tooltip-target="tooltip-right" data-tooltip-placement="right">
                                 <span class="absolute border-b-4 top-7 rounded-t-md -ml-2 w-6 border-blue-500"></span>
                                 3
-                                <div id="tooltip-right" role="tooltip" class="tooltip absolute z-10 inline-block bg-gray-700 font-medium shadow-sm text-white py-1 px-3 text-sm rounded-lg opacity-0 invisible" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="right">
-                                    Champions League
-                                </div>
+                                
                             </td>
                             <td class="text-sm pl-2"><span class="flex"><img src="" width="20px"/><p class="pl-1">Newcastle City</p></span></td>
                             <td class="pl-1 text-sm w-9 text-center">17</td>
@@ -74,9 +62,7 @@ class Table extends LitLightElement {
                             <td class="pl-1 text-sm relative text-center cursor-help" data-tooltip-target="tooltip-right" data-tooltip-placement="right">
                                 <span class="absolute border-b-4 top-7 rounded-t-md -ml-2 w-6 border-blue-500"></span>
                                 4
-                                <div id="tooltip-right" role="tooltip" class="tooltip absolute z-10 inline-block bg-gray-700 font-medium shadow-sm text-white py-1 px-3 text-sm rounded-lg opacity-0 invisible" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="right">
-                                    Champions League
-                                </div>
+                                
                             </td>
                             <td class="text-sm pl-2"><span class="flex"><img src="./photos/manutd.png" width="20px"/><p class="pl-1">Manchester United</p></span></td>
                             <td class="pl-1 text-sm w-9 text-center">17</td>
@@ -87,9 +73,7 @@ class Table extends LitLightElement {
                             <td class="pl-1 text-sm relative text-center cursor-help" data-tooltip-target="tooltip-right1" data-tooltip-placement="right">
                                 <span class="absolute border-b-4 top-7 rounded-t-md -ml-2 w-6 border-orange-500"></span>
                                 5
-                                <div id="tooltip-right1" role="tooltip" class="tooltip absolute z-10 inline-block bg-gray-700 font-medium shadow-sm text-white py-1 px-3 whitespace-nowrap text-sm rounded-lg opacity-0 invisible" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="right">
-                                    Europa League
-                                </div>
+                                
                             </td>
                             <td class="text-sm pl-2"><span class="flex"><img src="" width="20px"/><p class="pl-1">Tottenham Hotspur</p></span></td>
                             <td class="pl-1 text-sm w-9 text-center">17</td>
@@ -186,9 +170,7 @@ class Table extends LitLightElement {
                             <td class="pl-1 text-sm relative text-center cursor-help" data-tooltip-target="tooltip-right2" data-tooltip-placement="right">
                                 <span class="absolute border-b-4 top-7 rounded-t-md -ml-1 w-6 border-red-700"></span>
                                 18
-                                <div id="tooltip-right2" role="tooltip" class="tooltip absolute z-10 inline-block bg-gray-700 font-medium shadow-sm text-white py-1 px-3 text-sm rounded-lg opacity-0 invisible" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="right">
-                                    Relegation
-                                </div>
+                                
                             </td>
                             <td class="text-sm pl-2"><span class="flex"><img src="" width="20px"/><p class="pl-1">Everton</p></span></td>
                             <td class="pl-1 text-sm w-9 text-center">17</td>
@@ -199,9 +181,7 @@ class Table extends LitLightElement {
                             <td class="pl-1 text-sm relative text-center cursor-help" data-tooltip-target="tooltip-right2" data-tooltip-placement="right">
                                 <span class="absolute border-b-4 top-7 rounded-t-md -ml-1 w-6 border-red-700"></span>
                                 19
-                                <div id="tooltip-right2" role="tooltip" class="tooltip absolute z-10 inline-block bg-gray-700 font-medium shadow-sm text-white py-1 px-3 text-sm rounded-lg opacity-0 invisible" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="right">
-                                    Relegation
-                                </div>
+                                
                             </td>
                             <td class="text-sm pl-2"><span class="flex"><img src="" width="20px"/><p class="pl-1">Wolverhampton Wanderers</p></span></td>
                             <td class="pl-1 text-sm w-9 text-center">17</td>
@@ -212,9 +192,7 @@ class Table extends LitLightElement {
                             <td class="pl-1 text-sm relative text-center cursor-help" data-tooltip-target="tooltip-right2" data-tooltip-placement="right">
                                 <span class="absolute border-b-4 top-7 rounded-t-md -ml-1 w-6 border-red-700"></span>
                                 20
-                                <div id="tooltip-right2" role="tooltip" class="tooltip absolute z-10 inline-block bg-gray-700 font-medium shadow-sm text-white py-1 px-3 text-sm rounded-lg opacity-0 invisible" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="right">
-                                    Relegation
-                                </div>
+                                
                             </td>
                             <td class="text-sm pl-2"><span class="flex"><img src="" width="20px"/><p class="pl-1">Southampton</p></span></td>
                             <td class="pl-1 text-sm w-9 text-center">17</td>
