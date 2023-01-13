@@ -57,7 +57,7 @@ class TeamFixturesTable extends LitLightElement {
 
 	render() {
 		return html`
-			<div class="align-center mb-8 flex items-center justify-between">
+			<div class="mb-8 flex items-center justify-between">
 				<div class="flex items-center gap-4">
 					<div>
 						<label class="mb-1 block text-sm font-medium text-gray-100"
