@@ -60,22 +60,22 @@ class Banner extends LitLightElement {
 							src="./images/derby3.jpg"
 						/>
 						<p
-							class="z-1 absolute top-[5%] left-[25%] text-[0.8rem] font-bold text-gray-200 sm:left-[35%] md:left-[33%] md:text-[1rem] lg:left-[33%] lg:text-[1.3rem]"
+							class="z-1 absolute top-[5%] left-[25%] text-[0.8rem] font-semibold text-gray-200 shadow-xl sm:left-[35%] md:left-[33%] md:text-[1rem] lg:left-[33%] lg:text-[1.3rem] xl:left-[28%] xl:text-[2.5rem]"
 						>
 							Real Madrid vs Barcelona
 						</p>
 						<p
-							class="z-1 absolute top-[80%] left-[5%] text-[0.6rem] font-semibold text-gray-200 sm:text-[0.7rem] md:left-[10%] md:text-[0.9rem] lg:left-[5%] lg:text-[0.9rem]"
+							class="z-1 absolute top-[80%] left-[5%] text-[0.6rem] font-semibold text-gray-200 sm:text-[0.7rem] md:left-[10%] md:text-[0.9rem] lg:left-[5%] lg:text-[0.9rem] xl:text-[1.6rem]"
 						>
 							19 March - 2023
 						</p>
 						<p
-							class="z-1 absolute top-[90%] left-[5%] text-[0.6rem] font-bold text-gray-200 sm:text-[0.7rem] md:left-[10%] md:text-[0.9rem] lg:left-[5%] lg:text-[0.9rem]"
+							class="z-1 absolute top-[90%] left-[5%] text-[0.6rem] font-semibold text-gray-200 sm:text-[0.7rem] md:left-[10%] md:text-[0.9rem] lg:left-[5%] lg:text-[0.9rem] xl:text-[1.6rem]"
 						>
 							Santiago Bernabeu
 						</p>
 						<p
-							class="z-1 absolute top-[90%] right-[5%] rounded-[3px] text-[0.6rem] text-gray-200 sm:text-[0.7rem] md:text-[0.7rem] lg:text-[1rem]"
+							class="z-1 absolute top-[90%] right-[5%] rounded-[3px] text-[0.6rem] text-gray-200 sm:text-[0.7rem] md:text-[0.7rem] lg:text-[1rem] xl:text-[1.5rem]"
 							id="demo"
 						>
 							${this.timer}
@@ -86,12 +86,12 @@ class Banner extends LitLightElement {
 							class="relative col-span-1 h-[100%] w-[100%] rounded-[20px] bg-gray-900"
 						>
 							<h3
-								class="pt-[10%] text-center  font-[450] text-gray-200 lg:text-xl "
+								class="pt-[10%] text-center  font-[450] text-gray-200 lg:text-xl xl:text-[1.5rem] 2xl:text-[2rem]"
 							>
 								Live Match
 							</h3>
 							<p
-								class="color mt-[5%] mb-[8%] text-center text-[13px] font-medium text-lime-500 lg:text-lg"
+								class="color mt-[5%] mb-[8%] text-center text-[13px] font-medium text-lime-500 lg:text-lg xl:text-[1.3rem] 2xl:text-[1.6rem]"
 							>
 								${minutes} : ${seconds < 10 ? `0${seconds}` : seconds}
 							</p>
@@ -104,23 +104,23 @@ class Banner extends LitLightElement {
 								src=" https://i.pinimg.com/564x/a6/7a/f9/a67af9c593ba25a687b95e35d294dc18.jpg"
 							/>
 							<p
-								class="mt-[10%] ml-[35%] mb-[15%] w-[30%] rounded-[15px] bg-violet-100 py-[1%] text-center text-[13px] font-semibold text-violet-800 md:w-[30%] lg:text-[15px]"
+								class="mt-[10%] ml-[35%] mb-[15%] w-[30%] rounded-[15px] bg-violet-100 py-[1%] text-center text-[13px] font-semibold text-violet-800 md:w-[30%] lg:text-[15px] xl:text-[1.3rem] 2xl:text-[1.6rem]"
 							>
 								0 - 0
 							</p>
 							<div class="relative mt-[10%]">
 								<p
-									class="mb-[6%] text-center text-[12px] font-medium text-gray-200 lg:text-[14px]"
+									class="mb-[6%] text-center text-[12px] font-medium text-gray-200 lg:text-[14px] xl:text-[1rem] 2xl:text-[1.2rem]"
 								>
 									Possession
 								</p>
 								<p
-									class="absolute top-[28%] left-[6%] text-[12px] text-blue-600 "
+									class="absolute top-[28%] left-[6%] text-[12px] text-blue-600 xl:text-[1rem] 2xl:text-[1.2rem]"
 								>
 									7
 								</p>
 								<p
-									class="absolute top-[28%] right-[6%] text-[12px] text-orange-600"
+									class="absolute top-[28%] right-[6%] text-[12px] text-orange-600 xl:text-[1rem] 2xl:text-[1.2rem]"
 								>
 									3
 								</p>
@@ -145,17 +145,17 @@ class Banner extends LitLightElement {
 							</div>
 							<div class="relative mt-[5%]">
 								<p
-									class="mb-[4%] text-center text-[12px] font-medium text-gray-200 lg:text-[14px]"
+									class="mb-[4%] text-center text-[12px] font-medium text-gray-200 lg:text-[14px] xl:text-[1rem] 2xl:text-[1.2rem]"
 								>
 									Shoot
 								</p>
 								<p
-									class="absolute top-[28%] left-[6%] text-[12px] text-blue-600"
+									class="absolute top-[28%] left-[6%] text-[12px] text-blue-600 xl:text-[1rem] 2xl:text-[1.2rem]"
 								>
 									12
 								</p>
 								<p
-									class="absolute top-[28%] right-[6%] text-[12px] text-orange-600"
+									class="absolute top-[28%] right-[6%] text-[12px] text-orange-600 xl:text-[1rem] 2xl:text-[1.2rem]"
 								>
 									7
 								</p>
@@ -180,23 +180,23 @@ class Banner extends LitLightElement {
 							</div>
 							<div class="relative mt-[5%]">
 								<p
-									class="mb-[4%] text-center text-[12px] font-medium text-gray-200 lg:text-[14px]"
+									class="mb-[4%] text-center text-[12px] font-medium text-gray-200 lg:text-[14px] xl:text-[1rem] 2xl:text-[1.2rem]"
 								>
 									Fouls
 								</p>
 								<p
-									class="absolute top-[28%] left-[6%] text-[12px] text-blue-600"
+									class="absolute top-[28%] left-[6%] text-[12px] text-blue-600 xl:text-[1rem] 2xl:text-[1.2rem]"
 								>
 									7
 								</p>
 								<p
-									class="absolute top-[28%] right-[6%] text-[12px] text-orange-600"
+									class="absolute top-[28%] right-[6%] text-[12px] text-orange-600 xl:text-[1rem] 2xl:text-[1.2rem]"
 								>
 									3
 								</p>
 								<div class="mt-[3%] mb-[5%] flex gap-[10%]">
 									<div
-										class="ml-[5%] h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300"
+										class="ml-[5%] h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300 2xl:text-[1.2rem]"
 									>
 										<div
 											class="float-right h-1.5 rounded-full bg-blue-600"
