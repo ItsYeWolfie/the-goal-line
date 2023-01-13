@@ -70,6 +70,20 @@ interface ITeamPenaltyStats {
 	scored: ITotalAndPercentage;
 }
 
+interface IGoalsDuringMinutesType {
+	[key: FixtureMinutesType | string]: {
+		total: number;
+		percentage: string;
+	};
+}
+
+interface ICardsDuringMinutesType {
+	[key: FixtureMinutesType | string]: {
+		total: number;
+		percentage: string;
+	};
+}
+
 type FixtureMinutesType =
 	| '0-15'
 	| '16-30'
@@ -89,20 +103,6 @@ type TeamGoalsTotalType = Record<TotalGoalsSide, number>;
 
 type CardsDuringMinutesType = Record<CardsType, ICardsDuringMinutesType>;
 type TeamGoalsOnReceivingType = Record<TeamReceivingGoalsType, ITeamGoalsSide>;
-interface IGoalsDuringMinutesType {
-	[key: FixtureMinutesType | string]: {
-		total: number;
-		percentage: string;
-	};
-}
-
-interface ICardsDuringMinutesType {
-	[key: FixtureMinutesType | string]: {
-		total: number;
-		percentage: string;
-	};
-}
-
 type SideInfoStringType = Record<FixtureSidesType, string | null>;
 type SideInfoNumberType = Record<FixtureSidesType, number>;
 type BiggestGoalsInfoType = Record<TeamReceivingGoalsType, SideInfoNumberType>;

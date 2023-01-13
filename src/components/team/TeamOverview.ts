@@ -30,7 +30,7 @@ class TeamStatistics extends LitLightElement {
 							<div
 								class="flex w-full items-center justify-between rounded-sm bg-gray-700 p-8"
 							>
-								<div class="flex items-center gap-4">
+								<div class="flex items-center space-x-4">
 									<img
 										class="h-12 w-12"
 										src="${this.team.league.logo}"
@@ -83,8 +83,8 @@ class TeamStatistics extends LitLightElement {
 							</div>
 					  `}
 			</section>
-			<div class="flex items-start justify-start gap-4">
-				<div class="flex flex-shrink-0 flex-grow-0 basis-6/12 flex-col gap-4">
+			<div class="grid grid-cols-12 space-x-4">
+				<div class="col-span-6 flex flex-col space-y-4">
 					<table class="bg-gray-700">
 						<thead class="bg-gray-800">
 							<tr>
@@ -313,7 +313,7 @@ class TeamStatistics extends LitLightElement {
 						</tbody>
 					</table>
 				</div>
-				<div class="flex flex-shrink-0 flex-grow-0 basis-6/12 flex-col gap-4">
+				<div class="col-span-6 flex basis-6/12 flex-col space-y-4">
 					<table class="bg-gray-700 uppercase">
 						<thead class="bg-gray-800 text-sm">
 							<tr>
@@ -385,7 +385,7 @@ class TeamStatistics extends LitLightElement {
 											(minute: string, index) => {
 												return html`
 													<tr class="${index % 2 === 1 ? 'bg-gray-600' : ''}">
-														<td class="py-2 pl-3">${minute}</td>
+														<td class="w-48 py-2 pl-3">${minute}</td>
 														<td class="pl-3 text-center">
 															${this.loading
 																? '...'
@@ -519,7 +519,7 @@ class TeamStatistics extends LitLightElement {
 										${Object.keys(this.team.cards.red).map(
 											(minute: string, index) => html`
 												<tr class="${index % 2 === 1 ? 'bg-gray-600' : ''}">
-													<td class="py-2 pl-3">${minute}</td>
+													<td class="w-48 py-2 pl-3">${minute}</td>
 													<td class="pl-3 text-center">
 														${this.loading
 															? '...'
