@@ -19,7 +19,6 @@ class TeamStatistics extends LitLightElement {
 			'https://api.npoint.io/259bb0faaedc5732aebe'
 		);
 		this.loading = false;
-		console.log(this.team);
 	}
 
 	render() {
