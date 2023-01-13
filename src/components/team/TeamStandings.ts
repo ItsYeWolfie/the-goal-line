@@ -64,6 +64,7 @@ class TeamStandings extends LitLightElement {
 													class="inline-block h-6 w-6"
 													src="${team.logo}"
 													alt="${team.name} Logo"
+													loading="lazy"
 												/>
 												<span class="ml-2 font-semibold">${team.name}</span>
 											</div>

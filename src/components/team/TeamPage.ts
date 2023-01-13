@@ -3,6 +3,7 @@ import '../tables/StickyBackgroundTable';
 import './TeamFixturesTable';
 import './TeamInfoRow';
 import './TeamStandings';
+import './TeamTransfers';
 import './TeamOverview';
 import '../pages/BreadCrumb';
 import { html } from 'lit-html';
@@ -38,7 +39,7 @@ const tabs: ITab[] = [
 	{
 		name: 'Leagues History',
 		slug: 'leagues-history',
-		html: html`<p>Coming Soon</p>`,
+		html: html`<p>Coming Soon</p></team-transfers>`,
 	},
 	{
 		name: 'Players',
@@ -48,7 +49,7 @@ const tabs: ITab[] = [
 	{
 		name: 'Transfers',
 		slug: 'transfers',
-		html: html`<p>Coming Soon</p>`,
+		html: html`<team-transfers></team-transfers>`,
 	},
 	{
 		name: 'Standings (Season)',
