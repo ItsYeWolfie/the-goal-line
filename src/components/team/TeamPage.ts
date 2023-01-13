@@ -3,7 +3,7 @@ import '../tables/StickyBackgroundTable';
 import './TeamFixturesTable';
 import './TeamInfoRow';
 import './TeamStandings';
-import './TeamStatistics';
+import './TeamOverview';
 import '../pages/BreadCrumb';
 import { html } from 'lit-html';
 // eslint-disable-next-line import/extensions
@@ -19,6 +19,11 @@ const url = new URL(window.location.href);
 const teamID = url.searchParams.get('id');
 const tabs: ITab[] = [
 	{
+		name: 'Overview',
+		slug: 'overview',
+		html: html`<team-overview .teamID="${teamID}"></team-overview>`,
+	},
+	{
 		name: 'Fixtures',
 		slug: 'fixtures',
 		html: html`
@@ -29,11 +34,7 @@ const tabs: ITab[] = [
 			</t-fixtures-table>
 		`,
 	},
-	{
-		name: 'Statistics',
-		slug: 'statistics',
-		html: html`<team-statistics .teamID="${teamID}"></team-statistics>`,
-	},
+
 	{
 		name: 'Leagues History',
 		slug: 'leagues-history',
@@ -67,7 +68,7 @@ const breadcrumb: IBreadCrumb[] = [
 	},
 ];
 
-const slug = url.searchParams.get('tab') || tabs[1].slug;
+const slug = url.searchParams.get('tab') || tabs[0].slug;
 
 @customElement('team-page')
 class TeamPage extends LitLightElement {

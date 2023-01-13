@@ -8,7 +8,7 @@ export interface ITeamAndVenue {
 	venue: IVenue;
 }
 
-interface ITeam extends ITeamBasic {
+export interface ITeam extends ITeamBasic {
 	code: string;
 	country: string;
 	founded: number;
@@ -49,7 +49,7 @@ interface ITotalAndPercentage {
 
 interface ITeamGoalsSide {
 	total: TeamGoalsTotalType;
-	minute: GoalsDuringMinutesType;
+	minute: IGoalsDuringMinutesType;
 	average: TeamGoalsTotalType;
 }
 
@@ -86,19 +86,20 @@ type TotalGoalsSide = FixtureSidesType | 'total';
 type FixtureStatsType = 'wins' | 'draws' | 'loses' | 'played';
 
 type TeamGoalsTotalType = Record<TotalGoalsSide, number>;
-type TotalAndPercentageDuringMinutesType = Record<
-	FixtureMinutesType,
-	ITotalAndPercentage
->;
-type CardsDuringMinutesType = Record<
-	CardsType,
-	TotalAndPercentageDuringMinutesType
->;
+
+type CardsDuringMinutesType = Record<CardsType, ICardsDuringMinutesType>;
 type TeamGoalsOnReceivingType = Record<TeamReceivingGoalsType, ITeamGoalsSide>;
-interface GoalsDuringMinutesType {
+interface IGoalsDuringMinutesType {
 	[key: FixtureMinutesType | string]: {
 		total: number;
-		percentage: number;
+		percentage: string;
+	};
+}
+
+interface ICardsDuringMinutesType {
+	[key: FixtureMinutesType | string]: {
+		total: number;
+		percentage: string;
 	};
 }
 

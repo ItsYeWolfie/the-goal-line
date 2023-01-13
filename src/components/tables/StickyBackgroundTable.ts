@@ -4,10 +4,6 @@ import { LitLightElement } from '../../lib/LitElement';
 
 @customElement('sticky-background-table')
 export default class StickyBackgroundTable extends LitLightElement {
-	static properties = {
-		headers: { type: Array },
-	};
-
 	@property({ type: Array }) headers: string[] = [];
 
 	render() {
