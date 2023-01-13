@@ -19,18 +19,12 @@ class TeamTransfers extends LitLightElement {
 			'https://api.npoint.io/e6cbde96c194aef54417'
 		);
 		this.loading = false;
-		/*		[0 … 99]
-		0:player:{id: 20319, name: 'N. Bishop'}transfers:Array(1)0:{date: '2020-01-31', type: null, teams: {…}}
-		*/
+
 		this.mutatedTransfers = this.transfers.sort((a, b) => {
 			const aDate = new Date(a.transfers[0].date);
 			const bDate = new Date(b.transfers[0].date);
 			return bDate.getTime() - aDate.getTime();
 		});
-		console.log(this.mutatedTransfers);
-		/*
-	0: player: id: 900name: "J. Lingard"[[Prototype]]: Objecttransfers: Array(8)0: {date: '2021-07-01', type: 'NA', teams: {…}}1: {date: '2021-01-29', type: 'Loan', teams: {…}}2: {date: '2015-07-01', type: 'N/A', teams: {…}}3: {date: '2015-02-02', type: 'Loan', teams: {…}}4: {date: '2014-07-01', type: 'N/A', teams: {…}}5: {date: '2014-02-27', type: 'Loan', teams: {…}}6: {date: '2014-01-03', type: 'N/A', teams: {…}}7: {date: '2012-11-02', type: 'Loan', teams: {…}}update: "2021-04-06T04:41:21+00:00"
-		*/
 	}
 
 	render() {
@@ -54,7 +48,7 @@ class TeamTransfers extends LitLightElement {
 									<td class="px-6 py-4">Loading...</td>
 									<td class="px-6 py-4">Loading...</td>
 								</tr>
-								<tr class="whitespace-nowrap text-sm">
+								<tr class="whitespace-nowrap bg-gray-600 text-sm">
 									<td class="px-6 py-4">Loading...</td>
 									<td class="px-6 py-4">Loading...</td>
 									<td class="px-6 py-4">Loading...</td>
@@ -68,7 +62,7 @@ class TeamTransfers extends LitLightElement {
 									<td class="px-6 py-4">Loading...</td>
 									<td class="px-6 py-4">Loading...</td>
 								</tr>
-								<tr class="whitespace-nowrap text-sm">
+								<tr class="whitespace-nowrap bg-gray-600 text-sm">
 									<td class="px-6 py-4">Loading...</td>
 									<td class="px-6 py-4">Loading...</td>
 									<td class="px-6 py-4">Loading...</td>
@@ -82,7 +76,7 @@ class TeamTransfers extends LitLightElement {
 									<td class="px-6 py-4">Loading...</td>
 									<td class="px-6 py-4">Loading...</td>
 								</tr>
-								<tr class="whitespace-nowrap text-sm">
+								<tr class="whitespace-nowrap bg-gray-600 text-sm">
 									<td class="px-6 py-4">Loading...</td>
 									<td class="px-6 py-4">Loading...</td>
 									<td class="px-6 py-4">Loading...</td>
@@ -95,7 +89,7 @@ class TeamTransfers extends LitLightElement {
 										<tr
 											class="${index % 2 === 1
 												? 'bg-gray-600'
-												: ''}whitespace-nowrap text-sm"
+												: ''} whitespace-nowrap text-sm"
 										>
 											<td class="px-6 py-4">${transfer.player.name}</td>
 											<td class="px-6 py-4">
