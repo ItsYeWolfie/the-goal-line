@@ -53,163 +53,174 @@ class Banner extends LitLightElement {
 
 		return html`
 			<section class="m-[3%]">
-				<div class="grid h-[35%] w-[100%] grid-cols-3 gap-[1%]">
-					<div class="width-[100%] relative col-span-2 h-[100%]">
-						<img
-							class="h-[100%] w-[100%] rounded-[25px]"
-							src="./images/derby3.jpg"
-						/>
-						<p
-							class="z-1 absolute top-[5%] left-[25%] text-[0.8rem] font-semibold text-gray-200 shadow-xl sm:left-[35%] md:left-[33%] md:text-[1rem] lg:left-[33%] lg:text-[1.3rem] xl:left-[28%] xl:text-[2.5rem]"
-						>
-							Real Madrid vs Barcelona
-						</p>
-						<p
-							class="z-1 absolute top-[80%] left-[5%] text-[0.6rem] font-semibold text-gray-200 sm:text-[0.7rem] md:left-[10%] md:text-[0.9rem] lg:left-[5%] lg:text-[0.9rem] xl:text-[1.6rem]"
-						>
-							19 March - 2023
-						</p>
-						<p
-							class="z-1 absolute top-[90%] left-[5%] text-[0.6rem] font-semibold text-gray-200 sm:text-[0.7rem] md:left-[10%] md:text-[0.9rem] lg:left-[5%] lg:text-[0.9rem] xl:text-[1.6rem]"
-						>
-							Santiago Bernabeu
-						</p>
-						<p
-							class="z-1 absolute top-[90%] right-[5%] rounded-[3px] text-[0.6rem] text-gray-200 sm:text-[0.7rem] md:text-[0.7rem] lg:text-[1rem] xl:text-[1.5rem]"
-							id="demo"
-						>
-							${this.timer}
-						</p>
-					</div>
-					<div>
+				<div class="container mx-auto 2xl:w-full">
+					<div
+						class="items-strech flex flex-col justify-center space-y-4 md:flex-row md:space-y-0 md:space-x-6 lg:space-x-8"
+					>
 						<div
-							class="relative col-span-1 h-[100%] w-[100%] rounded-[20px] bg-gray-900"
+							class="items-strech relative flex h-[30vh] w-full flex-col justify-between rounded-[20px] bg-gray-50 dark:bg-gray-900 sm:h-[40vh] md:h-[33vh] md:w-8/12 md:flex-row lg:h-[auto] lg:w-7/12 xl:h-[auto] xl:w-8/12 2xl:h-[40vh] 2xl:w-9/12"
 						>
-							<h3
-								class="pt-[10%] text-center  font-[450] text-gray-200 lg:text-xl xl:text-[1.5rem] 2xl:text-[2rem]"
-							>
-								Live Match
-							</h3>
-							<p
-								class="color mt-[5%] mb-[8%] text-center text-[13px] font-medium text-lime-500 lg:text-lg xl:text-[1.3rem] 2xl:text-[1.6rem]"
-							>
-								${minutes} : ${seconds < 10 ? `0${seconds}` : seconds}
-							</p>
 							<img
-								class="] absolute top-[33%] right-[10%] h-[10%] w-[15%] rounded-full md:right-[4%] md:top-[30%] md:h-[15%] md:w-[18%] lg:top-[30%]"
-								src=" https://i.pinimg.com/564x/6b/cf/50/6bcf5098d8250e99fadaeaa1c0fb04b8.jpg"
+								class="h-full w-full rounded-[20px] opacity-[0.6]"
+								src="./images/140324050941-bernabeu.jpg"
+								alt=""
 							/>
-							<img
-								class="absolute top-[33%] left-[10%] h-[10%] w-[15%] rounded-full md:left-[4%] md:top-[30%] md:h-[15%] md:w-[18%] lg:top-[30%]"
-								src=" https://i.pinimg.com/564x/a6/7a/f9/a67af9c593ba25a687b95e35d294dc18.jpg"
-							/>
-							<p
-								class="mt-[10%] ml-[35%] mb-[15%] w-[30%] rounded-[15px] bg-violet-100 py-[1%] text-center text-[13px] font-semibold text-violet-800 md:w-[30%] lg:text-[15px] xl:text-[1.3rem] 2xl:text-[1.6rem]"
+							<div
+								class="z-1 absolute top-[5%] left-[10%] w-[80%]  bg-slate-700 bg-opacity-[0.3] px-3 py-[1%] text-center font-mono text-[1rem] font-semibold italic text-yellow-400  sm:left-[20%] sm:w-[60%] sm:text-[1.3rem] md:left-[5%] md:w-[90%] md:text-[1.3rem] lg:left-[15%] lg:w-[70%] xl:left-[25%] xl:w-[50%]"
 							>
-								0 - 0
+								Real Madrid vs Barcelona
+							</div>
+							<p
+								class="z-1 absolute  top-[45%] left-[30%] w-[40%] bg-slate-700 bg-opacity-[0.3] px-3 py-[1%] text-center font-mono text-[0.75rem] font-semibold italic text-yellow-400 sm:left-[30%]  sm:w-[40%] sm:text-[1rem]  md:left-[27.5%] md:w-[45%] md:text-[1.1rem] lg:left-[30%] lg:w-[40%] xl:left-[35%] xl:w-[30%]"
+							>
+								19 March - 2023
 							</p>
-							<div class="relative mt-[10%]">
-								<p
-									class="mb-[6%] text-center text-[12px] font-medium text-gray-200 lg:text-[14px] xl:text-[1rem] 2xl:text-[1.2rem]"
+							<p
+								class="z-1 absolute top-[25%] left-[20%] w-[60%] bg-slate-700 bg-opacity-[0.3] px-3 py-[1%] text-center font-mono text-[0.9rem] font-extrabold italic text-yellow-400 sm:left-[27.5%] sm:w-[45%] sm:text-[1.2rem] md:left-[20%] md:w-[60%] md:text-[1.2rem] lg:left-[22.5%] lg:w-[55%] xl:left-[32.5%] xl:w-[35%]"
+							>
+								Santiago Bernabeu
+							</p>
+							<p
+								class="z-1 lg:left[%] font absolute bottom-[5%] right-[25%] w-[50%] rounded-tl-[20px] rounded-br-[20px] bg-slate-900 bg-opacity-[0.4] bg-gradient-to-r px-3 py-[1%] text-center font-mono text-[0.65rem] font-semibold italic text-yellow-400 sm:text-[1rem] md:text-[0.8rem] lg:text-[1rem]"
+								id="demo"
+							>
+								${this.timer}
+							</p>
+						</div>
+						<div
+							class="relative ml-[20%] flex w-[60%] flex-col justify-center rounded-[20px] bg-gray-50 px-4 dark:bg-gray-900 sm:ml-[20%] sm:w-3/5 sm:align-middle md:w-4/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12"
+						>
+							<div class="flex flex-col justify-center">
+								<div
+									class="relative col-span-1 h-[100%] w-[100%] rounded-[20px] bg-gray-900"
 								>
-									Possession
-								</p>
-								<p
-									class="absolute top-[28%] left-[6%] text-[12px] text-blue-600 xl:text-[1rem] 2xl:text-[1.2rem]"
-								>
-									7
-								</p>
-								<p
-									class="absolute top-[28%] right-[6%] text-[12px] text-orange-600 xl:text-[1rem] 2xl:text-[1.2rem]"
-								>
-									3
-								</p>
-								<div class="mt-[3%] flex gap-[10%]">
-									<div
-										class="ml-[5%] h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300"
+									<h3
+										class="pt-[5%] text-center font-[450] text-gray-200 lg:text-xl xl:text-[1.3rem] 2xl:text-[1.5rem]"
 									>
-										<div
-											class="float-right h-1.5 rounded-full bg-blue-600"
-											style="width: 60%"
-										></div>
+										Live Match
+									</h3>
+									<p
+										class="color mt-[3%] mb-[1%] text-center text-[13px] font-medium text-lime-500 lg:text-lg xl:text-[1.2rem] 2xl:text-[1.3rem]"
+									>
+										${minutes} : ${seconds < 10 ? `0${seconds}` : seconds}
+									</p>
+									<img
+										class="absolute top-[23%] right-[10%] h-[16%] w-[15%] rounded-full sm:top-[23%] sm:h-[18%] sm:w-[13%] md:right-[4%] md:top-[25%] md:h-[16%] md:w-[16%] lg:top-[23%]"
+										src=" https://i.pinimg.com/564x/6b/cf/50/6bcf5098d8250e99fadaeaa1c0fb04b8.jpg"
+									/>
+									<img
+										class="absolute top-[23%] left-[10%] h-[16%] w-[15%] rounded-full sm:top-[23%] sm:h-[18%] sm:w-[13%] md:left-[4%] md:top-[25%] md:h-[16%] md:w-[16%] lg:top-[23%]"
+										src=" https://i.pinimg.com/564x/a6/7a/f9/a67af9c593ba25a687b95e35d294dc18.jpg"
+									/>
+									<p
+										class="mt-[4%] ml-[35%] mb-[6%] w-[30%] rounded-[15px] bg-violet-100 py-[1%] text-center text-[13px] font-semibold text-violet-800 md:w-[30%] lg:text-[15px] xl:text-[1rem] 2xl:text-[1.3rem]"
+									>
+										0 - 0
+									</p>
+									<div class="relative mt-[0%]">
+										<p
+											class="mb-[6%] text-center text-[12px] font-medium text-gray-200 lg:text-[14px] xl:text-[1rem] 2xl:text-[1.2rem]"
+										>
+											Possession
+										</p>
+										<p
+											class="absolute top-[28%] left-[6%] text-[12px] text-blue-600 xl:text-[1rem] 2xl:text-[1.2rem]"
+										>
+											7
+										</p>
+										<p
+											class="absolute top-[28%] right-[6%] text-[12px] text-orange-600 xl:text-[1rem] 2xl:text-[1.2rem]"
+										>
+											3
+										</p>
+										<div class="mt-[3%] flex gap-[10%]">
+											<div
+												class="ml-[5%] h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300"
+											>
+												<div
+													class="float-right h-1.5 rounded-full bg-blue-600"
+													style="width: 60%"
+												></div>
+											</div>
+											<div
+												class="h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300"
+											>
+												<div
+													class="h-1.5 rounded-full bg-orange-600"
+													style="width: 45%"
+												></div>
+											</div>
+										</div>
 									</div>
-									<div
-										class="h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300"
-									>
-										<div
-											class="h-1.5 rounded-full bg-orange-600"
-											style="width: 45%"
-										></div>
+									<div class="relative mt-[5%]">
+										<p
+											class="mb-[4%] text-center text-[12px] font-medium text-gray-200 lg:text-[14px] xl:text-[1rem] 2xl:text-[1.2rem]"
+										>
+											Shoot
+										</p>
+										<p
+											class="absolute top-[28%] left-[6%] text-[12px] text-blue-600 xl:text-[1rem] 2xl:text-[1.2rem]"
+										>
+											12
+										</p>
+										<p
+											class="absolute top-[28%] right-[6%] text-[12px] text-orange-600 xl:text-[1rem] 2xl:text-[1.2rem]"
+										>
+											7
+										</p>
+										<div class="mt-[2%] flex gap-[10%]">
+											<div
+												class="ml-[5%] h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300"
+											>
+												<div
+													class="float-right h-1.5 rounded-full bg-blue-600"
+													style="width: 80%"
+												></div>
+											</div>
+											<div
+												class="h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300"
+											>
+												<div
+													class="h-1.5 rounded-full bg-orange-600"
+													style="width: 60%"
+												></div>
+											</div>
+										</div>
 									</div>
-								</div>
-							</div>
-							<div class="relative mt-[5%]">
-								<p
-									class="mb-[4%] text-center text-[12px] font-medium text-gray-200 lg:text-[14px] xl:text-[1rem] 2xl:text-[1.2rem]"
-								>
-									Shoot
-								</p>
-								<p
-									class="absolute top-[28%] left-[6%] text-[12px] text-blue-600 xl:text-[1rem] 2xl:text-[1.2rem]"
-								>
-									12
-								</p>
-								<p
-									class="absolute top-[28%] right-[6%] text-[12px] text-orange-600 xl:text-[1rem] 2xl:text-[1.2rem]"
-								>
-									7
-								</p>
-								<div class="mt-[2%] flex gap-[10%]">
-									<div
-										class="ml-[5%] h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300"
-									>
-										<div
-											class="float-right h-1.5 rounded-full bg-blue-600"
-											style="width: 80%"
-										></div>
-									</div>
-									<div
-										class="h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300"
-									>
-										<div
-											class="h-1.5 rounded-full bg-orange-600"
-											style="width: 60%"
-										></div>
-									</div>
-								</div>
-							</div>
-							<div class="relative mt-[5%]">
-								<p
-									class="mb-[4%] text-center text-[12px] font-medium text-gray-200 lg:text-[14px] xl:text-[1rem] 2xl:text-[1.2rem]"
-								>
-									Fouls
-								</p>
-								<p
-									class="absolute top-[28%] left-[6%] text-[12px] text-blue-600 xl:text-[1rem] 2xl:text-[1.2rem]"
-								>
-									7
-								</p>
-								<p
-									class="absolute top-[28%] right-[6%] text-[12px] text-orange-600 xl:text-[1rem] 2xl:text-[1.2rem]"
-								>
-									3
-								</p>
-								<div class="mt-[3%] mb-[5%] flex gap-[10%]">
-									<div
-										class="ml-[5%] h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300 2xl:text-[1.2rem]"
-									>
-										<div
-											class="float-right h-1.5 rounded-full bg-blue-600"
-											style="width: 60%"
-										></div>
-									</div>
-									<div
-										class="h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300"
-									>
-										<div
-											class="h-1.5 rounded-full bg-orange-600"
-											style="width: 45%"
-										></div>
+									<div class="relative mt-[5%]">
+										<p
+											class="mb-[4%] text-center text-[12px] font-medium text-gray-200 lg:text-[14px] xl:text-[1rem] 2xl:text-[1.2rem]"
+										>
+											Fouls
+										</p>
+										<p
+											class="absolute top-[28%] left-[6%] text-[12px] text-blue-600 xl:text-[1rem] 2xl:text-[1.2rem]"
+										>
+											7
+										</p>
+										<p
+											class="absolute top-[28%] right-[6%] text-[12px] text-orange-600 xl:text-[1rem] 2xl:text-[1.2rem]"
+										>
+											3
+										</p>
+										<div class="mt-[3%] mb-[5%] flex gap-[10%]">
+											<div
+												class="ml-[5%] h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300 2xl:text-[1.2rem]"
+											>
+												<div
+													class="float-right h-1.5 rounded-full bg-blue-600"
+													style="width: 60%"
+												></div>
+											</div>
+											<div
+												class="h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300"
+											>
+												<div
+													class="h-1.5 rounded-full bg-orange-600"
+													style="width: 45%"
+												></div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>

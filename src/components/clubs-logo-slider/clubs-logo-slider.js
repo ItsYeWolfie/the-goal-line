@@ -49,7 +49,7 @@ class ClubLogos extends LitLightElement {
 		}
 		return html` <section class="m-[3%]">
 			<div
-				class="grid h-[12vh] w-full grid-rows-6 gap-0 text-gray-200 sm:h-[18vh] md:h-[22vh] lg:h-[22vh] xl:h-[22vh] 2xl:h-[24vh]"
+				class="grid h-[12vh] w-full grid-rows-6 gap-0 text-gray-200 sm:h-[18vh] md:h-[22vh] lg:h-[22vh] xl:h-[22vh] 2xl:h-[25vh]"
 			>
 				<div class="relative row-span-1 h-[100%] w-full items-center">
 					<i
@@ -78,7 +78,7 @@ class ClubLogos extends LitLightElement {
           	${this.data.map(
 							(item) => html`
 						<div
-							class="h-full w-[20%] flex-none rounded sm:w-[20%] md:w-[20%] lg:w-[15%] xl:w-[12%]"
+							class="h-full w-[20%] flex-none rounded sm:w-[20%] md:w-[15%] lg:w-[15%] xl:w-[11%]"
 						>
 							<div
 								class="lg-[100%] rounded- relative ml-[5%] mt-[10%] h-[85%] w-[90%] rounded-[100%] bg-gray-900 align-middle"
