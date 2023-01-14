@@ -27,14 +27,17 @@ interface IFixtureTeam extends ITeamBasic {
 	winner: boolean;
 }
 
-interface IFixtureInfo {
-	id: number;
-	date: Date;
+interface IFixtureInfo extends IFixtureInfoBasic {
 	venue: IVenueBasic;
 	status: IFixtureStatus;
 	periods: IFixturePeriods;
 	referee: string;
+}
+
+export interface IFixtureInfoBasic {
+	id: number;
 	timezone: string;
+	date: Date;
 	timestamp: EpochTimeStamp;
 }
 

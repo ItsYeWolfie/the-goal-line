@@ -1,8 +1,8 @@
-import { IPlayerBasic } from './Player.types';
+import { IHumanBasic } from './General.types';
 import { ITeamBasic } from './Team.types';
 
 export interface ITransfer {
-	player: IPlayerBasic;
+	player: IHumanBasic;
 	update: Date;
 	transfers: ITransferDetails[];
 }
