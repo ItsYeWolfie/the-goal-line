@@ -66,31 +66,31 @@ class Banner extends LitLightElement {
 								alt=""
 							/>
 							<div
-								class="z-1 absolute top-[5%] left-[10%] w-[80%]  bg-slate-700 bg-opacity-[0.3] px-3 py-[1%] text-center font-mono text-[1rem] font-semibold italic text-yellow-400  sm:left-[20%] sm:w-[60%] sm:text-[1.3rem] md:left-[5%] md:w-[90%] md:text-[1.3rem] lg:left-[15%] lg:w-[70%] xl:left-[25%] xl:w-[50%]"
+								class="z-1 absolute top-[5%] left-[10%] w-[80%]  px-3 py-[1%] text-center font-mono text-[1rem] font-semibold italic text-yellow-400  sm:left-[20%] sm:w-[60%] sm:text-[1.3rem] md:left-[5%] md:w-[90%] md:text-[1.3rem] lg:left-[15%] lg:w-[70%] xl:left-[25%] xl:w-[50%]"
 							>
 								Real Madrid vs Barcelona
 							</div>
 							<p
-								class="z-1 absolute  top-[45%] left-[30%] w-[40%] bg-slate-700 bg-opacity-[0.3] px-3 py-[1%] text-center font-mono text-[0.75rem] font-semibold italic text-yellow-400 sm:left-[30%]  sm:w-[40%] sm:text-[1rem]  md:left-[27.5%] md:w-[45%] md:text-[1.1rem] lg:left-[30%] lg:w-[40%] xl:left-[35%] xl:w-[30%]"
+								class="z-1 absolute  top-[45%] left-[30%] w-[40%] px-3 py-[1%] text-center font-mono text-[0.75rem] font-semibold italic text-yellow-400 sm:left-[30%]  sm:w-[40%] sm:text-[1rem]  md:left-[27.5%] md:w-[45%] md:text-[1.1rem] lg:left-[30%] lg:w-[40%] xl:left-[35%] xl:w-[30%]"
 							>
 								19 March - 2023
 							</p>
 							<p
-								class="z-1 absolute top-[25%] left-[20%] w-[60%] bg-slate-700 bg-opacity-[0.3] px-3 py-[1%] text-center font-mono text-[0.9rem] font-extrabold italic text-yellow-400 sm:left-[27.5%] sm:w-[45%] sm:text-[1.2rem] md:left-[20%] md:w-[60%] md:text-[1.2rem] lg:left-[22.5%] lg:w-[55%] xl:left-[32.5%] xl:w-[35%]"
+								class="z-1 absolute top-[25%] left-[20%] w-[60%] px-3 py-[1%] text-center font-mono text-[0.9rem] font-extrabold italic text-yellow-400 sm:left-[27.5%] sm:w-[45%] sm:text-[1.2rem] md:left-[20%] md:w-[60%] md:text-[1.2rem] lg:left-[22.5%] lg:w-[55%] xl:left-[32.5%] xl:w-[35%]"
 							>
 								Santiago Bernabeu
 							</p>
 							<p
-								class="z-1 lg:left[%] font absolute bottom-[5%] right-[25%] w-[50%] rounded-tl-[20px] rounded-br-[20px] bg-slate-900 bg-opacity-[0.4] bg-gradient-to-r px-3 py-[1%] text-center font-mono text-[0.65rem] font-semibold italic text-yellow-400 sm:text-[1rem] md:text-[0.8rem] lg:text-[1rem]"
+								class="z-1  font absolute bottom-[2%] right-[25%] w-[50%] rounded-tl-[20px] rounded-br-[20px] px-3 py-[1%] text-center font-mono text-[0.65rem] font-semibold italic text-yellow-400 sm:text-[1rem] md:text-[0.8rem] lg:text-[1rem]"
 								id="demo"
 							>
 								${this.timer}
 							</p>
 						</div>
 						<div
-							class="relative ml-[20%] flex w-[60%] flex-col justify-center rounded-[20px] bg-gray-50 px-4 dark:bg-gray-900 sm:ml-[20%] sm:w-3/5 sm:align-middle md:w-4/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12"
+							class="relative ml-[20%] flex w-[60%] flex-col justify-center rounded-[20px] bg-gray-50 px-4  shadow-lg shadow-slate-600 dark:bg-gray-900 sm:ml-[20%] sm:w-3/5 sm:align-middle md:w-4/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12"
 						>
-							<div class="flex flex-col justify-center">
+							<div class="flex flex-col justify-center ">
 								<div
 									class="relative col-span-1 h-[100%] w-[100%] rounded-[20px] bg-gray-900"
 								>
