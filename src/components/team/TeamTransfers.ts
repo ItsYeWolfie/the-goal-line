@@ -5,7 +5,7 @@ import { LitLightElement } from '../../lib/LitElement';
 import { fetchData } from '../../lib/helpers/Fetch';
 
 @customElement('team-transfers')
-class TeamTransfers extends LitLightElement {
+export class TeamTransfers extends LitLightElement {
 	@property({ type: Boolean }) loading = true;
 
 	transfers: ITransfer[] = [];
@@ -20,22 +20,29 @@ class TeamTransfers extends LitLightElement {
 		this.transfers = await fetchData<ITransfer[]>(
 			'https://api.npoint.io/e6cbde96c194aef54417'
 		);
+
+		if (this.transfers.length > 0) {
+			this.sortTransfersByPlayers();
+			this.selectedPlayer = this.transfers[0].player.id;
+			this.mutatedTransfers = this.filterTransfers();
+		} else {
+			this.selectedPlayer = -1;
+		}
 		this.loading = false;
+	}
 
-		this.mutatedTransfers = this.transfers.sort((a, b) => {
-			return a.player.name > b.player.name ? 1 : -1;
-		});
-
-		this.selectedPlayer = this.mutatedTransfers[0].player.id;
-		this.mutatedTransfers = this.filterTransfers();
+	sortTransfersByPlayers() {
+		this.transfers.sort((a, b) => (a.player.name > b.player.name ? 1 : -1));
 	}
 
 	filterTransfers() {
-		if (this.selectedPlayer === -1) return this.transfers;
+		if (this.selectedPlayer === -1) {
+			return this.transfers;
+		}
 
-		return this.transfers.filter((transfer) => {
-			return transfer.player.id === this.selectedPlayer;
-		});
+		return this.transfers.filter(
+			(transfer) => transfer.player.id === this.selectedPlayer
+		);
 	}
 
 	render() {
@@ -70,129 +77,74 @@ class TeamTransfers extends LitLightElement {
 					</select>
 				</div>
 			</div>
-			<table class="relative min-w-full bg-gray-700">
-				<thead class="sticky top-0 bg-gray-800">
-					<tr class="text-left text-xs font-medium uppercase tracking-wider">
-						<th class="px-6 py-3" scope="col">Player</th>
-						<th class="px-6 py-3" scope="col">From</th>
-						<th class="px-6 py-3" scope="col">Type</th>
-						<th class="px-6 py-3" scope="col">To</th>
-						<th class="px-6 py-3" scope="col">Date</th>
-					</tr>
-				</thead>
-				<tbody class="divide-y divide-gray-500 text-gray-300">
-					${this.loading
-						? html`<tr class="whitespace-nowrap text-sm">
-									<td class="px-6 py-4">Loading...</td>
-									<td class="px-6 py-4">Loading...</td>
-									<td class="px-6 py-4">Loading...</td>
-									<td class="px-6 py-4">Loading...</td>
-									<td class="px-6 py-4">Loading...</td>
-								</tr>
-								<tr class="whitespace-nowrap bg-gray-600 text-sm">
-									<td class="px-6 py-4">Loading...</td>
-									<td class="px-6 py-4">Loading...</td>
-									<td class="px-6 py-4">Loading...</td>
-									<td class="px-6 py-4">Loading...</td>
-									<td class="px-6 py-4">Loading...</td>
-								</tr>
-								<tr class="whitespace-nowrap text-sm">
-									<td class="px-6 py-4">Loading...</td>
-									<td class="px-6 py-4">Loading...</td>
-									<td class="px-6 py-4">Loading...</td>
-									<td class="px-6 py-4">Loading...</td>
-									<td class="px-6 py-4">Loading...</td>
-								</tr>
-								<tr class="whitespace-nowrap bg-gray-600 text-sm">
-									<td class="px-6 py-4">Loading...</td>
-									<td class="px-6 py-4">Loading...</td>
-									<td class="px-6 py-4">Loading...</td>
-									<td class="px-6 py-4">Loading...</td>
-									<td class="px-6 py-4">Loading...</td>
-								</tr>
-								<tr class="whitespace-nowrap text-sm">
-									<td class="px-6 py-4">Loading...</td>
-									<td class="px-6 py-4">Loading...</td>
-									<td class="px-6 py-4">Loading...</td>
-									<td class="px-6 py-4">Loading...</td>
-									<td class="px-6 py-4">Loading...</td>
-								</tr>
-								<tr class="whitespace-nowrap bg-gray-600 text-sm">
-									<td class="px-6 py-4">Loading...</td>
-									<td class="px-6 py-4">Loading...</td>
-									<td class="px-6 py-4">Loading...</td>
-									<td class="px-6 py-4">Loading...</td>
-									<td class="px-6 py-4">Loading...</td>
-								</tr>`
-						: html`
-								${this.mutatedTransfers.map(
+			<div class="flow-root">
+				<ul class="-mb-8" role="list">
+					${this.mutatedTransfers.map(
+						(playerTransfer) => html`
+							<li>
+								<header class="relative mb-2">
+									${playerTransfer.player.name}
+								</header>
+								${playerTransfer.transfers.map(
 									(transfer, index) => html`
-										<tr
-											class="${index % 2 === 1
-												? 'bg-gray-600'
-												: ''} whitespace-nowrap text-sm"
-										>
-											<td class="px-6 py-4 align-top text-white">
-												<a href="/player.html?id=${transfer.player.id}">
-													${transfer.player.name}
-												</a>
-											</td>
-											<td class="px-6 py-4">
-												<div class="flex flex-col space-y-2">
-													${transfer.transfers.map(
-														(teamTransfer) => html`
-															<div class="flex items-center space-x-2">
-																<img
-																	class="h-6 w-6 rounded-full"
-																	src=${teamTransfer.teams.in.logo}
-																	alt=${teamTransfer.teams.in.name}
-																/>
-																<p>${teamTransfer.teams.in.name}</p>
-															</div>
-														`
-													)}
+										<div class="relative pb-8">
+											${index !== playerTransfer.transfers.length - 1
+												? html`
+														<span
+															class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-500"
+															aria-hidden="true"
+														>
+															<span class="sr-only">Transfer</span>
+														</span>
+												  `
+												: ''}
+											<div class="relative flex space-x-3">
+												<div
+													class="${transfer.teams.in.id === 33
+														? 'bg-green-500'
+														: 'bg-red-500'} flex h-8 w-8 items-center justify-center rounded-full"
+												>
+													${transfer.teams.in.id === 33
+														? html`<i class="fas fa-arrow-left">
+																<span class="sr-only">Moved in icon</span>
+														  </i>`
+														: html`<i class="fas fa-arrow-right">
+																<span class="sr-only">Moved out icon</span>
+														  </i>`}
 												</div>
-											</td>
-											<td class="px-6 py-4">
-												<div class="flex flex-col space-y-3">
-													${transfer.transfers.map(
-														(teamTransfer) =>
-															html` <p>${teamTransfer.type}</p> `
-													)}
+												<div
+													class="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5"
+												>
+													<div>
+														<span class="text-sm text-gray-500"
+															>${transfer.type === 'Loan'
+																? 'Loaned from'
+																: 'Moved from'}
+														</span>
+														<span class="text-sm font-medium text-gray-100">
+															${transfer.teams.out.name}
+														</span>
+														<span class="text-sm text-gray-500"> to </span>
+														<span class="text-sm font-medium text-gray-100">
+															${transfer.teams.in.name}
+														</span>
+														<time class="text-sm text-gray-500">
+															on ${transfer.date.toLocaleString()}
+														</time>
+														<span class="text-sm text-gray-500">
+															(${transfer.type})
+														</span>
+													</div>
 												</div>
-											</td>
-
-											<td class="px-6 py-4">
-												<div class="flex flex-col space-y-2">
-													${transfer.transfers.map(
-														(teamTransfer) => html`
-															<div class="flex items-center space-x-2">
-																<img
-																	class="h-6 w-6 rounded-full"
-																	src=${teamTransfer.teams.out.logo}
-																	alt=${teamTransfer.teams.out.name}
-																/>
-																<p>${teamTransfer.teams.out.name}</p>
-															</div>
-														`
-													)}
-												</div>
-											</td>
-
-											<td class="px-6 py-4">
-												<div class="flex flex-col space-y-3">
-													${transfer.transfers.map(
-														(teamTransfer) =>
-															html` <p>${teamTransfer.date}</p> `
-													)}
-												</div>
-											</td>
-										</tr>
+											</div>
+										</div>
 									`
 								)}
-						  `}
-				</tbody>
-			</table>
+							</li>
+						`
+					)}
+				</ul>
+			</div>
 		`;
 	}
 }
