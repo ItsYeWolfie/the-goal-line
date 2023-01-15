@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 /* eslint-disable promise/always-return */
 import { html } from 'lit';
 import { LitLightElement } from '../../lib/LitElement';
@@ -6,10 +7,11 @@ class NewsCards extends LitLightElement {
 	static get properties() {
 		return {
 			data: { type: Array },
-			filterData: { type: Array },
+			filteredData: { type: Array },
 			category: { type: String },
 			scrollingDiv: { type: Object },
 			dataTofilter: { type: Array },
+			activeCategory: { type: String, reflect: true },
 		};
 	}
 
@@ -17,9 +19,10 @@ class NewsCards extends LitLightElement {
 		super();
 		this.scrollingDiv = null;
 		this.data = [];
-		this.filteredData = [];
+		this.filteredData = this.data;
 		this.category = '';
-		this.dataTofilter = [' ', 'Champions', 'Transfer'];
+		this.dataTofilter = [null, 'Champions', 'Transfer'];
+		this.activeCategory = this.dataTofilter[0];
 	}
 
 	firstUpdated() {
@@ -36,14 +39,12 @@ class NewsCards extends LitLightElement {
 	}
 
 	filterData(value) {
-		this.filteredData = this.data.filter((item) => {
-			return item.category === value;
-		});
-		this.requestUpdate();
-	}
-
-	showAllData() {
-		this.filteredData = this.data;
+		this.activeCategory = value;
+		if (value == null) this.filteredData = this.data;
+		else
+			this.filteredData = this.data.filter((item) => {
+				return item.category === value;
+			});
 		this.requestUpdate();
 	}
 
@@ -58,19 +59,37 @@ class NewsCards extends LitLightElement {
 					class="grid-rows-10 grid h-[40vh] w-full gap-[4%] text-gray-200 sm:h-[48vh] md:h-[55vh] lg:h-[55vh] xl:h-[60vh]  "
 				>
 					<div
-						class="relative row-span-4 h-[100%] w-full items-center border-b-2"
+						class="relative row-span-4 h-[100%] w-full items-center border-b-4 border-gray-400 "
 					>
 						<div
-							class="md:[w-60%] absolute bottom-0 left-[0%] flex h-[50%] w-[80%] items-center gap-[5%] text-[0.8rem] text-gray-200 md:text-[1rem]"
+							class="md:[w-60%] absolute bottom-[-4px] left-[0%]  flex h-[50%] w-[80%] items-start gap-[5%] text-[0.8rem] text-gray-200 md:text-[1rem]"
 						>
-							<p @click="${() => this.showAllData()}">All News</p>
-							<p @click="${() => this.filterData(this.dataTofilter[1])}">
-								Hot News
+							<p
+								class="${this.activeCategory === this.dataTofilter[0]
+									? 'border-b-[4px] z-10 text-violet-600  border-violet-800 h-full'
+									: ''}  h-full"
+								@click="${() => this.filterData(this.dataTofilter[0])}"
+							>
+								All News
 							</p>
-							<p @click="${() => this.filterData(this.dataTofilter[2])}">
+							<p
+								class="${this.activeCategory === this.dataTofilter[1]
+									? ' border-b-[4px] z-10 text-violet-600 border-violet-800 h-full'
+									: ''} h-full"
+								@click="${() => this.filterData(this.dataTofilter[1])}"
+							>
+								Transfer News
+							</p>
+							<p
+								class="${this.activeCategory === this.dataTofilter[2]
+									? 'border-b-[4px] z-10 text-violet-600 border-violet-800 h-full'
+									: ''} h-full"
+								@click="${() => this.filterData(this.dataTofilter[2])}"
+							>
 								Latest News
 							</p>
 						</div>
+
 						<i
 							class="fa-solid fa-newspaper absolute left-[0%] text-blue-400 lg:text-2xl"
 						>
