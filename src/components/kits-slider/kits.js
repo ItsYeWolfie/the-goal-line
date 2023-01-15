@@ -112,11 +112,11 @@ class Kits extends LitLightElement {
 	}
 
 	scrollRight() {
-		this.scrollingDiv.scrollLeft += 300;
+		this.scrollingDiv.scrollLeft += 550;
 	}
 
 	scrollLeft() {
-		this.scrollingDiv.scrollLeft -= 300;
+		this.scrollingDiv.scrollLeft -= 550;
 	}
 }
 customElements.define('kits-s', Kits);
