@@ -7,9 +7,9 @@ class NewsCards extends LitLightElement {
 		return {
 			data: { type: Array },
 			filterData: { type: Array },
-			error: { type: String },
-			loading: { type: Boolean },
+			category: { type: String },
 			scrollingDiv: { type: Object },
+			dataTofilter: { type: Array },
 		};
 	}
 
@@ -18,25 +18,33 @@ class NewsCards extends LitLightElement {
 		this.scrollingDiv = null;
 		this.data = [];
 		this.filteredData = [];
-		this.error = null;
-		this.loading = true;
-		fetch('./data/news.json')
-			.then((response) => {
-				if (!response.ok) {
-					throw new Error(response.statusText);
-				}
-				return response.json();
-			})
+		this.category = '';
+		this.dataTofilter = [' ', 'Champions', 'Transfer'];
+	}
 
+	firstUpdated() {
+		fetch('./data/news.json')
+			.then((response) => response.json())
 			.then((data) => {
-				console.log(data);
 				this.data = data;
-				this.loading = false;
+				this.filteredData = data;
+				this.requestUpdate();
 			})
 			.catch((error) => {
-				this.error = error.message;
-				this.loading = false;
+				console.log(error);
 			});
+	}
+
+	filterData(value) {
+		this.filteredData = this.data.filter((item) => {
+			return item.category === value;
+		});
+		this.requestUpdate();
+	}
+
+	showAllData() {
+		this.filteredData = this.data;
+		this.requestUpdate();
 	}
 
 	updated() {
@@ -44,12 +52,6 @@ class NewsCards extends LitLightElement {
 	}
 
 	render() {
-		if (this.loading) {
-			return html`<div>Loading...</div>`;
-		}
-		if (this.error) {
-			return html`<div>Error: ${this.error}</div>`;
-		}
 		return html`
 			<section class="m-[3%] mt-[6%]">
 				<div
@@ -61,9 +63,13 @@ class NewsCards extends LitLightElement {
 						<div
 							class="md:[w-60%] absolute bottom-0 left-[0%] flex h-[50%] w-[80%] items-center gap-[5%] text-[0.8rem] text-gray-200 md:text-[1rem]"
 						>
-							<p class="">All News</p>
-							<p class="">Hot News</p>
-							<p class="">Transfer</p>
+							<p @click="${() => this.showAllData()}">All News</p>
+							<p @click="${() => this.filterData(this.dataTofilter[1])}">
+								Hot News
+							</p>
+							<p @click="${() => this.filterData(this.dataTofilter[2])}">
+								Latest News
+							</p>
 						</div>
 						<i
 							class="fa-solid fa-newspaper absolute left-[0%] text-blue-400 lg:text-2xl"
@@ -87,7 +93,7 @@ class NewsCards extends LitLightElement {
 						class="no-scrollbar row-span-6 flex h-full w-full flex-nowrap gap-[2%] overflow-x-scroll scroll-smooth"
 						id="div-s"
 					>
-						${this.data.map(
+						${this.filteredData.map(
 							(item) => html`
 								<div
 									class="h-full w-[48%] flex-none rounded sm:w-[35%] md:w-[35%] lg:w-[25%]"
