@@ -24,7 +24,7 @@ class Formation extends LitLightElement {
                         <span class="rounded-full w-8 h-8 text-center absolute mt-28 ml-36 z-10 bg-lime-700">10</span>
                         <span class="rounded-full w-8 h-8 text-center absolute mt-48 ml-36 z-10 bg-lime-700">11</span>
                         
-                        <div class="w-20 h-40 -ml-0.5 mt-12 border-solid border-2 border-white absolute">
+                        <div class="w-20 h-40 -ml-[1px] mt-12 border-solid border-2 border-white absolute">
                             <div class="w-12 h-24 mt-7 -ml-0.5 border-solid border-2 border-white absolute"></div>
                             <span class="border-solid border-2 border-white absolute rounded-r-full px-3 h-14 ml-[76.5px] mt-12"></span>
                         </div>
@@ -44,8 +44,8 @@ class Formation extends LitLightElement {
                         <span class="rounded-full w-8 h-8 text-center absolute mt-48 ml-2 z-10 bg-sky-600">11</span>
                         
                         <div class="w-20 h-40 mt-12 ml-[110px] border-solid border-2 border-white absolute">
-                            <div class="w-12 h-24 mt-7 ml-[30px] border-solid border-2 border-white absolute"></div>
-                            <div class="border-solid border-2 border-white absolute rounded-l-full px-3 h-14 -ml-[28.5px] mt-12"></div>
+                            <div class="w-12 h-24 mt-7 ml-[30.5px] border-solid border-2 border-white absolute"></div>
+                            <div class="border-solid border-2 border-white absolute rounded-l-full px-3 h-14 -ml-[27px] mt-12"></div>
                         </div>
                     </div>
                 </div>
