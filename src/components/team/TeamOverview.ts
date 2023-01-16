@@ -1,24 +1,59 @@
-import { html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import { html } from 'lit';
 import { LitLightElement } from '../../lib/LitElement';
 import { fetchData } from '../../lib/helpers/Fetch';
 import '../tables/StickyBackgroundTable';
-import { ITeamStatistics } from '../../types/Team.types';
+import { ITeam, ITeamStatistics } from '../../types/Team.types';
+import './team-overview/TeamSequences';
+import './team-overview/TeamFixtures';
+import './team-overview/TeamStatistics';
+import './team-overview/TeamLineups';
+import { IVenue } from '../../types/Venue.types';
 
 @customElement('team-overview')
 class TeamStatistics extends LitLightElement {
-	@property({ type: Number }) teamID = 0;
+	@property({ type: Number }) readonly teamID = 0;
 
 	@property({ type: Boolean }) loading = true;
 
-	team: ITeamStatistics = {} as ITeamStatistics;
+	@property() team = {} as ITeam;
+
+	@property() venue = {} as IVenue;
+
+	form = {} as ITeamStatistics['form'];
+
+	league = {} as ITeamStatistics['league'];
+
+	biggest = {} as ITeamStatistics['biggest'];
+
+	fixtures = {} as ITeamStatistics['fixtures'];
+
+	cards = {} as ITeamStatistics['cards'];
+
+	penalty = {} as ITeamStatistics['penalty'];
+
+	clean_sheet = {} as ITeamStatistics['clean_sheet'];
+
+	failed_to_score = {} as ITeamStatistics['failed_to_score'];
+
+	lineups = {} as ITeamStatistics['lineups'];
+
+	goals = {} as ITeamStatistics['goals'];
 
 	async connectedCallback() {
 		super.connectedCallback();
-		this.team = await fetchData<ITeamStatistics>(
-			'https://api.npoint.io/259bb0faaedc5732aebe'
-		);
+		const team = await fetchData<ITeamStatistics>('https://api.npoint.io/259bb0faaedc5732aebe');
 		this.loading = false;
+		this.form = team.form;
+		this.league = team.league;
+		this.biggest = team.biggest;
+		this.fixtures = team.fixtures;
+		this.cards = team.cards;
+		this.penalty = team.penalty;
+		this.clean_sheet = team.clean_sheet;
+		this.failed_to_score = team.failed_to_score;
+		this.lineups = team.lineups;
+		this.goals = team.goals;
 	}
 
 	render() {
@@ -27,291 +62,150 @@ class TeamStatistics extends LitLightElement {
 				${this.loading
 					? 'Loading...'
 					: html`
-							<div
-								class="flex w-full items-center justify-between rounded-sm bg-gray-700 p-8"
-							>
-								<div class="flex items-center space-x-4">
-									<img
-										class="h-12 w-12"
-										src="${this.team.league.logo}"
-										alt="${this.team.league.name}"
-									/>
+							<div class="flex space-x-2">
+								<div class="relative basis-6/12 rounded-md bg-gray-700 p-8 text-sm">
 									<div class="flex flex-col">
-										<h1 class="font-bold">${this.team.league.name}</h1>
-										<div class="flex items-center gap-2 text-sm">
+										<header class="mb-4 uppercase text-sky-500">Club Details</header>
+										<div class="mb-8 flex w-full space-x-4">
 											<img
-												class="h-4 w-4"
-												src="${this.team.league.flag}"
-												alt="${this.team.league.country}'s flag"
+												class="my-auto h-24 w-24"
+												src="${this.team.logo}"
+												alt="${this.team.name} Logo"
 											/>
-											<h2 class="font-bold">${this.team.league.country}</h2>
+											<div class="flex flex-col gap-2">
+												<div>
+													<span class="text-xs font-bold uppercase text-gray-400">Team Name</span>
+													<header>${this.team.name}</header>
+												</div>
+												<div>
+													<span class="text-xs font-bold uppercase text-gray-400">Founded</span>
+													<header>${this.team.founded}</header>
+												</div>
+												<div>
+													<span class="text-xs font-bold uppercase text-gray-400"
+														>League Nation</span
+													>
+													<header>${this.team.country}</header>
+												</div>
+											</div>
+											<div class="flex flex-col gap-2 place-self-end">
+												<div>
+													<span class="text-xs font-bold uppercase text-gray-400">Team Code</span>
+													<header>${this.team.code}</header>
+												</div>
+												<div>
+													<span class="text-xs font-bold uppercase text-gray-400"
+														>National Team</span
+													>
+													<header class="capitalize">${this.team.national}</header>
+												</div>
+											</div>
+										</div>
+										<div class="mb-8 flex items-center space-x-16">
+											<div class="flex items-center space-x-4">
+												<img
+													class="h-12 w-12"
+													src="${this.league.logo}"
+													alt="${this.league.name}"
+												/>
+												<div class="flex flex-col">
+													<h1 class="font-bold">${this.league.name}</h1>
+													<div class="flex items-center gap-2 text-sm">
+														<img
+															class="h-4 w-4"
+															src="${this.league.flag}"
+															alt="${this.league.country}'s flag"
+														/>
+														<h2 class="font-bold">${this.league.country}</h2>
+													</div>
+												</div>
+											</div>
+											<div class="text-center">
+												<p class="text-sm font-bold">${this.league.season}</p>
+												<p class="text-xs">Season</p>
+											</div>
+										</div>
+										<div class="text-center">
+											<p class="text-sm">
+												${this.form.split('').map((form) => {
+													let color;
+													switch (form) {
+														case 'W':
+															color = 'bg-green-600';
+															break;
+														case 'D':
+															color = 'bg-yellow-600';
+															break;
+														case 'L':
+															color = 'bg-red-600';
+															break;
+														default:
+															color = 'bg-gray-600';
+															break;
+													}
+
+													return html`<span
+														class="${color} ml-1 inline-block h-4 w-4 rounded-full text-xs font-bold text-white"
+													>
+														<span class="sr-only">${form}</span>
+													</span>`;
+												})}
+											</p>
+											<p class="text-xs">Recent Form</p>
 										</div>
 									</div>
 								</div>
-								<div class="text-center">
-									<p class="text-sm font-bold">${this.team.league.season}</p>
-									<p class="text-xs">Season</p>
-								</div>
-								<div class="text-center">
-									<p class="text-sm">
-										${this.team.form.split('').map((form) => {
-											let color;
-											switch (form) {
-												case 'W':
-													color = 'bg-green-600';
-													break;
-												case 'D':
-													color = 'bg-yellow-600';
-													break;
-												case 'L':
-													color = 'bg-red-600';
-													break;
-												default:
-													color = 'bg-gray-600';
-													break;
-											}
-
-											return html`<span
-												class="${color} ml-1 inline-block h-4 w-4 rounded-full text-xs font-bold text-white"
-											>
-												<span class="sr-only">${form}</span>
-											</span>`;
-										})}
-									</p>
-									<p class="text-xs">Recent Form</p>
+								<div class="relative basis-6/12 rounded-md bg-gray-700 p-8">
+									<header class="mb-4 uppercase text-sky-500">Stadium &rarr;</header>
+									<img
+										class="mx-auto h-40"
+										src="${this.venue.image}"
+										alt="${this.venue.name} Logo"
+									/>
+									<header class="text-center">${this.venue.name}</header>
+									<div class="mb-4 flex justify-around text-center">
+										<div>
+											<span class="text-xs font-bold uppercase text-gray-400">Capacity</span>
+											<header>${this.venue.capacity}</header>
+										</div>
+										<div>
+											<span class="text-xs font-bold uppercase text-gray-400">City</span>
+											<header>${this.venue.city}</header>
+										</div>
+									</div>
+									<div class="mb-4 flex justify-evenly text-center">
+										<div>
+											<span class="text-xs font-bold uppercase text-gray-400">Surface</span>
+											<header>${this.venue.surface}</header>
+										</div>
+										<div>
+											<span class="text-xs font-bold uppercase text-gray-400">Address</span>
+											<header>${this.venue.address}</header>
+										</div>
+									</div>
 								</div>
 							</div>
 					  `}
 			</section>
 			<div class="grid grid-cols-12 space-x-4">
 				<div class="col-span-6 flex flex-col space-y-4">
-					<table class="bg-gray-700">
-						<thead class="bg-gray-800">
-							<tr>
-								<th class="py-1 pl-3 text-left uppercase" colspan="100%">
-									Sequences
-								</th>
-							</tr>
-						</thead>
-
-						<tbody class="divide-y divide-gray-500 text-xs">
-							<tr>
-								<td class="w-56 py-2 pl-3">Most goals scored (Home)</td>
-								<td class="pr-3 pl-3">
-									${this.loading
-										? '...'
-										: this.team.biggest.goals.for.home || '-'}
-								</td>
-							</tr>
-
-							<tr class="bg-gray-600">
-								<td class="py-2 pl-3">Most goals scored (Away)</td>
-								<td class="pr-3 pl-3">
-									${this.loading
-										? '...'
-										: this.team.biggest.goals.for.away || '-'}
-								</td>
-							</tr>
-							<tr>
-								<td class="py-2 pl-3">Most goals conceded (Home)</td>
-								<td class="pr-3 pl-3">
-									${this.loading
-										? '...'
-										: this.team.biggest.goals.against.home || '-'}
-								</td>
-							</tr>
-
-							<tr class="bg-gray-600">
-								<td class="py-2 pl-3">Most goals conceded (Away)</td>
-								<td class="pr-3 pl-3">
-									${this.loading
-										? '...'
-										: this.team.biggest.goals.against.away || '-'}
-								</td>
-							</tr>
-							<tr>
-								<td class="py-2 pl-3">Biggest Win (Home)</td>
-								<td class="pr-3 pl-3">
-									${this.loading ? '...' : this.team.biggest.wins.home || '-'}
-								</td>
-							</tr>
-							<tr class="bg-gray-600">
-								<td class="py-2 pl-3">Biggest Win (Away)</td>
-								<td class="pr-3 pl-3">
-									${this.loading ? '...' : this.team.biggest.wins.away || '-'}
-								</td>
-							</tr>
-							<tr>
-								<td class="py-2 pl-3">Biggest Loss (Home)</td>
-								<td class="pr-3 pl-3">
-									${this.loading ? '...' : this.team.biggest.loses?.home || '-'}
-								</td>
-							</tr>
-
-							<tr class="bg-gray-600">
-								<td class="py-2 pl-3">Biggest Loss (Away)</td>
-								<td class="pr-3 pl-3">
-									${this.loading ? '...' : this.team.biggest.loses.away || '-'}
-								</td>
-							</tr>
-							<tr>
-								<td class="py-2 pl-3">Most Matches Won in a Row</td>
-								<td class="pr-3 pl-3">
-									${this.loading ? '...' : this.team.biggest.streak.wins || '-'}
-								</td>
-							</tr>
-							<tr class="bg-gray-600">
-								<td class="py-2 pl-3">Most Matches Lost in a Row</td>
-								<td class="pr-3 pl-3">
-									${this.loading
-										? '...'
-										: this.team.biggest.streak.loses || '-'}
-								</td>
-							</tr>
-							<tr>
-								<td class="py-2 pl-3">Most Matches With a Draw in a Row</td>
-								<td class="pr-3 pl-3">
-									${this.loading
-										? '...'
-										: this.team.biggest.streak.draws || '-'}
-								</td>
-							</tr>
-						</tbody>
-					</table>
-					<table class="bg-gray-700 uppercase">
-						<thead class="bg-gray-800 text-sm">
-							<tr>
-								<th class="py-1 pl-3 text-left">Fixtures</th>
-								<th class="py-1 pl-3">Wins</th>
-								<th class="py-1 pl-3">Draws</th>
-								<th class="py-1 pl-3">Loses</th>
-								<th class="py-1 pl-3 pr-3">Played</th>
-							</tr>
-						</thead>
-						<tbody class="text-xs">
-							<tr>
-								<td class="py-2 pl-3">Home</td>
-								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.team.fixtures.wins.home || '-'}
-								</td>
-								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.team.fixtures.draws.home || '-'}
-								</td>
-								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.team.fixtures.loses.home || '-'}
-								</td>
-								<td class="pr-3 pl-3 text-center">
-									${this.loading
-										? '...'
-										: this.team.fixtures.played.home || '-'}
-								</td>
-							</tr>
-							<tr class="bg-gray-600">
-								<td class="py-2 pl-3">Away</td>
-								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.team.fixtures.wins.away || '-'}
-								</td>
-								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.team.fixtures.draws.away || '-'}
-								</td>
-								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.team.fixtures.loses.away || '-'}
-								</td>
-								<td class="pr-3 pl-3 text-center">
-									${this.loading
-										? '...'
-										: this.team.fixtures.played.away || '-'}
-								</td>
-							</tr>
-						</tbody>
-						<tfoot class="bg-gray-800 text-xs">
-							<tr class="border-t">
-								<td class="py-2 pl-3">Total</td>
-								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.team.fixtures.wins.total || '-'}
-								</td>
-								<td class="pl-3 text-center">
-									${this.loading
-										? '...'
-										: this.team.fixtures.draws.total || '-'}
-								</td>
-								<td class="pl-3 text-center">
-									${this.loading
-										? '...'
-										: this.team.fixtures.loses.total || '-'}
-								</td>
-								<td class="pr-3 pl-3 text-center">
-									${this.loading
-										? '...'
-										: this.team.fixtures.played.total || '-'}
-								</td>
-							</tr>
-						</tfoot>
-					</table>
-					<table class="bg-gray-700">
-						<thead class="bg-gray-800 text-sm uppercase">
-							<tr>
-								<th class="py-1 pl-3 text-left">Statistics</th>
-								<th class="py-1 pl-3">Home</th>
-								<th class="py-1 pl-3">Away</th>
-								<th class="py-1 pl-3 pr-3">Total</th>
-							</tr>
-						</thead>
-						<tbody class="text-xs">
-							<tr>
-								<td class="py-2 pl-3">Matches With a Clean Sheet</td>
-								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.team.clean_sheet.home || '-'}
-								</td>
-								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.team.clean_sheet.away || '-'}
-								</td>
-								<td class="pl-3 text-center">
-									${this.loading ? '...' : this.team.clean_sheet.total || '-'}
-								</td>
-							</tr>
-							<tr class="bg-gray-600">
-								<td class="py-2 pl-3">Matches Without Scoring</td>
-								<td class="pl-3 text-center">
-									${this.loading
-										? '...'
-										: this.team.failed_to_score.home || '-'}
-								</td>
-								<td class="pl-3 text-center">
-									${this.loading
-										? '...'
-										: this.team.failed_to_score.away || '-'}
-								</td>
-								<td class="pl-3 text-center">
-									${this.loading
-										? '...'
-										: this.team.failed_to_score.total || '-'}
-								</td>
-							</tr>
-						</tbody>
-					</table>
-					<table class="bg-gray-700 uppercase">
-						<thead class="bg-gray-800 text-sm">
-							<tr>
-								<th class="py-1 pl-3 text-left">Formation Lineup</th>
-								<th class="py-1 pl-3 pr-3 text-left">Played</th>
-							</tr>
-						</thead>
-						<tbody class="text-xs">
-							${this.loading
-								? html`<tr>
-										<td class="py-2 pl-3" colspan="100">Loading...</td>
-								  </tr>`
-								: this.team.lineups.map(
-										(lineup, index) => html`
-											<tr class="${index % 2 === 1 ? 'bg-gray-600' : ''}">
-												<td class="w-56 py-2 pl-3">${lineup.formation}</td>
-												<td class="pl-3 text-left">${lineup.played}</td>
-											</tr>
-										`
-								  )}
-						</tbody>
-					</table>
+					<t-overview-sequences
+						.loading=${this.loading}
+						.biggest=${this.biggest}
+					></t-overview-sequences>
+					<t-overview-fixtures
+						.loading=${this.loading}
+						.fixtures=${this.fixtures}
+					></t-overview-fixtures>
+					<t-overview-statistics
+						.loading=${this.loading}
+						.failed_to_score=${this.failed_to_score}
+						.clean_sheet=${this.clean_sheet}
+					></t-overview-statistics>
+					<t-overview-lineups
+						.loading=${this.loading}
+						.lineups=${this.lineups}
+					></t-overview-lineups>
 				</div>
 				<div class="col-span-6 flex basis-6/12 flex-col space-y-4">
 					<table class="bg-gray-700 uppercase">
@@ -324,29 +218,21 @@ class TeamStatistics extends LitLightElement {
 						</thead>
 						<tbody class="text-xs">
 							<tr class="bg-gray-600">
-								<td class="py-2 pl-3">Home</td>
+								<td class="p-6 py-2 pl-3">Home</td>
 								<td class="pl-3 text-center">
-									${this.loading
-										? '...'
-										: this.team.goals.for.total.home || '-'}
+									${this.loading ? '...' : this.goals.for.total.home || '-'}
 								</td>
 								<td class="pl-3 text-center">
-									${this.loading
-										? '...'
-										: this.team.goals.against.total.home || '-'}
+									${this.loading ? '...' : this.goals.against.total.home || '-'}
 								</td>
 							</tr>
 							<tr>
 								<td class="py-2 pl-3">Away</td>
 								<td class="pl-3 text-center">
-									${this.loading
-										? '...'
-										: this.team.goals.for.total.away || '-'}
+									${this.loading ? '...' : this.goals.for.total.away || '-'}
 								</td>
 								<td class="pl-3 text-center">
-									${this.loading
-										? '...'
-										: this.team.goals.against.total.away || '-'}
+									${this.loading ? '...' : this.goals.against.total.away || '-'}
 								</td>
 							</tr>
 						</tbody>
@@ -354,14 +240,10 @@ class TeamStatistics extends LitLightElement {
 							<tr>
 								<td class="py-2 pl-3">Total</td>
 								<td class="pl-3 text-center">
-									${this.loading
-										? '...'
-										: this.team.goals.for.total.total || '-'}
+									${this.loading ? '...' : this.goals.for.total.total || '-'}
 								</td>
 								<td class="pl-3 text-center">
-									${this.loading
-										? '...'
-										: this.team.goals.against.total.total || '-'}
+									${this.loading ? '...' : this.goals.against.total.total || '-'}
 								</td>
 							</tr>
 						</tfoot>
@@ -381,39 +263,29 @@ class TeamStatistics extends LitLightElement {
 										<td class="py-2 pl-3" colspan="100">Loading...</td>
 								  </tr>`
 								: html`
-										${Object.keys(this.team.goals.for.minute).map(
-											(minute: string, index) => {
-												return html`
-													<tr class="${index % 2 === 1 ? 'bg-gray-600' : ''}">
-														<td class="w-48 py-2 pl-3">${minute}</td>
-														<td class="pl-3 text-center">
-															${this.loading
-																? '...'
-																: this.team.goals.for.minute[minute].total ||
-																  '-'}
-														</td>
-														<td class="pl-3 text-center">
-															${this.loading
-																? '...'
-																: this.team.goals.for.minute[minute]
-																		.percentage || '-'}
-														</td>
-														<td class="pl-3 text-center">
-															${this.loading
-																? '...'
-																: this.team.goals.against.minute[minute]
-																		.total || '-'}
-														</td>
-														<td class="pl-3 pr-3 text-center">
-															${this.loading
-																? '...'
-																: this.team.goals.against.minute[minute]
-																		.percentage || '-'}
-														</td>
-													</tr>
-												`;
-											}
-										)}
+										${Object.keys(this.goals.for.minute).map((minute: string, index) => {
+											return html`
+												<tr class="${index % 2 === 1 ? 'bg-gray-600' : ''}">
+													<td class="w-48 py-2 pl-3">${minute}</td>
+													<td class="pl-3 text-center">
+														${this.loading ? '...' : this.goals.for.minute[minute].total || '-'}
+													</td>
+													<td class="pl-3 text-center">
+														${this.loading
+															? '...'
+															: this.goals.for.minute[minute].percentage || '-'}
+													</td>
+													<td class="pl-3 text-center">
+														${this.loading ? '...' : this.goals.against.minute[minute].total || '-'}
+													</td>
+													<td class="pl-3 pr-3 text-center">
+														${this.loading
+															? '...'
+															: this.goals.against.minute[minute].percentage || '-'}
+													</td>
+												</tr>
+											`;
+										})}
 								  `}
 						</tbody>
 					</table>
@@ -430,37 +302,25 @@ class TeamStatistics extends LitLightElement {
 							<tr>
 								<td class="py-2 pl-3">Scored</td>
 								<td class="pl-3 text-center">
-									${this.loading
-										? '...'
-										: this.team.goals.for.average.home || '-'}
+									${this.loading ? '...' : this.goals.for.average.home || '-'}
 								</td>
 								<td class="pl-3 text-center">
-									${this.loading
-										? '...'
-										: this.team.goals.for.average.away || '-'}
+									${this.loading ? '...' : this.goals.for.average.away || '-'}
 								</td>
 								<td class="pl-3 text-center">
-									${this.loading
-										? '...'
-										: this.team.goals.for.average.total || '-'}
+									${this.loading ? '...' : this.goals.for.average.total || '-'}
 								</td>
 							</tr>
 							<tr class="bg-gray-600">
 								<td class="py-2 pl-3">Received</td>
 								<td class="pl-3 text-center">
-									${this.loading
-										? '...'
-										: this.team.goals.against.average.home || '-'}
+									${this.loading ? '...' : this.goals.against.average.home || '-'}
 								</td>
 								<td class="pl-3 text-center">
-									${this.loading
-										? '...'
-										: this.team.goals.against.average.away || '-'}
+									${this.loading ? '...' : this.goals.against.average.away || '-'}
 								</td>
 								<td class="pl-3 text-center">
-									${this.loading
-										? '...'
-										: this.team.goals.against.average.total || '-'}
+									${this.loading ? '...' : this.goals.against.average.total || '-'}
 								</td>
 							</tr>
 						</tbody>
@@ -477,27 +337,19 @@ class TeamStatistics extends LitLightElement {
 							<tr class="bg-gray-600">
 								<td class="py-2 pl-3">Scored</td>
 								<td class="pl-3 text-center">
-									${this.loading
-										? '...'
-										: this.team.penalty.scored.total || '-'}
+									${this.loading ? '...' : this.penalty.scored.total || '-'}
 								</td>
 								<td class="pl-3 text-center">
-									${this.loading
-										? '...'
-										: this.team.penalty.scored.percentage || '-'}
+									${this.loading ? '...' : this.penalty.scored.percentage || '-'}
 								</td>
 							</tr>
 							<tr>
 								<td class="py-2 pl-3">Missed</td>
 								<td class="pl-3 text-center">
-									${this.loading
-										? '...'
-										: this.team.penalty.missed.total || '-'}
+									${this.loading ? '...' : this.penalty.missed.total || '-'}
 								</td>
 								<td class="pl-3 text-center">
-									${this.loading
-										? '...'
-										: this.team.penalty.missed.percentage || '-'}
+									${this.loading ? '...' : this.penalty.missed.percentage || '-'}
 								</td>
 							</tr>
 						</tbody>
@@ -516,30 +368,21 @@ class TeamStatistics extends LitLightElement {
 										<td class="py-2 pl-3" colspan="100">Loading...</td>
 								  </tr>`
 								: html`
-										${Object.keys(this.team.cards.red).map(
+										${Object.keys(this.cards.red).map(
 											(minute: string, index) => html`
 												<tr class="${index % 2 === 1 ? 'bg-gray-600' : ''}">
 													<td class="w-48 py-2 pl-3">${minute}</td>
 													<td class="pl-3 text-center">
-														${this.loading
-															? '...'
-															: this.team.cards.yellow[minute].total || '-'}
+														${this.loading ? '...' : this.cards.yellow[minute].total || '-'}
 													</td>
 													<td class="pl-3 text-center">
-														${this.loading
-															? '...'
-															: this.team.cards.yellow[minute].percentage ||
-															  '-'}
+														${this.loading ? '...' : this.cards.yellow[minute].percentage || '-'}
 													</td>
 													<td class="pl-3 text-center">
-														${this.loading
-															? '...'
-															: this.team.cards.red[minute].total || '-'}
+														${this.loading ? '...' : this.cards.red[minute].total || '-'}
 													</td>
 													<td class="pl-3 pr-3 text-center">
-														${this.loading
-															? '...'
-															: this.team.cards.red[minute].percentage || '-'}
+														${this.loading ? '...' : this.cards.red[minute].percentage || '-'}
 													</td>
 												</tr>
 											`
