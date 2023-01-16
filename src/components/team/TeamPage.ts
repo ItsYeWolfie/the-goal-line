@@ -5,16 +5,19 @@ import './TeamInfoRow';
 import './TeamStandings';
 import './TeamTransfers';
 import './TeamOverview';
+import './TeamCoaches';
+import './TeamPlayers';
 import '../pages/BreadCrumb';
 import { html } from 'lit-html';
 // eslint-disable-next-line import/extensions
-import { property, customElement } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
+import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { IBreadCrumb } from '../../types/BreadCrumb.types';
 import { ITab } from '../../types/Tab.types';
-import { fetchData } from '../../lib/helpers/Fetch';
 import { LitLightElement } from '../../lib/LitElement';
 import { ITeam, ITeamAndVenue } from '../../types/Team.types';
 import { IVenue } from '../../types/Venue.types';
+import { fetchData } from '../../lib/helpers/Fetch';
 
 const url = new URL(window.location.href);
 const teamID = url.searchParams.get('id');
@@ -28,10 +31,7 @@ const tabs: ITab[] = [
 		name: 'Fixtures',
 		slug: 'fixtures',
 		html: html`
-			<t-fixtures-table
-				.headers="Versus,League,Season,Round,Time/Date,Side,Status,Score"
-				teamID=${teamID}
-			>
+			<t-fixtures-table teamID=${ifDefined(teamID === null ? undefined : teamID)}>
 			</t-fixtures-table>
 		`,
 	},
@@ -44,7 +44,7 @@ const tabs: ITab[] = [
 	{
 		name: 'Players',
 		slug: 'players',
-		html: html`<p>Coming Soon</p>`,
+		html: html`<team-players>Coming Soon</team-players>`,
 	},
 	{
 		name: 'Transfers',
@@ -59,6 +59,11 @@ const tabs: ITab[] = [
 	{
 		name: 'Coaches',
 		slug: 'coaches',
+		html: html`<team-coaches>Coming Soon</team-coaches>`,
+	},
+	{
+		name: 'Injuries',
+		slug: 'injuries',
 		html: html`<p>Coming Soon</p>`,
 	},
 ];
@@ -92,14 +97,10 @@ class TeamPage extends LitLightElement {
 
 	async connectedCallback() {
 		super.connectedCallback();
-
 		this.activeTab = slug;
-
 		const teamObject = await fetchData<ITeamAndVenue>(
 			`https://api.npoint.io/585facaf04546274c0c0/`
-		)
-			.then((data) => data)
-			.catch((err) => alert(err));
+		).then((data) => data);
 		this.loading = false;
 		if (!teamObject) return null;
 		const { team, venue } = teamObject;
@@ -110,7 +111,11 @@ class TeamPage extends LitLightElement {
 			href: `/team.html?id=${team.id}`,
 		});
 
-		return this;
+		tabs.find((tab) => tab.slug === 'overview')!.html = html`
+			<team-overview .team=${team} .venue=${venue}></team-overview>
+		`;
+
+		return this.requestUpdate();
 	}
 
 	setActiveTab(tabName: string | null) {
@@ -122,86 +127,28 @@ class TeamPage extends LitLightElement {
 	}
 
 	render() {
+		if (!teamID) {
+			return html`<error-404></error-404>`;
+		}
+
 		return html`
-			${teamID
-				? html`
-				${
-					this.loading
-						? html``
-						: html`<nav-breadcrumb .breadcrumb=${breadcrumb}></nav-breadcrumb>`
-				}
-					<section class="relative grid grid-cols-12">
-						<div class="col-span-9 px-8">
-
-							<div class="hidden sm:block">
-								<nav
-									class="-mb-px flex flex-wrap items-center justify-between border-b border-gray-500"
-								>
-									${tabs.map(
-										(tab: ITab) => html` <button
-											class="${tab.slug === this.activeTab
-												? 'border-indigo-400 text-indigo-500'
-												: 'border-transparent text-gray-200 hover:text-gray-400 hover:border-gray-300'} tab-button border-b-2 p-4 text-center text-sm font-medium transition-colors duration-300 ease-in-out"
-											type="button"
-											href="#"
-											@click="${() => this.setActiveTab(tab.slug)}"
-										>
-											${tab.name}
-										</button>`
-									)}
-								</nav>
-							</div>
-							<section class="py-8">
-								${tabs.find((tab) => tab.slug === this.activeTab)?.html}
-							</section>
-						</div>
-						<div
-							class="sticky top-0 col-span-3 h-screen w-full place-self-start bg-gray-800 p-8 text-center"
+			${this.loading ? html`` : html`<nav-breadcrumb .breadcrumb=${breadcrumb}></nav-breadcrumb>`}
+			<section class="px-8">
+				<nav class="-mb-px flex w-max flex-wrap items-center space-x-4">
+					${tabs.map(
+						(tab: ITab) => html` <button
+							class="${tab.slug === this.activeTab
+								? 'border-indigo-400 text-indigo-500'
+								: 'border-transparent text-gray-200 hover:text-gray-400 hover:border-gray-300'} tab-button border-b-2 p-4 text-center text-sm font-medium transition-colors duration-300 ease-in-out"
+							type="button"
+							@click="${() => this.setActiveTab(tab.slug)}"
 						>
-							${
-								this.loading
-									? html`<p>Loading...</p>`
-									: html`
-											<header class="text-2xl font-bold">
-												${this.team.name}
-											</header>
-											<img
-												class="mx-auto"
-												src="${this.team.logo}"
-												alt="${this.team.name} Logo"
-											/>
-
-											<t-info-row
-												value="${this.team.country}"
-												key="Country"
-											></t-info-row>
-											<header class="mt-4 text-2xl font-bold">Venue</header>
-											<t-info-row
-												value="${this.venue.name}"
-												key="Name"
-											></t-info-row>
-											<t-info-row
-												value="${this.venue.address}"
-												key="Address"
-											></t-info-row>
-											<t-info-row
-												value="${this.venue.city}"
-												key="City"
-											></t-info-row>
-											<t-info-row
-												value="${this.venue.capacity}"
-												key="Capacity"
-											></t-info-row>
-											<img
-												class="mx-auto"
-												src="${this.venue.image}"
-												alt="${this.venue.name} Stadium"
-											/>
-									  `
-							}
-						</div>
-				  </$> `
-				: html`<error-404></error-404>`}
+							${tab.name}
+						</button>`
+					)}
+				</nav>
+				<section class="py-8">${tabs.find((tab) => tab.slug === this.activeTab)?.html}</section>
+			</section>
 		`;
 	}
 }

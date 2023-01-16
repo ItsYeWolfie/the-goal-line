@@ -27,9 +27,7 @@ class TeamFixturesTable extends LitLightElement {
 
 	async connectedCallback() {
 		super.connectedCallback();
-		this.fixtures = await fetchData(
-			'https://api.npoint.io/3d56ae8265c24b49d6f8'
-		);
+		this.fixtures = await fetchData('https://api.npoint.io/3d56ae8265c24b49d6f8');
 		this.loading = false;
 
 		this.leagues = this.fixtures.map((fixture) => {
@@ -60,9 +58,7 @@ class TeamFixturesTable extends LitLightElement {
 			<div class="mb-8 flex items-center justify-between">
 				<div class="flex items-center gap-4">
 					<div>
-						<label class="mb-1 block text-sm font-medium text-gray-100"
-							>Select League</label
-						>
+						<label class="mb-1 block text-sm font-medium text-gray-100">Select League</label>
 						<select
 							class="bg-gray-800"
 							@change="${(e: Event) => {
@@ -76,9 +72,7 @@ class TeamFixturesTable extends LitLightElement {
 
 							${!this.loading &&
 							this.leagues.map((league) => {
-								return html`
-									<option value="${league.id}">${league.name}</option>
-								`;
+								return html` <option value="${league.id}">${league.name}</option> `;
 							})}
 						</select>
 					</div>
@@ -93,11 +87,7 @@ class TeamFixturesTable extends LitLightElement {
 									.map((league) => {
 										return html`
 											<div class="flex items-center justify-center">
-												<img
-													class="mr-2 h-6 w-6"
-													src="${league.logo}"
-													alt="${league.name}"
-												/>
+												<img class="mr-2 h-6 w-6" src="${league.logo}" alt="${league.name}" />
 												<span class="flex items-center gap-1 text-lg font-bold">
 													<span>${league.name}</span>
 													${league.flag
@@ -143,20 +133,14 @@ class TeamFixturesTable extends LitLightElement {
 									const { date } = match;
 									const formattedDate = moment(date).format('DD.MM.YYYY');
 									return html`
-										<div
-											class="${index % 2 === 1 ? 'bg-gray-600' : ''} table-row"
-										>
+										<div class="${index % 2 === 1 ? 'bg-gray-600' : ''} table-row">
 											<div class="table-cell py-4 pl-4 pr-3 text-sm sm:pl-6">
 												<div class="font-medium text-gray-200">
 													${isHome ? away.name : home.name}
 												</div>
-												<div
-													class="mt-1 flex flex-col text-gray-300 sm:block lg:hidden"
-												></div>
+												<div class="mt-1 flex flex-col text-gray-300 sm:block lg:hidden"></div>
 											</div>
-											<div
-												class="hidden px-3 py-3.5 text-sm text-gray-300 lg:table-cell"
-											>
+											<div class="hidden px-3 py-3.5 text-sm text-gray-300 lg:table-cell">
 												${league.round}
 											</div>
 											<div
@@ -165,19 +149,13 @@ class TeamFixturesTable extends LitLightElement {
 											>
 												${formattedDate}
 											</div>
-											<div
-												class="hidden px-3 py-3.5 text-xs uppercase text-gray-300 lg:table-cell"
-											>
+											<div class="hidden px-3 py-3.5 text-xs uppercase text-gray-300 lg:table-cell">
 												${isHome ? 'Home' : 'Away'}
 											</div>
-											<div
-												class="hidden px-3 py-3.5 text-xs uppercase text-gray-300 lg:table-cell"
-											>
+											<div class="hidden px-3 py-3.5 text-xs uppercase text-gray-300 lg:table-cell">
 												${status.short}
 											</div>
-											<div
-												class="hidden px-3 py-3.5 text-xs uppercase text-gray-300 lg:table-cell"
-											>
+											<div class="hidden px-3 py-3.5 text-xs uppercase text-gray-300 lg:table-cell">
 												${goals.home} -
 												${goals.away}${isWinner
 													? html`<i class="fas fa-trophy ml-2 text-green-500">

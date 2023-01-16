@@ -2,7 +2,7 @@ import { html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { LitLightElement } from '../../lib/LitElement';
 import { fetchData } from '../../lib/helpers/Fetch';
-import { ILeagueWithStanding, ILeagueStanding } from '../../types/League.types';
+import { ILeagueStanding, ILeagueWithStanding } from '../../types/League.types';
 
 @customElement('team-standings')
 class TeamStandings extends LitLightElement {
@@ -24,18 +24,7 @@ class TeamStandings extends LitLightElement {
 		return html`
 			<sticky-background-table
 				class="min-w-full"
-				.headers=${[
-					'#',
-					'Team',
-					'MP',
-					'W',
-					'D',
-					'L',
-					'GF',
-					'GA',
-					'PTS',
-					'Form',
-				]}
+				.headers=${['#', 'Team', 'MP', 'W', 'D', 'L', 'GF', 'GA', 'PTS', 'Form']}
 			>
 				<div class="table-row-group divide-y divide-gray-500">
 					${this.loading
@@ -49,17 +38,11 @@ class TeamStandings extends LitLightElement {
 									const { team, form } = standing;
 									const formArray = form.split('');
 									return html`
-										<div
-											class="${index % 2 === 1 ? 'bg-gray-600' : ''} table-row"
-										>
-											<div
-												class="px-6 py-3.5 text-sm text-gray-300 lg:table-cell"
-											>
+										<div class="${index % 2 === 1 ? 'bg-gray-600' : ''} table-row">
+											<div class="px-6 py-3.5 text-sm text-gray-300 lg:table-cell">
 												${standing.rank}
 											</div>
-											<div
-												class="px-3 py-3.5 text-sm text-gray-300 lg:table-cell"
-											>
+											<div class="px-3 py-3.5 text-sm text-gray-300 lg:table-cell">
 												<img
 													class="inline-block h-6 w-6"
 													src="${team.logo}"
@@ -68,44 +51,28 @@ class TeamStandings extends LitLightElement {
 												/>
 												<span class="ml-2 font-semibold">${team.name}</span>
 											</div>
-											<div
-												class="px-3 py-3.5 text-sm text-gray-300 lg:table-cell"
-											>
+											<div class="px-3 py-3.5 text-sm text-gray-300 lg:table-cell">
 												${standing.all.played}
 											</div>
-											<div
-												class="px-3 py-3.5 text-sm text-gray-300 lg:table-cell"
-											>
+											<div class="px-3 py-3.5 text-sm text-gray-300 lg:table-cell">
 												${standing.all.win}
 											</div>
-											<div
-												class="px-3 py-3.5 text-sm text-gray-300 lg:table-cell"
-											>
+											<div class="px-3 py-3.5 text-sm text-gray-300 lg:table-cell">
 												${standing.all.draw}
 											</div>
-											<div
-												class="px-3 py-3.5 text-sm text-gray-300 lg:table-cell"
-											>
+											<div class="px-3 py-3.5 text-sm text-gray-300 lg:table-cell">
 												${standing.all.lose}
 											</div>
-											<div
-												class="px-3 py-3.5 text-sm text-gray-300 lg:table-cell"
-											>
+											<div class="px-3 py-3.5 text-sm text-gray-300 lg:table-cell">
 												${standing.all.goals.for}
 											</div>
-											<div
-												class="px-3 py-3.5 text-sm text-gray-300 lg:table-cell"
-											>
+											<div class="px-3 py-3.5 text-sm text-gray-300 lg:table-cell">
 												${standing.all.goals.against}
 											</div>
-											<div
-												class="px-3 py-3.5 text-sm text-gray-300 lg:table-cell"
-											>
+											<div class="px-3 py-3.5 text-sm text-gray-300 lg:table-cell">
 												${standing.points}
 											</div>
-											<div
-												class="px-3 py-3.5 text-sm text-gray-300 lg:table-cell"
-											>
+											<div class="px-3 py-3.5 text-sm text-gray-300 lg:table-cell">
 												${formArray.map((f) => {
 													let color = 'bg-gray-500';
 													switch (f) {
@@ -123,9 +90,7 @@ class TeamStandings extends LitLightElement {
 															break;
 													}
 													return html`
-														<div
-															class="${color} mr-1 inline-block h-4 w-4 rounded-full"
-														>
+														<div class="${color} mr-1 inline-block h-4 w-4 rounded-full">
 															<span class="sr-only">${f}</span>
 														</div>
 													`;

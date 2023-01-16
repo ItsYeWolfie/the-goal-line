@@ -17,9 +17,7 @@ export class TeamTransfers extends LitLightElement {
 	async connectedCallback() {
 		super.connectedCallback();
 
-		this.transfers = await fetchData<ITransfer[]>(
-			'https://api.npoint.io/e6cbde96c194aef54417'
-		);
+		this.transfers = await fetchData<ITransfer[]>('https://api.npoint.io/e6cbde96c194aef54417');
 
 		if (this.transfers.length > 0) {
 			this.sortTransfersByPlayers();
@@ -29,6 +27,19 @@ export class TeamTransfers extends LitLightElement {
 			this.selectedPlayer = -1;
 		}
 		this.loading = false;
+
+		/**
+		 * const transferDates = this.transfers
+		 * 	.map((playerTransfer) =>
+		 * 		playerTransfer.transfers.map((transfer) => {
+		 * 			const date = new Date(transfer.date);
+		 * 			return date.getFullYear();
+		 * 		})
+		 * 	)
+		 * 	.flat()
+		 * 	.sort((a, b) => a - b)
+		 * 	.filter((value, index, self) => self.indexOf(value) === index);
+		 */
 	}
 
 	sortTransfersByPlayers() {
@@ -40,18 +51,14 @@ export class TeamTransfers extends LitLightElement {
 			return this.transfers;
 		}
 
-		return this.transfers.filter(
-			(transfer) => transfer.player.id === this.selectedPlayer
-		);
+		return this.transfers.filter((transfer) => transfer.player.id === this.selectedPlayer);
 	}
 
 	render() {
 		return html`
 			<div class="mb-8 flex items-center gap-4">
 				<div>
-					<label class="mb-1 block text-sm font-medium text-gray-100"
-						>Select Player</label
-					>
+					<label class="mb-1 block text-sm font-medium text-gray-100">Select Player</label>
 					<select
 						class="bg-gray-800"
 						@change="${(e: Event) => {
@@ -82,9 +89,7 @@ export class TeamTransfers extends LitLightElement {
 					${this.mutatedTransfers.map(
 						(playerTransfer) => html`
 							<li>
-								<header class="relative mb-2">
-									${playerTransfer.player.name}
-								</header>
+								<header class="relative mb-2">${playerTransfer.player.name}</header>
 								${playerTransfer.transfers.map(
 									(transfer, index) => html`
 										<div class="relative pb-8">
@@ -112,14 +117,10 @@ export class TeamTransfers extends LitLightElement {
 																<span class="sr-only">Moved out icon</span>
 														  </i>`}
 												</div>
-												<div
-													class="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5"
-												>
+												<div class="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
 													<div>
 														<span class="text-sm text-gray-500"
-															>${transfer.type === 'Loan'
-																? 'Loaned from'
-																: 'Moved from'}
+															>${transfer.type === 'Loan' ? 'Loaned from' : 'Moved from'}
 														</span>
 														<span class="text-sm font-medium text-gray-100">
 															${transfer.teams.out.name}
@@ -131,9 +132,7 @@ export class TeamTransfers extends LitLightElement {
 														<time class="text-sm text-gray-500">
 															on ${transfer.date.toLocaleString()}
 														</time>
-														<span class="text-sm text-gray-500">
-															(${transfer.type})
-														</span>
+														<span class="text-sm text-gray-500"> (${transfer.type}) </span>
 													</div>
 												</div>
 											</div>
