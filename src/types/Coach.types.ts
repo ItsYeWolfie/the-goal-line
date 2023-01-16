@@ -1,25 +1,13 @@
 import { ITeamBasic } from './Team.types';
-import { IHumanBasic } from './General.types';
+import { IHuman } from './General.types';
 
-export interface ICoach extends IHumanBasic {
-	firstname: string;
-	lastname: string;
-	age: number;
-	birth: ICoachBirth;
-	nationality: string;
-	height: null;
-	weight: null;
+export interface ICoach extends IHuman {
 	team: ITeamBasic;
-	career: CoachTeamType[];
+	career: ICoachTeamType[];
 }
 
-interface ICoachBirth {
-	date: Date;
-	place: string;
-	country: string;
-}
-
-type CoachTeamType = ITeamBasic & {
+interface ICoachTeamType {
 	start: Date;
+	team: ITeamBasic;
 	end: Date;
-};
+}

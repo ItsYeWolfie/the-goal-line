@@ -1,6 +1,8 @@
 /* eslint-disable import/no-cycle */
+import { ICountry } from './Country.types';
 import { FixtureSidesType } from './Fixture.types';
-import { ILeagueWithSeason } from './League.types';
+import { ILeagueBasicWithType, ILeagueWithSeason } from './League.types';
+import { ISeason } from './Season.types';
 import { IVenue } from './Venue.types';
 
 export interface ITeamAndVenue {
@@ -82,6 +84,12 @@ interface ICardsDuringMinutesType {
 		total: number;
 		percentage: string;
 	};
+}
+
+export interface ITeamLeague {
+	league: ILeagueBasicWithType;
+	country: ICountry;
+	seasons: ISeason[];
 }
 
 type FixtureMinutesType =

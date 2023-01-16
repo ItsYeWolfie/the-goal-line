@@ -3,14 +3,18 @@ import { ITeamBasic } from './Team.types';
 export interface ILeague extends ILeagueBasic {
 	round?: string;
 	season: number;
+	country: string;
+	flag: string;
 }
 
 export interface ILeagueBasic {
 	id: number;
-	flag: string;
 	logo: string;
 	name: string;
-	country: string;
+}
+
+export interface ILeagueBasicWithType extends ILeagueBasic {
+	type: string;
 }
 
 export interface ILeagueWithRound extends ILeague {
