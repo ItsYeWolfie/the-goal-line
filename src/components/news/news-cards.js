@@ -115,7 +115,7 @@ class NewsCards extends LitLightElement {
 						${this.filteredData.map(
 							(item) => html`
 								<div
-									class="h-full w-[48%] flex-none rounded sm:w-[35%] md:w-[35%] lg:w-[25%]"
+									class="h-full w-[48%] flex-none rounded sm:w-[35%] md:w-[35%] lg:w-[26%]"
 								>
 									<div
 										class="mx-auto h-[60%] w-[100%]  rounded-[15px] bg-gray-900 align-middle"
@@ -134,7 +134,7 @@ class NewsCards extends LitLightElement {
 											${item.league}
 										</div>
 										<div
-											class="h-[40%] w-full text-[0.7rem] font-semibold text-gray-200 sm:text-[0.9rem]  md:text-[1rem] xl:text-[1.1rem] 2xl:text-[1.4rem] "
+											class="h-[40%] w-full text-[0.7rem] font-semibold text-gray-200 sm:text-[0.8rem]  md:text-[1rem]  xl:text-[1.1rem] 2xl:text-[1.4rem] "
 										>
 											${item.title}
 										</div>
