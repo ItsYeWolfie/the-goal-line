@@ -49,7 +49,7 @@ class ClubLogos extends LitLightElement {
 		}
 		return html` <section class="m-[3%]">
 			<div
-				class="grid h-[12vh] w-full grid-rows-6 gap-0 text-gray-200 sm:h-[18vh] md:h-[22vh] lg:h-[22vh] xl:h-[22vh] 2xl:h-[25vh]"
+				class="grid h-[100px] clublogos w-full grid-rows-6 gap-0 text-gray-200 sm:h-[150px] md:h-[150px] lg:h-[180px] xl:h-[180px] 2xl:h-[220px]"
 			>
 				<div class="relative row-span-1 h-[100%] w-full items-center">
 					<i

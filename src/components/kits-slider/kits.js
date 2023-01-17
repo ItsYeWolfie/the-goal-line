@@ -50,7 +50,7 @@ class Kits extends LitLightElement {
 		return html`
 			<section class="m-[3%]">
 				<div
-					class=" grid h-[25vh] w-full grid-rows-6 gap-0 text-gray-200   sm:h-[30vh] md:h-[40vh]"
+					class=" grid h-[190px] w-full grid-rows-6 gap-0 text-gray-200   sm:h-[240px] md:h-[280px] lg:h-[300px]"
 				>
 					<div class="relative row-span-1 h-[100%] w-full items-center">
 						<i
@@ -78,7 +78,7 @@ class Kits extends LitLightElement {
 						${this.data.map(
 							(item) => html`
 								<div
-									class=" h-full w-[30%] flex-none rounded sm:w-[25%]  md:w-[25%] lg:w-[20%]"
+									class=" h-full w-[30%] flex-none rounded sm:w-[28%]  md:w-[28%] lg:w-[20%]"
 								>
 									<div
 										class="mx-auto h-[80%] w-[80%] rounded-[15px] bg-gray-900 align-middle  "

@@ -64,7 +64,7 @@ class NewsCards extends LitLightElement {
 		return html`
 			<section class="m-[3%] mt-[6%]">
 				<div
-					class="grid-rows-10 grid h-[40vh] w-full gap-[4%] text-gray-200 sm:h-[48vh] md:h-[55vh] lg:h-[55vh] xl:h-[60vh]  "
+					class="grid-rows-10 grid h-[350px] w-full gap-[4%] text-gray-200 sm:h-[380px] md:h-[450px] lg:h-[500px] xl:h-[550px] 2xl:h-[600px]  "
 				>
 					<div
 						class="relative row-span-4 h-[100%] w-full items-center border-b-4 border-gray-400 "

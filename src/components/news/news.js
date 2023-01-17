@@ -55,7 +55,6 @@ class NewsPage extends LitLightElement {
 	}
 
 	filterData(value) {
-		console.log(value);
 		this.activeCategory = value;
 		if (value == null) this.filteredData = this.data;
 		else

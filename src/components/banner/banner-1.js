@@ -6,7 +6,7 @@ class Banner1 extends LitLightElement {
 		return html`
 			<section class="m-[3%]">
 				<div
-					class="relative h-[20vh] w-full overflow-hidden rounded-[20px] bg-opacity-[0.7] bg-gradient-to-tr from-gray-900 to-gray-600 shadow-lg shadow-slate-500 sm:h-[27vh] md:h-[32vh] xl:h-[35vh]"
+					class="relative h-[150px] w-full overflow-hidden rounded-[20px] bg-opacity-[0.7] bg-gradient-to-tr from-gray-900 to-gray-600 shadow-lg shadow-slate-500 sm:h-[210px] md:h-[250px] lg:h-[230px] xl:h-[260px]"
 					style="background-position: center center"
 				>
 					<div class="absolute right-[5%] bottom-0 h-[100%] w-[40%]">

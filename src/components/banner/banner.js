@@ -55,10 +55,11 @@ class Banner extends LitLightElement {
 			<section class="m-[3%]">
 				<div class="2xl:w-full">
 					<div
-						class="items-strech flex flex-col justify-center space-y-4 md:flex-row md:space-y-0 md:space-x-6 lg:space-x-8"
+						class="items-strech banner flex h-[500px] flex-col justify-center space-y-4 sm:h-[650px] md:h-[270px] md:flex-row md:space-y-0 md:space-x-6 lg:h-[370px] lg:space-x-8 2xl:h-[420px]"
+						id="banner"
 					>
 						<div
-							class="items-strech relative flex h-[30vh] w-full flex-col justify-between rounded-[20px] bg-gray-50 dark:bg-gray-900 sm:h-[40vh] md:h-[33vh] md:w-8/12 md:flex-row lg:h-[auto] lg:w-7/12 xl:h-[auto] xl:w-8/12 2xl:h-[40vh] 2xl:w-9/12"
+							class="items-strech relative flex h-full w-full flex-col justify-between rounded-[20px] bg-gray-50 dark:bg-gray-900  md:w-8/12 md:flex-row  lg:w-7/12  xl:w-8/12  2xl:w-9/12"
 						>
 							<img
 								class="h-full w-full rounded-[20px] opacity-[0.6]"
@@ -88,9 +89,9 @@ class Banner extends LitLightElement {
 							</p>
 						</div>
 						<div
-							class="relative ml-[20%] flex w-[60%] flex-col justify-center rounded-[20px] bg-gray-50 px-4  shadow-lg shadow-slate-600 dark:bg-gray-900 sm:ml-[20%] sm:w-3/5 sm:align-middle md:w-4/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12"
+							class="relative ml-[20%] flex h-full w-[60%] flex-col justify-center rounded-[20px] bg-gray-50 px-4  shadow-lg shadow-slate-600 dark:bg-gray-900 sm:ml-[20%] sm:w-3/5 sm:align-middle md:w-4/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12"
 						>
-							<div class="flex flex-col justify-center ">
+							<div class="flex h-full flex-col justify-center">
 								<div
 									class="relative col-span-1 h-[100%] w-[100%] rounded-[20px] bg-gray-900"
 								>
