@@ -115,7 +115,7 @@ class TeamPage extends LitLightElement {
 			<team-overview .team=${team} .venue=${venue}></team-overview>
 		`;
 
-		return this.requestUpdate();
+		return this.updateComplete;
 	}
 
 	setActiveTab(tabName: string | null) {

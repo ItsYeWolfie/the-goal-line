@@ -3,8 +3,14 @@ import { html } from 'lit';
 import { LitLightElement } from '../../../lib/LitElement';
 import { IPlayerWithStatistics } from '../../../types/Player.types';
 
+interface ITeamPlayersTableProps {
+	title: string;
+	players: IPlayerWithStatistics[];
+	loading: boolean;
+	activeLeagueId: number;
+}
 @customElement('team-players-table')
-export class TeamPlayersTable extends LitLightElement {
+export class TeamPlayersTable extends LitLightElement implements ITeamPlayersTableProps {
 	@property({ type: String }) title = '';
 
 	@property({ type: Array })
@@ -15,7 +21,6 @@ export class TeamPlayersTable extends LitLightElement {
 	@property({ type: Number }) activeLeagueId = 0;
 
 	render() {
-		console.log('Players', this.players);
 		return html`
 			<header class="mb-2 text-xl font-medium text-gray-300">${this.title}</header>
 			<ul class="mb-8 grid divide-y-2 divide-gray-600 rounded-md border border-gray-700 text-sm">
@@ -94,3 +99,8 @@ export class TeamPlayersTable extends LitLightElement {
 }
 
 export default TeamPlayersTable;
+declare global {
+	interface HTMLElementTagNameMap {
+		'team-players-table': TeamPlayersTable;
+	}
+}

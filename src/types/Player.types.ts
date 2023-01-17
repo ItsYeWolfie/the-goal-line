@@ -8,10 +8,9 @@ export interface IPlayerWithStatistics extends IHuman {
 	statistics: IPlayerStatistics[];
 }
 
-interface IPlayerStatistics extends IPlayerBasic {
+interface IPlayerStatistics extends IPlayer {
 	team: ITeamBasic;
 	league: ILeagueWithSeason;
-	injured: false;
 	games: IPlayerGamesStats;
 	substitutes: IPlayerSubstitutesStats;
 	shots: IPlayerShotsStats;
@@ -25,8 +24,9 @@ interface IPlayerStatistics extends IPlayerBasic {
 	penalty: IPlayerPenaltiesStats;
 }
 
-interface IPlayerBasic extends IHuman {
+interface IPlayer extends IHuman {
 	photo: string;
+	injured: false;
 }
 
 interface IPlayerGamesStats {
@@ -106,7 +106,7 @@ export interface IPlayerInjury {
 	league: ILeagueWithSeason;
 }
 
-interface IInjuryPlayerData extends IPlayerBasic {
+interface IInjuryPlayerData extends IPlayer {
 	type: string;
 	reason: string;
 }
