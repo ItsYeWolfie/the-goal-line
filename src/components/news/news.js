@@ -1,5 +1,7 @@
+/* eslint-disable prefer-destructuring */
 /* eslint-disable promise/always-return */
 import { html } from 'lit';
+import moment from 'moment';
 import { LitLightElement } from '../../lib/LitElement';
 
 class NewsPage extends LitLightElement {
@@ -8,6 +10,12 @@ class NewsPage extends LitLightElement {
 			data: { type: Array },
 			error: { type: String },
 			loading: { type: Boolean },
+			filteredData: { type: Array },
+			category: { type: String },
+			dataTofilter: { type: Array },
+			activeCategory: { type: String, reflect: true },
+			currentDate: { type: String },
+			postTime: { type: String },
 		};
 	}
 
@@ -15,9 +23,13 @@ class NewsPage extends LitLightElement {
 		super();
 
 		this.data = [];
-		this.error = null;
-		this.loading = true;
-		this.activeClass = 'All News';
+		this.filteredData = this.data;
+		this.category = '';
+		this.dataTofilter = [null, 'Champions', 'Transfer'];
+		this.currentDate = new Date().toString();
+		this.activeCategory = this.dataTofilter[0];
+		this.currentDate = moment().format('DD-MM-YYYY');
+		this.postTime = moment().format('h');
 		fetch('../../data/news.json')
 			.then((response) => {
 				if (!response.ok) {
@@ -29,6 +41,8 @@ class NewsPage extends LitLightElement {
 				this.data = data;
 				this.loading = false;
 				this.newsItem = this.data.find((item) => item.title === this.slug);
+				this.filteredData = data;
+				this.requestUpdate();
 			})
 			.catch((error) => {
 				this.error = error.message;
@@ -38,6 +52,17 @@ class NewsPage extends LitLightElement {
 		const params = new URLSearchParams(window.location.search);
 		this.slug = params.get('slug');
 		this.newsItem = this.data.find((item) => item.title === this.slug);
+	}
+
+	filterData(value) {
+		console.log(value);
+		this.activeCategory = value;
+		if (value == null) this.filteredData = this.data;
+		else
+			this.filteredData = this.data.filter((item) => {
+				return item.category === value;
+			});
+		this.requestUpdate();
 	}
 
 	ChangeActive(className) {
@@ -58,6 +83,10 @@ class NewsPage extends LitLightElement {
 		if (this.error) {
 			return html`<div>Error: ${this.error}</div>`;
 		}
+		if (!this.newsItem) {
+			// eslint-disable-next-line prefer-destructuring
+			this.newsItem = this.data[0];
+		}
 		return html`
 			<section class="m-[3%]">
 				<div class="relative h-[50px] w-full md:h-[70px]">
@@ -65,26 +94,26 @@ class NewsPage extends LitLightElement {
 						class="absolute left-[0%] bottom-[20%] flex h-[80%] w-[90%] items-end gap-[3%]"
 					>
 						<p
-							class="${this.activeClass === 'All News'
+							class="${this.activeCategory === this.dataTofilter[0]
 								? 'text-yellow-400 border-[1px] border-white  '
 								: ' text-white'} rounded-lg  px-[2%] py-[0.5%] text-[0.9rem]  sm:text-[1rem] lg:text-[1rem] 2xl:text-[1.3rem]"
-							@click="${() => this.ChangeActive('All News')}"
+							@click="${() => this.filterData(this.dataTofilter[0])}"
 						>
 							All News
 						</p>
 						<p
-							class="${this.activeClass === 'Transfer News'
+							class="${this.activeCategory === this.dataTofilter[1]
 								? 'text-yellow-400 border-[1px] border-white  '
 								: ' text-white'} rounded-lg  px-[2%] py-[0.5%] text-[0.9rem]  sm:text-[1rem] lg:text-[1rem] 2xl:text-[1.3rem]"
-							@click="${() => this.ChangeActive('Transfer News')}"
+							@click="${() => this.filterData(this.dataTofilter[1])}"
 						>
 							Transfer News
 						</p>
 						<p
-							class="${this.activeClass === 'Hot News'
+							class="${this.activeCategory === this.dataTofilter[2]
 								? 'text-yellow-400 border-[1px] border-white  '
 								: ' text-white'} rounded-lg  px-[2%] py-[0.5%] text-[0.9rem]  sm:text-[1rem] lg:text-[1rem] 2xl:text-[1.3rem]"
-							@click="${() => this.ChangeActive('Hot News')}"
+							@click="${() => this.filterData(this.dataTofilter[2])}"
 						>
 							Hot News
 						</p>
@@ -125,13 +154,18 @@ class NewsPage extends LitLightElement {
 								/>
 							</div>
 							<div
-								class="mt-[1%] w-[100%] text-right text-[0.8rem] text-gray-300 sm:text-[1.2rem]"
+								class="relative mt-[1%] w-[100%] text-[0.8rem] text-gray-300 sm:text-[1.1rem]"
 							>
-								23.09.2023
+								<p class=" absolute left-3 text-yellow-400">
+									Date: ${this.currentDate}
+								</p>
+								<p class=" absolute right-3 text-yellow-400">
+									${this.postTime}h ago
+								</p>
 							</div>
 
 							<div
-								class="mx-auto mt-[5%] w-[95%] break-words text-gray-300 sm:text-[1.2rem] lg:text-[1.1rem] 2xl:text-[1.8rem]"
+								class="mx-auto mt-[7%] w-[95%] break-words text-gray-300 sm:text-[1.2rem] lg:text-[1.1rem] 2xl:text-[1.8rem]"
 							>
 								${this.newsItem.body}
 							</div>
@@ -148,6 +182,31 @@ class NewsPage extends LitLightElement {
 							>
 								${this.newsItem.body}
 							</div>
+							<div class="mt-[5%] h-[300px] w-full 2xl:h-[450px]">
+								<img
+									class="h-full w-full animate-pulse bg-white opacity-[0.8]"
+									src="../../images/Bne.jpeg"
+									alt=""
+								/>
+							</div>
+							<div
+								class="mt-[5%] hidden h-[300px]  w-full sm:block 2xl:h-[450px]"
+							>
+								<img
+									class="h-full w-full  bg-white opacity-[0.8]"
+									src="../../images/gjirafavisa.png"
+									alt=""
+								/>
+							</div>
+							<div
+								class="mt-[5%] hidden h-[300px]  w-full sm:block 2xl:h-[450px]"
+							>
+								<img
+									class="newsImg  h-full w-full bg-white opacity-[0.8]"
+									src="../../images/gjirafavideo.jpeg"
+									alt=""
+								/>
+							</div>
 						</div>
 					</div>
 					<div class="w-full md:col-span-2">
@@ -155,7 +214,7 @@ class NewsPage extends LitLightElement {
 							class="mb-[5%] mt-[5%] h-[150px] w-full text-white sm:mt-[5%] sm:h-[240px] md:mt-[0%] md:h-[200px] 2xl:h-[300px]"
 						>
 							<img
-								class="mx-auto h-full w-[90%] animate-pulse rounded-[10px] opacity-[0.9]"
+								class=" newsImg mx-auto h-full  w-[90%] rounded-[10px] opacity-[0.9]"
 								src="../../images/gjirafamall.jpeg"
 								alt=""
 							/>
@@ -168,7 +227,7 @@ class NewsPage extends LitLightElement {
 									Related News
 								</p>
 							</div>
-							${this.data.map(
+							${this.filteredData.map(
 								(item) => html`
 									<div
 										class="grid h-[155px] grid-cols-2 border-b-[1px] border-gray-400 sm:h-[200px] md:h-[180px] lg:h-[160px] xl:h-[170px] 2xl:h-[220px]"
