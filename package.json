@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
-    "preview": "vite preview --host"
+    "preview": "vite preview --host",
+		"eslint": "eslint --ext ./src/**/*.ts src/**/*.js"
   },
   "type": "module",
   "devDependencies": {

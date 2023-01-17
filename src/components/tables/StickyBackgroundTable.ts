@@ -9,9 +9,7 @@ export default class StickyBackgroundTable extends LitLightElement {
 	render() {
 		return html`
 			<div class="${this.classList} relative table border-collapse bg-gray-700">
-				<div
-					class="sticky top-0 table-header-group bg-gray-800 text-xs uppercase"
-				>
+				<div class="sticky top-0 table-header-group bg-gray-800 text-xs uppercase">
 					<div class="table-row">
 						${this.headers.map(
 							(header) => html`

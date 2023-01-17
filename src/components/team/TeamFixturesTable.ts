@@ -77,6 +77,7 @@ class TeamFixturesTable extends LitLightElement {
 						</select>
 					</div>
 				</div>
+
 				${this.selectedLeague !== -1 && !this.loading
 					? html`
 							<div class="rounded-md bg-gray-800 p-4 text-center text-white">

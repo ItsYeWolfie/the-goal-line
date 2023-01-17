@@ -4,13 +4,14 @@ import { IFixtureInfoBasic } from './Fixture.types';
 import { ILeagueWithSeason } from './League.types';
 
 export interface IPlayerWithStatistics extends IHuman {
-	injured: false;
+	player: IPlayerStatistics;
 	statistics: IPlayerStatistics[];
 }
 
-interface IPlayerStatistics {
+interface IPlayerStatistics extends IPlayerBasic {
 	team: ITeamBasic;
 	league: ILeagueWithSeason;
+	injured: false;
 	games: IPlayerGamesStats;
 	substitutes: IPlayerSubstitutesStats;
 	shots: IPlayerShotsStats;

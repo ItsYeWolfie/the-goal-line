@@ -21,9 +21,7 @@ class PageNotFound extends LitLightElement {
 				<div class="mx-auto max-w-xl py-16 sm:py-24">
 					<div class="text-center">
 						<p class="text-base font-semibold text-indigo-600">Error 404</p>
-						<h1
-							class="mt-2 text-4xl font-bold tracking-tight text-gray-200 sm:text-5xl"
-						>
+						<h1 class="mt-2 text-4xl font-bold tracking-tight text-gray-200 sm:text-5xl">
 							This page does not exist.
 						</h1>
 						<p class="mt-2 text-lg text-gray-300">
@@ -32,10 +30,7 @@ class PageNotFound extends LitLightElement {
 					</div>
 					<div class="mt-12">
 						<h2 class="text-base font-semibold text-gray-300">Popular pages</h2>
-						<ul
-							class="mt-4 divide-y divide-gray-700 border-t border-b border-gray-700"
-							role="list"
-						>
+						<ul class="mt-4 divide-y divide-gray-700 border-t border-b border-gray-700" role="list">
 							${pages.map(
 								(page) => html`
 									<li class="relative flex items-start space-x-4 py-6">
@@ -52,10 +47,7 @@ class PageNotFound extends LitLightElement {
 													class="rounded-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2"
 												>
 													<a class="focus:outline-none" href="${page.href}">
-														<span
-															class="absolute inset-0"
-															aria-hidden="true"
-														></span>
+														<span class="absolute inset-0" aria-hidden="true"></span>
 														${page.title}
 													</a>
 												</span>
@@ -82,10 +74,7 @@ class PageNotFound extends LitLightElement {
 							)}
 						</ul>
 						<div class="mt-8">
-							<a
-								class="text-base font-medium text-indigo-600 hover:text-indigo-500"
-								href="#"
-							>
+							<a class="text-base font-medium text-indigo-600 hover:text-indigo-500" href="#">
 								Or go back home
 								<span aria-hidden="true"> &rarr;</span>
 							</a>
