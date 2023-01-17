@@ -29,6 +29,7 @@ class NewsCards extends LitLightElement {
 		fetch('./data/news.json')
 			.then((response) => response.json())
 			.then((data) => {
+				console.log(data);
 				this.data = data;
 				this.filteredData = data;
 				this.requestUpdate();
@@ -52,6 +53,13 @@ class NewsCards extends LitLightElement {
 		this.scrollingDiv = this.shadowRoot.querySelector('#div-s');
 	}
 
+	NavigateTo(event) {
+		event.preventDefault();
+		const target = event.currentTarget;
+		const slug = target.getAttribute('data-slug');
+		window.location.href = `/components/news/news.html?slug=${slug}`;
+	}
+
 	render() {
 		return html`
 			<section class="m-[3%] mt-[6%]">
@@ -62,7 +70,7 @@ class NewsCards extends LitLightElement {
 						class="relative row-span-4 h-[100%] w-full items-center border-b-4 border-gray-400 "
 					>
 						<div
-							class="md:[w-60%] absolute bottom-[-4px] left-[0%]  flex h-[50%] w-[80%] items-start gap-[5%] text-[0.8rem] text-gray-200 md:text-[1rem]"
+							class="md:[w-60%] absolute bottom-[-4px] left-[0%]  flex h-[50%] w-[80%] items-start gap-[5%] text-[0.8rem] text-gray-200 md:text-[1rem] xl:text-[1.1rem] "
 						>
 							<p
 								class="${this.activeCategory === this.dataTofilter[0]
@@ -117,6 +125,11 @@ class NewsCards extends LitLightElement {
 								<div
 									class="h-full w-[48%] flex-none rounded sm:w-[35%] md:w-[35%] lg:w-[26%]"
 								>
+									<a
+										data-slug="${item.title}"
+										href="#"
+										@click="${this.NavigateTo}"
+									>
 									<div
 										class="mx-auto h-[60%] w-[100%]  rounded-[15px] bg-gray-900 align-middle"
 									>
@@ -129,7 +142,7 @@ class NewsCards extends LitLightElement {
 
 									<div class="h-[40%] w-full text-left">
 										<div
-											class="mb-[5%] h-[10%] w-full  text-[0.6rem] text-yellow-500 sm:text-[0.8rem]    md:text-[0.9rem] xl:text-[1rem] 2xl:text-[1.3rem]  "
+											class="mb-[5%] h-[10%] w-full  text-[0.6rem] text-yellow-500 sm:text-[0.8rem]    md:text-[0.9rem] xl:text-[1rem] 2xl:text-[1.5rem]   "
 										>
 											${item.league}
 										</div>
@@ -145,6 +158,7 @@ class NewsCards extends LitLightElement {
 										</div>
 									</div>
 								</div>
+              </a>
 							`
 						)}
 					</div>

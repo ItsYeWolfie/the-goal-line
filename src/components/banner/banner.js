@@ -53,7 +53,7 @@ class Banner extends LitLightElement {
 
 		return html`
 			<section class="m-[3%]">
-				<div class="container mx-auto 2xl:w-full">
+				<div class="2xl:w-full">
 					<div
 						class="items-strech flex flex-col justify-center space-y-4 md:flex-row md:space-y-0 md:space-x-6 lg:space-x-8"
 					>
