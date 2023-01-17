@@ -5,12 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Goal Line</title>
-    <link rel="stylesheet" href="./dycalendar.css"/>
-    
 </head>
 <body class="bg-gray-900 lg:flex">
 
-    <!-- <g-header class="hidden lg:block"></g-header> -->
+    <!-- <g-header class="hidden lg:block lg:h-full"></g-header> -->
 
     <div class="w-full flex justify-center h-12 md:h-14 lg:hidden">
         <span class="my-auto ml-auto"><img src="../images/logo-no-background.svg" width="170px"/></span>
@@ -22,18 +20,7 @@
             <div class="flex flex-col">
                 <span class="pt-2 my-auto pl-2 text-lg"><i class="fa-solid fa-magnifying-glass"></i> Search...</span>
                 <span class="w-full border-[0.2px] mt-2 b-10 border-solid border-gray-200 opacity-30"></span>
-                <div class="flex p-2">
-                    <span class="my-auto"><img src="./photos/england.png" width="30px" class="rounded-sm"/></span>
-                    <span class="ml-2 text-sm hover:text-sky-600 cursor-pointer">England</span>
-                </div>
-                <div class="flex p-2">
-                    <span class="my-auto"><img src="./photos/france.png" width="30px" class="rounded-sm"/></span>
-                    <span class="ml-2 text-sm hover:text-sky-600 cursor-pointer">France</span>
-                </div>
-                <div class="flex p-2">
-                    <span class="my-auto"><img src="./photos/spain.png" width="30px" class="rounded-sm"/></span>
-                    <span class="ml-2 text-sm hover:text-sky-600 cursor-pointer">Spain</span>
-                </div>
+                <div id="countries"></div>
             </div>
         </div>
     </div>
@@ -41,13 +28,13 @@
     <div class="w-full p-0.5 lg:w-1/3 lg:pt-4 lg:pl-4">
         <div class="bg-gray-800 h-auto flex flex-col p-2 rounded-md text-gray-200 text-sm">
             <div class="flex justify-around align-middle">
-                <span class="bg-gray-200 rounded-sm w-10 text-center h-5 my-auto text-gray-800">LIVE</span>
-                <div class="flex flex-col text-xs md:text-sm items-center hover:text-sky-600 cursor-pointer"><span>THU</span><span class="text-xs">12JAN</span></div>
-                <div class="flex flex-col text-xs md:text-sm items-center hover:text-sky-600 cursor-pointer"><span>FRI</span><span class="text-xs">13JAN</span></div>
-                <div class="flex flex-col text-xs md:text-sm items-center text-sky-600 cursor-pointer"><span>TODAY</span><span class="text-xs">14JAN</span></div>
-                <div class="flex flex-col text-xs md:text-sm items-center hover:text-sky-600 cursor-pointer"><span>SUN</span><span class="text-xs">15JAN</span></div>
-                <div class="flex flex-col text-xs md:text-sm items-center hover:text-sky-600 cursor-pointer"><span>MON</span><span class="text-xs">16JAN</span></div>
-                
+                <span class="bg-gray-200 hover:bg-sky-600 hover:text-gray-200 rounded-sm w-10 text-center h-5 my-auto text-gray-800 cursor-pointer">LIVE</span>
+                <div class="flex flex-col text-xs md:text-sm items-center hover:text-sky-600 cursor-pointer"><span id="beforeYesterDay"></span><span id="day-before-yesterday" class="text-xs"></span></div>
+                <div class="flex flex-col text-xs md:text-sm items-center hover:text-sky-600 cursor-pointer"><span id="yesterDay"></span><span id="yesterday" class="text-xs"></span></div>
+                <div class="flex flex-col text-xs md:text-sm items-center text-sky-600 cursor-pointer"><span id="todayDay">TODAY</span><span id="today" class="text-xs"></span></div>
+                <div class="flex flex-col text-xs md:text-sm items-center hover:text-sky-600 cursor-pointer"><span id="tomorrowDay"></span><span id="tomorrow" class="text-xs"></span></div>
+                <div class="flex flex-col text-xs md:text-sm items-center hover:text-sky-600 cursor-pointer"><span id="afterTomorrowDay"></span><span id="day-after-tomorrow" class="text-xs"></span></div>
+                    
                 <div class="my-auto cursor-pointer"><i class="fa-regular fa-calendar-days text-2xl hover:text-sky-600" id="calendar-icon"></i></div>
                   <div id="calendar" class="bg-gray-700 font-sans hidden absolute rounded-md pl-1 pr-1 border-[0.5px] border-solid border-gray-500 z-10 mt-10 ml-28 md:ml-[33rem] lg:ml-52">
                     <div id="calendar-header" class="flex justify-between items-center p-4">
@@ -78,13 +65,13 @@
             </div>
 
             <span class="w-full border-[0.2px] mt-2 b-10 border-solid border-gray-200 opacity-30"></span>
-            <div class="flex p-2">
+            <div class="flex p-2 cursor-pointer hover:text-sky-600">
                 <span class="my-auto"><img src="./photos/england.png" width="30px" class="rounded-sm"/></span>            
                 <span class="flex flex-col ml-2">
                     <span class="text-sm">Premier League</span>
                     <span class="text-xs text-gray-500">England</span>
                 </span>
-                <span class="ml-auto my-auto cursor-pointer"><i class="fa-solid fa-chevron-right hover:text-sky-600"></i></span>
+                <span class="ml-auto my-auto"><i class="fa-solid fa-chevron-right"></i></span>
             </div>
             <div class="bg-gray-700 cursor-pointer flex items-center rounded-md hover:h-16 hover:bg-gray-800 hover:border-solid hover:border-2 hover:border-gray-700">
                 <span class="my-auto ml-2">15:00</span>
@@ -131,7 +118,7 @@
                     <span>2</span>
                 </div>
             </div>
-            <div class="flex p-2">
+            <div class="flex p-2 cursor-pointer hover:text-sky-600">
                 <span class="my-auto"><img src="./photos/spain.png" width="30px" class="rounded-sm"/></span>            
                 <span class="flex flex-col ml-2">
                     <span class="text-sm">La Liga</span>
@@ -184,7 +171,7 @@
                     <span>2</span>
                 </div>
             </div>
-            <div class="flex p-2">
+            <div class="flex p-2 cursor-pointer hover:text-sky-600">
                 <span class="my-auto"><img src="./photos/france.png" width="30px" class="rounded-sm"/></span>            
                 <span class="flex flex-col ml-2">
                     <span class="text-sm">Ligue 1</span>
@@ -242,14 +229,17 @@
     <div id="static-add" class="hidden lg:w-1/4 lg:ml-3 lg:mt-4 lg:flex lg:flex-col">
         <img src="../images/ads2.jpg" class="pb-4"/>
         <img src="../images/ads3.jpg" class="pb-4"/>
+        
     </div>
+    <div id="test"></div>
     <script
 		src="https://kit.fontawesome.com/93f4c9f245.js"
 		crossorigin="anonymous"
 		defer
 	></script>
     <script src="../main.js" type="module" defer></script>
-    <script src="./calendar.js"></script>
+    <script src="./days.js" defer></script>
+    <script src="./calendar.js" defer></script>
     <script>
         var searchIcon = document.getElementById("search-icon");
         var country = document.getElementById("country");
@@ -259,5 +249,6 @@
         }
         searchIcon.addEventListener("click", toggleCountry);
     </script>
+    <script src="../components/fixture-page/country.js" type="module" defer></script>
 </body>
 </html>
