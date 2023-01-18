@@ -78,7 +78,7 @@ class ClubLogos extends LitLightElement {
           	${this.data.map(
 							(item) => html`
 						<div
-							class="h-full w-[20%] flex-none rounded sm:w-[20%] md:w-[15%] lg:w-[15%] xl:w-[11%]"
+							class="h-full w-[20%] flex-none rounded sm:w-[20%] md:w-[15%] lg:w-[15%] xl:w-[12%]"
 						>
 							<div
 								class="lg-[100%] rounded- relative ml-[5%] mt-[10%] h-[85%] w-[90%] rounded-[100%] bg-gray-900 align-middle"

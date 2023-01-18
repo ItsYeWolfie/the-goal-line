@@ -1,7 +1,7 @@
 import { html } from 'lit';
 import { LitLightElement } from '../lib/LitElement';
 
-class MyElement extends LitLightElement {
+class Hline extends LitLightElement {
 	render() {
 		return html`
 			<section class="m-[3%]">
@@ -12,4 +12,4 @@ class MyElement extends LitLightElement {
 		`;
 	}
 }
-customElements.define('h-line', MyElement);
+customElements.define('h-line', Hline);
