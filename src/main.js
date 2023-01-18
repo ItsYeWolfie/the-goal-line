@@ -1,5 +1,4 @@
 import './style.css';
-import './components/navbar/GHeader';
 
 if (
 	localStorage.theme === 'dark' ||
