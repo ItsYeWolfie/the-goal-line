@@ -1,6 +1,7 @@
 import fetchData from '../helpers/Fetch';
 import { ITeamAndVenue, ITeamStatistics } from '../../types/Team.types';
 import { IFixture } from '../../types/Fixture.types';
+import { ILeagueWithStanding } from '../../types/League.types';
 
 export default async function teamOverviewLoader(): Promise<ITeamStatistics> {
 	const team = await fetchData<ITeamStatistics>(
@@ -23,4 +24,12 @@ export async function teamFixturesLoader() {
 	);
 
 	return fixtures;
+}
+
+export async function teamStandingsLoader() {
+	const league = await fetchData<ILeagueWithStanding>(
+		'https://api.npoint.io/9755c43d23971a73fe3f',
+	);
+
+	return league;
 }

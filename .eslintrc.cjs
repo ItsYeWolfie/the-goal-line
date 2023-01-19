@@ -55,5 +55,6 @@ module.exports = {
 				bracketSameLine: true,
 			},
 		],
+		'react/no-array-index-key': 'warn',
 	},
 };

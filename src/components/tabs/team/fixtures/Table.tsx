@@ -3,39 +3,39 @@ import { faTrophy } from '@fortawesome/free-solid-svg-icons';
 import { IFixture } from '../../../../../types/Fixture.types';
 
 export default function TeamFixturesTable({
-	filteredFixtures,
+	fixtures,
 	teamIDInt,
 }: {
-	filteredFixtures: IFixture[];
+	fixtures: IFixture[];
 	teamIDInt: number;
 }) {
 	return (
 		<table className="min-w-full">
 			<thead className="sticky top-0 bg-gray-800">
 				<tr>
-					<th className="pl-4 pr-3 text-left font-semibold text-gray-300 sm:pl-6 md:table-cell">
+					<th className="p-3 text-left text-xs font-medium uppercase tracking-wider text-gray-300 sm:pl-6 md:table-cell">
 						Opponent
 					</th>
-					<th className="hidden px-3 py-3.5 text-left font-semibold text-gray-300 lg:table-cell">
+					<th className="hidden p-3 text-left text-xs font-medium uppercase tracking-wider text-gray-300 lg:table-cell">
 						Round
 					</th>
-					<th className="hidden px-3 py-3.5 text-left font-semibold text-gray-300 md:table-cell">
+					<th className="hidden p-3 text-left text-xs font-medium uppercase tracking-wider text-gray-300 md:table-cell">
 						Date
 					</th>
-					<th className="hidden px-3 py-3.5 text-left font-semibold text-gray-300 md:table-cell">
-						Home/Away
+					<th className="hidden p-3 text-left text-xs font-medium uppercase tracking-wider text-gray-300 md:table-cell">
+						Side
 					</th>
-					<th className="px-3 py-3.5 text-left font-semibold text-gray-300 md:table-cell">
+					<th className="p-3 text-left text-xs font-medium uppercase tracking-wider text-gray-300 md:table-cell">
 						Status
 					</th>
-					<th className="px-3 py-3.5 text-left font-semibold text-gray-300 md:table-cell">
+					<th className="p-3 text-left text-xs font-medium uppercase tracking-wider text-gray-300 md:table-cell">
 						Result
 					</th>
 				</tr>
 			</thead>
 
 			<tbody className="divide-y divide-gray-500">
-				{filteredFixtures.map((fixture, index) => {
+				{fixtures.map((fixture, index) => {
 					const { fixture: match, goals, league, teams } = fixture;
 					const { home, away } = teams;
 					const isHome = home.id === teamIDInt;
@@ -53,11 +53,11 @@ export default function TeamFixturesTable({
 						<tr
 							className={`${index % 2 === 1 ? 'bg-gray-600' : 'bg-gray-700'}`}
 							key={fixture.fixture.id}>
-							<td className="py-4 pl-4 pr-3 text-sm sm:pl-6">
+							<td className="p-3 text-sm sm:pl-6">
 								<div className="font-medium text-gray-200">
 									{isHome ? away.name : home.name}
 								</div>
-								<div className="mt-1 flex flex-col text-gray-300">
+								<div className="mt-1 flex flex-col text-xs text-gray-300">
 									<div className="flex items-center gap-1 lg:hidden">
 										<span className="font-semibold">Round:</span>
 										<span>{league.round}</span>

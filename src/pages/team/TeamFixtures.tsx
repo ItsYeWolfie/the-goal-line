@@ -54,7 +54,7 @@ export default function TeamFixtures() {
 			</div>
 			<TeamFixturesTable
 				teamIDInt={teamIDInt}
-				filteredFixtures={filteredFixtures}
+				fixtures={filteredFixtures}
 			/>
 		</>
 	);
