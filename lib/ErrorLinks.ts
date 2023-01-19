@@ -13,7 +13,7 @@ export const errorLinks: ErrorLink[] = [
 		title: 'Teams',
 		description: 'Find your favorite team and get the latest data.',
 		icon: faPeopleGroup,
-		href: '#',
+		href: '/teams',
 	},
 ];
 
