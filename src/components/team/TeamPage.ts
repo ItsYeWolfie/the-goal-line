@@ -9,7 +9,6 @@ import './TeamCoaches';
 import './TeamPlayers';
 import '../pages/BreadCrumb';
 import { html } from 'lit-html';
-// eslint-disable-next-line import/extensions
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { IBreadCrumb } from '../../types/BreadCrumb.types';
@@ -92,7 +91,7 @@ class TeamPage extends LitLightElement {
 
 	constructor() {
 		super();
-		this.classList.add('container', 'mx-auto', 'p-8');
+		this.classList.add('container', 'mx-auto', 'p-2', 'sm:p-8');
 	}
 
 	async connectedCallback() {
@@ -133,8 +132,21 @@ class TeamPage extends LitLightElement {
 
 		return html`
 			${this.loading ? html`` : html`<nav-breadcrumb .breadcrumb=${breadcrumb}></nav-breadcrumb>`}
-			<section class="px-8">
-				<nav class="-mb-px flex w-max flex-wrap items-center space-x-4">
+			<section class="md:px-8">
+				<div class="md:hidden">
+					<label class="sr-only" for="tabs">Select a tab</label>
+					<select
+						class="block w-full rounded-md border-gray-600 bg-gray-700 focus:border-indigo-500 focus:ring-indigo-500"
+						@change=${(e: Event) => this.setActiveTab((e.target as HTMLSelectElement).value)}
+					>
+						${tabs.map(
+							(tab) => html`
+								<option value=${tab.slug ? tab.slug : tab.name.toLowerCase()}>${tab.name}</option>
+							`
+						)}
+					</select>
+				</div>
+				<nav class="-mb-px hidden w-max flex-wrap items-center space-x-4 md:flex">
 					${tabs.map(
 						(tab: ITab) => html` <button
 							class="${tab.slug === this.activeTab

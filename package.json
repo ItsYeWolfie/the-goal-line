@@ -6,7 +6,7 @@
     "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview --host",
-		"eslint": "eslint --ext ./src/**/*.ts src/**/*.js"
+    "eslint": "eslint --fix src/**/*.ts"
   },
   "type": "module",
   "devDependencies": {
@@ -37,5 +37,9 @@
     "vite": "^4.0.4",
     "vite-plugin-live-reload": "^3.0.1",
     "vite-plugin-webfont-dl": "^3.4.3"
+  },
+  "dependencies": {
+    "@lit-labs/virtualizer": "^1.0.1",
+    "custom-elements-hmr-polyfill": "^1.0.3"
   }
 }

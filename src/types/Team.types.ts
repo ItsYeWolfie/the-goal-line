@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 import { ICountry } from './Country.types';
 import { FixtureSidesType } from './Fixture.types';
 import { ILeagueBasicWithType, ILeagueWithSeason } from './League.types';

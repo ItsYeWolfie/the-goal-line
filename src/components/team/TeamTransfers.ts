@@ -1,6 +1,7 @@
 import { html } from 'lit-html';
 import { customElement, property } from 'lit/decorators.js';
-import { ITransfer } from '../../types/Transfers.type';
+import { virtualize } from '@lit-labs/virtualizer/virtualize.js';
+import { ITransfer, ITransferDetails } from '../../types/Transfers.type';
 import { LitLightElement } from '../../lib/LitElement';
 import { fetchData } from '../../lib/helpers/Fetch';
 
@@ -86,62 +87,66 @@ export class TeamTransfers extends LitLightElement {
 			</div>
 			<div class="flow-root">
 				<ul class="-mb-8" role="list">
-					${this.mutatedTransfers.map(
-						(playerTransfer) => html`
-							<li>
-								<header class="relative mb-2">${playerTransfer.player.name}</header>
-								${playerTransfer.transfers.map(
-									(transfer, index) => html`
-										<div class="relative pb-8">
-											${index !== playerTransfer.transfers.length - 1
-												? html`
-														<span
-															class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-500"
-															aria-hidden="true"
+					${!this.loading && this.mutatedTransfers.length > 0
+						? html`
+								${virtualize({
+									items: this.mutatedTransfers,
+									// eslint-disable-next-line @typescript-eslint/no-explicit-any
+									renderItem: (playerTransfer: any) => html`<li>
+										<header class="relative mb-2">${playerTransfer.player.name}</header>
+										${playerTransfer.transfers.map(
+											(transfer: ITransferDetails, index: number) => html`
+												<div class="relative pb-8">
+													${index !== playerTransfer.transfers.length - 1
+														? html`
+																<span
+																	class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-500"
+																	aria-hidden="true"
+																>
+																	<span class="sr-only">Transfer</span>
+																</span>
+														  `
+														: ''}
+													<div class="relative flex space-x-3">
+														<div
+															class="${transfer.teams.in.id === 33
+																? 'bg-green-500'
+																: 'bg-red-500'} flex h-8 w-8 items-center justify-center rounded-full"
 														>
-															<span class="sr-only">Transfer</span>
-														</span>
-												  `
-												: ''}
-											<div class="relative flex space-x-3">
-												<div
-													class="${transfer.teams.in.id === 33
-														? 'bg-green-500'
-														: 'bg-red-500'} flex h-8 w-8 items-center justify-center rounded-full"
-												>
-													${transfer.teams.in.id === 33
-														? html`<i class="fas fa-arrow-left">
-																<span class="sr-only">Moved in icon</span>
-														  </i>`
-														: html`<i class="fas fa-arrow-right">
-																<span class="sr-only">Moved out icon</span>
-														  </i>`}
-												</div>
-												<div class="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
-													<div>
-														<span class="text-sm text-gray-500"
-															>${transfer.type === 'Loan' ? 'Loaned from' : 'Moved from'}
-														</span>
-														<span class="text-sm font-medium text-gray-100">
-															${transfer.teams.out.name}
-														</span>
-														<span class="text-sm text-gray-500"> to </span>
-														<span class="text-sm font-medium text-gray-100">
-															${transfer.teams.in.name}
-														</span>
-														<time class="text-sm text-gray-500">
-															on ${transfer.date.toLocaleString()}
-														</time>
-														<span class="text-sm text-gray-500"> (${transfer.type}) </span>
+															${transfer.teams.in.id === 33
+																? html`<i class="fas fa-arrow-left">
+																		<span class="sr-only">Moved in icon</span>
+																  </i>`
+																: html`<i class="fas fa-arrow-right">
+																		<span class="sr-only">Moved out icon</span>
+																  </i>`}
+														</div>
+														<div class="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
+															<div>
+																<span class="text-sm text-gray-500"
+																	>${transfer.type === 'Loan' ? 'Loaned from' : 'Moved from'}
+																</span>
+																<span class="text-sm font-medium text-gray-100">
+																	${transfer.teams.out.name}
+																</span>
+																<span class="text-sm text-gray-500"> to </span>
+																<span class="text-sm font-medium text-gray-100">
+																	${transfer.teams.in.name}
+																</span>
+																<time class="text-sm text-gray-500">
+																	on ${transfer.date.toLocaleString()}
+																</time>
+																<span class="text-sm text-gray-500"> (${transfer.type}) </span>
+															</div>
+														</div>
 													</div>
 												</div>
-											</div>
-										</div>
-									`
-								)}
-							</li>
-						`
-					)}
+											`
+										)}
+									</li> `,
+								})}
+						  `
+						: html`<li class="text-center text-gray-500">No transfers found</li>`}
 				</ul>
 			</div>
 		`;

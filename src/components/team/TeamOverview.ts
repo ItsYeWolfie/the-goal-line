@@ -62,17 +62,17 @@ class TeamStatistics extends LitLightElement {
 				${this.loading
 					? 'Loading...'
 					: html`
-							<div class="flex space-x-2">
-								<div class="relative basis-6/12 rounded-md bg-gray-700 p-8 text-sm">
+							<div class="w-full md:flex md:space-x-2">
+								<div class="relative rounded-md bg-gray-700 p-8 text-sm md:basis-6/12">
 									<div class="flex flex-col">
 										<header class="mb-4 uppercase text-sky-500">Club Details</header>
-										<div class="mb-8 flex w-full space-x-4">
+										<div class="mb-8 flex w-full flex-col gap-4 md:flex-row">
 											<img
 												class="my-auto h-24 w-24"
 												src="${this.team.logo}"
 												alt="${this.team.name} Logo"
 											/>
-											<div class="flex flex-col gap-2">
+											<div class="flex flex-col gap-4 sm:flex-row md:gap-2">
 												<div>
 													<span class="text-xs font-bold uppercase text-gray-400">Team Name</span>
 													<header>${this.team.name}</header>
@@ -88,7 +88,7 @@ class TeamStatistics extends LitLightElement {
 													<header>${this.team.country}</header>
 												</div>
 											</div>
-											<div class="flex flex-col gap-2 place-self-end">
+											<div class="flex flex-col gap-4 sm:flex-row md:gap-2 md:place-self-end">
 												<div>
 													<span class="text-xs font-bold uppercase text-gray-400">Team Code</span>
 													<header>${this.team.code}</header>
@@ -97,7 +97,13 @@ class TeamStatistics extends LitLightElement {
 													<span class="text-xs font-bold uppercase text-gray-400"
 														>National Team</span
 													>
-													<header class="capitalize">${this.team.national}</header>
+													${this.team.national
+														? html`<i class="fas fa-check block text-xl text-green-500">
+																<span class="sr-only">National Team</span>
+														  </i>`
+														: html` <i class="fas fa-times block text-xl text-red-500">
+																<span class="sr-only">National Team</span>
+														  </i>`}
 												</div>
 											</div>
 										</div>
@@ -120,13 +126,13 @@ class TeamStatistics extends LitLightElement {
 													</div>
 												</div>
 											</div>
-											<div class="text-center">
+											<div class="md:text-center">
 												<p class="text-sm font-bold">${this.league.season}</p>
 												<p class="text-xs">Season</p>
 											</div>
 										</div>
-										<div class="text-center">
-											<p class="text-sm">
+										<div class="flex flex-col md:text-center">
+											<p class="order-last">
 												${this.form.split('').map((form) => {
 													let color;
 													switch (form) {
@@ -145,7 +151,7 @@ class TeamStatistics extends LitLightElement {
 													}
 
 													return html`<span
-														class="${color} ml-1 inline-block h-4 w-4 rounded-full text-xs font-bold text-white"
+														class="${color} order-[-1] ml-1 inline-block h-4 w-4 rounded-full text-xs font-bold text-white md:order-last"
 													>
 														<span class="sr-only">${form}</span>
 													</span>`;
@@ -163,22 +169,24 @@ class TeamStatistics extends LitLightElement {
 										alt="${this.venue.name} Logo"
 									/>
 									<header class="text-center">${this.venue.name}</header>
-									<div class="mb-4 flex justify-around text-center">
-										<div>
+									<div class="mb-4 flex justify-between text-sm uppercase sm:justify-around">
+										<div class="text-left sm:text-center">
 											<span class="text-xs font-bold uppercase text-gray-400">Capacity</span>
 											<header>${this.venue.capacity}</header>
 										</div>
-										<div>
+										<div class="text-right sm:text-center">
 											<span class="text-xs font-bold uppercase text-gray-400">City</span>
 											<header>${this.venue.city}</header>
 										</div>
 									</div>
-									<div class="mb-4 flex justify-evenly text-center">
-										<div>
+									<div
+										class="mb-4 flex justify-between text-right text-sm uppercase sm:justify-evenly"
+									>
+										<div class="text-left sm:text-center">
 											<span class="text-xs font-bold uppercase text-gray-400">Surface</span>
 											<header>${this.venue.surface}</header>
 										</div>
-										<div>
+										<div class="text-right sm:text-center">
 											<span class="text-xs font-bold uppercase text-gray-400">Address</span>
 											<header>${this.venue.address}</header>
 										</div>
@@ -187,8 +195,8 @@ class TeamStatistics extends LitLightElement {
 							</div>
 					  `}
 			</section>
-			<div class="grid grid-cols-12 space-x-4">
-				<div class="col-span-6 flex flex-col space-y-4">
+			<div class="grid grid-cols-12 md:space-x-4">
+				<div class="col-span-12 flex flex-col space-y-4 md:col-span-6">
 					<t-overview-sequences
 						.loading=${this.loading}
 						.biggest=${this.biggest}
@@ -207,7 +215,7 @@ class TeamStatistics extends LitLightElement {
 						.lineups=${this.lineups}
 					></t-overview-lineups>
 				</div>
-				<div class="col-span-6 flex basis-6/12 flex-col space-y-4">
+				<div class="col-span-12 flex flex-col space-y-4 md:col-span-6">
 					<table class="bg-gray-700 uppercase">
 						<thead class="bg-gray-800 text-sm">
 							<tr>
