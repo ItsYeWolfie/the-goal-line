@@ -1,8 +1,13 @@
 {
-  "tabWidth": 2,
+	"tabWidth": 2,
 	"useTabs": true,
 	"semi": true,
+	"endOfLine": "lf",
 	"singleQuote": true,
-	"plugins": ["prettier-plugin-organize-attributes","prettier-plugin-tailwindcss"],
-	"attributeGroups": ["$CODE_GUIDE"]
+	"plugins": ["prettier-plugin-organize-attributes", "prettier-plugin-tailwindcss"],
+	"attributeGroups": ["$CODE_GUIDE"],
+	"printWidth": 100,
+	"singleAttributePerLine": true,
+	"trailingComma": "all",
+	"bracketSameLine": true
 }

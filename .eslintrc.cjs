@@ -4,19 +4,36 @@ module.exports = {
 		es2021: true,
 	},
 	extends: [
-		'airbnb-base',
-		'plugin:import/recommended',
-		'plugin:promise/recommended',
+		'plugin:react/recommended',
+		'plugin:@typescript-eslint/recommended',
+		'airbnb',
+		'airbnb/hooks',
+		'airbnb-typescript',
 		'plugin:tailwindcss/recommended',
 		'plugin:prettier/recommended',
 	],
-	plugins: ['tailwindcss'],
-	overrides: [],
+	overrides: [
+		{
+			files: ['*.types.ts'],
+			rules: {
+				'import/no-cycle': 0,
+			},
+		},
+	],
+	parser: '@typescript-eslint/parser',
 	parserOptions: {
 		ecmaVersion: 'latest',
 		sourceType: 'module',
 	},
+	plugins: ['react', 'tailwindcss', 'html', '@typescript-eslint', 'prettier', 'import'],
 	rules: {
-		'class-methods-use-this': 0,
+		'react/react-in-jsx-scope': 'off',
+		'import/no-extraneous-dependencies': [
+			'off',
+			{
+				devDependencies: true,
+			},
+		],
+		'import/no-named-as-default': 'off',
 	},
 };
