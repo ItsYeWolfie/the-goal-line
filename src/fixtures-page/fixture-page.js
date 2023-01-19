@@ -5,5 +5,5 @@ import '../components/fixture-page/lineup.js';
 import '../components/fixture-page/statistic.js';
 import '../components/fixture-page/odds.js';
 import '../components/fixture-page/hhmatches.js';
-import '../components/fixture-page/table.js';
+import '../components/fixture-page/standings.js';
 

@@ -78,5 +78,3 @@ var dayNameT = (Day + 1 + 7) % 7;
 var afterTomorrowDay = document.getElementById('afterTomorrowDay');
 var dayNameA = (Day + 2 + 7) % 7;
     afterTomorrowDay.innerHTML = daysOfWeek[dayNameA];
-
-   
