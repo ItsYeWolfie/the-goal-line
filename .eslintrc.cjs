@@ -4,16 +4,14 @@ module.exports = {
 		es2021: true,
 	},
 	extends: [
-		'airbnb-base',
+		'plugin:react/recommended',
 		'plugin:@typescript-eslint/recommended',
-		'airbnb-typescript/base',
-		'plugin:import/recommended',
-		'plugin:promise/recommended',
+		'airbnb',
+		'airbnb/hooks',
+		'airbnb-typescript',
 		'plugin:tailwindcss/recommended',
 		'plugin:prettier/recommended',
 	],
-	parser: '@typescript-eslint/parser',
-	plugins: ['tailwindcss', 'html', '@typescript-eslint'],
 	overrides: [
 		{
 			files: ['*.types.ts'],
@@ -22,13 +20,21 @@ module.exports = {
 			},
 		},
 	],
+	parser: '@typescript-eslint/parser',
 	parserOptions: {
+		ecmaVersion: 'latest',
 		sourceType: 'module',
 		project: './tsconfig.json',
 	},
+	plugins: ['react', 'tailwindcss', 'html', '@typescript-eslint', 'prettier', 'import'],
 	rules: {
-		'class-methods-use-this': 0,
-		"import/no-extraneous-dependencies": 0,
-		"import/extensions": 0,
+		'react/react-in-jsx-scope': 'off',
+		'import/no-extraneous-dependencies': [
+			'off',
+			{
+				devDependencies: true,
+			},
+		],
+		'import/no-named-as-default': 'off',
 	},
 };
