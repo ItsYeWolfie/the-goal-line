@@ -2,7 +2,11 @@ import { createBrowserRouter } from 'react-router-dom';
 import NotFound from '../pages/404';
 import TeamPage from '../pages/team/TeamOverview';
 import TeamIndex from '../pages/team/Index';
-import teamOverviewLoader, { teamLoader } from '../../lib/loaders/TeamLoaders';
+import teamOverviewLoader, {
+	teamFixturesLoader,
+	teamLoader,
+} from '../../lib/loaders/TeamLoaders';
+import TeamFixtures from '../pages/team/TeamFixtures';
 
 export const router = createBrowserRouter([
 	{
@@ -26,7 +30,8 @@ export const router = createBrowserRouter([
 					},
 					{
 						path: 'fixtures',
-						element: 'Fixtures',
+						element: <TeamFixtures />,
+						loader: teamFixturesLoader,
 					},
 				],
 			},
