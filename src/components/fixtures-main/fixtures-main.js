@@ -37,7 +37,7 @@ class FixturesMain extends LitLightElement {
 				return response.json();
 			})
 			.then((data) => {
-				this.data = data.slice(10, 20);
+				this.data = data.slice(18, 28);
 			})
 			.catch((error) => {
 				this.error = error.message;
@@ -48,6 +48,13 @@ class FixturesMain extends LitLightElement {
 	changeUrlandActive(index) {
 		this.activeHeading = index;
 		this.fetchData(this.url[index]);
+	}
+
+	toggleHidden(index) {
+		console.log(index);
+		this.shadowRoot
+			.querySelector(`#modal-info[data-id="${index}"]`)
+			.classList.toggle('hidden');
 	}
 
 	render() {
@@ -99,7 +106,7 @@ class FixturesMain extends LitLightElement {
 						</div>
 					</div>
 					<div
-						class="no-scrollbar mx-auto mt-[10px] h-[500px] w-[95%] cursor-pointer overflow-y-scroll"
+						class="no-scrollbar mx-auto mt-[10px] h-[600px] w-[95%] cursor-pointer "
 					>
 						${this.data.map(
 							(item, index) => html`
@@ -108,8 +115,67 @@ class FixturesMain extends LitLightElement {
 										? 'bg-slate-900'
 										: 'bg-gray-700'} mt-[0.5%] grid h-[55px] w-full items-center gap-[1%] rounded-xl md:grid-cols-2"
 								>
-									<div class="col-span-1 h-full w-full">
+									<div class="col-span-1  h-full w-full">
 										<div class="relative flex h-full w-full items-center">
+											<div
+												class="absolute top-[-195px] -right-[90%] z-[10]  hidden  h-[250px] w-[350px] rounded-[10px] bg-gray-600"
+												id="modal-info"
+												data-id="${item.fixture.id}"
+											>
+												<div class="grid h-full w-full grid-cols-2">
+													<div class="h-full w-full">
+														<p
+															class="ml-[5%] mb-[5%] mt-[5%] w-[90%] text-center text-[18px] text-gray-200"
+														>
+															${item.teams.home.name}
+														</p>
+														<img
+															class="mx-auto h-[100px] w-[100px]"
+															src="${item.teams.home.logo}"
+															alt=""
+														/>
+													</div>
+													<div class="h-full w-full">
+														<p
+															class="relative ml-[5%] mb-[5%] mt-[5%] w-[90%] text-center text-[18px] text-gray-200 "
+														>
+															${item.teams.away.name}
+														</p>
+														<img
+															class="mx-auto h-[100px] w-[100px]"
+															src="${item.teams.away.logo}"
+															alt=""
+														/>
+														<div class="relative flex w-full items-center ">
+															<img
+																class="absolute -left-[80px] top-[10px] h-[25px]  w-[25px]"
+																src="${item.league.logo}"
+																alt=""
+															/>
+															<p
+																class="absolute -left-[50px] top-[10px] mr-[3%] text-lime-400"
+															>
+																${item.league.name}
+															</p>
+															<p
+																class="absolute -left-[70px] top-[40px] text-lime-400"
+															>
+																${item.league.round}
+															</p>
+															<p
+																class="absolute right-[7px] top-[80px] text-gray-200"
+															>
+																${item.fixture.venue.name}
+															</p>
+															<p
+																class="absolute -left-[160px]  top-[80px] text-gray-200"
+															>
+																${item.fixture.venue.city}
+															</p>
+														</div>
+													</div>
+												</div>
+											</div>
 											<img
 												class="absolute left-[2%] h-[30px] w-[30px] sm:h-[35px] sm:w-[35px] md:h-[35px] md:w-[35px]"
 												src="${item.teams.home.logo}"
@@ -141,8 +207,8 @@ class FixturesMain extends LitLightElement {
 									<div class="relative col-span-1 hidden h-full w-full md:grid">
 										<div class="full flex h-full items-center">
 											<p
-												class="${item.fixture.status.short !== 'FT'
-													? 'bg-lime-400 text-black'
+												class="${item.fixture.status.short === 'NS'
+													? 'bg-lime-200 text-black'
 													: ' bg-red-200  text-red-500'} ml-[10%] flex w-[20%] items-center justify-center rounded-[10px] bg-red-200 px-[10px] py-[5px]
                         text-red-500"
 											>
@@ -153,7 +219,13 @@ class FixturesMain extends LitLightElement {
 											</p>
 											<p class="absolute right-[5%]">
 												<i
-													class="fa-solid fa-circle-info text-[25px] text-gray-200"
+													class="fa-solid fa-circle-info text-[25px] text-yellow-400"
+													@mouseover="${() =>
+														item.fixture.id &&
+														this.toggleHidden(item.fixture.id)}"
+													@mouseleave="${() =>
+														item.fixture.id &&
+														this.toggleHidden(item.fixture.id)}"
 												></i>
 											</p>
 										</div>
