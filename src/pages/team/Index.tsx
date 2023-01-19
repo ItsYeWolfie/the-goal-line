@@ -1,4 +1,10 @@
-import { NavLink, Outlet, useLoaderData, useParams } from 'react-router-dom';
+import {
+	NavLink,
+	Outlet,
+	useLoaderData,
+	useNavigation,
+	useParams,
+} from 'react-router-dom';
 import { useEffect } from 'react';
 import { ITeamAndVenue } from '../../../types/Team.types';
 import { ITab } from '../../../types/Tab.types';
@@ -7,6 +13,7 @@ import teamTabs from '../../../lib/tabs/TeamTabs';
 export default function TeamIndex() {
 	const { team, venue } = useLoaderData() as ITeamAndVenue;
 	const { teamID } = useParams();
+	const navigation = useNavigation();
 
 	useEffect(() => {
 		document.title = `${team.name} - The Goal Line`;
@@ -51,7 +58,12 @@ export default function TeamIndex() {
 					</NavLink>
 				))}
 			</nav>
-			<section className="py-8">
+			<section
+				className={`py-8 ${
+					navigation.state === 'loading'
+						? 'animate-pulse opacity-25 transition-opacity duration-300'
+						: ''
+				}`}>
 				<Outlet context={{ team, venue }} />
 			</section>
 		</section>
