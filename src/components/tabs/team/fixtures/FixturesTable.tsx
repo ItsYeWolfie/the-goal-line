@@ -72,7 +72,7 @@ export default function TeamFixturesTable({
 									</div>
 								</div>
 							</td>
-							<td className=" hidden px-3 py-3.5 text-sm text-gray-300 lg:table-cell">
+							<td className="hidden px-3 py-3.5 text-sm text-gray-300 lg:table-cell">
 								{league.round}
 							</td>
 							<td className="hidden px-3 py-3.5 text-sm text-gray-300 md:table-cell">

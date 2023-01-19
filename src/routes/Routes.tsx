@@ -5,10 +5,12 @@ import TeamIndex from '../pages/team/Index';
 import teamOverviewLoader, {
 	teamFixturesLoader,
 	teamLoader,
+	teamPlayersLoader,
 	teamStandingsLoader,
 } from '../../lib/loaders/TeamLoaders';
 import TeamFixtures from '../pages/team/TeamFixtures';
 import TeamStandings from '../pages/team/TeamStandings';
+import TeamPlayers from '../pages/team/TeamPlayers';
 
 export const router = createBrowserRouter([
 	{
@@ -39,6 +41,11 @@ export const router = createBrowserRouter([
 						path: 'standings',
 						element: <TeamStandings />,
 						loader: teamStandingsLoader,
+					},
+					{
+						path: 'players',
+						element: <TeamPlayers />,
+						loader: teamPlayersLoader,
 					},
 				],
 			},

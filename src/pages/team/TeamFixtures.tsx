@@ -1,7 +1,7 @@
 import { useLoaderData, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { IFixture } from '../../../types/Fixture.types';
-import TeamFixturesTable from '../../components/tabs/team/fixtures/Table';
+import TeamFixturesTable from '../../components/tabs/team/fixtures/FixturesTable';
 import TeamFixturesLeagueSelection from '../../components/tabs/team/fixtures/LeagueSelection';
 import TeamFixturesLeagueCard from '../../components/tabs/team/fixtures/LeagueCard';
 
