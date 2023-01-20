@@ -29,7 +29,6 @@ class NewsCards extends LitLightElement {
 		fetch('./data/news.json')
 			.then((response) => response.json())
 			.then((data) => {
-				console.log(data);
 				this.data = data;
 				this.filteredData = data;
 				this.requestUpdate();

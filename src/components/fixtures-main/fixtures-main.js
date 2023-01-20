@@ -37,7 +37,7 @@ class FixturesMain extends LitLightElement {
 				return response.json();
 			})
 			.then((data) => {
-				this.data = data.slice(18, 28);
+				this.data = data.slice(40, 50);
 			})
 			.catch((error) => {
 				this.error = error.message;
@@ -165,12 +165,12 @@ class FixturesMain extends LitLightElement {
 															<p
 																class="absolute right-[7px] top-[80px] text-gray-200"
 															>
-																${item.fixture.venue.name}
+																${item.fixture.status.long}
 															</p>
 															<p
 																class="absolute -left-[160px]  top-[80px] text-gray-200"
 															>
-																${item.fixture.venue.city}
+																${item.league.country}
 															</p>
 														</div>
 													</div>
@@ -207,8 +207,8 @@ class FixturesMain extends LitLightElement {
 									<div class="relative col-span-1 hidden h-full w-full md:grid">
 										<div class="full flex h-full items-center">
 											<p
-												class="${item.fixture.status.short === 'NS'
-													? 'bg-lime-200 text-black'
+												class="${item.fixture.status.short !== 'FT'
+													? 'bg-lime-300 text-slate-900'
 													: ' bg-red-200  text-red-500'} ml-[10%] flex w-[20%] items-center justify-center rounded-[10px] bg-red-200 px-[10px] py-[5px]
                         text-red-500"
 											>
