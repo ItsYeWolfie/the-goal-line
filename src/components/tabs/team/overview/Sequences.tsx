@@ -2,11 +2,7 @@ import { ITeamStatistics } from '../../../../../types/Team.types';
 import SmallTableCell from '../../../table/SmallTableCell';
 import TableHeader from '../../../table/TableHeader';
 
-export default function TeamOverviewSequences({
-	biggest,
-}: {
-	biggest: ITeamStatistics['biggest'];
-}) {
+export default function TeamOverviewSequences({ biggest }: { biggest: ITeamStatistics['biggest'] }) {
 	const { wins, goals, loses, streak } = biggest;
 	return (
 		<table className="w-full bg-gray-700">
@@ -23,9 +19,7 @@ export default function TeamOverviewSequences({
 
 			<tbody className="divide-y divide-gray-500 text-xs">
 				<tr>
-					<SmallTableCell className="w-64">
-						Most goals scored (Home)
-					</SmallTableCell>
+					<SmallTableCell className="w-64">Most goals scored (Home)</SmallTableCell>
 					<SmallTableCell>{goals.for.home || '-'}</SmallTableCell>
 				</tr>
 

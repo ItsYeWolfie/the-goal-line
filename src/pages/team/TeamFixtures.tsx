@@ -10,9 +10,7 @@ export default function TeamFixtures() {
 	const teamIDInt = Number(teamID);
 	const teamFixtures = useLoaderData() as IFixture[];
 	teamFixtures.sort((a, b) => {
-		return (
-			new Date(b.fixture.date).getTime() - new Date(a.fixture.date).getTime()
-		);
+		return new Date(b.fixture.date).getTime() - new Date(a.fixture.date).getTime();
 	});
 
 	const leagues = teamFixtures

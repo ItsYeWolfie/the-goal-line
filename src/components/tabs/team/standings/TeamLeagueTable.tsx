@@ -2,11 +2,7 @@ import { ILeagueWithStanding } from '../../../../../types/League.types';
 import TableCell from '../../../table/TableCell';
 import TableHeader from '../../../table/TableHeader';
 
-export default function TeamLeagueTable({
-	league,
-}: {
-	league: ILeagueWithStanding;
-}) {
+export default function TeamLeagueTable({ league }: { league: ILeagueWithStanding }) {
 	return (
 		<table>
 			<thead className="bg-gray-800">
@@ -93,9 +89,7 @@ export default function TeamLeagueTable({
 									}
 
 									return (
-										<span
-											className={`${color} mr-1 inline-block h-3 w-3 rounded-full`}
-										>
+										<span className={`${color} mr-1 inline-block h-3 w-3 rounded-full`}>
 											<span className="sr-only">{form}</span>
 										</span>
 									);

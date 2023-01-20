@@ -22,27 +22,15 @@ export default function TeamOverviewStatistics({
 			<tbody className="text-xs">
 				<tr>
 					<SmallTableCell>Matches With a Clean Sheet</SmallTableCell>
-					<SmallTableCell className="text-center">
-						{cleanSheet.home || '-'}
-					</SmallTableCell>
-					<SmallTableCell className="text-center">
-						{cleanSheet.away || '-'}
-					</SmallTableCell>
-					<SmallTableCell className="text-center">
-						{cleanSheet.total || '-'}
-					</SmallTableCell>
+					<SmallTableCell className="text-center">{cleanSheet.home || '-'}</SmallTableCell>
+					<SmallTableCell className="text-center">{cleanSheet.away || '-'}</SmallTableCell>
+					<SmallTableCell className="text-center">{cleanSheet.total || '-'}</SmallTableCell>
 				</tr>
 				<tr className="bg-gray-600">
 					<SmallTableCell>Matches Without Scoring</SmallTableCell>
-					<SmallTableCell className="text-center">
-						{failedToScore.home || '-'}
-					</SmallTableCell>
-					<SmallTableCell className="text-center">
-						{failedToScore.away || '-'}
-					</SmallTableCell>
-					<SmallTableCell className="text-center">
-						{failedToScore.total || '-'}
-					</SmallTableCell>
+					<SmallTableCell className="text-center">{failedToScore.home || '-'}</SmallTableCell>
+					<SmallTableCell className="text-center">{failedToScore.away || '-'}</SmallTableCell>
+					<SmallTableCell className="text-center">{failedToScore.total || '-'}</SmallTableCell>
 				</tr>
 			</tbody>
 		</table>

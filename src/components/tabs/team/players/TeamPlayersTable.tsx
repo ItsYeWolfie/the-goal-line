@@ -1,10 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-	faCrown,
-	faFutbol,
-	faRug,
-	faShirt,
-} from '@fortawesome/free-solid-svg-icons';
+import { faCrown, faFutbol, faRug, faShirt } from '@fortawesome/free-solid-svg-icons';
 import { IPlayerWithStatistics } from '../../../../../types/Player.types';
 import TableCell from '../../../table/TableCell';
 import TableHeader from '../../../table/TableHeader';
@@ -20,9 +15,7 @@ export default function TeamPlayersTable({
 }) {
 	return (
 		<article>
-			<header className="mb-2 text-xl font-medium text-gray-300">
-				{title}
-			</header>
+			<header className="mb-2 text-xl font-medium text-gray-300">{title}</header>
 			<table className="mb-8 w-full divide-y-2 divide-gray-600 rounded-md border border-gray-700 text-sm">
 				<thead className="bg-gray-800">
 					<tr>
@@ -66,9 +59,7 @@ export default function TeamPlayersTable({
 									/>
 								)}
 							</TableCell>
-							<TableCell className="text-center">
-								{statistic.player.age}
-							</TableCell>
+							<TableCell className="text-center">{statistic.player.age}</TableCell>
 
 							<TableCell className="text-center">
 								{statistic.statistics

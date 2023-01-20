@@ -25,36 +25,26 @@ export default function TeamOverviewTeamCard({
 					<div className="flex flex-col gap-4">
 						<div className="flex flex-col flex-wrap gap-4 sm:flex-row lg:gap-8">
 							<div>
-								<span className="text-xs font-bold uppercase text-gray-400">
-									Team Name
-								</span>
+								<span className="text-xs font-bold uppercase text-gray-400">Team Name</span>
 								<header>{team.name}</header>
 							</div>
 							<div>
-								<span className="text-xs font-bold uppercase text-gray-400">
-									Founded
-								</span>
+								<span className="text-xs font-bold uppercase text-gray-400">Founded</span>
 								<header>{team.founded}</header>
 							</div>
 							<div>
-								<span className="text-xs font-bold uppercase text-gray-400">
-									League Nation
-								</span>
+								<span className="text-xs font-bold uppercase text-gray-400">League Nation</span>
 								<header>{team.country}</header>
 							</div>
 						</div>
 						<div className="flex flex-col flex-wrap gap-4 sm:flex-row lg:gap-8">
 							<div>
-								<span className="text-xs font-bold uppercase text-gray-400">
-									Team Code
-								</span>
+								<span className="text-xs font-bold uppercase text-gray-400">Team Code</span>
 								<header>{team.code}</header>
 							</div>
 							{team.national && (
 								<div>
-									<span className="text-xs font-bold uppercase text-gray-400">
-										National Team
-									</span>
+									<span className="text-xs font-bold uppercase text-gray-400">National Team</span>
 									<FontAwesomeIcon
 										icon={faCheckCircle}
 										className="block text-xl text-green-500"

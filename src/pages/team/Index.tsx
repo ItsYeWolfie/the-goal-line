@@ -17,9 +17,7 @@ export default function TeamIndex() {
 			<TeamTabs />
 			<section
 				className={`py-8 ${
-					navigation.state === 'loading'
-						? 'animate-pulse opacity-25 transition-opacity duration-300'
-						: ''
+					navigation.state === 'loading' ? 'animate-pulse opacity-25 transition-opacity duration-300' : ''
 				}`}
 			>
 				<Outlet context={{ team, venue }} />

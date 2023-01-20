@@ -21,21 +21,13 @@ export default function TeamOverviewPenalties({
 			<tbody className="text-xs">
 				<tr className="bg-gray-600">
 					<SmallTableCell>Scored</SmallTableCell>
-					<SmallTableCell className="text-center">
-						{scored.total || '-'}
-					</SmallTableCell>
-					<SmallTableCell className="text-center">
-						{scored.percentage || '-'}
-					</SmallTableCell>
+					<SmallTableCell className="text-center">{scored.total || '-'}</SmallTableCell>
+					<SmallTableCell className="text-center">{scored.percentage || '-'}</SmallTableCell>
 				</tr>
 				<tr>
 					<SmallTableCell>Missed</SmallTableCell>
-					<SmallTableCell className="text-center">
-						{missed.total || '-'}
-					</SmallTableCell>
-					<SmallTableCell className="text-center">
-						{missed.percentage || '-'}
-					</SmallTableCell>
+					<SmallTableCell className="text-center">{missed.total || '-'}</SmallTableCell>
+					<SmallTableCell className="text-center">{missed.percentage || '-'}</SmallTableCell>
 				</tr>
 			</tbody>
 		</table>

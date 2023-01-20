@@ -2,18 +2,12 @@ import { ITeamStatistics } from '../../../../../types/Team.types';
 import SmallTableCell from '../../../table/SmallTableCell';
 import TableHeader from '../../../table/TableHeader';
 
-export default function TeamOverviewCardsAtMinute({
-	cards,
-}: {
-	cards: ITeamStatistics['cards'];
-}) {
+export default function TeamOverviewCardsAtMinute({ cards }: { cards: ITeamStatistics['cards'] }) {
 	return (
 		<table className="bg-gray-700 uppercase">
 			<thead className="bg-gray-800 text-sm">
 				<tr>
-					<TableHeader className="py-1 pl-3 text-left">
-						Cards at Minute
-					</TableHeader>
+					<TableHeader className="py-1 pl-3 text-left">Cards at Minute</TableHeader>
 					<TableHeader
 						className="py-1 text-center"
 						colSpan={2}
@@ -35,18 +29,10 @@ export default function TeamOverviewCardsAtMinute({
 						key={minute}
 					>
 						<SmallTableCell className="w-48">{minute}</SmallTableCell>
-						<SmallTableCell className="text-center">
-							{cards.yellow[minute].total || '-'}
-						</SmallTableCell>
-						<SmallTableCell className="text-center">
-							{cards.yellow[minute].percentage || '-'}
-						</SmallTableCell>
-						<SmallTableCell className="text-center">
-							{cards.red[minute].total || '-'}
-						</SmallTableCell>
-						<SmallTableCell className="text-center">
-							{cards.red[minute].percentage || '-'}
-						</SmallTableCell>
+						<SmallTableCell className="text-center">{cards.yellow[minute].total || '-'}</SmallTableCell>
+						<SmallTableCell className="text-center">{cards.yellow[minute].percentage || '-'}</SmallTableCell>
+						<SmallTableCell className="text-center">{cards.red[minute].total || '-'}</SmallTableCell>
+						<SmallTableCell className="text-center">{cards.red[minute].percentage || '-'}</SmallTableCell>
 					</tr>
 				))}
 			</tbody>

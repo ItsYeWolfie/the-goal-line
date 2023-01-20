@@ -14,9 +14,7 @@ export default function TeamStandings() {
 		<section className="flex w-full flex-col justify-between gap-4 lg:flex-row">
 			<Suspense fallback={<div>Loading...</div>}>
 				<Await resolve={leagueStandings}>
-					{({ standings: standingsData }: ILeagueWithStanding) => (
-						<StandingsTable standings={standingsData} />
-					)}
+					{({ standings: standingsData }: ILeagueWithStanding) => <StandingsTable standings={standingsData} />}
 				</Await>
 			</Suspense>
 

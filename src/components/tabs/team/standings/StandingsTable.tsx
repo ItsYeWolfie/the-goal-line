@@ -2,11 +2,7 @@ import { ILeagueStanding } from '../../../../../types/League.types';
 import TableCell from '../../../table/TableCell';
 import TableHeader from '../../../table/TableHeader';
 
-export default function StandingsTable({
-	standings,
-}: {
-	standings: ILeagueStanding[];
-}) {
+export default function StandingsTable({ standings }: { standings: ILeagueStanding[] }) {
 	return (
 		<table className="basis-8/12">
 			<thead className="sticky top-0 bg-gray-800 text-xs">
@@ -14,25 +10,13 @@ export default function StandingsTable({
 					<TableHeader className="px-6 py-3">#</TableHeader>
 					<TableHeader className="p-3 text-left">Team</TableHeader>
 					<TableHeader className="p-3 text-left">MP</TableHeader>
-					<TableHeader className="hidden p-3 text-left md:table-cell">
-						W
-					</TableHeader>
-					<TableHeader className="hidden p-3 text-left md:table-cell">
-						D
-					</TableHeader>
-					<TableHeader className="hidden p-3 text-left md:table-cell">
-						L
-					</TableHeader>
-					<TableHeader className="hidden p-3 text-left sm:table-cell">
-						GF
-					</TableHeader>
-					<TableHeader className="hidden p-3 text-left sm:table-cell">
-						GA
-					</TableHeader>
+					<TableHeader className="hidden p-3 text-left md:table-cell">W</TableHeader>
+					<TableHeader className="hidden p-3 text-left md:table-cell">D</TableHeader>
+					<TableHeader className="hidden p-3 text-left md:table-cell">L</TableHeader>
+					<TableHeader className="hidden p-3 text-left sm:table-cell">GF</TableHeader>
+					<TableHeader className="hidden p-3 text-left sm:table-cell">GA</TableHeader>
 					<TableHeader className="p-3 text-left">PTS</TableHeader>
-					<TableHeader className="hidden p-3 text-left sm:table-cell">
-						Form
-					</TableHeader>
+					<TableHeader className="hidden p-3 text-left sm:table-cell">Form</TableHeader>
 				</tr>
 			</thead>
 			<tbody className="divide-y divide-gray-500 text-sm text-gray-300">
@@ -44,9 +28,7 @@ export default function StandingsTable({
 							className={`${index % 2 === 1 ? 'bg-gray-600' : 'bg-gray-700'}`}
 							key={team.id}
 						>
-							<TableCell className="w-16 text-center">
-								{standing.rank}
-							</TableCell>
+							<TableCell className="w-16 text-center">{standing.rank}</TableCell>
 							<TableCell>
 								<img
 									className="inline-block h-6 w-6"
@@ -59,15 +41,13 @@ export default function StandingsTable({
 									<div className="flex items-center gap-1 md:hidden">
 										<span className="font-semibold">Matches:</span>
 										<span>
-											(W: {standing.all.win}, D: {standing.all.draw}, L:{' '}
-											{standing.all.lose})
+											(W: {standing.all.win}, D: {standing.all.draw}, L: {standing.all.lose})
 										</span>
 									</div>
 									<div className="flex items-center gap-1 sm:hidden">
 										<span className="font-semibold">Goals:</span>
 										<span>
-											(GF: {standing.all.goals.for}, GA:{' '}
-											{standing.all.goals.against})
+											(GF: {standing.all.goals.for}, GA: {standing.all.goals.against})
 										</span>
 									</div>
 									<div className="flex items-center gap-1 sm:hidden">
@@ -105,21 +85,11 @@ export default function StandingsTable({
 								</div>
 							</TableCell>
 							<TableCell>{standing.all.played}</TableCell>
-							<TableCell className="hidden md:table-cell">
-								{standing.all.win}
-							</TableCell>
-							<TableCell className="hidden md:table-cell">
-								{standing.all.draw}
-							</TableCell>
-							<TableCell className="hidden md:table-cell">
-								{standing.all.lose}
-							</TableCell>
-							<TableCell className="hidden sm:table-cell">
-								{standing.all.goals.for}
-							</TableCell>
-							<TableCell className="hidden sm:table-cell">
-								{standing.all.goals.against}
-							</TableCell>
+							<TableCell className="hidden md:table-cell">{standing.all.win}</TableCell>
+							<TableCell className="hidden md:table-cell">{standing.all.draw}</TableCell>
+							<TableCell className="hidden md:table-cell">{standing.all.lose}</TableCell>
+							<TableCell className="hidden sm:table-cell">{standing.all.goals.for}</TableCell>
+							<TableCell className="hidden sm:table-cell">{standing.all.goals.against}</TableCell>
 							<TableCell>{standing.points}</TableCell>
 							<TableCell className="hidden sm:table-cell">
 								{formArray.map((f, i) => {

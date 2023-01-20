@@ -4,11 +4,7 @@ interface ITableHeaderProps {
 	colSpan?: number;
 }
 
-export default function TableHeader({
-	children,
-	className,
-	colSpan,
-}: ITableHeaderProps) {
+export default function TableHeader({ children, className, colSpan }: ITableHeaderProps) {
 	return (
 		<th
 			className={`font-medium uppercase tracking-wider text-gray-300 ${className}`}

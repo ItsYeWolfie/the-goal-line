@@ -10,5 +10,6 @@
 	],
 	"attributeGroups": ["$CODE_GUIDE"],
 	"singleAttributePerLine": true,
-	"trailingComma": "all"
+	"trailingComma": "all",
+	"printWidth": 120
 }

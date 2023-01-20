@@ -34,9 +34,7 @@ export default function TeamTabs() {
 						key={tab.name}
 						className={({ isActive }) =>
 							`${
-								isActive
-									? 'border-indigo-400 text-indigo-500'
-									: 'border-transparent hover:border-gray-300'
+								isActive ? 'border-indigo-400 text-indigo-500' : 'border-transparent hover:border-gray-300'
 							} border-b-2 p-4 text-center text-sm font-medium text-gray-200 transition-colors duration-300 ease-in-out hover:text-gray-400`
 						}
 						type="button"

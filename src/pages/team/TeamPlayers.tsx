@@ -3,10 +3,7 @@ import { useState, Suspense } from 'react';
 import { IPlayerWithStatistics } from '../../../types/Player.types';
 import { ILeagueWithSeason } from '../../../types/League.types';
 import TeamPlayersTable from '../../components/tabs/team/players/TeamPlayersTable';
-import {
-	filterSelfDuplicates,
-	getPlayersByPosition,
-} from '../../../lib/helpers/ArrayMethods';
+import { filterSelfDuplicates, getPlayersByPosition } from '../../../lib/helpers/ArrayMethods';
 
 export default function TeamPlayers() {
 	const { players } = useLoaderData() as { players: IPlayerWithStatistics[] };
@@ -22,9 +19,8 @@ export default function TeamPlayers() {
 		<Suspense fallback={<div>Loading...</div>}>
 			<Await resolve={players}>
 				{(playersData: IPlayerWithStatistics[]) => {
-					playersData.map((player) =>
-						player.statistics.forEach((stat) => leagues.push(stat.league)),
-					);
+					playersData.map((player) => player.statistics.forEach((stat) => leagues.push(stat.league)));
+					setActiveLeagueId(leagues[0].id);
 					const goalkeepers = getPlayersByPosition(playersData, 'Goalkeeper');
 					const defenders = getPlayersByPosition(playersData, 'Defender');
 					const midfielders = getPlayersByPosition(playersData, 'Midfielder');
@@ -34,9 +30,7 @@ export default function TeamPlayers() {
 						<>
 							<div className="sticky top-0 z-10 mb-8 bg-gray-800 p-4">
 								<label htmlFor="league">
-									<span className="mb-1 block text-sm font-medium text-gray-100">
-										League
-									</span>
+									<span className="mb-1 block text-sm font-medium text-gray-100">League</span>
 									<select
 										className="bg-gray-800"
 										name="league"

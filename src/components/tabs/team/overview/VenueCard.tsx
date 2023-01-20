@@ -12,29 +12,21 @@ export default function TeamOverviewVenueCard({ venue }: { venue: IVenue }) {
 			<header className="text-center">{venue.name}</header>
 			<div className="mb-4 flex justify-between text-sm uppercase sm:justify-around">
 				<div className="text-left sm:text-center">
-					<span className="text-xs font-bold uppercase text-gray-400">
-						Capacity
-					</span>
+					<span className="text-xs font-bold uppercase text-gray-400">Capacity</span>
 					<header>{venue.capacity}</header>
 				</div>
 				<div className="text-right sm:text-center">
-					<span className="text-xs font-bold uppercase text-gray-400">
-						City
-					</span>
+					<span className="text-xs font-bold uppercase text-gray-400">City</span>
 					<header>{venue.city}</header>
 				</div>
 			</div>
 			<div className="mb-4 flex justify-between text-right text-sm uppercase sm:justify-evenly">
 				<div className="text-left sm:text-center">
-					<span className="text-xs font-bold uppercase text-gray-400">
-						Surface
-					</span>
+					<span className="text-xs font-bold uppercase text-gray-400">Surface</span>
 					<header>{venue.surface}</header>
 				</div>
 				<div className="text-right sm:text-center">
-					<span className="text-xs font-bold uppercase text-gray-400">
-						Address
-					</span>
+					<span className="text-xs font-bold uppercase text-gray-400">Address</span>
 					<header>{venue.address}</header>
 				</div>
 			</div>
