@@ -52,7 +52,6 @@ module.exports = {
 				attributeGroups: ['$CODE_GUIDE'],
 				singleAttributePerLine: true,
 				trailingComma: 'all',
-				bracketSameLine: true,
 			},
 		],
 		'react/no-array-index-key': 'warn',
