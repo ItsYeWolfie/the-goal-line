@@ -11,6 +11,7 @@ module.exports = {
 		'airbnb-typescript',
 		'plugin:tailwindcss/recommended',
 		'plugin:prettier/recommended',
+		'prettier',
 	],
 	overrides: [
 		{
@@ -24,8 +25,9 @@ module.exports = {
 	parserOptions: {
 		ecmaVersion: 'latest',
 		sourceType: 'module',
+		project: './tsconfig.json',
 	},
-	plugins: ['react', 'tailwindcss', 'html', '@typescript-eslint', 'prettier', 'import'],
+	plugins: ['react', 'tailwindcss', 'html', '@typescript-eslint', 'import'],
 	rules: {
 		'react/react-in-jsx-scope': 'off',
 		'import/no-extraneous-dependencies': [
@@ -35,5 +37,21 @@ module.exports = {
 			},
 		],
 		'import/no-named-as-default': 'off',
+		'prettier/prettier': [
+			'error',
+			{
+				tabWidth: 2,
+				useTabs: true,
+				semi: true,
+				endOfLine: 'lf',
+				singleQuote: true,
+				plugins: ['prettier-plugin-organize-attributes', 'prettier-plugin-tailwindcss'],
+				attributeGroups: ['$CODE_GUIDE'],
+				singleAttributePerLine: true,
+				trailingComma: 'all',
+				printWidth: 120,
+			},
+		],
+		'react/no-array-index-key': 'warn',
 	},
 };
