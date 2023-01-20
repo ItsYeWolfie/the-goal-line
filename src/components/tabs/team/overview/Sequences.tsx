@@ -1,4 +1,6 @@
 import { ITeamStatistics } from '../../../../../types/Team.types';
+import SmallTableCell from '../../../table/SmallTableCell';
+import TableHeader from '../../../table/TableHeader';
 
 export default function TeamOverviewSequences({
 	biggest,
@@ -10,61 +12,64 @@ export default function TeamOverviewSequences({
 		<table className="w-full bg-gray-700">
 			<thead className="bg-gray-800">
 				<tr>
-					<th
-						className="py-1 pl-3 text-left uppercase"
-						colSpan={100}>
+					<TableHeader
+						className="py-1 pl-3 text-left"
+						colSpan={100}
+					>
 						Sequences
-					</th>
+					</TableHeader>
 				</tr>
 			</thead>
 
 			<tbody className="divide-y divide-gray-500 text-xs">
 				<tr>
-					<td className="w-56 py-2 pl-3">Most goals scored (Home)</td>
-					<td className="px-3">{goals.for.home || '-'}</td>
+					<SmallTableCell className="w-64">
+						Most goals scored (Home)
+					</SmallTableCell>
+					<SmallTableCell>{goals.for.home || '-'}</SmallTableCell>
 				</tr>
 
 				<tr className="bg-gray-600">
-					<td className="py-2 pl-3">Most goals scored (Away)</td>
-					<td className="px-3">{goals.for.away || '-'}</td>
+					<SmallTableCell>Most goals scored (Away)</SmallTableCell>
+					<SmallTableCell>{goals.for.away || '-'}</SmallTableCell>
 				</tr>
 				<tr>
-					<td className="py-2 pl-3">Most goals conceded (Home)</td>
-					<td className="px-3">{goals.against.home || '-'}</td>
+					<SmallTableCell>Most goals conceded (Home)</SmallTableCell>
+					<SmallTableCell>{goals.against.home || '-'}</SmallTableCell>
 				</tr>
 
 				<tr className="bg-gray-600">
-					<td className="py-2 pl-3">Most goals conceded (Away)</td>
-					<td className="px-3">{goals.against.away || '-'}</td>
+					<SmallTableCell>Most goals conceded (Away)</SmallTableCell>
+					<SmallTableCell>{goals.against.away || '-'}</SmallTableCell>
 				</tr>
 				<tr>
-					<td className="py-2 pl-3">Biggest Win (Home)</td>
-					<td className="px-3">{wins.home || '-'}</td>
+					<SmallTableCell>Biggest Win (Home)</SmallTableCell>
+					<SmallTableCell>{wins.home || '-'}</SmallTableCell>
 				</tr>
 				<tr className="bg-gray-600">
-					<td className="py-2 pl-3">Biggest Win (Away)</td>
-					<td className="px-3">{wins.away || '-'}</td>
+					<SmallTableCell>Biggest Win (Away)</SmallTableCell>
+					<SmallTableCell>{wins.away || '-'}</SmallTableCell>
 				</tr>
 				<tr>
-					<td className="py-2 pl-3">Biggest Loss (Home)</td>
-					<td className="px-3">{loses.home || '-'}</td>
+					<SmallTableCell>Biggest Loss (Home)</SmallTableCell>
+					<SmallTableCell>{loses.home || '-'}</SmallTableCell>
 				</tr>
 
 				<tr className="bg-gray-600">
-					<td className="py-2 pl-3">Biggest Loss (Away)</td>
-					<td className="px-3">{loses.away || '-'}</td>
+					<SmallTableCell>Biggest Loss (Away)</SmallTableCell>
+					<SmallTableCell>{loses.away || '-'}</SmallTableCell>
 				</tr>
 				<tr>
-					<td className="py-2 pl-3">Most Matches Won in a Row</td>
-					<td className="px-3">{streak.wins || '-'}</td>
+					<SmallTableCell>Most Matches Won in a Row</SmallTableCell>
+					<SmallTableCell>{streak.wins || '-'}</SmallTableCell>
 				</tr>
 				<tr className="bg-gray-600">
-					<td className="py-2 pl-3">Most Matches Lost in a Row</td>
-					<td className="px-3">{streak.loses || '-'}</td>
+					<SmallTableCell>Most Matches Lost in a Row</SmallTableCell>
+					<SmallTableCell>{streak.loses || '-'}</SmallTableCell>
 				</tr>
 				<tr>
-					<td className="py-2 pl-3">Most Matches With a Draw in a Row</td>
-					<td className="px-3">{streak.draws || '-'}</td>
+					<SmallTableCell>Most Matches With a Draw in a Row</SmallTableCell>
+					<SmallTableCell>{streak.draws || '-'}</SmallTableCell>
 				</tr>
 			</tbody>
 		</table>

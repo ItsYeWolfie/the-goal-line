@@ -16,7 +16,8 @@ export default function TeamFixturesLeagueCard({
 				.map((league) => (
 					<div
 						className="flex items-center md:justify-center"
-						key={league.id}>
+						key={league.id}
+					>
 						<img
 							className="mr-2 h-6 w-6"
 							src={league.logo}

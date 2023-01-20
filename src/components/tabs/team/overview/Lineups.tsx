@@ -1,4 +1,6 @@
 import { ITeamStatistics } from '../../../../../types/Team.types';
+import SmallTableCell from '../../../table/SmallTableCell';
+import TableHeader from '../../../table/TableHeader';
 
 export default function TeamOverviewLineups({
 	lineups,
@@ -6,20 +8,25 @@ export default function TeamOverviewLineups({
 	lineups: ITeamStatistics['lineups'];
 }) {
 	return (
-		<table className="w-full bg-gray-700 uppercase">
+		<table className="bg-gray-700">
 			<thead className="bg-gray-800 text-sm">
 				<tr>
-					<th className="py-1 pl-3 text-left">Formation Lineup</th>
-					<th className="py-1 px-3 text-left">Played</th>
+					<TableHeader className="py-1 pl-3 text-left">
+						Formation Lineup
+					</TableHeader>
+					<TableHeader className="py-1 px-3 text-left">Played</TableHeader>
 				</tr>
 			</thead>
 			<tbody className="text-xs">
 				{lineups.map((lineup, index) => (
 					<tr
 						className={index % 2 === 0 ? 'bg-gray-600' : ''}
-						key={lineup.formation}>
-						<td className="w-56 py-2 pl-3">{lineup.formation}</td>
-						<td className="pl-3 text-left">{lineup.played}</td>
+						key={lineup.formation}
+					>
+						<SmallTableCell className="w-56">{lineup.formation}</SmallTableCell>
+						<SmallTableCell className="text-left">
+							{lineup.played}
+						</SmallTableCell>
 					</tr>
 				))}
 			</tbody>

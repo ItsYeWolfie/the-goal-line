@@ -30,11 +30,13 @@ export default function TeamIndex() {
 						className="block w-full rounded-md border-gray-600 bg-gray-700 focus:border-indigo-500 focus:ring-indigo-500"
 						onChange={(e) => {
 							window.location.href = `/team/${teamID}/${e.target.value}`;
-						}}>
+						}}
+					>
 						{teamTabs.map((tab) => (
 							<option
 								value={tab.slug}
-								key={tab.slug}>
+								key={tab.slug}
+							>
 								{tab.name}
 							</option>
 						))}
@@ -53,7 +55,8 @@ export default function TeamIndex() {
 									: 'border-transparent hover:border-gray-300'
 							} border-b-2 p-4 text-center text-sm font-medium text-gray-200 transition-colors duration-300 ease-in-out hover:text-gray-400`
 						}
-						type="button">
+						type="button"
+					>
 						{tab.name}
 					</NavLink>
 				))}
@@ -63,7 +66,8 @@ export default function TeamIndex() {
 					navigation.state === 'loading'
 						? 'animate-pulse opacity-25 transition-opacity duration-300'
 						: ''
-				}`}>
+				}`}
+			>
 				<Outlet context={{ team, venue }} />
 			</section>
 		</section>

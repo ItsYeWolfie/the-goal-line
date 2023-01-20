@@ -1,57 +1,50 @@
 import { useLoaderData } from 'react-router-dom';
 import { ILeagueWithStanding } from '../../../types/League.types';
+import TableCell from '../../components/table/TableCell';
+import TableHeader from '../../components/table/TableHeader';
 
 export default function TeamStandings() {
 	const league = useLoaderData() as ILeagueWithStanding;
 	const { standings } = league;
 	return (
 		<table className="min-w-full">
-			<thead className="sticky top-0 bg-gray-800">
+			<thead className="sticky top-0 bg-gray-800 text-xs">
 				<tr>
-					<th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-300">
-						#
-					</th>
-					<th className="p-3 text-left text-xs font-medium uppercase tracking-wider text-gray-300">
-						Team
-					</th>
-					<th className="p-3 text-left text-xs font-medium uppercase tracking-wider text-gray-300">
-						MP
-					</th>
-					<th className="hidden p-3 text-left text-xs font-medium uppercase tracking-wider text-gray-300 md:table-cell">
+					<TableHeader className="px-6 py-3">#</TableHeader>
+					<TableHeader className="p-3 text-left">Team</TableHeader>
+					<TableHeader className="p-3 text-left">MP</TableHeader>
+					<TableHeader className="hidden p-3 text-left md:table-cell">
 						W
-					</th>
-					<th className="hidden p-3 text-left text-xs font-medium uppercase tracking-wider text-gray-300 md:table-cell">
+					</TableHeader>
+					<TableHeader className="hidden p-3 text-left md:table-cell">
 						D
-					</th>
-					<th className="hidden p-3 text-left text-xs font-medium uppercase tracking-wider text-gray-300 md:table-cell">
+					</TableHeader>
+					<TableHeader className="hidden p-3 text-left md:table-cell">
 						L
-					</th>
-					<th className="hidden p-3 text-left text-xs font-medium uppercase tracking-wider text-gray-300 sm:table-cell">
+					</TableHeader>
+					<TableHeader className="hidden p-3 text-left sm:table-cell">
 						GF
-					</th>
-					<th className="hidden p-3 text-left text-xs font-medium uppercase tracking-wider text-gray-300 sm:table-cell">
+					</TableHeader>
+					<TableHeader className="hidden p-3 text-left sm:table-cell">
 						GA
-					</th>
-					<th className="p-3 text-left text-xs font-medium uppercase tracking-wider text-gray-300">
-						PTS
-					</th>
-					<th className="p-3 text-left text-xs font-medium uppercase tracking-wider text-gray-300">
-						Form
-					</th>
+					</TableHeader>
+					<TableHeader className="p-3 text-left">PTS</TableHeader>
+					<TableHeader className="p-3 text-left">Form</TableHeader>
 				</tr>
 			</thead>
-			<tbody className="divide-y divide-gray-500">
+			<tbody className="divide-y divide-gray-500 text-sm text-gray-300">
 				{standings.map((standing, index) => {
 					const { team, form } = standing;
 					const formArray = form.split('');
 					return (
 						<tr
 							className={`${index % 2 === 1 ? 'bg-gray-600' : 'bg-gray-700'}`}
-							key={team.id}>
-							<td className="px-6 py-3.5 text-sm text-gray-300">
+							key={team.id}
+						>
+							<TableCell className="w-16 text-center">
 								{standing.rank}
-							</td>
-							<td className="px-3 py-3.5 text-sm text-gray-300">
+							</TableCell>
+							<TableCell>
 								<img
 									className="inline-block h-6 w-6"
 									src={team.logo}
@@ -75,29 +68,25 @@ export default function TeamStandings() {
 										</span>
 									</div>
 								</div>
-							</td>
-							<td className="px-3 py-3.5 text-sm text-gray-300">
-								{standing.all.played}
-							</td>
-							<td className="hidden px-3 py-3.5 text-sm text-gray-300 md:table-cell">
+							</TableCell>
+							<TableCell>{standing.all.played}</TableCell>
+							<TableCell className="hidden md:table-cell">
 								{standing.all.win}
-							</td>
-							<td className="hidden px-3 py-3.5 text-sm text-gray-300 md:table-cell">
+							</TableCell>
+							<TableCell className="hidden md:table-cell">
 								{standing.all.draw}
-							</td>
-							<td className="hidden px-3 py-3.5 text-sm text-gray-300 md:table-cell">
+							</TableCell>
+							<TableCell className="hidden md:table-cell">
 								{standing.all.lose}
-							</td>
-							<td className="hidden px-3 py-3.5 text-sm text-gray-300 sm:table-cell">
+							</TableCell>
+							<TableCell className="hidden sm:table-cell">
 								{standing.all.goals.for}
-							</td>
-							<td className="hidden px-3 py-3.5 text-sm text-gray-300 sm:table-cell">
+							</TableCell>
+							<TableCell className="hidden sm:table-cell">
 								{standing.all.goals.against}
-							</td>
-							<td className="px-3 py-3.5 text-sm text-gray-300">
-								{standing.points}
-							</td>
-							<td className="px-3 py-3.5 text-sm text-gray-300">
+							</TableCell>
+							<TableCell>{standing.points}</TableCell>
+							<TableCell>
 								{formArray.map((f, i) => {
 									let color = 'bg-gray-500';
 									switch (f) {
@@ -117,12 +106,13 @@ export default function TeamStandings() {
 									return (
 										<div
 											key={i}
-											className={`${color} mr-1 inline-block h-4 w-4 rounded-full`}>
+											className={`${color} mr-1 inline-block h-4 w-4 rounded-full`}
+										>
 											<span className="sr-only">{f}</span>
 										</div>
 									);
 								})}
-							</td>
+							</TableCell>
 						</tr>
 					);
 				})}

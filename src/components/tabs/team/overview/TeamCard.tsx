@@ -114,7 +114,8 @@ export default function TeamOverviewTeamCard({
 							return (
 								<span
 									className={`${color} order-[-1] ml-1 inline-block h-4 w-4 rounded-full text-xs font-bold text-white md:order-last`}
-									key={index}>
+									key={index}
+								>
 									<span className="sr-only">{letter}</span>
 								</span>
 							);

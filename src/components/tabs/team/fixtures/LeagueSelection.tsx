@@ -18,13 +18,15 @@ export default function TeamFixturesLeagueSelection({
 					className="bg-gray-800"
 					onChange={(e) => {
 						setSelectedLeague(parseInt(e.target.value, 10));
-					}}>
+					}}
+				>
 					<option value={-1}>None</option>
 
 					{leagues.map((league) => (
 						<option
 							key={league.id}
-							value={league.id}>
+							value={league.id}
+						>
 							{league.name}
 						</option>
 					))}

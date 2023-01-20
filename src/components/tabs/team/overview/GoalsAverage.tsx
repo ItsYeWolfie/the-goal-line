@@ -1,4 +1,6 @@
 import { ITeamStatistics } from '../../../../../types/Team.types';
+import SmallTableCell from '../../../table/SmallTableCell';
+import TableHeader from '../../../table/TableHeader';
 
 export default function TeamOverviewGoalsAverage({
 	goals,
@@ -9,30 +11,38 @@ export default function TeamOverviewGoalsAverage({
 		<table className="bg-gray-700 uppercase">
 			<thead className="bg-gray-800 text-sm">
 				<tr>
-					<th className="py-1 pl-3 text-left">Average Goals Per Match</th>
-					<th className="py-1 pl-3">Home</th>
-					<th className="py-1 pl-3">Away</th>
-					<th className="py-1 px-3">Total</th>
+					<TableHeader className="py-1 pl-3 text-left">
+						Average Goals Per Match
+					</TableHeader>
+					<TableHeader className="py-1 pl-3">Home</TableHeader>
+					<TableHeader className="py-1 pl-3">Away</TableHeader>
+					<TableHeader className="py-1 px-3">Total</TableHeader>
 				</tr>
 			</thead>
 			<tbody className="text-xs">
 				<tr>
-					<td className="py-2 pl-3">Scored</td>
-					<td className="pl-3 text-center">{goals.for.average.home || '-'}</td>
-					<td className="pl-3 text-center">{goals.for.average.away || '-'}</td>
-					<td className="pl-3 text-center">{goals.for.average.total || '-'}</td>
+					<SmallTableCell className="py-2 pl-3">Scored</SmallTableCell>
+					<SmallTableCell className="text-center">
+						{goals.for.average.home || '-'}
+					</SmallTableCell>
+					<SmallTableCell className="text-center">
+						{goals.for.average.away || '-'}
+					</SmallTableCell>
+					<SmallTableCell className="text-center">
+						{goals.for.average.total || '-'}
+					</SmallTableCell>
 				</tr>
 				<tr className="bg-gray-600">
-					<td className="py-2 pl-3">Received</td>
-					<td className="pl-3 text-center">
+					<SmallTableCell>Received</SmallTableCell>
+					<SmallTableCell className="text-center">
 						{goals.against.average.home || '-'}
-					</td>
-					<td className="pl-3 text-center">
+					</SmallTableCell>
+					<SmallTableCell className="text-center">
 						{goals.against.average.away || '-'}
-					</td>
-					<td className="pl-3 text-center">
+					</SmallTableCell>
+					<SmallTableCell className="text-center">
 						{goals.against.average.total || '-'}
-					</td>
+					</SmallTableCell>
 				</tr>
 			</tbody>
 		</table>

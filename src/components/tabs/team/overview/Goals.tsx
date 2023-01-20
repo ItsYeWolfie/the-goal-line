@@ -1,4 +1,6 @@
 import { ITeamStatistics } from '../../../../../types/Team.types';
+import SmallTableCell from '../../../table/SmallTableCell';
+import TableHeader from '../../../table/TableHeader';
 
 export default function TeamOverviewGoals({
 	goals,
@@ -6,37 +8,43 @@ export default function TeamOverviewGoals({
 	goals: ITeamStatistics['goals'];
 }) {
 	return (
-		<table className="bg-gray-700 uppercase">
+		<table className="bg-gray-700">
 			<thead className="bg-gray-800 text-sm">
 				<tr>
-					<th className="py-1 pl-3 text-left">Total Goals</th>
-					<th className="py-1 pl-3">Scored</th>
-					<th className="py-1 px-3">Received</th>
+					<TableHeader className="py-1 px-3 text-left">Total Goals</TableHeader>
+					<TableHeader className="py-1 px-3">Scored</TableHeader>
+					<TableHeader className="py-1 px-3">Received</TableHeader>
 				</tr>
 			</thead>
-			<tbody className="text-xs">
+			<tbody className="text-xs uppercase">
 				<tr className="bg-gray-600">
-					<td className="p-6 py-2 pl-3">Home</td>
-					<td className="pl-3 text-center">{goals.for.total.home || '-'}</td>
-					<td className="pl-3 text-center">
+					<SmallTableCell>Home</SmallTableCell>
+					<SmallTableCell className="text-center">
+						{goals.for.total.home || '-'}
+					</SmallTableCell>
+					<SmallTableCell className="text-center">
 						{goals.against.total.home || '-'}
-					</td>
+					</SmallTableCell>
 				</tr>
 				<tr>
-					<td className="py-2 pl-3">Away</td>
-					<td className="pl-3 text-center">{goals.for.total.away || '-'}</td>
-					<td className="pl-3 text-center">
+					<SmallTableCell>Away</SmallTableCell>
+					<SmallTableCell className="text-center">
+						{goals.for.total.away || '-'}
+					</SmallTableCell>
+					<SmallTableCell className="text-center">
 						{goals.against.total.away || '-'}
-					</td>
+					</SmallTableCell>
 				</tr>
 			</tbody>
 			<tfoot className="border-t bg-gray-800 text-xs">
 				<tr>
-					<td className="py-2 pl-3">Total</td>
-					<td className="pl-3 text-center">{goals.for.total.total || '-'}</td>
-					<td className="pl-3 text-center">
+					<SmallTableCell>Total</SmallTableCell>
+					<SmallTableCell className="text-center">
+						{goals.for.total.total || '-'}
+					</SmallTableCell>
+					<SmallTableCell className="text-center">
 						{goals.against.total.total || '-'}
-					</td>
+					</SmallTableCell>
 				</tr>
 			</tfoot>
 		</table>

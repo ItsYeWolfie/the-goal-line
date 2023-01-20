@@ -1,4 +1,6 @@
 import { ITeamStatistics } from '../../../../../types/Team.types';
+import SmallTableCell from '../../../table/SmallTableCell';
+import TableHeader from '../../../table/TableHeader';
 
 export default function TeamOverviewStatistics({
 	cleanSheet,
@@ -11,24 +13,36 @@ export default function TeamOverviewStatistics({
 		<table className="w-full bg-gray-700">
 			<thead className="bg-gray-800 text-sm uppercase">
 				<tr>
-					<th className="py-1 pl-3 text-left">Statistics</th>
-					<th className="py-1 pl-3">Home</th>
-					<th className="py-1 pl-3">Away</th>
-					<th className="py-1 px-3">Total</th>
+					<TableHeader className="py-1 px-3 text-left">Statistics</TableHeader>
+					<TableHeader className="py-1 px-3">Home</TableHeader>
+					<TableHeader className="py-1 px-3">Away</TableHeader>
+					<TableHeader className="py-1 px-3">Total</TableHeader>
 				</tr>
 			</thead>
 			<tbody className="text-xs">
 				<tr>
-					<td className="py-2 pl-3">Matches With a Clean Sheet</td>
-					<td className="pl-3 text-center">{cleanSheet.home || '-'}</td>
-					<td className="pl-3 text-center">{cleanSheet.away || '-'}</td>
-					<td className="pl-3 text-center">{cleanSheet.total || '-'}</td>
+					<SmallTableCell>Matches With a Clean Sheet</SmallTableCell>
+					<SmallTableCell className="text-center">
+						{cleanSheet.home || '-'}
+					</SmallTableCell>
+					<SmallTableCell className="text-center">
+						{cleanSheet.away || '-'}
+					</SmallTableCell>
+					<SmallTableCell className="text-center">
+						{cleanSheet.total || '-'}
+					</SmallTableCell>
 				</tr>
 				<tr className="bg-gray-600">
-					<td className="py-2 pl-3">Matches Without Scoring</td>
-					<td className="pl-3 text-center">{failedToScore.home || '-'}</td>
-					<td className="pl-3 text-center">{failedToScore.away || '-'}</td>
-					<td className="pl-3 text-center">{failedToScore.total || '-'}</td>
+					<SmallTableCell>Matches Without Scoring</SmallTableCell>
+					<SmallTableCell className="text-center">
+						{failedToScore.home || '-'}
+					</SmallTableCell>
+					<SmallTableCell className="text-center">
+						{failedToScore.away || '-'}
+					</SmallTableCell>
+					<SmallTableCell className="text-center">
+						{failedToScore.total || '-'}
+					</SmallTableCell>
 				</tr>
 			</tbody>
 		</table>

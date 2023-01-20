@@ -1,4 +1,6 @@
 import { ITeamStatistics } from '../../../../../types/Team.types';
+import SmallTableCell from '../../../table/SmallTableCell';
+import TableHeader from '../../../table/TableHeader';
 
 export default function TeamOverviewGoalsAtMinute({
 	goals,
@@ -9,17 +11,21 @@ export default function TeamOverviewGoalsAtMinute({
 		<table className="bg-gray-700 uppercase">
 			<thead className="bg-gray-800 text-sm">
 				<tr>
-					<th className="py-1 pl-3 text-left">Goals at Minute</th>
-					<th
+					<TableHeader className="py-1 px-3 text-left">
+						Goals at Minute
+					</TableHeader>
+					<TableHeader
 						className="py-1 text-center"
-						colSpan={2}>
+						colSpan={2}
+					>
 						Scored
-					</th>
-					<th
-						className="py-1 pr-3 text-center"
-						colSpan={2}>
+					</TableHeader>
+					<TableHeader
+						className="py-1 px-3 text-center"
+						colSpan={2}
+					>
 						Received
-					</th>
+					</TableHeader>
 				</tr>
 			</thead>
 			<tbody className="text-xs">
@@ -27,20 +33,21 @@ export default function TeamOverviewGoalsAtMinute({
 					return (
 						<tr
 							className={index % 2 === 0 ? 'bg-gray-600' : ''}
-							key={minute}>
-							<td className="w-48 py-2 pl-3">{minute}</td>
-							<td className="pl-3 text-center">
+							key={minute}
+						>
+							<SmallTableCell className="w-48">{minute}</SmallTableCell>
+							<SmallTableCell className="text-center">
 								{goals.for.minute[minute].total || '-'}
-							</td>
-							<td className="pl-3 text-center">
+							</SmallTableCell>
+							<SmallTableCell className="text-center">
 								{goals.for.minute[minute].percentage || '-'}
-							</td>
-							<td className="pl-3 text-center">
+							</SmallTableCell>
+							<SmallTableCell className="text-center">
 								{goals.against.minute[minute].total || '-'}
-							</td>
-							<td className="px-3 text-center">
+							</SmallTableCell>
+							<SmallTableCell className="text-center">
 								{goals.against.minute[minute].percentage || '-'}
-							</td>
+							</SmallTableCell>
 						</tr>
 					);
 				})}

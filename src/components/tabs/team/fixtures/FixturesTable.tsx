@@ -1,6 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrophy } from '@fortawesome/free-solid-svg-icons';
 import { IFixture } from '../../../../../types/Fixture.types';
+import TableHeader from '../../../table/TableHeader';
+import TableCell from '../../../table/TableCell';
 
 export default function TeamFixturesTable({
 	fixtures,
@@ -11,30 +13,20 @@ export default function TeamFixturesTable({
 }) {
 	return (
 		<table className="min-w-full">
-			<thead className="sticky top-0 bg-gray-800">
+			<thead className="sticky top-0 bg-gray-800 text-left text-xs">
 				<tr>
-					<th className="p-3 text-left text-xs font-medium uppercase tracking-wider text-gray-300 sm:pl-6 md:table-cell">
+					<TableHeader className="p-3 sm:pl-6 md:table-cell">
 						Opponent
-					</th>
-					<th className="hidden p-3 text-left text-xs font-medium uppercase tracking-wider text-gray-300 lg:table-cell">
-						Round
-					</th>
-					<th className="hidden p-3 text-left text-xs font-medium uppercase tracking-wider text-gray-300 md:table-cell">
-						Date
-					</th>
-					<th className="hidden p-3 text-left text-xs font-medium uppercase tracking-wider text-gray-300 md:table-cell">
-						Side
-					</th>
-					<th className="p-3 text-left text-xs font-medium uppercase tracking-wider text-gray-300 md:table-cell">
-						Status
-					</th>
-					<th className="p-3 text-left text-xs font-medium uppercase tracking-wider text-gray-300 md:table-cell">
-						Result
-					</th>
+					</TableHeader>
+					<TableHeader className="hidden p-3 lg:table-cell">Round</TableHeader>
+					<TableHeader className="hidden p-3 md:table-cell">Date</TableHeader>
+					<TableHeader className="hidden p-3 md:table-cell">Side</TableHeader>
+					<TableHeader className="p-3 md:table-cell">Status</TableHeader>
+					<TableHeader className="p-3  md:table-cell">Result</TableHeader>
 				</tr>
 			</thead>
 
-			<tbody className="divide-y divide-gray-500">
+			<tbody className="divide-y divide-gray-500 text-sm text-gray-300">
 				{fixtures.map((fixture, index) => {
 					const { fixture: match, goals, league, teams } = fixture;
 					const { home, away } = teams;
@@ -52,12 +44,13 @@ export default function TeamFixturesTable({
 					return (
 						<tr
 							className={`${index % 2 === 1 ? 'bg-gray-600' : 'bg-gray-700'}`}
-							key={fixture.fixture.id}>
-							<td className="p-3 text-sm sm:pl-6">
+							key={fixture.fixture.id}
+						>
+							<TableCell className="text-sm sm:pl-6">
 								<div className="font-medium text-gray-200">
 									{isHome ? away.name : home.name}
 								</div>
-								<div className="mt-1 flex flex-col text-xs text-gray-300">
+								<div className="mt-1 flex flex-col text-xs">
 									<div className="flex items-center gap-1 lg:hidden">
 										<span className="font-semibold">Round:</span>
 										<span>{league.round}</span>
@@ -71,20 +64,20 @@ export default function TeamFixturesTable({
 										<span>{isHome ? 'Home' : 'Away'}</span>
 									</div>
 								</div>
-							</td>
-							<td className="hidden px-3 py-3.5 text-sm text-gray-300 lg:table-cell">
+							</TableCell>
+							<TableCell className="hidden lg:table-cell">
 								{league.round}
-							</td>
-							<td className="hidden px-3 py-3.5 text-sm text-gray-300 md:table-cell">
+							</TableCell>
+							<TableCell className="hidden md:table-cell">
 								{formattedDate}
-							</td>
-							<td className="hidden px-3 py-3.5 text-xs uppercase text-gray-300 md:table-cell">
+							</TableCell>
+							<TableCell className="hidden text-xs uppercase md:table-cell">
 								{isHome ? 'Home' : 'Away'}
-							</td>
-							<td className="px-3 py-3.5 text-xs uppercase text-gray-300">
+							</TableCell>
+							<TableCell className="text-xs uppercase">
 								{status.short}
-							</td>
-							<td className="px-3 py-3.5 text-xs uppercase text-gray-300">
+							</TableCell>
+							<TableCell className="text-xs uppercase">
 								{goals.home} - {goals.away}
 								{isWinner && (
 									<FontAwesomeIcon
@@ -92,7 +85,7 @@ export default function TeamFixturesTable({
 										className="ml-2 text-green-500"
 									/>
 								)}
-							</td>
+							</TableCell>
 						</tr>
 					);
 				})}

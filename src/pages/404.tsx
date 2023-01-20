@@ -36,7 +36,8 @@ export default function NotFound() {
 							{errorLinks.map((link) => (
 								<li
 									className="relative flex items-start space-x-4 py-6"
-									key={link.title}>
+									key={link.title}
+								>
 									<div className="shrink-0">
 										<span className="flex h-12 w-12 items-center justify-center rounded-lg bg-gray-700">
 											<FontAwesomeIcon
@@ -50,7 +51,8 @@ export default function NotFound() {
 											<span className="rounded-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2">
 												<Link
 													to={link.href}
-													className="focus:outline-none">
+													className="focus:outline-none"
+												>
 													<span
 														className="absolute inset-0"
 														aria-hidden="true"
@@ -75,7 +77,8 @@ export default function NotFound() {
 						<div className="mt-8">
 							<Link
 								to="/"
-								className="text-base font-medium text-indigo-600 hover:text-indigo-500">
+								className="text-base font-medium text-indigo-600 hover:text-indigo-500"
+							>
 								Or go back home
 								<span aria-hidden="true"> &rarr;</span>
 							</Link>
