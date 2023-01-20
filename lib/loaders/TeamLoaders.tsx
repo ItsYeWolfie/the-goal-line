@@ -22,9 +22,13 @@ export async function teamFixturesLoader() {
 }
 
 export async function teamStandingsLoader() {
-	return fetchData<ILeagueWithStanding>(
+	const teamLeagueStandings = fetchData<ILeagueWithStanding>(
+		'https://api.npoint.io/cf670ab6cc08e892046f',
+	);
+	const leagueStandings = fetchData<ILeagueWithStanding[]>(
 		'https://api.npoint.io/9755c43d23971a73fe3f',
 	);
+	return defer({ leagueStandings, teamLeagueStandings });
 }
 
 export async function teamPlayersLoader() {

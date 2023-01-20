@@ -4,7 +4,7 @@ export interface ILeague extends ILeagueBasic {
 	round?: string;
 	season: number;
 	country: string;
-	flag: string;
+	flag: string | null;
 }
 
 export interface ILeagueBasic {

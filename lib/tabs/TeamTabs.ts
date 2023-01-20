@@ -11,12 +11,6 @@ export const teamTabs: ITab[] = [
 		slug: 'fixtures',
 		href: './fixtures',
 	},
-
-	{
-		name: 'Leagues History',
-		slug: 'leagues-history',
-		href: './leagues-history',
-	},
 	{
 		name: 'Players',
 		slug: 'players',
@@ -28,7 +22,7 @@ export const teamTabs: ITab[] = [
 		href: './transfers',
 	},
 	{
-		name: 'Standings (Season)',
+		name: 'Standings',
 		slug: 'standings',
 		href: './standings',
 	},
