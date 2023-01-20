@@ -1,139 +1,63 @@
-import { LitLightElement } from '../../lib/LitElement';
 import { html } from 'lit';
-
+import { LitLightElement } from '../../lib/LitElement';
 
 class Statistic extends LitLightElement {
-    render() {
-        return html
-            `<div class="lg:w-full md:w-4/5 w-full md:ml-20 lg:ml-40 bg-gray-800 h-auto flex flex-col justify-evenly mb-4 pt-4 pb-4 rounded-md">
-                <span class="flex justify-evenly"><span>8</span><div class="text-center block w-[68%] lg:w-[50%] ">Shots on Goal</div><span>6</span></span>
-                <span class="flex justify-center">
-                    <span class="bg-slate-300 flex w-44 md:w-72 lg:w-72 h-2 rounded-md justify-end">
-                        <span class="w-28 bg-lime-700 rounded-md"></span>
-                    </span>
-                    <span class="bg-slate-300 flex w-44 md:w-72 lg:w-72 h-2 rounded-md ml-1">
-                        <span class="w-20 bg-sky-500 rounded-md"></span>
-                    </span>
-                </span>
-                <span class="flex justify-evenly mt-2"><span>8</span><div class="text-center block w-[68%] lg:w-[50%] ">Shots off Goal</div><span>6</span></span>
-                <span class="flex justify-center">
-                    <span class="bg-slate-300 flex w-44 md:w-72 lg:w-72 h-2 rounded-md justify-end">
-                        <span class="w-32 bg-lime-700 rounded-md"></span>
-                    </span>
-                    <span class="bg-slate-300 flex w-44 md:w-72 lg:w-72 h-2 rounded-md ml-1">
-                        <span class="w-16 bg-sky-500  rounded-md"></span>
-                    </span>
-                </span>
-                <span class="flex justify-evenly mt-2"><span>8</span><div class="text-center block w-[68%] lg:w-[50%] ">Total Shots</div><span>6</span></span>
-                <span class="flex justify-center">
-                    <span class="bg-slate-300 flex w-44 md:w-72 lg:w-72 h-2 rounded-md justify-end">
-                        <span class="w-28 bg-lime-700 rounded-md"></span>
-                    </span>
-                    <span class="bg-slate-300 flex w-44 md:w-72 lg:w-72 h-2 rounded-md ml-1">
-                        <span class="w-14 bg-sky-500  rounded-md"></span>
-                    </span>
-                </span>
-                <span class="flex justify-evenly mt-2"><span>8</span><div class="text-center block w-[68%] lg:w-[50%] ">Blocked Shots</div><span>6</span></span>
-                <span class="flex justify-center">
-                    <span class="bg-slate-300 flex w-44 md:w-72 lg:w-72 h-2 rounded-md justify-end">
-                        <span class="w-24 bg-lime-700 rounded-md"></span>
-                    </span>
-                    <span class="bg-slate-300 flex w-44 md:w-72 lg:w-72 h-2 rounded-md ml-1">
-                        <span class="w-16 bg-sky-500  rounded-md"></span>
-                    </span>
-                </span>
-                <span class="flex justify-evenly mt-2"><span>8</span><div class="text-center block w-[68%] lg:w-[50%] ">Shots insidebox</div><span>6</span></span>
-                <span class="flex justify-center">
-                    <span class="bg-slate-300 flex w-44 md:w-72 lg:w-72 h-2 rounded-md justify-end">
-                        <span class="w-36 bg-lime-700 rounded-md"></span>
-                    </span>
-                    <span class="bg-slate-300 flex w-44 md:w-72 lg:w-72 h-2 rounded-md ml-1">
-                        <span class="w-20 bg-sky-500  rounded-md"></span>
-                    </span>
-                </span>
-                <span class="flex justify-evenly mt-2"><span>8</span><div class="text-center block w-[68%] lg:w-[50%] ">Shots outsidebox</div><span>6</span></span>
-                <span class="flex justify-center">
-                    <span class="bg-slate-300 flex w-44 md:w-72 lg:w-72 h-2 rounded-md justify-end">
-                        <span class="w-16 bg-lime-700 rounded-md"></span>
-                    </span>
-                    <span class="bg-slate-300 flex w-44 md:w-72 lg:w-72 h-2 rounded-md ml-1">
-                        <span class="w-36 bg-sky-500  rounded-md"></span>
-                    </span>
-                </span>
-                <span class="flex justify-evenly mt-2"><span>8</span><div class="text-center block w-[68%] lg:w-[50%] ">Fouls</div><span>6</span></span>
-                <span class="flex justify-center">
-                    <span class="bg-slate-300 flex w-44 md:w-72 lg:w-72 h-2 rounded-md justify-end">
-                        <span class="w-20 bg-lime-700 rounded-md"></span>
-                    </span>
-                    <span class="bg-slate-300 flex w-44 md:w-72 lg:w-72 h-2 rounded-md ml-1">
-                        <span class="w-36 bg-sky-500  rounded-md"></span>
-                    </span>
-                </span>
-                <span class="flex justify-evenly mt-2"><span>8</span><div class="text-center block w-[68%] lg:w-[50%] ">Corner Kicks</div><span>6</span></span>
-                <span class="flex justify-center">
-                    <span class="bg-slate-300 flex w-44 md:w-72 lg:w-72 h-2 rounded-md justify-end">
-                        <span class="w-36 bg-lime-700 rounded-md"></span>
-                    </span>
-                    <span class="bg-slate-300 flex w-44 md:w-72 lg:w-72 h-2 rounded-md ml-1">
-                        <span class="w-20 bg-sky-500  rounded-md"></span>
-                    </span>
-                </span>
-                <span class="flex justify-evenly mt-2"><span>8</span><div class="text-center block w-[68%] lg:w-[50%] ">Offsides</div><span>6</span></span>
-                <span class="flex justify-center">
-                    <span class="bg-slate-300 flex w-44 md:w-72 lg:w-72 h-2 rounded-md justify-end">
-                        <span class="w-28 bg-lime-700 rounded-md"></span>
-                    </span>
-                    <span class="bg-slate-300 flex w-44 md:w-72 lg:w-72 h-2 rounded-md ml-1">
-                        <span class="w-16 bg-sky-500  rounded-md"></span>
-                    </span>
-                </span>
-                <span class="flex justify-evenly mt-2"><span>8</span><div class="text-center block w-[68%] lg:w-[50%] ">Ball Possession</div><span>6</span></span>
-                <span class="flex justify-center">
-                    <span class="bg-slate-300 flex w-44 md:w-72 lg:w-72 h-2 rounded-md justify-end">
-                        <span class="w-2/3 bg-lime-700 rounded-md"></span>
-                    </span>
-                    <span class="bg-slate-300 flex w-44 md:w-72 lg:w-72 h-2 rounded-md ml-1">
-                        <span class="w-1/3 bg-sky-500  rounded-md"></span>
-                    </span>
-                </span>
-                <span class="flex justify-evenly mt-2"><span>8</span><div class="text-center block w-[68%] lg:w-[50%] ">Yellow Cards</div><span>6</span></span>
-                <span class="flex justify-center">
-                    <span class="bg-slate-300 flex w-44 md:w-72 lg:w-72 h-2 rounded-md justify-end">
-                        <span class="w-16 bg-lime-700 rounded-md"></span>
-                    </span>
-                    <span class="bg-slate-300 flex w-44 md:w-72 lg:w-72 h-2 rounded-md ml-1">
-                        <span class="w-36 bg-sky-500  rounded-md"></span>
-                    </span>
-                </span>
-                <span class="flex justify-evenly mt-2"><span>0</span><div class="text-center block w-[68%] lg:w-[50%] ">Red Cards</div><span>0</span></span>
-                <span class="flex justify-center">
-                    <span class="bg-slate-300 flex w-44 md:w-72 lg:w-72 h-2 rounded-md justify-end">
-                        <span class="w-0 bg-lime-700 rounded-md"></span>
-                    </span>
-                    <span class="bg-slate-300 flex w-44 md:w-72 lg:w-72 h-2 rounded-md ml-1">
-                        <span class="w-0 bg-sky-500  rounded-md"></span>
-                    </span>
-                </span>
-                <span class="flex justify-evenly mt-2"><span>8</span><div class="text-center block w-[68%] lg:w-[50%] ">Total passes</div><span>6</span></span>
-                <span class="flex justify-center">
-                    <span class="bg-slate-300 flex w-44 md:w-72 lg:w-72 h-2 rounded-md justify-end">
-                        <span class="w-52 bg-lime-700 rounded-md"></span>
-                    </span>
-                    <span class="bg-slate-300 flex w-44 md:w-72 lg:w-72 h-2 rounded-md ml-1">
-                        <span class="w-36 bg-sky-500  rounded-md"></span>
-                    </span>
-                </span>
-                <span class="flex justify-evenly mt-2"><span>8</span><div class="text-center block w-[68%] lg:w-[50%] ">Passes accurate</div><span>6</span></span>
-                <span class="flex justify-center">
-                    <span class="bg-slate-300 flex w-44 md:w-72 lg:w-72 h-2 rounded-md justify-end">
-                        <span class="w-44 mr-0 bg-lime-700 rounded-md"></span>
-                    </span>
-                    <span class="bg-slate-300 flex w-44 md:w-72 lg:w-72 h-2 rounded-md ml-1">
-                        <span class="w-36 bg-sky-500 rounded-md"></span>
-                    </span>
-                </span>
-            </div>`
-}
+		static properties = {
+			statistic: { type: Array },
+			loading: { type: Boolean },
+		};
+	
+		constructor() {
+			super();
+			this.statistic = [];
+			this.loading = true;
+		}
+	
+		async connectedCallback() {
+			super.connectedCallback();
+			const response = await fetch('https://api.npoint.io/6c7dc019d30ed2833962');
+			const data = await response.json();
+			this.statistic = data;
+			this.loading = false;
+			// console.log(data);
+		}
+	
+		render() {
+			if (this.loading) {
+				return html`
+					<div
+						class="flex h-10 w-full items-center justify-around rounded-md bg-gray-800 align-middle md:mx-auto md:w-4/5 lg:ml-40 lg:flex lg:w-full lg:justify-around"
+					>
+						<img src="../images/icons8-wait.svg" class="animate-spin">
+					</div>
+				`;
+			}
+			return html`<div
+			class="mb-4 flex h-auto w-full flex-col justify-evenly rounded-md bg-gray-800 pt-4 pb-4 md:ml-20 md:w-4/5 lg:ml-40 lg:w-full"
+		>
+		 ${this.statistic.statistics[0].statistics.map((statistic1,index1) => 
+				this.statistic.statistics[1].statistics.map((statistic2,index2) => 
+				html`
+				<span class="flex justify-evenly"
+				><span>${statistic1.value}</span>
+				<div class="block w-[68%] text-center lg:w-[50%] ">${statistic1.type}</div>
+				<span>${statistic2.value}</span></span
+			>
+			<span class="flex justify-center">
+				<span
+					class="flex h-2 w-44 justify-end rounded-md bg-slate-300 md:w-72 lg:w-72"
+				>
+					<span class="w-${statistic1.value} rounded-md bg-lime-700"></span>
+				</span>
+				<span
+					class="ml-1 flex h-2 w-44 rounded-md bg-slate-300 md:w-72 lg:w-72"
+				>
+					<span class="w-${statistic2.value} rounded-md bg-sky-500"></span>
+				</span>
+			</span>`
+			))}
+		</div>`;
+	}
 }
 
-customElements.define('statistic-f',Statistic);
+customElements.define('statistic-f', Statistic);

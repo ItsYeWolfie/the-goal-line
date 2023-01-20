@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,50 +8,49 @@
     <title>Goal Line</title>
     <link rel="stylesheet" href="../style.css" />
     <style>
-        *{
+        * {
             @apply font-sans text-gray-200 box-border;
         }
     </style>
 </head>
+
 <body class="flex-col md:flex md:flex-col md:mx-auto lg:flex lg:flex-row p-0.5 lg:p-0 bg-gray-900">
-        <!-- <g-header class="hidden lg:block h-full"></g-header> -->
-        <div>
-            <h6 class="text-xs lg:mt-2 md:ml-20 lg:ml-40 pl-1">MATCH</h6>
-            <match-f></match-f>
+    <!-- <g-header class="hidden lg:block h-full"></g-header> -->
+    <div>
+        <h6 class="text-xs lg:mt-2 md:ml-20 lg:ml-40 pl-1">MATCH</h6>
+        <match-f></match-f>
 
-            <h6 class="text-xs md:ml-20 lg:ml-40 mt-4 pl-1">MATCH INFO</h6>
-            <info-f></info-f>
+        <h6 class="text-xs md:ml-20 lg:ml-40 mt-4 pl-1">MATCH INFO</h6>
+        <info-f></info-f>
 
-            <h6 class="text-xs mt-4 md:ml-20 lg:ml-40 pl-1">TEAM FORMATION</h6>
-            <formation-f></formation-f>
+        <h6 class="text-xs mt-4 md:ml-20 lg:ml-40 pl-1">TEAM FORMATION</h6>
+        <formation-f></formation-f>
 
-            <h6 class="text-xs mt-4 md:ml-20 lg:ml-40 pl-1">TEAM LINE UP</h6>
-            <lineup-f></lineup-f>
+        <h6 class="text-xs mt-4 md:ml-20 lg:ml-40 pl-1">TEAM LINE UP</h6>
+        <lineup-f></lineup-f>
 
-            <h6 class="text-xs mt-4 md:ml-20 lg:ml-40 pl-1">TEAM STATISTIC</h6>
-            <statistic-f></statistic-f>
+        <h6 class="text-xs mt-4 md:ml-20 lg:ml-40 pl-1">TEAM STATISTIC</h6>
+        <!-- <statistic-f></statistic-f> -->
+
+
+    </div>
+    <div class="lg:ml-24 mt-[1px]">
+        <div class="md:w-4/5 lg:w-96 md:ml-20">
+            <h6 class="text-xs mt-2 pl-1">ODDS</h6>
+            <odds-f></odds-f>
+
+            <h6 class="text-xs mt-4 pl-1">HEAD-TO-HEAD MATCHES</h6>
+            <hhmatches-f></hhmatches-f>
+
+            <h6 class="text-xs mt-4 pl-1">TABLE</h6>
+            <standings-f></standings-f>
         </div>
-        <div class="lg:ml-24 mt-[1px]">
-            <div class="md:w-4/5 lg:w-96 md:ml-20">
-                <h6 class="text-xs mt-2 pl-1">ODDS</h6>
-                <odds-f></odds-f>
-            
-                <h6 class="text-xs mt-4 pl-1">HEAD-TO-HEAD MATCHES</h6>
-                <hhmatches-f></hhmatches-f>
-                
-                <h6 class="text-xs mt-4 pl-1">TABLE</h6>
-                <!-- <table-f></table-f> -->
-                <standings-f></standings-f>
-            </div>
-        </div>
-	<script
-		src="https://kit.fontawesome.com/93f4c9f245.js"
-		crossorigin="anonymous"
-		defer
-	></script>
-    
+    </div>
+    <script src="https://kit.fontawesome.com/93f4c9f245.js" crossorigin="anonymous" defer></script>
+
     <script src="https://unpkg.com/@themesberg/flowbite@1.1.0/dist/flowbite.bundle.js"></script>
     <script src="./fixture-page.js" type="module" defer></script>
     <script src="../main.js" type="module" defer></script>
 </body>
+
 </html>

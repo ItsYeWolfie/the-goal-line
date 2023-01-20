@@ -5,4 +5,10 @@
 	"singleQuote": true,
 	"plugins": ["prettier-plugin-organize-attributes","prettier-plugin-tailwindcss"],
 	"attributeGroups": ["$CODE_GUIDE"]
+    // "error":
+    // {
+    //   "singleQuote": true,
+    //   "parser": "flow",
+	//   "endOfLine": "auto"
+    // }
 }
