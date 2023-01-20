@@ -1,3 +1,4 @@
+import { defer } from 'react-router-dom';
 import fetchData from '../helpers/Fetch';
 import { ITeamAndVenue, ITeamStatistics } from '../../types/Team.types';
 import { IFixture } from '../../types/Fixture.types';
@@ -27,7 +28,9 @@ export async function teamStandingsLoader() {
 }
 
 export async function teamPlayersLoader() {
-	return fetchData<IPlayerWithStatistics[]>(
+	const players = fetchData<IPlayerWithStatistics[]>(
 		'https://api.npoint.io/14ad36c662462a142566',
 	);
+
+	return defer({ players });
 }
