@@ -1,9 +1,12 @@
+import Banner from '../banners/Banner';
 import Banner1 from '../banners/Banner1';
+import Layout from '../Layout/Layout';
 
 export default function HomePage() {
 	return (
-		<div className="h-full w-full bg-slate-900">
+		<Layout>
+			<Banner />
 			<Banner1 />
-		</div>
+		</Layout>
 	);
 }

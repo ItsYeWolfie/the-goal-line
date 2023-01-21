@@ -1,6 +1,6 @@
 export default function Banner1() {
 	return (
-		<section className="m-[3%] bg-slate-900 ">
+		<section className="mx-[3%] bg-slate-900 ">
 			<div className="relative h-[150px] w-full overflow-hidden rounded-[20px] bg-opacity-[0.7] bg-gradient-to-tr from-gray-900 to-gray-600 bg-center shadow-lg shadow-slate-500 sm:h-[210px] md:h-[250px] lg:h-[230px] xl:h-[260px]">
 				<div className="absolute right-[5%] bottom-0 h-[100%] w-[40%]">
 					<img
