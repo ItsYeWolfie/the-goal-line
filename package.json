@@ -6,7 +6,7 @@
 		"dev": "vite --host",
 		"build": "vite build",
 		"preview": "vite preview --host",
-		"lint": "eslint --fix --ext .js,.html,.css,.cjs src"
+		"lint": "eslint --fix --ext .js,.html,.css,.cjs ./"
 	},
 	"type": "module",
 	"devDependencies": {

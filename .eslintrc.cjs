@@ -13,6 +13,10 @@ module.exports = {
 	],
 	plugins: ['tailwindcss', 'html'],
 	overrides: [],
+	parserOptions: {
+		ecmaVersion: 'latest',
+		sourceType: 'module',
+	},
 	rules: {
 		'class-methods-use-this': 0,
 		'import/no-extraneous-dependencies': 0,

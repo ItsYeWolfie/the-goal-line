@@ -28,7 +28,7 @@ class LineUp extends LitLightElement {
 				<div
 					class="flex h-10 w-full items-center justify-around rounded-md bg-gray-800 align-middle md:mx-auto md:w-4/5 lg:ml-40 lg:flex lg:w-full lg:justify-around"
 				>
-					<img src="../images/icons8-wait.svg" class="animate-spin">
+					<img class="animate-spin" src="../images/icons8-wait.svg" />
 				</div>
 			`;
 		}
@@ -48,8 +48,7 @@ class LineUp extends LitLightElement {
 				${this.lineup.lineups[0].startXI.map(
 					(player) =>
 						html` <h3 class="text-left">
-							<span class="text-lime-700">${player.player.pos}</span> ${player
-								.player.name}
+							<span class="text-lime-700">${player.player.pos}</span> ${player.player.name}
 						</h3>`
 				)}
 			</div>
@@ -57,9 +56,7 @@ class LineUp extends LitLightElement {
 				<h3 class="text-right">
 					${this.lineup.lineups[1].coach.name} <span class="text-sky-600">Coach</span>
 				</h3>
-				<span
-					class=" border-[0.2px] border-solid border-gray-200 text-right opacity-30"
-				></span>
+				<span class=" border-[0.2px] border-solid border-gray-200 text-right opacity-30"></span>
 
 				${this.lineup.lineups[1].startXI.map(
 					(player) =>

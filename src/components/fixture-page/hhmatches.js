@@ -30,59 +30,60 @@ class HhMatches extends LitLightElement {
 				<div
 					class="flex h-10 w-full items-center justify-around rounded-md bg-gray-800 align-middle md:mx-auto md:w-4/5 lg:flex lg:w-full lg:justify-around"
 				>
-					<img src="../images/icons8-wait.svg" class="animate-spin">
+					<img class="animate-spin" src="../images/icons8-wait.svg" />
 				</div>
-			`
+			`;
 		}
-		return html`
-		<div class="h-auto w-full rounded-md bg-gray-800 p-2 lg:h-auto">
+		return html` <div class="h-auto w-full rounded-md bg-gray-800 p-2 lg:h-auto">
 			<table class="w-full text-center">
 				<tbody class="table-row-group lg:mx-auto">
-				${this.firstThree.map((h2h) =>
-					html`
-					<tr
-						class="h-8 rounded-md border-b-[0.2px] border-solid border-gray-400 border-opacity-30 text-center"
-					>
-						<td class="pl-1 text-sm text-right">
-							<span class="flex w-full justify-center"
-								><img src="${h2h.teams.home.logo}" width="15px"/>
-								<p class="pl-1">${h2h.teams.home.name}</p></span
+					${this.firstThree.map(
+						(h2h) =>
+							html` <tr
+								class="h-8 rounded-md border-b-[0.2px] border-solid border-gray-400 border-opacity-30 text-center"
 							>
-						</td>
-						<td class="pl-1 text-sm">${h2h.goals.home}</td>
-						<td class="pl-1 text-sm">-</td>
-						<td class="pl-1 text-sm">${h2h.goals.away}</td>
-						<td class="pl-1 text-sm text-left">
-							<span class="flex w-full justify-center"
-								><img src="${h2h.teams.away.logo}" width="15px"/>
-								<p class="pl-1">${h2h.teams.away.name}</p></span
+								<td class="pl-1 text-right text-sm">
+									<span class="flex w-full justify-center"
+										><img src="${h2h.teams.home.logo}" width="15px" />
+										<p class="pl-1">${h2h.teams.home.name}</p></span
+									>
+								</td>
+								<td class="pl-1 text-sm">${h2h.goals.home}</td>
+								<td class="pl-1 text-sm">-</td>
+								<td class="pl-1 text-sm">${h2h.goals.away}</td>
+								<td class="pl-1 text-left text-sm">
+									<span class="flex w-full justify-center"
+										><img src="${h2h.teams.away.logo}" width="15px" />
+										<p class="pl-1">${h2h.teams.away.name}</p></span
+									>
+								</td>
+							</tr>`
+					)}
+					${this.lastThree.map(
+						(h2h) =>
+							html` <tr
+								class="h-8 rounded-md border-b-[0.2px] border-solid border-gray-400 border-opacity-30"
 							>
-						</td>
-					</tr>`)}
-					${this.lastThree.map((h2h) =>
-						html`
-						<tr
-							class="h-8 rounded-md border-b-[0.2px] border-solid border-gray-400 border-opacity-30"
-						>
-							<td class="pl-1 text-sm text-right">
-								<span class="flex w-full justify-center"
-									><img src="${h2h.teams.home.logo}" width="15px"/>
-									<p class="pl-1">${h2h.teams.home.name}</p></span
-								>
-							</td>
-							<td class="pl-1 text-sm text-center">${h2h.goals.home}</td>
-							<td class="pl-1 text-sm text-center">-</td>
-							<td class="pl-1 text-sm text-center">${h2h.goals.away}</td>
-							<td class="pl-1 text-sm text-left">
-								<span class="flex w-full justify-center"
-									><img src="${h2h.teams.away.logo}" width="15px"/>
-									<p class="pl-1">${h2h.teams.away.name}</p></span
-								>
-							</td>
-						</tr>`)}
+								<td class="pl-1 text-right text-sm">
+									<span class="flex w-full justify-center"
+										><img src="${h2h.teams.home.logo}" width="15px" />
+										<p class="pl-1">${h2h.teams.home.name}</p></span
+									>
+								</td>
+								<td class="pl-1 text-center text-sm">${h2h.goals.home}</td>
+								<td class="pl-1 text-center text-sm">-</td>
+								<td class="pl-1 text-center text-sm">${h2h.goals.away}</td>
+								<td class="pl-1 text-left text-sm">
+									<span class="flex w-full justify-center"
+										><img src="${h2h.teams.away.logo}" width="15px" />
+										<p class="pl-1">${h2h.teams.away.name}</p></span
+									>
+								</td>
+							</tr>`
+					)}
 				</tbody>
 			</table>
-		</div>`
+		</div>`;
 	}
 }
 customElements.define('hhmatches-f', HhMatches);

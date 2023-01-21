@@ -28,7 +28,7 @@ class Matches extends LitLightElement {
 				<div
 					class="flex h-10 w-full items-center justify-around rounded-md bg-gray-700 align-middle md:mx-auto md:w-4/5 lg:ml-40 lg:flex lg:w-full lg:justify-around"
 				>
-					<img src="../images/icons8-wait.svg" class="animate-spin">
+					<img class="animate-spin" src="../images/icons8-wait.svg" />
 				</div>
 			`;
 		}
@@ -50,22 +50,12 @@ class Matches extends LitLightElement {
 								<span class="my-auto ml-2">${date}</span>
 								<div class="flex flex-col p-2">
 									<span class="ml-2 flex">
-										<img
-											class="mr-2"
-											src="${fixture.teams.home.logo}"
-											width="20px"
-											height="20px"
-										/>
+										<img class="mr-2" src="${fixture.teams.home.logo}" width="20px" height="20px" />
 										<p>${fixture.teams.home.name}</p>
 										<p>${fixture.id}</p>
 									</span>
 									<span class="ml-2 flex">
-										<img
-											class="mr-2"
-											src="${fixture.teams.away.logo}"
-											width="20px"
-											height="20px"
-										/>
+										<img class="mr-2" src="${fixture.teams.away.logo}" width="20px" height="20px" />
 										<p>${fixture.teams.away.name}</p>
 									</span>
 								</div>

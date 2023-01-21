@@ -28,7 +28,7 @@ class Formation extends LitLightElement {
 				<div
 					class="flex h-10 w-full items-center justify-around rounded-md bg-gray-800 align-middle md:mx-auto md:w-4/5 lg:ml-40 lg:flex lg:w-full lg:justify-around"
 				>
-					<img src="../images/icons8-wait.svg" class="animate-spin">
+					<img class="animate-spin" src="../images/icons8-wait.svg" />
 				</div>
 			`;
 		}
@@ -45,61 +45,44 @@ class Formation extends LitLightElement {
 					<p>${this.formation.lineups[1].formation}</p></span
 				>
 			</span>
-			<div
-				class="mx-auto flex h-[16rem] w-[23.8rem] bg-green-900 md:mx-0 lg:mx-0"
-			>
+			<div class="mx-auto flex h-[16rem] w-[23.8rem] bg-green-900 md:mx-0 lg:mx-0">
 				<div class="absolute h-64 w-48 border-2 border-solid border-white">
-					<span
-						class="absolute mt-28 ml-0.5 h-8 w-8 rounded-full bg-lime-700 text-center"
-						>1</span
-					>
-					<span
-						class="absolute z-10 mt-8 ml-14 h-8 w-8 rounded-full bg-lime-700 text-center"
+					<span class="absolute mt-28 ml-0.5 h-8 w-8 rounded-full bg-lime-700 text-center">1</span>
+					<span class="absolute z-10 mt-8 ml-14 h-8 w-8 rounded-full bg-lime-700 text-center"
 						>2</span
 					>
-					<span
-						class="absolute z-10 mt-20 ml-12 h-8 w-8 rounded-full bg-lime-700 text-center"
+					<span class="absolute z-10 mt-20 ml-12 h-8 w-8 rounded-full bg-lime-700 text-center"
 						>3</span
 					>
-					<span
-						class="absolute z-10 mt-36 ml-12 h-8 w-8 rounded-full bg-lime-700 text-center"
+					<span class="absolute z-10 mt-36 ml-12 h-8 w-8 rounded-full bg-lime-700 text-center"
 						>4</span
 					>
-					<span
-						class="absolute z-10 mt-48 ml-14 h-8 w-8 rounded-full bg-lime-700 text-center"
+					<span class="absolute z-10 mt-48 ml-14 h-8 w-8 rounded-full bg-lime-700 text-center"
 						>5</span
 					>
 					<span
 						class="absolute z-10 mt-16 ml-[6.57rem] h-8 w-8 rounded-full bg-lime-700 text-center"
 						>6</span
 					>
-					<span
-						class="absolute z-10 mt-28 ml-24 h-8 w-8 rounded-full bg-lime-700 text-center"
+					<span class="absolute z-10 mt-28 ml-24 h-8 w-8 rounded-full bg-lime-700 text-center"
 						>7</span
 					>
 					<span
 						class="absolute z-10 mt-40 ml-[6.57rem] h-8 w-8 rounded-full bg-lime-700 text-center"
 						>8</span
 					>
-					<span
-						class="absolute z-10 mt-6 ml-36 h-8 w-8 rounded-full bg-lime-700 text-center"
+					<span class="absolute z-10 mt-6 ml-36 h-8 w-8 rounded-full bg-lime-700 text-center"
 						>9</span
 					>
-					<span
-						class="absolute z-10 mt-28 ml-36 h-8 w-8 rounded-full bg-lime-700 text-center"
+					<span class="absolute z-10 mt-28 ml-36 h-8 w-8 rounded-full bg-lime-700 text-center"
 						>10</span
 					>
-					<span
-						class="absolute z-10 mt-48 ml-36 h-8 w-8 rounded-full bg-lime-700 text-center"
+					<span class="absolute z-10 mt-48 ml-36 h-8 w-8 rounded-full bg-lime-700 text-center"
 						>11</span
 					>
 
-					<div
-						class="absolute -ml-[1px] mt-12 h-40 w-20 border-2 border-solid border-white"
-					>
-						<div
-							class="absolute mt-7 -ml-0.5 h-24 w-12 border-2 border-solid border-white"
-						></div>
+					<div class="absolute -ml-[1px] mt-12 h-40 w-20 border-2 border-solid border-white">
+						<div class="absolute mt-7 -ml-0.5 h-24 w-12 border-2 border-solid border-white"></div>
 						<span
 							class="absolute ml-[76.5px] mt-12 h-14 rounded-r-full border-2 border-solid border-white px-3"
 						></span>
@@ -108,57 +91,40 @@ class Formation extends LitLightElement {
 						class="absolute ml-[155px] mt-[90px] rounded-full border-2 border-solid border-white px-8 py-8"
 					></div>
 				</div>
-				<div
-					class="absolute ml-[191px] h-64 w-48 border-2 border-solid border-white"
-				>
-					<span
-						class="absolute z-10 mt-28 ml-[155px] h-8 w-8 rounded-full bg-sky-600 text-center"
+				<div class="absolute ml-[191px] h-64 w-48 border-2 border-solid border-white">
+					<span class="absolute z-10 mt-28 ml-[155px] h-8 w-8 rounded-full bg-sky-600 text-center"
 						>1</span
 					>
-					<span
-						class="absolute z-10 mt-12 ml-24 h-8 w-8 rounded-full bg-sky-600 text-center"
+					<span class="absolute z-10 mt-12 ml-24 h-8 w-8 rounded-full bg-sky-600 text-center"
 						>2</span
 					>
-					<span
-						class="absolute z-10 mt-28 ml-28 h-8 w-8 rounded-full bg-sky-600 text-center"
+					<span class="absolute z-10 mt-28 ml-28 h-8 w-8 rounded-full bg-sky-600 text-center"
 						>3</span
 					>
-					<span
-						class="absolute z-10 mt-44 ml-24 h-8 w-8 rounded-full bg-sky-600 text-center"
+					<span class="absolute z-10 mt-44 ml-24 h-8 w-8 rounded-full bg-sky-600 text-center"
 						>4</span
 					>
-					<span
-						class="absolute z-10 mt-4 ml-14 h-8 w-8 rounded-full bg-sky-600 text-center"
+					<span class="absolute z-10 mt-4 ml-14 h-8 w-8 rounded-full bg-sky-600 text-center"
 						>5</span
 					>
-					<span
-						class="absolute z-10 mt-20 ml-14 h-8 w-8 rounded-full bg-sky-600 text-center"
+					<span class="absolute z-10 mt-20 ml-14 h-8 w-8 rounded-full bg-sky-600 text-center"
 						>6</span
 					>
-					<span
-						class="absolute z-10 mt-36 ml-14 h-8 w-8 rounded-full bg-sky-600 text-center"
+					<span class="absolute z-10 mt-36 ml-14 h-8 w-8 rounded-full bg-sky-600 text-center"
 						>7</span
 					>
-					<span
-						class="absolute z-10 mt-52 ml-14 h-8 w-8 rounded-full bg-sky-600 text-center"
+					<span class="absolute z-10 mt-52 ml-14 h-8 w-8 rounded-full bg-sky-600 text-center"
 						>8</span
 					>
-					<span
-						class="absolute z-10 mt-6 ml-2 h-8 w-8 rounded-full bg-sky-600 text-center"
-						>9</span
-					>
-					<span
-						class="absolute z-10 mt-28 ml-4 h-8 w-8 rounded-full bg-sky-600 text-center"
+					<span class="absolute z-10 mt-6 ml-2 h-8 w-8 rounded-full bg-sky-600 text-center">9</span>
+					<span class="absolute z-10 mt-28 ml-4 h-8 w-8 rounded-full bg-sky-600 text-center"
 						>10</span
 					>
-					<span
-						class="absolute z-10 mt-48 ml-2 h-8 w-8 rounded-full bg-sky-600 text-center"
+					<span class="absolute z-10 mt-48 ml-2 h-8 w-8 rounded-full bg-sky-600 text-center"
 						>11</span
 					>
 
-					<div
-						class="absolute mt-12 ml-[110px] h-40 w-20 border-2 border-solid border-white"
-					>
+					<div class="absolute mt-12 ml-[110px] h-40 w-20 border-2 border-solid border-white">
 						<div
 							class="absolute mt-7 ml-[30.5px] h-24 w-12 border-2 border-solid border-white"
 						></div>

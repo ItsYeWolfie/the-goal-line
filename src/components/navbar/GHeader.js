@@ -58,8 +58,7 @@ class GHeader extends LitLightElement {
 	getDarkMode() {
 		return (
 			localStorage.theme === 'dark' ||
-			(!('theme' in localStorage) &&
-				window.matchMedia('(prefers-color-scheme: dark)').matches)
+			(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
 		);
 	}
 
@@ -99,40 +98,21 @@ class GHeader extends LitLightElement {
 				>
 					<g-nav-icon-holder>
 						<button @click="${this.toggleSidebar}">
-							<g-nav-icon title="Menu" icon="fa-solid fa-bars-staggered">
-							</g-nav-icon>
+							<g-nav-icon title="Menu" icon="fa-solid fa-bars-staggered"> </g-nav-icon>
 						</button>
 					</g-nav-icon-holder>
 					<g-hr-half></g-hr-half>
 					<g-nav-icon-holder>
-						<g-nav-icon
-							title="Trending"
-							icon="fa-solid fa-fire-flame-curved"
-						></g-nav-icon>
-						<g-nav-icon
-							title="Location"
-							icon="fa-brands fa-safari"
-						></g-nav-icon>
-						<g-nav-icon
-							title="Messages"
-							icon="fa-regular fa-envelope"
-						></g-nav-icon>
+						<g-nav-icon title="Trending" icon="fa-solid fa-fire-flame-curved"></g-nav-icon>
+						<g-nav-icon title="Location" icon="fa-brands fa-safari"></g-nav-icon>
+						<g-nav-icon title="Messages" icon="fa-regular fa-envelope"></g-nav-icon>
 					</g-nav-icon-holder>
 					<g-hr-half></g-hr-half>
 					<g-nav-icon-holder>
-						<g-nav-icon
-							title="Football"
-							icon="fa-regular fa-futbol"
-						></g-nav-icon>
+						<g-nav-icon title="Football" icon="fa-regular fa-futbol"></g-nav-icon>
 						<g-nav-icon title="World" icon="fa-solid fa-globe"></g-nav-icon>
-						<g-nav-icon
-							title="Legend"
-							icon="fa-solid fa-book-open-reader"
-						></g-nav-icon>
-						<g-nav-icon
-							title="Calendar"
-							icon="fa-regular fa-calendar-days"
-						></g-nav-icon>
+						<g-nav-icon title="Legend" icon="fa-solid fa-book-open-reader"></g-nav-icon>
+						<g-nav-icon title="Calendar" icon="fa-regular fa-calendar-days"></g-nav-icon>
 						<g-nav-icon title="Stadiums" icon="fa-solid fa-ring"></g-nav-icon>
 					</g-nav-icon-holder>
 					<g-hr-half></g-hr-half>
@@ -152,10 +132,7 @@ class GHeader extends LitLightElement {
 										@click="${() => this.toggleDarkMode('dark')}"
 									></g-nav-icon>
 							  `}
-						<g-nav-icon
-							title="Info"
-							icon="fa-solid fa-circle-info"
-						></g-nav-icon>
+						<g-nav-icon title="Info" icon="fa-solid fa-circle-info"></g-nav-icon>
 						<g-nav-icon title="Support" icon="fa-solid fa-headset"></g-nav-icon>
 					</g-nav-icon-holder>
 				</nav>

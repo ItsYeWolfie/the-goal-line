@@ -2,7 +2,7 @@ import { html } from 'lit';
 import { LitLightElement } from '../../lib/LitElement';
 
 class Odds extends LitLightElement {
-		static properties = {
+	static properties = {
 		odds: { type: Array },
 		loading: { type: Boolean },
 	};
@@ -21,15 +21,16 @@ class Odds extends LitLightElement {
 		this.loading = false;
 		// console.log(data);
 	}
-render() {
+
+	render() {
 		if (this.loading) {
 			return html`
 				<div
-						class="flex h-10 w-full items-center justify-around rounded-md bg-gray-800 align-middle md:mx-auto md:w-4/5 lg:ml-40 lg:flex lg:w-full lg:justify-around"
-					>
-						<img src="../images/icons8-wait.svg" class="animate-spin">
-					</div>
-			`
+					class="flex h-10 w-full items-center justify-around rounded-md bg-gray-800 align-middle md:mx-auto md:w-4/5 lg:ml-40 lg:flex lg:w-full lg:justify-around"
+				>
+					<img class="animate-spin" src="../images/icons8-wait.svg" />
+				</div>
+			`;
 		}
 		return html`<div class="flex h-auto w-full justify-around rounded-md bg-gray-800 p-4 lg:h-auto">
 			<div
@@ -53,7 +54,7 @@ render() {
 				<span><i class="fa-solid fa-arrow-down text-lg text-red-600"></i></span>
 				<span>${this.odds.bookmakers[0].bets[0].values[2].odd}</span>
 			</div>
-		</div>`
+		</div>`;
 	}
 }
 

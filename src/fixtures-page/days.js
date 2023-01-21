@@ -40,6 +40,8 @@ switch (todayMonth) {
 	case 12:
 		monthName = 'DEC';
 		break;
+	default:
+		monthName = 'N/A';
 }
 
 const dayBeforeDiv = document.getElementById('day-before-yesterday');

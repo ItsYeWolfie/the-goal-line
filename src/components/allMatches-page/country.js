@@ -1,4 +1,3 @@
-import { data } from 'autoprefixer';
 import { html } from 'lit';
 import { LitLightElement } from '../../lib/LitElement';
 
@@ -22,7 +21,7 @@ class CountriesList extends LitLightElement {
 		const data = await response.json();
 		this.countries = data;
 		this.loading = false;
-		console.log(data)
+		console.log(data);
 	}
 
 	filterCountries() {
@@ -35,7 +34,7 @@ class CountriesList extends LitLightElement {
 		if (this.loading) {
 			return html`
 				<div class="flex items-center justify-center">
-					<img src="../images/icons8-wait.svg" class="animate-spin">
+					<img class="animate-spin" src="../images/icons8-wait.svg" />
 				</div>
 			`;
 		}
@@ -58,8 +57,7 @@ class CountriesList extends LitLightElement {
 						<span class="my-auto"
 							><img class="rounded-sm" src="${country.flag}" width="30px"
 						/></span>
-						<span
-							class="ml-2 cursor-pointer text-sm text-gray-300 hover:text-sky-600"
+						<span class="ml-2 cursor-pointer text-sm text-gray-300 hover:text-sky-600"
 							>${country.name}</span
 						>
 					</div>`
