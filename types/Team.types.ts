@@ -91,15 +91,7 @@ export interface ITeamLeague {
 	seasons: ISeason[];
 }
 
-type FixtureMinutesType =
-	| '0-15'
-	| '16-30'
-	| '31-45'
-	| '46-60'
-	| '61-75'
-	| '76-90'
-	| '91-105'
-	| '106-120';
+type FixtureMinutesType = '0-15' | '16-30' | '31-45' | '46-60' | '61-75' | '76-90' | '91-105' | '106-120';
 
 type TeamReceivingGoalsType = 'for' | 'against';
 type CardsType = 'yellow' | 'red';

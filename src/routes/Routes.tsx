@@ -7,10 +7,12 @@ import teamOverviewLoader, {
 	teamLoader,
 	teamPlayersLoader,
 	teamStandingsLoader,
+	teamTransfersLoader,
 } from '../../lib/loaders/TeamLoaders';
 import TeamFixtures from '../pages/team/TeamFixtures';
 import TeamStandings from '../pages/team/TeamStandings';
 import TeamPlayers from '../pages/team/TeamPlayers';
+import TeamTransfers from '../pages/team/TeamTransfers';
 
 export const router = createBrowserRouter([
 	{
@@ -46,6 +48,11 @@ export const router = createBrowserRouter([
 						path: 'players',
 						element: <TeamPlayers />,
 						loader: teamPlayersLoader,
+					},
+					{
+						path: 'transfers',
+						element: <TeamTransfers />,
+						loader: teamTransfersLoader,
 					},
 				],
 			},
