@@ -1,34 +1,42 @@
 {
-  "name": "the-goal-line",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite --host",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.13",
-    "eslint": "^8.29.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-tailwindcss": "^3.8.0",
-    "postcss": "^8.4.20",
-    "prettier": "^2.8.1",
-    "prettier-plugin-organize-attributes": "^0.0.5",
-    "prettier-plugin-tailwindcss": "^0.2.1",
-    "react": "^18.2.0",
-    "tailwindcss": "^3.2.4",
-    "vite": "^4.0.0"
-  },
-  "dependencies": {
-    "@fortawesome/fontawesome-free": "^6.2.1",
-    "@tailwindcss/forms": "^0.5.3",
-    "lit": "^2.5.0",
-    "moment": "^2.29.4"
-  }
+	"name": "the-goal-line",
+	"private": true,
+	"version": "0.0.0",
+	"scripts": {
+		"dev": "vite --host",
+		"build": "vite build",
+		"preview": "vite preview --host",
+		"lint": "eslint --fix --ext .js,.html,.css,.cjs src"
+	},
+	"type": "module",
+	"devDependencies": {
+		"@babel/core": "^7.20.12",
+		"@fortawesome/fontawesome-free": "^6.2.1",
+		"@tailwindcss/forms": "^0.5.3",
+		"autoprefixer": "^10.4.13",
+		"eslint": "^8.31.0",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-config-prettier": "^8.6.0",
+		"eslint-plugin-html": "^7.1.0",
+		"eslint-plugin-import": "^2.26.0",
+		"eslint-plugin-lit": "^1.8.2",
+		"eslint-plugin-prettier": "^4.2.1",
+		"eslint-plugin-promise": "^6.1.1",
+		"eslint-plugin-tailwindcss": "^3.8.0",
+		"lit": "^2.6.0",
+		"moment": "^2.29.4",
+		"postcss": "^8.4.21",
+		"prettier": "^2.8.2",
+		"prettier-plugin-organize-attributes": "^0.0.5",
+		"prettier-plugin-tailwindcss": "^0.2.1",
+		"react": "^18.2.0",
+		"tailwindcss": "^3.2.4",
+		"vite": "^4.0.4",
+		"vite-plugin-live-reload": "^3.0.1",
+		"vite-plugin-webfont-dl": "^3.4.3"
+	},
+	"dependencies": {
+		"@lit-labs/virtualizer": "^1.0.1",
+		"custom-elements-hmr-polyfill": "^1.0.3"
+	}
 }

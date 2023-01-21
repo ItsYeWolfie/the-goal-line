@@ -19,7 +19,7 @@ class HhMatches extends LitLightElement {
 		const data = await response.json();
 		this.h2h = data;
 		this.loading = false;
-		console.log(data);
+		// console.log(data);
 		this.firstThree = this.h2h.slice(0, 3);
 		this.lastThree = this.h2h.slice(-3);
 	}
@@ -34,11 +34,11 @@ class HhMatches extends LitLightElement {
 				</div>
 			`
 		}
-		return html` 
+		return html`
 		<div class="h-auto w-full rounded-md bg-gray-800 p-2 lg:h-auto">
 			<table class="w-full text-center">
 				<tbody class="table-row-group lg:mx-auto">
-				${this.firstThree.map((h2h) => 
+				${this.firstThree.map((h2h) =>
 					html`
 					<tr
 						class="h-8 rounded-md border-b-[0.2px] border-solid border-gray-400 border-opacity-30 text-center"
@@ -59,7 +59,7 @@ class HhMatches extends LitLightElement {
 							>
 						</td>
 					</tr>`)}
-					${this.lastThree.map((h2h) => 
+					${this.lastThree.map((h2h) =>
 						html`
 						<tr
 							class="h-8 rounded-md border-b-[0.2px] border-solid border-gray-400 border-opacity-30"

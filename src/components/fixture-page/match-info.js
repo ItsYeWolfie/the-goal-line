@@ -30,7 +30,7 @@ class FixtureInfo extends LitLightElement {
 				>
 					<img src="../images/icons8-wait.svg" class="animate-spin">
 				</div>
-			`;
+			`
 		}
 		const day = this.fixtures.fixture.date;
 		const date = new Date(day).toLocaleDateString('en-GB', {

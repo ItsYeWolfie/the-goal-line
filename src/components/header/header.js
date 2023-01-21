@@ -10,10 +10,7 @@ class Header extends LitLightElement {
 	}
 
 	render() {
-		return html` <header
-			class="max-v3-full border-b border-gray-100"
-			id="header-nav"
-		>
+		return html` <header class="max-v3-full border-b border-gray-100" id="header-nav">
 			<nav
 				class="flex w-full flex-wrap items-center justify-between bg-gray-900 py-4 px-4 text-xs text-black md:py-0"
 			>
@@ -25,9 +22,7 @@ class Header extends LitLightElement {
 							>Search...</label
 						>
 						<div class="relative">
-							<div
-								class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"
-							>
+							<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
 								<svg
 									class="h-5 w-5 text-gray-100 dark:text-gray-400"
 									aria-hidden="true"
@@ -79,9 +74,7 @@ class Header extends LitLightElement {
 						: 'mt-[10px] w-full md:flex hidden  md:w-auto md:items-end'}
 					id="menu"
 				>
-					<ul
-						class="pt-4 text-center text-base text-gray-700 md:flex md:justify-between md:pt-0"
-					>
+					<ul class="pt-4 text-center text-base text-gray-700 md:flex md:justify-between md:pt-0">
 						<li>
 							<a class="hover:text-black-400 block rounded-xl md:p-4" href="#"
 								><button
@@ -93,21 +86,15 @@ class Header extends LitLightElement {
 						</li>
 
 						<li>
-							<a
-								class="block py-2 text-purple-500 hover:text-purple-400 md:p-4"
-								href="#"
+							<a class="block py-2 text-purple-500 hover:text-purple-400 md:p-4" href="#"
 								><button class="py-[4px] text-[20px] text-violet-600">
 									<i class="fa-regular fa-moon"></i>
 								</button>
 							</a>
 						</li>
 						<li>
-							<a
-								class="block py-2 text-purple-500 hover:text-purple-400 md:p-4"
-								href="#"
-								><button
-									class="animate-pulse py-[2px] text-[20px] text-violet-600"
-								>
+							<a class="block py-2 text-purple-500 hover:text-purple-400 md:p-4" href="#"
+								><button class="animate-pulse py-[2px] text-[20px] text-violet-600">
 									<img
 										class="w-8 rounded-full"
 										src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
@@ -127,9 +114,7 @@ class Header extends LitLightElement {
 	}
 
 	firstUpdated() {
-		this.shadowRoot
-			.querySelector('#menu')
-			.addEventListener('click', this._toggleActive.bind(this));
+		this.shadowRoot.querySelector('#menu').addEventListener('click', this._toggleActive.bind(this));
 	}
 }
 

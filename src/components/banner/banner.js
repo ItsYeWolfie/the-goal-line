@@ -32,9 +32,7 @@ class Banner extends LitLightElement {
 
 			// Time calculations for days, hours, minutes and seconds
 			const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-			const hours = Math.floor(
-				(distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-			);
+			const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 			const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 			const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
@@ -55,10 +53,7 @@ class Banner extends LitLightElement {
 			<section class="m-[3%]">
 				<div class="grid h-[35%] w-[100%] grid-cols-3 gap-[1%]">
 					<div class="width-[100%] relative col-span-2 h-[100%]">
-						<img
-							class="h-[100%] w-[100%] rounded-[25px]"
-							src="./images/derby3.jpg"
-						/>
+						<img class="h-[100%] w-[100%] rounded-[25px]" src="./images/derby3.jpg" />
 						<p
 							class="z-1 absolute top-[5%] left-[25%] text-[0.8rem] font-bold text-gray-200 sm:left-[35%] md:left-[33%] md:text-[1rem] lg:left-[33%] lg:text-[1.3rem]"
 						>
@@ -82,14 +77,8 @@ class Banner extends LitLightElement {
 						</p>
 					</div>
 					<div>
-						<div
-							class="relative col-span-1 h-[100%] w-[100%] rounded-[20px] bg-gray-900"
-						>
-							<h3
-								class="pt-[10%] text-center  font-[450] text-gray-200 lg:text-xl "
-							>
-								Live Match
-							</h3>
+						<div class="relative col-span-1 h-[100%] w-[100%] rounded-[20px] bg-gray-900">
+							<h3 class="pt-[10%] text-center  font-[450] text-gray-200 lg:text-xl ">Live Match</h3>
 							<p
 								class="color mt-[5%] mb-[8%] text-center text-[13px] font-medium text-lime-500 lg:text-lg"
 							>
@@ -109,107 +98,56 @@ class Banner extends LitLightElement {
 								0 - 0
 							</p>
 							<div class="relative mt-[10%]">
-								<p
-									class="mb-[6%] text-center text-[12px] font-medium text-gray-200 lg:text-[14px]"
-								>
+								<p class="mb-[6%] text-center text-[12px] font-medium text-gray-200 lg:text-[14px]">
 									Possession
 								</p>
-								<p
-									class="absolute top-[28%] left-[6%] text-[12px] text-blue-600 "
-								>
-									7
-								</p>
-								<p
-									class="absolute top-[28%] right-[6%] text-[12px] text-orange-600"
-								>
-									3
-								</p>
+								<p class="absolute top-[28%] left-[6%] text-[12px] text-blue-600 ">7</p>
+								<p class="absolute top-[28%] right-[6%] text-[12px] text-orange-600">3</p>
 								<div class="mt-[3%] flex gap-[10%]">
-									<div
-										class="ml-[5%] h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300"
-									>
+									<div class="ml-[5%] h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300">
 										<div
 											class="float-right h-1.5 rounded-full bg-blue-600"
 											style="width: 60%"
 										></div>
 									</div>
-									<div
-										class="h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300"
-									>
-										<div
-											class="h-1.5 rounded-full bg-orange-600"
-											style="width: 45%"
-										></div>
+									<div class="h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300">
+										<div class="h-1.5 rounded-full bg-orange-600" style="width: 45%"></div>
 									</div>
 								</div>
 							</div>
 							<div class="relative mt-[5%]">
-								<p
-									class="mb-[4%] text-center text-[12px] font-medium text-gray-200 lg:text-[14px]"
-								>
+								<p class="mb-[4%] text-center text-[12px] font-medium text-gray-200 lg:text-[14px]">
 									Shoot
 								</p>
-								<p
-									class="absolute top-[28%] left-[6%] text-[12px] text-blue-600"
-								>
-									12
-								</p>
-								<p
-									class="absolute top-[28%] right-[6%] text-[12px] text-orange-600"
-								>
-									7
-								</p>
+								<p class="absolute top-[28%] left-[6%] text-[12px] text-blue-600">12</p>
+								<p class="absolute top-[28%] right-[6%] text-[12px] text-orange-600">7</p>
 								<div class="mt-[2%] flex gap-[10%]">
-									<div
-										class="ml-[5%] h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300"
-									>
+									<div class="ml-[5%] h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300">
 										<div
 											class="float-right h-1.5 rounded-full bg-blue-600"
 											style="width: 80%"
 										></div>
 									</div>
-									<div
-										class="h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300"
-									>
-										<div
-											class="h-1.5 rounded-full bg-orange-600"
-											style="width: 60%"
-										></div>
+									<div class="h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300">
+										<div class="h-1.5 rounded-full bg-orange-600" style="width: 60%"></div>
 									</div>
 								</div>
 							</div>
 							<div class="relative mt-[5%]">
-								<p
-									class="mb-[4%] text-center text-[12px] font-medium text-gray-200 lg:text-[14px]"
-								>
+								<p class="mb-[4%] text-center text-[12px] font-medium text-gray-200 lg:text-[14px]">
 									Fouls
 								</p>
-								<p
-									class="absolute top-[28%] left-[6%] text-[12px] text-blue-600"
-								>
-									7
-								</p>
-								<p
-									class="absolute top-[28%] right-[6%] text-[12px] text-orange-600"
-								>
-									3
-								</p>
+								<p class="absolute top-[28%] left-[6%] text-[12px] text-blue-600">7</p>
+								<p class="absolute top-[28%] right-[6%] text-[12px] text-orange-600">3</p>
 								<div class="mt-[3%] mb-[5%] flex gap-[10%]">
-									<div
-										class="ml-[5%] h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300"
-									>
+									<div class="ml-[5%] h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300">
 										<div
 											class="float-right h-1.5 rounded-full bg-blue-600"
 											style="width: 60%"
 										></div>
 									</div>
-									<div
-										class="h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300"
-									>
-										<div
-											class="h-1.5 rounded-full bg-orange-600"
-											style="width: 45%"
-										></div>
+									<div class="h-1.5 w-[40%] rounded-full bg-gray-200 dark:bg-gray-300">
+										<div class="h-1.5 rounded-full bg-orange-600" style="width: 45%"></div>
 									</div>
 								</div>
 							</div>

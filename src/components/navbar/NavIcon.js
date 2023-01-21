@@ -14,7 +14,7 @@ class NavIcon extends LitLightElement {
 		return html`
 			<a
 				class="${this
-					.icon} cursor-pointer  text-[16px] md:text-lg transition-colors duration-500 hover:text-sky-600"
+					.icon} cursor-pointer  text-[16px] transition-colors duration-500 hover:text-sky-600 md:text-lg"
 				${this.href ? `href="${this.href}"` : ''}
 			>
 				<span class="sr-only">${this.title}</span>

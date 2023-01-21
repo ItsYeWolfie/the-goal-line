@@ -10,40 +10,24 @@ class Header extends LitLightElement {
 				class="my-auto h-5 w-10 cursor-pointer rounded-sm bg-gray-200 text-center text-gray-800 hover:bg-sky-600 hover:text-gray-200"
 				>LIVE</span
 			>
-			<div
-				class="flex cursor-pointer flex-col items-center text-xs hover:text-sky-600 md:text-sm"
-			>
-				<span id="beforeYesterDay"></span
-				><span class="text-xs" id="day-before-yesterday"></span>
+			<div class="flex cursor-pointer flex-col items-center text-xs hover:text-sky-600 md:text-sm">
+				<span id="beforeYesterDay"></span><span class="text-xs" id="day-before-yesterday"></span>
 			</div>
-			<div
-				class="flex cursor-pointer flex-col items-center text-xs hover:text-sky-600 md:text-sm"
-			>
+			<div class="flex cursor-pointer flex-col items-center text-xs hover:text-sky-600 md:text-sm">
 				<span id="yesterDay"></span><span class="text-xs" id="yesterday"></span>
 			</div>
-			<div
-				class="flex cursor-pointer flex-col items-center text-xs text-sky-600 md:text-sm"
-			>
+			<div class="flex cursor-pointer flex-col items-center text-xs text-sky-600 md:text-sm">
 				<span id="todayDay">TODAY</span><span class="text-xs" id="today"></span>
 			</div>
-			<div
-				class="flex cursor-pointer flex-col items-center text-xs hover:text-sky-600 md:text-sm"
-			>
-				<span id="tomorrowDay"></span
-				><span class="text-xs" id="tomorrow"></span>
+			<div class="flex cursor-pointer flex-col items-center text-xs hover:text-sky-600 md:text-sm">
+				<span id="tomorrowDay"></span><span class="text-xs" id="tomorrow"></span>
 			</div>
-			<div
-				class="flex cursor-pointer flex-col items-center text-xs hover:text-sky-600 md:text-sm"
-			>
-				<span id="afterTomorrowDay"></span
-				><span class="text-xs" id="day-after-tomorrow"></span>
+			<div class="flex cursor-pointer flex-col items-center text-xs hover:text-sky-600 md:text-sm">
+				<span id="afterTomorrowDay"></span><span class="text-xs" id="day-after-tomorrow"></span>
 			</div>
 
 			<div class="my-auto cursor-pointer">
-				<i
-					class="fa-regular fa-calendar-days text-2xl hover:text-sky-600"
-					id="calendar-icon"
-				></i>
+				<i class="fa-regular fa-calendar-days text-2xl hover:text-sky-600" id="calendar-icon"></i>
 			</div>
 			<div
 				class="absolute z-10 mt-10 ml-28 hidden rounded-md border-[0.5px] border-solid border-gray-500 bg-gray-700 pl-1 pr-1 font-sans md:ml-[33rem] lg:ml-52"

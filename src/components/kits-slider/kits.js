@@ -50,14 +50,9 @@ class Kits extends LitLightElement {
 		}
 		return html`
 			<section class="m-[3%]">
-				<div
-					class=" grid h-[31vh] w-full grid-rows-6 gap-0   text-gray-200 md:h-[40vh]"
-				>
+				<div class=" grid h-[31vh] w-full grid-rows-6 gap-0   text-gray-200 md:h-[40vh]">
 					<div class="relative row-span-1 h-[100%] w-full items-center">
-						<i
-							class="fa-solid fa-shirt absolute top-[18%] left-[0%] text-blue-400"
-						>
-						</i>
+						<i class="fa-solid fa-shirt absolute top-[18%] left-[0%] text-blue-400"> </i>
 						<span
 							class="absolute top-[10%] left-[6%] items-center text-[15px] font-[400] text-gray-200 md:left-[3%] md:text-lg"
 						>
@@ -78,12 +73,8 @@ class Kits extends LitLightElement {
 					>
 						${this.data.map(
 							(item) => html`
-								<div
-									class=" h-full w-[35%] flex-none rounded sm:w-[25%]  md:w-[25%] lg:w-[20%]"
-								>
-									<div
-										class="mx-auto h-[80%] w-[80%] rounded-[15px] bg-gray-900 align-middle  "
-									>
+								<div class=" h-full w-[35%] flex-none rounded sm:w-[25%]  md:w-[25%] lg:w-[20%]">
+									<div class="mx-auto h-[80%] w-[80%] rounded-[15px] bg-gray-900 align-middle  ">
 										<img
 											class="mx-auto h-[95%] w-full rounded-[15px] pt-[2.5%] "
 											src="${item.image}"
@@ -93,9 +84,7 @@ class Kits extends LitLightElement {
 									<div
 										class="relative mx-auto h-[20%] w-full text-left   text-[10px] text-gray-200 sm:text-[12px] md:text-[13px]  lg:text-[15px]"
 									>
-										<span class="absolute top-[5%] left-[10%] ">
-											${item.name}</span
-										>
+										<span class="absolute top-[5%] left-[10%] "> ${item.name}</span>
 										<span class="absolute top-[43%] left-[40%] text-yellow-400 "
 											>$${item.price}
 										</span>

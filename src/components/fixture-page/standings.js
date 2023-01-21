@@ -99,11 +99,11 @@ class Standings extends LitLightElement {
                         <td class="pl-1 text-sm w-9 text-center">${
 													standing.points
 												}</td>
-                        </tr>
+                        </tr>`)}
                     </tbody>
-            </table>`
-				)}
-			<div>
+            </table>
+
+			${!this.loading && html`
 			<div class="mt-4 ml-4 md:ml-36 lg:ml-1 text-[11px]">
 				<div class="flex"><div class="rounded-full bg-blue-500 mt-0.5 mr-2 w-3 h-3 relative"></div>
 					Champions League
@@ -119,8 +119,7 @@ class Standings extends LitLightElement {
 					Relegation
 				</div>
 			</div>
-			</div>
-        </div>
+			</div>`}
 		`
 	}
 }
