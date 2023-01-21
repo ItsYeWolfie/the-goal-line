@@ -28,7 +28,11 @@ export default function PlayerTransfersTable({
 							className={index % 2 === 0 ? 'bg-gray-700' : 'bg-gray-600'}
 						>
 							<TableCell>{transfer.player.name}</TableCell>
-							<TableCell>{transfer.teams.out.name}</TableCell>
+							{side === 'From' ? (
+								<TableCell>{transfer.teams.out.name}</TableCell>
+							) : (
+								<TableCell>{transfer.teams.in.name}</TableCell>
+							)}
 							<TableCell className="text-center">
 								{date.toLocaleString('en-GB', {
 									year: 'numeric',

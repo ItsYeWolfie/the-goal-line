@@ -34,7 +34,7 @@ export default function TeamTransfers() {
 
 	const transfersOut = transfersPerPlayer
 		.map((transferPerPlayer) => {
-			return transferPerPlayer.transfers.filter((transfer) => transfer.teams.out.id !== 33);
+			return transferPerPlayer.transfers.filter((transfer) => transfer.teams.out.id === 33);
 		})
 		.filter((transfer) => transfer.length > 0)
 		.flat()
