@@ -15,7 +15,6 @@ export default function Banner() {
 			const now = new Date().getTime();
 			// Find the distance between now and the count down date
 			const distance = countDownDate - now;
-
 			// Time calculations for days, hours, minutes and seconds
 			const days = Math.floor(distance / (1000 * 60 * 60 * 24));
 			const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -33,7 +32,7 @@ export default function Banner() {
 	const gameTimeInSeconds = Math.floor(gameTime % 60);
 	const gameTimeInMinutes = Math.floor(gameTime / 60);
 	return (
-		<section className="m-[3%] mt-0 ">
+		<section className="m-[3%] mt-0 pt-[5%] ">
 			<div className="2xl:w-full">
 				<div
 					className="items-strech banner flex h-[500px] flex-col justify-center space-y-4 sm:h-[650px] md:h-[270px] md:flex-row md:space-y-0 md:space-x-6 lg:h-[370px] lg:space-x-8 2xl:h-[420px]"
@@ -61,9 +60,9 @@ export default function Banner() {
 							{timer}
 						</p>
 					</div>
-					<div className="relative ml-[20%] flex h-full w-[60%] flex-col justify-center rounded-[20px] bg-gray-50 px-4  shadow-lg shadow-slate-600 dark:bg-gray-900 sm:ml-[20%] sm:w-3/5 sm:align-middle md:w-4/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12">
+					<div className="relative ml-[20%] flex h-full w-[60%] flex-col justify-center rounded-[20px] bg-gray-50 px-4  shadow-lg shadow-slate-600 dark:bg-gray-800 sm:ml-[20%] sm:w-3/5 sm:align-middle md:w-4/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12">
 						<div className="flex h-full flex-col justify-center">
-							<div className="relative col-span-1 h-[100%] w-[100%] rounded-[20px] bg-gray-900">
+							<div className="relative col-span-1 h-[100%] w-[100%] rounded-[20px] bg-gray-800">
 								<h3 className="pt-[5%] text-center font-[450] text-gray-200 lg:text-xl xl:text-[1.3rem] 2xl:text-[1.5rem]">
 									Live Match
 								</h3>
