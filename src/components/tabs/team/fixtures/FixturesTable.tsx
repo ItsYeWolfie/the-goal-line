@@ -19,12 +19,23 @@ export default function TeamFixturesTable({ fixtures, teamIDInt }: { fixtures: I
 			</thead>
 
 			<tbody className="divide-y divide-gray-500 text-sm text-gray-300">
-				{fixtures.map((fixture, index) => {
+				{fixtures.map((fixture) => {
 					const { fixture: match, goals, league, teams } = fixture;
 					const { home, away } = teams;
 					const isHome = home.id === teamIDInt;
 					const isWinner = Object.values(teams).find((team) => team.id === teamIDInt && team.winner);
+
 					const { status } = match;
+					let backgroundColor = 'bg-gray-700';
+					if (isWinner) {
+						backgroundColor = 'bg-green-700';
+					} else if (status.short === 'FT' && goals.home === goals.away) {
+						backgroundColor = 'bg-yellow-700';
+					} else if (!isWinner && status.short === 'FT') {
+						backgroundColor = 'bg-red-700';
+					} else if (status.short === 'NS') {
+						backgroundColor = 'bg-blue-800';
+					}
 					const { date } = match;
 					const formattedDate = new Date(date).toLocaleDateString('en-US', {
 						year: 'numeric',
@@ -33,7 +44,7 @@ export default function TeamFixturesTable({ fixtures, teamIDInt }: { fixtures: I
 					});
 					return (
 						<tr
-							className={`${index % 2 === 1 ? 'bg-gray-600' : 'bg-gray-700'}`}
+							className={`${backgroundColor} bg-opacity-40 transition-colors duration-300 hover:bg-gray-600`}
 							key={fixture.fixture.id}
 						>
 							<SmallTableCell className="text-sm sm:pl-6">

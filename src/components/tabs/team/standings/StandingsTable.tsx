@@ -21,11 +21,34 @@ export default function StandingsTable({ standings }: { standings: ILeagueStandi
 			</thead>
 			<tbody className="divide-y divide-gray-500 text-sm text-gray-300">
 				{standings.map((standing, index) => {
+					let backgroundColor = index % 2 === 1 ? 'bg-gray-600' : 'bg-gray-700';
+					const teamRank = standing.rank;
+
+					switch (true) {
+						case teamRank === 1:
+							backgroundColor = 'bg-green-600';
+							break;
+						case teamRank < 5:
+							backgroundColor = 'bg-green-700';
+							break;
+						case teamRank < 7:
+							backgroundColor = 'bg-green-800';
+							break;
+						case teamRank > 16:
+							backgroundColor = 'bg-red-500';
+							break;
+						case teamRank > 14:
+							backgroundColor = 'bg-red-700';
+							break;
+						default:
+							break;
+					}
+
 					const { team, form } = standing;
 					const formArray = form.split('');
 					return (
 						<tr
-							className={`${index % 2 === 1 ? 'bg-gray-600' : 'bg-gray-700'}`}
+							className={`bg-opacity-40 transition-colors duration-300  hover:bg-gray-600 ${backgroundColor}`}
 							key={team.id}
 						>
 							<SmallTableCell className="w-16 text-center">{standing.rank}</SmallTableCell>
