@@ -1,5 +1,5 @@
 import { Await, useLoaderData } from 'react-router-dom';
-import { useState, Suspense, useEffect, useMemo } from 'react';
+import { useState, Suspense, useEffect, useMemo, useCallback } from 'react';
 import { IPlayerWithStatistics } from '../../../types/Player.types';
 import { ILeagueWithSeason } from '../../../types/League.types';
 import TeamPlayersTable from '../../components/tabs/team/players/TeamPlayersTable';
@@ -12,15 +12,15 @@ function TeamPlayersSection({ playersData }: { playersData: IPlayerWithStatistic
 		playersData.map((player) => player.statistics.forEach((stat) => leaguesArray.push(stat.league)));
 		return filterSelfDuplicates(leaguesArray, 'id');
 	}, [playersData]);
-	const goalkeepers = getPlayersByPosition(playersData, 'Goalkeeper');
-	const defenders = getPlayersByPosition(playersData, 'Defender');
-	const midfielders = getPlayersByPosition(playersData, 'Midfielder');
-	const forwards = getPlayersByPosition(playersData, 'Attacker');
+	const goalkeepers = useMemo(() => getPlayersByPosition(playersData, 'Goalkeeper'), [playersData]);
+	const defenders = useMemo(() => getPlayersByPosition(playersData, 'Defender'), [playersData]);
+	const midfielders = useMemo(() => getPlayersByPosition(playersData, 'Midfielder'), [playersData]);
+	const forwards = useMemo(() => getPlayersByPosition(playersData, 'Attacker'), [playersData]);
 
-	const handleLeagueChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+	const handleLeagueChange = useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
 		const target = e.target as HTMLSelectElement;
 		setActiveLeagueId(Number(target.value));
-	};
+	}, []);
 
 	useEffect(() => {
 		setActiveLeagueId(leagues[0].id);

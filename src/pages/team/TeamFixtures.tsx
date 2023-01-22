@@ -1,9 +1,11 @@
 import { useLoaderData, useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { IFixture } from '../../../types/Fixture.types';
 import TeamFixturesTable from '../../components/tabs/team/fixtures/FixturesTable';
 import TeamFixturesLeagueSelection from '../../components/tabs/team/fixtures/LeagueSelection';
 import TeamFixturesLeagueCard from '../../components/tabs/team/fixtures/LeagueCard';
+import { filterSelfDuplicates } from '../../../lib/helpers/ArrayMethods';
+import { ILeagueWithSeason } from '../../../types/League.types';
 
 export default function TeamFixtures() {
 	const { teamID } = useParams<{ teamID: string }>();
@@ -13,14 +15,11 @@ export default function TeamFixtures() {
 		return new Date(b.fixture.date).getTime() - new Date(a.fixture.date).getTime();
 	});
 
-	const leagues = teamFixtures
-		.map((fixture) => {
-			const { league } = fixture;
-			return league;
-		})
-		.filter((league, index, self) => {
-			return self.findIndex((l) => l.id === league.id) === index;
-		});
+	const leagues = useMemo(() => {
+		const leaguesArray = [] as ILeagueWithSeason[];
+		teamFixtures.map((fixture) => leaguesArray.push(fixture.league));
+		return filterSelfDuplicates(leaguesArray, 'id');
+	}, [teamFixtures]);
 
 	const [filteredFixtures, setFilteredFixtures] = useState(teamFixtures);
 	const [selectedLeague, setSelectedLeague] = useState(-1);

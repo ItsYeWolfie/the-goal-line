@@ -1,43 +1,72 @@
-import { useState } from 'react';
+import { useCallback, useState, useEffect, useMemo } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { ITransferModified } from '../../../types/Transfers.type';
 import PlayerTransfersTable from '../../components/tabs/team/transfers/PlayerTransfersTable';
 
 export default function TeamTransfers() {
 	const [type, setType] = useState('All');
-	const [year, setYear] = useState('All');
+	const [year, setYear] = useState(0);
 	const transfers = useLoaderData() as ITransferModified[];
 
-	const transfersPerPlayer = transfers.map((transferItem) => {
-		return {
-			...transferItem,
-			transfers: transferItem.transfers.map((transfer) => ({ ...transfer, player: transferItem.player })),
-		};
-	});
+	const transfersPerPlayer = useMemo(
+		() =>
+			transfers.map((transferItem) => {
+				return {
+					...transferItem,
+					transfers: transferItem.transfers.map((transfer) => ({ ...transfer, player: transferItem.player })),
+				};
+			}),
+		[transfers],
+	);
 
-	const getTransfers = () => {
+	const getTransfers = useCallback(() => {
 		return transfersPerPlayer
 			.flatMap((transferPerPlayer) => transferPerPlayer.transfers)
 			.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-	};
+	}, [transfersPerPlayer]);
 
-	const filteredTransfersIn = getTransfers().filter((transfer) => {
-		if (transfer.teams.out.id === 33) return false;
-		if (year !== 'All' && new Date(transfer.date).getFullYear() !== Number(year)) return false;
-		if (type !== 'All' && transfer.type !== type) return false;
-		return true;
-	});
+	const filterTransfers = useCallback(
+		(side: 'in' | 'out') => {
+			return getTransfers().filter((transfer) => {
+				if (transfer.teams[side].id === 33) return false;
+				if (year !== -1 && new Date(transfer.date).getFullYear() !== Number(year)) return false;
+				if (type === 'Transfer') {
+					if (
+						transfer.type === 'Loan' ||
+						transfer.type === 'Free' ||
+						transfer.type === 'N/A' ||
+						transfer.type === null ||
+						transfer.type === undefined ||
+						transfer.type === 'Swap'
+					) {
+						return false;
+					}
+					return true;
+				}
 
-	const filteredTransfersOut = getTransfers().filter((transfer) => {
-		if (transfer.teams.in.id === 33) return false;
-		if (year !== 'All' && new Date(transfer.date).getFullYear() !== Number(year)) return false;
-		if (type !== 'All' && transfer.type !== type) return false;
-		return true;
-	});
+				if (type !== 'All' && transfer.type !== type) return false;
+				return true;
+			});
+		},
+		[getTransfers, type, year],
+	);
 
-	const years = getTransfers()
-		.map((transfer) => new Date(transfer.date).getFullYear())
-		.filter((repeatingYear, index, self) => self.indexOf(repeatingYear) === index);
+	const filteredTransfersIn = filterTransfers('out');
+	const filteredTransfersOut = filterTransfers('in');
+	const years = useMemo(
+		() => [
+			...new Set(
+				getTransfers()
+					.map((transfer) => new Date(transfer.date).getFullYear())
+					.sort((a, b) => b - a),
+			),
+		],
+		[getTransfers],
+	);
+
+	useEffect(() => {
+		setYear(years[0]);
+	}, [years]);
 
 	return (
 		<>
@@ -52,10 +81,11 @@ export default function TeamTransfers() {
 						<select
 							className="bg-gray-700  text-sm text-gray-300 transition-all duration-300"
 							onChange={(e) => {
-								setYear(e.target.value);
+								setYear(Number(e.target.value));
 							}}
+							value={year}
 						>
-							<option value="All">All</option>
+							<option value={-1}>All</option>
 							{years.map((transferYear) => (
 								<option
 									key={transferYear}
@@ -78,9 +108,14 @@ export default function TeamTransfers() {
 							}}
 							defaultValue={type}
 						>
-							<option value="All">All</option>
-							<option value="Loan">Loan</option>
-							<option value="Transfer">Transfer</option>
+							{['All', 'Loan', 'Free', 'N/A', 'Swap', 'Transfer'].map((transferType) => (
+								<option
+									key={transferType}
+									value={transferType}
+								>
+									{transferType}
+								</option>
+							))}
 						</select>
 					</label>
 				</div>

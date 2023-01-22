@@ -20,8 +20,19 @@ export default function PlayerTransfersTable({
 				</tr>
 			</thead>
 			<tbody className="max-h-96 overflow-auto text-xs">
+				{transfers.length === 0 && (
+					<tr>
+						<SmallTableCell
+							colSpan={4}
+							className="bg-gray-700 text-center"
+						>
+							No transfers
+						</SmallTableCell>
+					</tr>
+				)}
 				{transfers.map((transfer, index) => {
 					const date = new Date(transfer.date);
+
 					return (
 						<tr
 							key={transfer.player.id + date.getTime()}
