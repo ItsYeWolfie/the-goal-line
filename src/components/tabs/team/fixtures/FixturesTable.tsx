@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrophy } from '@fortawesome/free-solid-svg-icons';
 import { IFixture } from '../../../../../types/Fixture.types';
 import TableHeader from '../../../table/TableHeader';
-import TableCell from '../../../table/TableCell';
+import SmallTableCell from '../../../table/SmallTableCell';
 
 export default function TeamFixturesTable({ fixtures, teamIDInt }: { fixtures: IFixture[]; teamIDInt: number }) {
 	return (
@@ -36,8 +36,17 @@ export default function TeamFixturesTable({ fixtures, teamIDInt }: { fixtures: I
 							className={`${index % 2 === 1 ? 'bg-gray-600' : 'bg-gray-700'}`}
 							key={fixture.fixture.id}
 						>
-							<TableCell className="text-sm sm:pl-6">
-								<div className="font-medium text-gray-200">{isHome ? away.name : home.name}</div>
+							<SmallTableCell className="text-sm sm:pl-6">
+								<div className="font-medium text-gray-200">
+									<div className="flex items-center gap-3">
+										<img
+											src={isHome ? away.logo : home.logo}
+											alt={isHome ? away.name : home.name}
+											className="h-6 w-6"
+										/>
+										<span>{isHome ? away.name : home.name}</span>
+									</div>
+								</div>
 								<div className="mt-1 flex flex-col text-xs">
 									<div className="flex items-center gap-1 lg:hidden">
 										<span className="font-semibold">Round:</span>
@@ -52,12 +61,14 @@ export default function TeamFixturesTable({ fixtures, teamIDInt }: { fixtures: I
 										<span>{isHome ? 'Home' : 'Away'}</span>
 									</div>
 								</div>
-							</TableCell>
-							<TableCell className="hidden lg:table-cell">{league.round}</TableCell>
-							<TableCell className="hidden md:table-cell">{formattedDate}</TableCell>
-							<TableCell className="hidden text-xs uppercase md:table-cell">{isHome ? 'Home' : 'Away'}</TableCell>
-							<TableCell className="text-xs uppercase">{status.short}</TableCell>
-							<TableCell className="text-xs uppercase">
+							</SmallTableCell>
+							<SmallTableCell className="hidden lg:table-cell">{league.round}</SmallTableCell>
+							<SmallTableCell className="hidden md:table-cell">{formattedDate}</SmallTableCell>
+							<SmallTableCell className="hidden text-xs uppercase md:table-cell">
+								{isHome ? 'Home' : 'Away'}
+							</SmallTableCell>
+							<SmallTableCell className="text-xs uppercase">{status.short}</SmallTableCell>
+							<SmallTableCell className="text-xs uppercase">
 								{goals.home} - {goals.away}
 								{isWinner && (
 									<FontAwesomeIcon
@@ -65,7 +76,7 @@ export default function TeamFixturesTable({ fixtures, teamIDInt }: { fixtures: I
 										className="ml-2 text-green-500"
 									/>
 								)}
-							</TableCell>
+							</SmallTableCell>
 						</tr>
 					);
 				})}

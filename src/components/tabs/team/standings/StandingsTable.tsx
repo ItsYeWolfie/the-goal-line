@@ -1,5 +1,5 @@
 import { ILeagueStanding } from '../../../../../types/League.types';
-import TableCell from '../../../table/TableCell';
+import SmallTableCell from '../../../table/SmallTableCell';
 import TableHeader from '../../../table/TableHeader';
 
 export default function StandingsTable({ standings }: { standings: ILeagueStanding[] }) {
@@ -28,8 +28,8 @@ export default function StandingsTable({ standings }: { standings: ILeagueStandi
 							className={`${index % 2 === 1 ? 'bg-gray-600' : 'bg-gray-700'}`}
 							key={team.id}
 						>
-							<TableCell className="w-16 text-center">{standing.rank}</TableCell>
-							<TableCell>
+							<SmallTableCell className="w-16 text-center">{standing.rank}</SmallTableCell>
+							<SmallTableCell>
 								<img
 									className="inline-block h-6 w-6"
 									src={team.logo}
@@ -83,15 +83,15 @@ export default function StandingsTable({ standings }: { standings: ILeagueStandi
 										})}
 									</div>
 								</div>
-							</TableCell>
-							<TableCell>{standing.all.played}</TableCell>
-							<TableCell className="hidden md:table-cell">{standing.all.win}</TableCell>
-							<TableCell className="hidden md:table-cell">{standing.all.draw}</TableCell>
-							<TableCell className="hidden md:table-cell">{standing.all.lose}</TableCell>
-							<TableCell className="hidden sm:table-cell">{standing.all.goals.for}</TableCell>
-							<TableCell className="hidden sm:table-cell">{standing.all.goals.against}</TableCell>
-							<TableCell>{standing.points}</TableCell>
-							<TableCell className="hidden sm:table-cell">
+							</SmallTableCell>
+							<SmallTableCell>{standing.all.played}</SmallTableCell>
+							<SmallTableCell className="hidden md:table-cell">{standing.all.win}</SmallTableCell>
+							<SmallTableCell className="hidden md:table-cell">{standing.all.draw}</SmallTableCell>
+							<SmallTableCell className="hidden md:table-cell">{standing.all.lose}</SmallTableCell>
+							<SmallTableCell className="hidden sm:table-cell">{standing.all.goals.for}</SmallTableCell>
+							<SmallTableCell className="hidden sm:table-cell">{standing.all.goals.against}</SmallTableCell>
+							<SmallTableCell>{standing.points}</SmallTableCell>
+							<SmallTableCell className="hidden sm:table-cell">
 								{formArray.map((f, i) => {
 									let color = 'bg-gray-500';
 
@@ -121,7 +121,7 @@ export default function StandingsTable({ standings }: { standings: ILeagueStandi
 										</div>
 									);
 								})}
-							</TableCell>
+							</SmallTableCell>
 						</tr>
 					);
 				})}

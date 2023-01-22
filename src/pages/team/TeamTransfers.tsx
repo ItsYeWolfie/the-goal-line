@@ -35,7 +35,9 @@ export default function TeamTransfers() {
 		return true;
 	});
 
-	const years = getTransfers().map((transfer) => new Date(transfer.date).getFullYear());
+	const years = getTransfers()
+		.map((transfer) => new Date(transfer.date).getFullYear())
+		.filter((repeatingYear, index, self) => self.indexOf(repeatingYear) === index);
 
 	return (
 		<>
