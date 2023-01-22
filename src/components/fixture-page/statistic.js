@@ -31,10 +31,10 @@ class Statistic extends LitLightElement {
 				</div>
 			`;
 		}
-		console.log(this.statistic.statistics);
+		// console.log(this.statistic.statistics);
 		return html`
 			<div
-				class="mb-4 flex h-auto w-full flex-col justify-evenly gap-2 rounded-md bg-gray-800 px-32 pt-8 pb-8 md:ml-20 lg:ml-40"
+				class="mb-4 flex h-auto w-full flex-col justify-evenly gap-2 rounded-md bg-gray-800 px-8 pt-8 pb-8 md:ml-20 md:w-4/5 md:px-16 lg:ml-40 lg:w-full"
 			>
 				${this.statistic.statistics[0].statistics.map((statistic, index) => {
 					return html`
@@ -50,10 +50,10 @@ class Statistic extends LitLightElement {
 							</span>
 							<span class="flex justify-center">
 								<span class="flex h-2 w-full justify-end rounded-md bg-slate-300">
-									<span class="w-${statistic.value} rounded-md bg-lime-700"></span>
+									<span class="w-[${statistic.value / 100}*100px] rounded-md bg-lime-700"></span>
 								</span>
 								<span class="ml-1 flex h-2 w-full rounded-md bg-slate-300">
-									<span class="w-${statistic.value} rounded-md bg-sky-500"></span>
+									<span class="w-[${statistic.value / 100}*100px] rounded-md bg-sky-500"></span>
 								</span>
 							</span>
 						</div>

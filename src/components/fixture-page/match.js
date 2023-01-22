@@ -23,7 +23,7 @@ class Match extends LitLightElement {
 		const data = await response.json();
 		this.fixtures = data;
 		this.loading = false;
-		// console.log(data);
+		console.log(data);
 		this.filterEvents(data);
 	}
 
@@ -54,40 +54,49 @@ class Match extends LitLightElement {
 		>
 			<div class="flex justify-around">
 				<div class="mt-6 flex flex-col">
-					<span class="flex"
+					<span class="mb-2 flex flex-col items-center md:flex md:flex-row"
 						><img src="${this.fixtures.teams.home.logo}" width="50px" height="50px" />
-						<h2 class="my-auto ml-1 text-xs md:text-xl">${this.fixtures.teams.home.name}</h2></span
+						<h2 class="text-md my-auto ml-1 md:text-xl">${this.fixtures.teams.home.name}</h2></span
 					>
 					${this.filteredEvents.map(
 						(event) => html`
-							<span class="flex text-[0.65rem] text-gray-300 md:text-xs"
-								><p class="player ml-12">${event.player.name}</p>
+							<span class="flex text-[0.65rem] text-gray-300 md:ml-12 md:text-xs"
+								><p>${event.player.name}</p>
 								<p class="ml-2">${event.time.elapsed}'</p></span
 							>
 						`
 					)}
 				</div>
-				<h1 class="mt-9 text-xl md:text-2xl">${this.fixtures.goals.home}</h1>
-				<h3 class="mt-9">${this.fixtures.fixture.status.short}</h3>
-				<h1 class="mt-9 text-xl md:text-2xl">${this.fixtures.goals.away}</h1>
+				<div class="mt-9 flex flex-col items-center">
+					<div class="flex gap-4 md:gap-8">
+						<h1 class="text-xl md:text-2xl">${this.fixtures.goals.home}</h1>
+						<h3 class="text-base">${this.fixtures.fixture.status.short}</h3>
+						<h1 class="text-xl md:text-2xl">${this.fixtures.goals.away}</h1>
+					</div>
+					<div class="flex gap-1 text-gray-400 md:gap-3">
+						<h1 class="text-sm md:text-lg">${this.fixtures.score.halftime.home}</h1>
+						<h3 class="text-xs md:text-base">HT</h3>
+						<h1 class="text-sm md:text-lg">${this.fixtures.score.halftime.away}</h1>
+					</div>
+				</div>
 				<div class="mt-6 flex flex-col">
-					<span class="flex"
+					<span class="mb-2 flex flex-col items-center md:flex md:flex-row"
 						><img src="${this.fixtures.teams.away.logo}" width="50px" height="50px" />
-						<h2 class="my-auto ml-1 break-words text-xs md:text-xl">
+						<h2 class="text-md my-auto ml-1 break-words md:text-xl">
 							${this.fixtures.teams.away.name}
 						</h2></span
 					>
 					${this.filteredEvents1.map(
 						(event) => html`
-							<span class="flex text-[0.65rem] text-gray-300 md:text-xs">
-								<p class="ml-12">${event.player.name}</p>
-								<p class="ml-2">${event.time.elapsed}</p></span
+							<span class="flex text-[0.65rem] text-gray-300 md:ml-12 md:text-xs">
+								<p>${event.player.name}</p>
+								<p class="ml-2">${event.time.elapsed}'</p></span
 							>
 						`
 					)}
 				</div>
 			</div>
-			<div class="flex justify-center pt-2 text-sm text-gray-300">
+			<div class="flex justify-center text-sm text-gray-300 md:-mt-2">
 				${this.fixtures.league.round}
 			</div>
 		</div>`;

@@ -1,7 +1,5 @@
 import { html } from 'lit';
 import { LitLightElement } from '../../lib/LitElement';
-// import '../../fixtures-page/calendar.js'
-// import '../../fixtures-page/days.js'
 
 class Header extends LitLightElement {
 	render() {
@@ -67,4 +65,4 @@ class Header extends LitLightElement {
 	}
 }
 
-customElements.define('header', Header);
+customElements.define('header-f', Header);

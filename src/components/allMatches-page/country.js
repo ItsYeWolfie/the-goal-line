@@ -6,6 +6,10 @@ class CountriesList extends LitLightElement {
 		countries: { type: Array },
 		loading: { type: Boolean },
 		searchTerm: { type: String },
+		selectedCountry: { type: Object },
+		selectedCountryData: { type: Object },
+		showList: { type: Boolean },
+		showSelectedCountryData: { type: Boolean },
 	};
 
 	constructor() {
@@ -13,6 +17,9 @@ class CountriesList extends LitLightElement {
 		this.countries = [];
 		this.loading = true;
 		this.searchTerm = '';
+		this.showList = true;
+		this.selectedCountry = [];
+		this.showSelectedCountryData = false;
 	}
 
 	async connectedCallback() {
@@ -21,12 +28,25 @@ class CountriesList extends LitLightElement {
 		const data = await response.json();
 		this.countries = data;
 		this.loading = false;
-		console.log(data);
+		// console.log(data);
+		if (this.selectedCountry) {
+			const selectedCountryDataResponse = await fetch(`https://api.npoint.io/699acd2fa754e5bd47d6`);
+			const selectedCountryData = await selectedCountryDataResponse.json();
+			this.selectedCountryData = selectedCountryData;
+			// console.log(selectedCountryData);
+		}
+	}
+
+	selectCountry(country) {
+		this.selectedCountryName = country.name;
+		this.selectedCountry = country;
+		this.showSelectedCountryData = true;
+		this.showList = false;
 	}
 
 	filterCountries() {
 		return this.countries.filter((country) =>
-			country.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+			country.name.toLowerCase().startsWith(this.searchTerm.toLowerCase())
 		);
 	}
 
@@ -52,16 +72,66 @@ class CountriesList extends LitLightElement {
 				<span
 					class="b-10 mt-2 w-full border-[0.2px] border-solid border-gray-200 opacity-30"
 				></span>
-				${this.filterCountries().map(
-					(country) => html` <div class="flex p-2">
-						<span class="my-auto"
-							><img class="rounded-sm" src="${country.flag}" width="30px"
-						/></span>
-						<span class="ml-2 cursor-pointer text-sm text-gray-300 hover:text-sky-600"
-							>${country.name}</span
-						>
-					</div>`
-				)}
+				${this.showList
+					? html`
+							${this.filterCountries().map(
+								(country) => html`
+									<div class="flex h-auto p-2">
+										<span class="my-auto"
+											><img
+												class="rounded-sm"
+												src="${country.flag === null ? '../images/noimg.png' : country.flag}"
+												width="30px"
+										/></span>
+										<span
+											class="ml-2 cursor-pointer text-sm text-gray-300 hover:text-sky-600"
+											@click=${() => {
+												this.selectCountry(country);
+												this.selectedCountry = country;
+												this.showList = false;
+												this.showSelectedCountryData = true;
+											}}
+											>${country.name}</span
+										>
+									</div>
+								`
+							)}
+					  `
+					: html``}
+				${this.showSelectedCountryData
+					? html`
+							<div>
+								<button
+									class="p-3 text-sky-600"
+									@click=${() => {
+										if (this.selectedCountry !== '' && this.showSelectedCountryData === true) {
+											this.showList = true;
+											this.showSelectedCountryData = false;
+										}
+									}}
+								>
+									<i class="fa fa-chevron-left"></i
+									><span class="ml-4 text-lg">${this.selectedCountryName}</span>
+								</button>
+								${this.selectedCountryData
+									? this.selectedCountryData.map(
+											(league) =>
+												html` <span class="flex items-center p-2"
+													><img
+														class="bg-gray-200"
+														src="${league.league.logo === null
+															? '../images/noimg.png'
+															: league.league.logo}"
+														width="30px"
+														height="30px"
+													/>
+													<p class="pl-2">${league.league.name}</p></span
+												>`
+									  )
+									: ''}
+							</div>
+					  `
+					: html``}
 			</div>
 		`;
 	}

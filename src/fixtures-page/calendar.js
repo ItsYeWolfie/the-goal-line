@@ -47,13 +47,13 @@ function generateCalendar(month, year, targetDate) {
 	let day = 1;
 	let calendarHTML = '';
 
-	for (let i = 0; i < 6; i + 1) {
+	for (let i = 0; i < 6; i++) {
 		calendarHTML += '<tr>';
-		for (let j = 0; j < 7; i + 1) {
+		for (let j = 0; j < 7; j++) {
 			if (i === 0 && j < firstDay) {
-				calendarHTML += `<td class='text-gray-600 text-center p-2 cursor-pointer'></td>`;
+				calendarHTML += "<td class='text-gray-600 text-center p-2 cursor-pointer'>" + '' + '</td>';
 			} else if (day > lastDay) {
-				calendarHTML += `<td class='text-gray-600 text-center p-2 cursor-pointer'></td>`;
+				calendarHTML += "<td class='text-gray-600 text-center p-2 cursor-pointer'>" + '' + '</td>';
 			} else {
 				if (
 					day === targetDate.getDate() &&
@@ -64,7 +64,7 @@ function generateCalendar(month, year, targetDate) {
 				} else {
 					calendarHTML += `<td class='p-2 text-center hover:bg-gray-800 cursor-pointer'>${day}</td>`;
 				}
-				day += 1;
+				day++;
 			}
 		}
 		calendarHTML += '</tr>';
@@ -73,17 +73,17 @@ function generateCalendar(month, year, targetDate) {
 }
 
 calendarIcon.addEventListener('click', toggleCalendar);
-prevMonth.addEventListener('click', () => {
+prevMonth.addEventListener('click', function () {
 	if (month === 0) {
 		month = 11;
-		year -= 1;
+		year--;
 	} else {
-		month -= 1;
+		month--;
 	}
 	generateCalendar(month, year, targetDate);
 });
 
-nextMonth.addEventListener('click', () => {
+nextMonth.addEventListener('click', function () {
 	if (month === 11) {
 		month = 0;
 		year += 1;
