@@ -75,7 +75,7 @@ class Match extends LitLightElement {
 					</div>
 					<div class="flex gap-1 text-gray-400 md:gap-3">
 						<h1 class="text-sm md:text-lg">${this.fixtures.score.halftime.home}</h1>
-						<h3 class="text-xs md:text-base">HT</h3>
+						<h3 class="text-xs md:text-sm">HT</h3>
 						<h1 class="text-sm md:text-lg">${this.fixtures.score.halftime.away}</h1>
 					</div>
 				</div>

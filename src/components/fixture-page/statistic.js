@@ -31,12 +31,25 @@ class Statistic extends LitLightElement {
 				</div>
 			`;
 		}
-		// console.log(this.statistic.statistics);
 		return html`
 			<div
 				class="mb-4 flex h-auto w-full flex-col justify-evenly gap-2 rounded-md bg-gray-800 px-8 pt-8 pb-8 md:ml-20 md:w-4/5 md:px-16 lg:ml-40 lg:w-full"
 			>
 				${this.statistic.statistics[0].statistics.map((statistic, index) => {
+					let value1 = this.statistic.statistics[0].statistics[index].value;
+					let value2 = this.statistic.statistics[1].statistics[index].value;
+
+					if (typeof value1 === 'string' && value1.includes('%')) {
+						value1 = parseFloat(value1);
+					}
+					if (typeof value2 === 'string' && value2.includes('%')) {
+						value2 = parseFloat(value2);
+					}
+
+					const maxValue = value1 + value2;
+					const proportion1 = (value1 / maxValue) * 100;
+					const proportion2 = (value2 / maxValue) * 100;
+
 					return html`
 						<div class="flex flex-col gap-1">
 							<span class="flex justify-between">
@@ -50,10 +63,10 @@ class Statistic extends LitLightElement {
 							</span>
 							<span class="flex justify-center">
 								<span class="flex h-2 w-full justify-end rounded-md bg-slate-300">
-									<span class="w-[${statistic.value / 100}*100px] rounded-md bg-lime-700"></span>
+									<span class="rounded-md bg-lime-700" style="width: ${proportion1}%"></span>
 								</span>
 								<span class="ml-1 flex h-2 w-full rounded-md bg-slate-300">
-									<span class="w-[${statistic.value / 100}*100px] rounded-md bg-sky-500"></span>
+									<span class="rounded-md bg-sky-500" style="width: ${proportion2}%"></span>
 								</span>
 							</span>
 						</div>

@@ -48,7 +48,7 @@ class Matches extends LitLightElement {
 		}
 
 		return html`
-			<div>
+			<div class="animate-fade-in delay-300">
 				${Object.keys(this.groupedMatches).map((leagueId) => {
 					return html`
 						<div>

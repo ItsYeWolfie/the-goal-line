@@ -111,7 +111,7 @@ class CountriesList extends LitLightElement {
 									}}
 								>
 									<i class="fa fa-chevron-left"></i
-									><span class="ml-4 text-lg">${this.selectedCountryName}</span>
+									><span class="ml-4 text-lg">Leagues of ${this.selectedCountryName}</span>
 								</button>
 								${this.selectedCountryData
 									? this.selectedCountryData.map(
