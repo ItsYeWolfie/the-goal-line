@@ -34,7 +34,7 @@ export const teamTabs: ITab[] = [
 	{
 		name: 'Injuries',
 		slug: 'injuries',
-		href: '/injuries',
+		href: './injuries',
 	},
 ];
 

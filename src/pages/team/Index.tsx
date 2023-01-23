@@ -13,7 +13,7 @@ export default function TeamIndex() {
 	}, [team]);
 
 	return (
-		<section className="container mx-auto my-2 rounded-lg bg-neutral-800 md:px-8">
+		<section className="container mx-auto rounded-lg bg-neutral-800 p-2 md:px-8">
 			<TeamTabs />
 			<section
 				className={`py-8 ${

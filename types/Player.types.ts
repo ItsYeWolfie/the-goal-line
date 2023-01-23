@@ -1,9 +1,9 @@
-import { IHuman } from './General.types';
+import { IHumanBasic } from './General.types';
 import { ITeamBasic } from './Team.types';
 import { IFixtureInfoBasic } from './Fixture.types';
 import { ILeagueWithSeason } from './League.types';
 
-export interface IPlayerWithStatistics extends IHuman {
+export interface IPlayerWithStatistics extends IHumanBasic {
 	player: IPlayerStatistics;
 	statistics: IPlayerStatistics[];
 }
@@ -24,7 +24,7 @@ interface IPlayerStatistics extends IPlayer {
 	penalty: IPlayerPenaltiesStats;
 }
 
-interface IPlayer extends IHuman {
+interface IPlayer extends IHumanBasic {
 	photo: string;
 	injured: false;
 }

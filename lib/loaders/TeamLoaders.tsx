@@ -3,7 +3,7 @@ import fetchData from '../helpers/Fetch';
 import { ITeamAndVenue, ITeamStatistics } from '../../types/Team.types';
 import { IFixture } from '../../types/Fixture.types';
 import { ILeagueWithStanding } from '../../types/League.types';
-import { IPlayerWithStatistics } from '../../types/Player.types';
+import { IPlayerInjury, IPlayerWithStatistics } from '../../types/Player.types';
 import { ITransfer } from '../../types/Transfers.type';
 import { ICoach } from '../../types/Coach.types';
 
@@ -39,4 +39,8 @@ export async function teamTransfersLoader() {
 
 export async function teamCoachesLoader() {
 	return fetchData<ICoach[]>('https://api.npoint.io/62712e4d8cdc5074390e');
+}
+
+export async function teamInjuriesLoader() {
+	return fetchData<IPlayerInjury[]>('https://api.npoint.io/b3dd1a4b6c818458d567');
 }

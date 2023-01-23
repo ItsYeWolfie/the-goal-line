@@ -1,5 +1,5 @@
 import { useParams, NavLink } from 'react-router-dom';
-import teamTabs from '../../../lib/tabs/TeamTabs';
+import teamTabs from '../../../lib/tabs/TeamTabsLinks';
 import { ITab } from '../../../types/Tab.types';
 
 export default function TeamTabs() {

@@ -5,6 +5,7 @@ import TeamIndex from '../pages/team/Index';
 import teamOverviewLoader, {
 	teamCoachesLoader,
 	teamFixturesLoader,
+	teamInjuriesLoader,
 	teamLoader,
 	teamPlayersLoader,
 	teamStandingsLoader,
@@ -15,6 +16,7 @@ import TeamStandings from '../pages/team/TeamStandings';
 import TeamPlayers from '../pages/team/TeamPlayers';
 import TeamTransfers from '../pages/team/TeamTransfers';
 import TeamCoaches from '../pages/team/TeamCoaches';
+import TeamInjuries from '../pages/team/TeamInjuries';
 
 export const router = createBrowserRouter([
 	{
@@ -60,6 +62,11 @@ export const router = createBrowserRouter([
 						path: 'coaches',
 						element: <TeamCoaches />,
 						loader: teamCoachesLoader,
+					},
+					{
+						path: 'injuries',
+						element: <TeamInjuries />,
+						loader: teamInjuriesLoader,
 					},
 				],
 			},
