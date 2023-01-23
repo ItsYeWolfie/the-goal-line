@@ -1,0 +1,31 @@
+{
+	"recommendations": [
+		"steoates.autoimport",
+		"formulahendry.auto-rename-tag",
+		"dbaeumer.vscode-eslint",
+		"mgmcdermott.vscode-language-babel",
+		"aaron-bond.better-comments",
+		"pucelle.vscode-css-navigation",
+		"pranaygp.vscode-css-peek",
+		"mikestead.dotenv",
+		"editorconfig.editorconfig",
+		"usernamehw.errorlens",
+		"janne252.fontawesome-autocomplete",
+		"eamodio.gitlens",
+		"heybourn.headwind",
+		"ecmel.vscode-html-css",
+		"oderwat.indent-rainbow",
+		"xabikos.javascriptsnippets",
+		"ms-vscode.vscode-typescript-next",
+		"sburg.vscode-javascript-booster",
+		"bierner.lit-html",
+		"runem.lit-plugin",
+		"christian-kohler.npm-intellisense",
+		"christian-kohler.path-intellisense",
+		"mrmlnc.vscode-attrs-sorter",
+		"bradlc.vscode-tailwindcss",
+		"austenc.tailwind-docs",
+		"wayou.vscode-todo-highlight",
+		"hardikpthv.lit-snippets"
+	]
+}
