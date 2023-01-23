@@ -1,3 +1,7 @@
+/* eslint-disable no-useless-concat */
+/* eslint-disable no-shadow */
+/* eslint-disable func-names */
+/* eslint-disable no-plusplus */
 const calendarIcon = document.getElementById('calendar-icon');
 const calendar = document.getElementById('calendar');
 const currentMonth = document.getElementById('current-month');
@@ -19,11 +23,12 @@ function toggleCalendar() {
 	}
 }
 
-//   document.addEventListener("click", function(event) {
-//     if (!calendar.contains(event.target)) {
-//         calendar.classList.toggle("hidden");
-//     }
-// });
+document.addEventListener('click', function (event) {
+	if (event.target !== calendar && event.target !== calendarIcon) {
+		calendar.classList.add('hidden');
+		calendarIcon.classList.remove('text-sky-600');
+	}
+});
 
 function generateCalendar(month, year, targetDate) {
 	const months = [
@@ -86,9 +91,9 @@ prevMonth.addEventListener('click', function () {
 nextMonth.addEventListener('click', function () {
 	if (month === 11) {
 		month = 0;
-		year += 1;
+		year++;
 	} else {
-		month += 1;
+		month++;
 	}
 	generateCalendar(month, year, targetDate);
 });

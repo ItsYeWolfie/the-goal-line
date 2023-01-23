@@ -23,7 +23,7 @@ class Match extends LitLightElement {
 		const data = await response.json();
 		this.fixtures = data;
 		this.loading = false;
-		console.log(data);
+		// console.log(data);
 		this.filterEvents(data);
 	}
 
