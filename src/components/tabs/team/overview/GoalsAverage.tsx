@@ -4,8 +4,8 @@ import TableHeader from '../../../table/TableHeader';
 
 export default function TeamOverviewGoalsAverage({ goals }: { goals: ITeamStatistics['goals'] }) {
 	return (
-		<table className="bg-gray-700 uppercase">
-			<thead className="bg-gray-800 text-sm">
+		<table className="bg-neutral-700 uppercase">
+			<thead className="bg-neutral-800 text-sm">
 				<tr>
 					<TableHeader className="py-1 pl-3 text-left">Average Goals Per Match</TableHeader>
 					<TableHeader className="py-1 pl-3">Home</TableHeader>
@@ -20,7 +20,7 @@ export default function TeamOverviewGoalsAverage({ goals }: { goals: ITeamStatis
 					<SmallTableCell className="text-center">{goals.for.average.away || '-'}</SmallTableCell>
 					<SmallTableCell className="text-center">{goals.for.average.total || '-'}</SmallTableCell>
 				</tr>
-				<tr className="bg-gray-600">
+				<tr className="bg-neutral-600">
 					<SmallTableCell>Received</SmallTableCell>
 					<SmallTableCell className="text-center">{goals.against.average.home || '-'}</SmallTableCell>
 					<SmallTableCell className="text-center">{goals.against.average.away || '-'}</SmallTableCell>

@@ -7,7 +7,7 @@ import SmallTableCell from '../../../table/SmallTableCell';
 export default function TeamFixturesTable({ fixtures, teamIDInt }: { fixtures: IFixture[]; teamIDInt: number }) {
 	return (
 		<table className="min-w-full">
-			<thead className="sticky top-0 bg-gray-800 text-left text-xs">
+			<thead className="sticky top-0 bg-neutral-800 text-left text-xs">
 				<tr>
 					<TableHeader className="p-3 sm:pl-6 md:table-cell">Opponent</TableHeader>
 					<TableHeader className="hidden p-3 lg:table-cell">Round</TableHeader>
@@ -18,7 +18,7 @@ export default function TeamFixturesTable({ fixtures, teamIDInt }: { fixtures: I
 				</tr>
 			</thead>
 
-			<tbody className="divide-y divide-gray-500 text-sm text-gray-300">
+			<tbody className="divide-y divide-neutral-500 text-sm text-neutral-300">
 				{fixtures.map((fixture) => {
 					const { fixture: match, goals, league, teams } = fixture;
 					const { home, away } = teams;
@@ -26,7 +26,7 @@ export default function TeamFixturesTable({ fixtures, teamIDInt }: { fixtures: I
 					const isWinner = Object.values(teams).find((team) => team.id === teamIDInt && team.winner);
 
 					const { status } = match;
-					let backgroundColor = 'bg-gray-700';
+					let backgroundColor = 'bg-neutral-700';
 					if (isWinner) {
 						backgroundColor = 'bg-green-700';
 					} else if (status.short === 'FT' && goals.home === goals.away) {
@@ -37,18 +37,18 @@ export default function TeamFixturesTable({ fixtures, teamIDInt }: { fixtures: I
 						backgroundColor = 'bg-blue-800';
 					}
 					const { date } = match;
-					const formattedDate = new Date(date).toLocaleDateString('en-US', {
+					const formattedDate = new Date(date).toLocaleDateString('en-GB', {
 						year: 'numeric',
-						month: 'long',
+						month: 'numeric',
 						day: 'numeric',
 					});
 					return (
 						<tr
-							className={`${backgroundColor} bg-opacity-40 transition-colors duration-300 hover:bg-gray-600`}
+							className={`${backgroundColor} bg-opacity-40 transition-colors duration-300 hover:bg-neutral-600`}
 							key={fixture.fixture.id}
 						>
 							<SmallTableCell className="text-sm sm:pl-6">
-								<div className="font-medium text-gray-200">
+								<div className="font-medium text-neutral-200">
 									<div className="flex items-center gap-3">
 										<img
 											src={isHome ? away.logo : home.logo}

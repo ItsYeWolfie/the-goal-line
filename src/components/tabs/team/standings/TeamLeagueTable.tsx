@@ -5,7 +5,7 @@ import TableHeader from '../../../table/TableHeader';
 export default function TeamLeagueTable({ league }: { league: ILeagueWithStanding }) {
 	return (
 		<table>
-			<thead className="bg-gray-800">
+			<thead className="bg-neutral-800">
 				<tr>
 					<TableHeader
 						className="px-3 py-1 text-left text-sm"
@@ -27,7 +27,7 @@ export default function TeamLeagueTable({ league }: { league: ILeagueWithStandin
 			</thead>
 			<tbody className="text-xs">
 				{league.country !== 'World' && (
-					<tr className="bg-gray-600">
+					<tr className="bg-neutral-600">
 						<TableCell className="w-32">Country</TableCell>
 						<TableCell>
 							<div className="flex items-center">
@@ -45,27 +45,27 @@ export default function TeamLeagueTable({ league }: { league: ILeagueWithStandin
 				)}
 				{league.standings.map((standing) => (
 					<>
-						<tr className="bg-gray-700">
+						<tr className="bg-neutral-700">
 							<TableCell className="w-32">Group</TableCell>
 							<TableCell>{standing.group}</TableCell>
 						</tr>
-						<tr className="bg-gray-600">
+						<tr className="bg-neutral-600">
 							<TableCell>Rank</TableCell>
 							<TableCell>{standing.rank}</TableCell>
 						</tr>
-						<tr className="bg-gray-700">
+						<tr className="bg-neutral-700">
 							<TableCell>Status</TableCell>
 							<TableCell>{standing.description}</TableCell>
 						</tr>
-						<tr className="bg-gray-600">
+						<tr className="bg-neutral-600">
 							<TableCell>Points</TableCell>
 							<TableCell>{standing.points}</TableCell>
 						</tr>
-						<tr className="bg-gray-700">
+						<tr className="bg-neutral-700">
 							<TableCell>Goals Difference</TableCell>
 							<TableCell>{standing.goalsDiff}</TableCell>
 						</tr>
-						<tr className="bg-gray-600">
+						<tr className="bg-neutral-600">
 							<TableCell>Form</TableCell>
 							<TableCell>
 								{standing.form.split('').map((form) => {
@@ -85,7 +85,7 @@ export default function TeamLeagueTable({ league }: { league: ILeagueWithStandin
 											break;
 
 										default:
-											color = 'bg-gray-500';
+											color = 'bg-neutral-500';
 									}
 
 									return (

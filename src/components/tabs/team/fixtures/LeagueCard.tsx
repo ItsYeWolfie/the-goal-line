@@ -8,7 +8,7 @@ export default function TeamFixturesLeagueCard({
 	selectedLeague: number;
 }) {
 	return (
-		<div className="bg-gray-800 p-4 text-white md:rounded-md md:text-center">
+		<div className="bg-neutral-800 p-4 text-white md:rounded-md md:text-center">
 			{leagues
 				.filter((league) => {
 					return league.id === selectedLeague;

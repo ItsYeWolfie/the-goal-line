@@ -13,7 +13,7 @@ export default function TeamOverviewTeamCard({
 	form: ITeamStatistics['form'];
 }) {
 	return (
-		<div className="relative shrink-0 grow-0 rounded-md bg-gray-700 p-8 text-sm md:basis-6/12">
+		<div className="relative shrink-0 grow-0 rounded-md bg-neutral-700 p-8 text-sm md:basis-6/12">
 			<div className="flex flex-col">
 				<header className="mb-4 uppercase text-sky-500">Club Details</header>
 				<div className="mb-8 flex w-full flex-col gap-4 md:flex-row">
@@ -25,26 +25,26 @@ export default function TeamOverviewTeamCard({
 					<div className="flex flex-col gap-4">
 						<div className="flex flex-col flex-wrap gap-4 sm:flex-row lg:gap-8">
 							<div>
-								<span className="text-xs font-bold uppercase text-gray-400">Team Name</span>
+								<span className="text-xs font-bold uppercase text-neutral-400">Team Name</span>
 								<header>{team.name}</header>
 							</div>
 							<div>
-								<span className="text-xs font-bold uppercase text-gray-400">Founded</span>
+								<span className="text-xs font-bold uppercase text-neutral-400">Founded</span>
 								<header>{team.founded}</header>
 							</div>
 							<div>
-								<span className="text-xs font-bold uppercase text-gray-400">League Nation</span>
+								<span className="text-xs font-bold uppercase text-neutral-400">League Nation</span>
 								<header>{team.country}</header>
 							</div>
 						</div>
 						<div className="flex flex-col flex-wrap gap-4 sm:flex-row lg:gap-8">
 							<div>
-								<span className="text-xs font-bold uppercase text-gray-400">Team Code</span>
+								<span className="text-xs font-bold uppercase text-neutral-400">Team Code</span>
 								<header>{team.code}</header>
 							</div>
 							{team.national && (
 								<div>
-									<span className="text-xs font-bold uppercase text-gray-400">National Team</span>
+									<span className="text-xs font-bold uppercase text-neutral-400">National Team</span>
 									<FontAwesomeIcon
 										icon={faCheckCircle}
 										className="block text-xl text-green-500"
@@ -97,7 +97,7 @@ export default function TeamOverviewTeamCard({
 									break;
 
 								default:
-									color = 'bg-gray-600';
+									color = 'bg-neutral-600';
 									break;
 							}
 

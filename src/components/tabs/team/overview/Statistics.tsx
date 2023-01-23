@@ -10,8 +10,8 @@ export default function TeamOverviewStatistics({
 	failedToScore: ITeamStatistics['failed_to_score'];
 }) {
 	return (
-		<table className="w-full bg-gray-700">
-			<thead className="bg-gray-800 text-sm uppercase">
+		<table className="w-full bg-neutral-700">
+			<thead className="bg-neutral-800 text-sm uppercase">
 				<tr>
 					<TableHeader className="py-1 px-3 text-left">Statistics</TableHeader>
 					<TableHeader className="py-1 px-3">Home</TableHeader>
@@ -26,7 +26,7 @@ export default function TeamOverviewStatistics({
 					<SmallTableCell className="text-center">{cleanSheet.away || '-'}</SmallTableCell>
 					<SmallTableCell className="text-center">{cleanSheet.total || '-'}</SmallTableCell>
 				</tr>
-				<tr className="bg-gray-600">
+				<tr className="bg-neutral-600">
 					<SmallTableCell>Matches Without Scoring</SmallTableCell>
 					<SmallTableCell className="text-center">{failedToScore.home || '-'}</SmallTableCell>
 					<SmallTableCell className="text-center">{failedToScore.away || '-'}</SmallTableCell>

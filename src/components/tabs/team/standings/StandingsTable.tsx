@@ -5,7 +5,7 @@ import TableHeader from '../../../table/TableHeader';
 export default function StandingsTable({ standings }: { standings: ILeagueStanding[] }) {
 	return (
 		<table className="basis-8/12">
-			<thead className="sticky top-0 bg-gray-800 text-xs">
+			<thead className="sticky top-0 bg-neutral-800 text-xs">
 				<tr>
 					<TableHeader className="px-6 py-3">#</TableHeader>
 					<TableHeader className="p-3 text-left">Team</TableHeader>
@@ -19,9 +19,9 @@ export default function StandingsTable({ standings }: { standings: ILeagueStandi
 					<TableHeader className="hidden p-3 text-left sm:table-cell">Form</TableHeader>
 				</tr>
 			</thead>
-			<tbody className="divide-y divide-gray-500 text-sm text-gray-300">
+			<tbody className="divide-y divide-neutral-500 text-sm text-neutral-300">
 				{standings.map((standing, index) => {
-					let backgroundColor = index % 2 === 1 ? 'bg-gray-600' : 'bg-gray-700';
+					let backgroundColor = index % 2 === 1 ? 'bg-neutral-600' : 'bg-neutral-700';
 					const teamRank = standing.rank;
 
 					switch (true) {
@@ -48,7 +48,7 @@ export default function StandingsTable({ standings }: { standings: ILeagueStandi
 					const formArray = form.split('');
 					return (
 						<tr
-							className={`bg-opacity-40 transition-colors duration-300  hover:bg-gray-600 ${backgroundColor}`}
+							className={`bg-opacity-40 transition-colors duration-300  hover:bg-neutral-600 ${backgroundColor}`}
 							key={team.id}
 						>
 							<SmallTableCell className="w-16 text-center">{standing.rank}</SmallTableCell>
@@ -60,7 +60,7 @@ export default function StandingsTable({ standings }: { standings: ILeagueStandi
 									loading="lazy"
 								/>
 								<span className="ml-2 font-semibold">{team.name}</span>
-								<div className="mt-1 flex flex-col text-xs text-gray-300">
+								<div className="mt-1 flex flex-col text-xs text-neutral-300">
 									<div className="flex items-center gap-1 md:hidden">
 										<span className="font-semibold">Matches:</span>
 										<span>
@@ -92,7 +92,7 @@ export default function StandingsTable({ standings }: { standings: ILeagueStandi
 													break;
 
 												default:
-													formClass = 'bg-gray-500';
+													formClass = 'bg-neutral-500';
 											}
 
 											return (
@@ -116,7 +116,7 @@ export default function StandingsTable({ standings }: { standings: ILeagueStandi
 							<SmallTableCell>{standing.points}</SmallTableCell>
 							<SmallTableCell className="hidden sm:table-cell">
 								{formArray.map((f, i) => {
-									let color = 'bg-gray-500';
+									let color = 'bg-neutral-500';
 
 									switch (f) {
 										case 'W':

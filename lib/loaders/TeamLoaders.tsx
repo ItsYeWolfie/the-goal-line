@@ -5,6 +5,7 @@ import { IFixture } from '../../types/Fixture.types';
 import { ILeagueWithStanding } from '../../types/League.types';
 import { IPlayerWithStatistics } from '../../types/Player.types';
 import { ITransfer } from '../../types/Transfers.type';
+import { ICoach } from '../../types/Coach.types';
 
 export default async function teamOverviewLoader(): Promise<ITeamStatistics> {
 	return fetchData<ITeamStatistics>('https://api.npoint.io/259bb0faaedc5732aebe');
@@ -34,4 +35,8 @@ export async function teamTransfersLoader() {
 	const transfers = fetchData<ITransfer[]>('https://api.npoint.io/e6cbde96c194aef54417');
 
 	return transfers;
+}
+
+export async function teamCoachesLoader() {
+	return fetchData<ICoach[]>('https://api.npoint.io/62712e4d8cdc5074390e');
 }

@@ -4,8 +4,8 @@ import TableHeader from '../../../table/TableHeader';
 
 export default function TeamOverviewGoalsAtMinute({ goals }: { goals: ITeamStatistics['goals'] }) {
 	return (
-		<table className="bg-gray-700 uppercase">
-			<thead className="bg-gray-800 text-sm">
+		<table className="bg-neutral-700 uppercase">
+			<thead className="bg-neutral-800 text-sm">
 				<tr>
 					<TableHeader className="py-1 px-3 text-left">Goals at Minute</TableHeader>
 					<TableHeader
@@ -26,7 +26,7 @@ export default function TeamOverviewGoalsAtMinute({ goals }: { goals: ITeamStati
 				{Object.keys(goals.for.minute).map((minute: string, index) => {
 					return (
 						<tr
-							className={index % 2 === 0 ? 'bg-gray-600' : ''}
+							className={index % 2 === 0 ? 'bg-neutral-600' : ''}
 							key={minute}
 						>
 							<SmallTableCell className="w-48">{minute}</SmallTableCell>

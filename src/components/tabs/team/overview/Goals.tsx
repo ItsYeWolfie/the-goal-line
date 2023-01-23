@@ -4,8 +4,8 @@ import TableHeader from '../../../table/TableHeader';
 
 export default function TeamOverviewGoals({ goals }: { goals: ITeamStatistics['goals'] }) {
 	return (
-		<table className="bg-gray-700">
-			<thead className="bg-gray-800 text-sm">
+		<table className="bg-neutral-700">
+			<thead className="bg-neutral-800 text-sm">
 				<tr>
 					<TableHeader className="py-1 px-3 text-left">Total Goals</TableHeader>
 					<TableHeader className="py-1 px-3">Scored</TableHeader>
@@ -13,7 +13,7 @@ export default function TeamOverviewGoals({ goals }: { goals: ITeamStatistics['g
 				</tr>
 			</thead>
 			<tbody className="text-xs uppercase">
-				<tr className="bg-gray-600">
+				<tr className="bg-neutral-600">
 					<SmallTableCell>Home</SmallTableCell>
 					<SmallTableCell className="text-center">{goals.for.total.home || '-'}</SmallTableCell>
 					<SmallTableCell className="text-center">{goals.against.total.home || '-'}</SmallTableCell>
@@ -24,7 +24,7 @@ export default function TeamOverviewGoals({ goals }: { goals: ITeamStatistics['g
 					<SmallTableCell className="text-center">{goals.against.total.away || '-'}</SmallTableCell>
 				</tr>
 			</tbody>
-			<tfoot className="border-t bg-gray-800 text-xs">
+			<tfoot className="border-t bg-neutral-800 text-xs">
 				<tr>
 					<SmallTableCell>Total</SmallTableCell>
 					<SmallTableCell className="text-center">{goals.for.total.total || '-'}</SmallTableCell>

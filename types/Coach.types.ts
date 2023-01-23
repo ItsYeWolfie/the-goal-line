@@ -7,7 +7,7 @@ export interface ICoach extends IHuman {
 }
 
 interface ICoachTeamType {
-	start: Date;
+	start: string | null;
 	team: ITeamBasic;
-	end: Date;
+	end: string | null;
 }

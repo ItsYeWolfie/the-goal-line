@@ -10,8 +10,8 @@ export default function TeamOverviewPenalties({
 	missed: ITeamStatistics['penalty']['missed'];
 }) {
 	return (
-		<table className="bg-gray-700 uppercase">
-			<thead className="bg-gray-800 text-sm">
+		<table className="bg-neutral-700 uppercase">
+			<thead className="bg-neutral-800 text-sm">
 				<tr>
 					<TableHeader className="py-1 pl-3 text-left">Penalties</TableHeader>
 					<TableHeader className="py-1 pl-3">Total</TableHeader>
@@ -19,7 +19,7 @@ export default function TeamOverviewPenalties({
 				</tr>
 			</thead>
 			<tbody className="text-xs">
-				<tr className="bg-gray-600">
+				<tr className="bg-neutral-600">
 					<SmallTableCell>Scored</SmallTableCell>
 					<SmallTableCell className="text-center">{scored.total || '-'}</SmallTableCell>
 					<SmallTableCell className="text-center">{scored.percentage || '-'}</SmallTableCell>

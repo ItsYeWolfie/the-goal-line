@@ -4,8 +4,8 @@ import TableHeader from '../../../table/TableHeader';
 
 export default function TeamOverviewLineups({ lineups }: { lineups: ITeamStatistics['lineups'] }) {
 	return (
-		<table className="bg-gray-700">
-			<thead className="bg-gray-800 text-sm">
+		<table className="bg-neutral-700">
+			<thead className="bg-neutral-800 text-sm">
 				<tr>
 					<TableHeader className="py-1 pl-3 text-left">Formation Lineup</TableHeader>
 					<TableHeader className="py-1 px-3 text-left">Played</TableHeader>
@@ -14,7 +14,7 @@ export default function TeamOverviewLineups({ lineups }: { lineups: ITeamStatist
 			<tbody className="text-xs">
 				{lineups.map((lineup, index) => (
 					<tr
-						className={index % 2 === 0 ? 'bg-gray-600' : ''}
+						className={index % 2 === 0 ? 'bg-neutral-600' : ''}
 						key={lineup.formation}
 					>
 						<SmallTableCell className="w-56">{lineup.formation}</SmallTableCell>

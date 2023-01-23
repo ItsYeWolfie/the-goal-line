@@ -11,7 +11,7 @@ export default function PlayerTransfersTable({
 }) {
 	return (
 		<table className="w-full">
-			<thead className="sticky top-0 bg-gray-800 text-xs">
+			<thead className="sticky top-0 bg-neutral-800 text-xs">
 				<tr>
 					<TableHeader className="px-3 py-1 text-left">Date</TableHeader>
 					<TableHeader className="px-3 py-1 text-left">Player</TableHeader>
@@ -24,7 +24,7 @@ export default function PlayerTransfersTable({
 					<tr>
 						<SmallTableCell
 							colSpan={4}
-							className="bg-gray-700 text-center"
+							className="bg-neutral-700 text-center"
 						>
 							No transfers
 						</SmallTableCell>
@@ -36,7 +36,7 @@ export default function PlayerTransfersTable({
 					return (
 						<tr
 							key={transfer.player.id + date.getTime()}
-							className={index % 2 === 0 ? 'bg-gray-700' : ''}
+							className={index % 2 === 0 ? 'bg-neutral-700' : ''}
 						>
 							<SmallTableCell>
 								{date.toLocaleString('en-GB', {

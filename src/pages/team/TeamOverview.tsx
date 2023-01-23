@@ -32,7 +32,7 @@ export default function TeamPage() {
 	return (
 		<>
 			<section className="mb-4">
-				<div className="w-full md:flex md:space-x-4">
+				<div className="w-full divide-x md:flex md:space-x-4">
 					<TeamOverviewTeamCard
 						team={team}
 						form={form}

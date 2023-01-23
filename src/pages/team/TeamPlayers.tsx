@@ -27,11 +27,11 @@ function TeamPlayersSection({ playersData }: { playersData: IPlayerWithStatistic
 	}, [leagues]);
 	return (
 		<>
-			<div className="sticky top-0 z-10 mb-8 bg-gray-800 p-4">
+			<div className="sticky top-0 z-10 mb-8 bg-neutral-800 p-4">
 				<label htmlFor="league">
-					<span className="mb-1 block text-sm font-medium text-gray-100">League</span>
+					<span className="mb-1 block text-sm font-medium text-neutral-100">League</span>
 					<select
-						className="bg-gray-800"
+						className="bg-neutral-800"
 						name="league"
 						onChange={handleLeagueChange}
 					>

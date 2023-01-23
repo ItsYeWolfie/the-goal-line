@@ -5,8 +5,8 @@ import TableHeader from '../../../table/TableHeader';
 export default function TeamOverviewSequences({ biggest }: { biggest: ITeamStatistics['biggest'] }) {
 	const { wins, goals, loses, streak } = biggest;
 	return (
-		<table className="w-full bg-gray-700">
-			<thead className="bg-gray-800">
+		<table className="w-full bg-neutral-700">
+			<thead className="bg-neutral-800">
 				<tr>
 					<TableHeader
 						className="py-1 pl-3 text-left"
@@ -17,13 +17,13 @@ export default function TeamOverviewSequences({ biggest }: { biggest: ITeamStati
 				</tr>
 			</thead>
 
-			<tbody className="divide-y divide-gray-500 text-xs">
+			<tbody className="divide-y divide-neutral-500 text-xs">
 				<tr>
 					<SmallTableCell className="w-64">Most goals scored (Home)</SmallTableCell>
 					<SmallTableCell>{goals.for.home || '-'}</SmallTableCell>
 				</tr>
 
-				<tr className="bg-gray-600">
+				<tr className="bg-neutral-600">
 					<SmallTableCell>Most goals scored (Away)</SmallTableCell>
 					<SmallTableCell>{goals.for.away || '-'}</SmallTableCell>
 				</tr>
@@ -32,7 +32,7 @@ export default function TeamOverviewSequences({ biggest }: { biggest: ITeamStati
 					<SmallTableCell>{goals.against.home || '-'}</SmallTableCell>
 				</tr>
 
-				<tr className="bg-gray-600">
+				<tr className="bg-neutral-600">
 					<SmallTableCell>Most goals conceded (Away)</SmallTableCell>
 					<SmallTableCell>{goals.against.away || '-'}</SmallTableCell>
 				</tr>
@@ -40,7 +40,7 @@ export default function TeamOverviewSequences({ biggest }: { biggest: ITeamStati
 					<SmallTableCell>Biggest Win (Home)</SmallTableCell>
 					<SmallTableCell>{wins.home || '-'}</SmallTableCell>
 				</tr>
-				<tr className="bg-gray-600">
+				<tr className="bg-neutral-600">
 					<SmallTableCell>Biggest Win (Away)</SmallTableCell>
 					<SmallTableCell>{wins.away || '-'}</SmallTableCell>
 				</tr>
@@ -49,7 +49,7 @@ export default function TeamOverviewSequences({ biggest }: { biggest: ITeamStati
 					<SmallTableCell>{loses.home || '-'}</SmallTableCell>
 				</tr>
 
-				<tr className="bg-gray-600">
+				<tr className="bg-neutral-600">
 					<SmallTableCell>Biggest Loss (Away)</SmallTableCell>
 					<SmallTableCell>{loses.away || '-'}</SmallTableCell>
 				</tr>
@@ -57,7 +57,7 @@ export default function TeamOverviewSequences({ biggest }: { biggest: ITeamStati
 					<SmallTableCell>Most Matches Won in a Row</SmallTableCell>
 					<SmallTableCell>{streak.wins || '-'}</SmallTableCell>
 				</tr>
-				<tr className="bg-gray-600">
+				<tr className="bg-neutral-600">
 					<SmallTableCell>Most Matches Lost in a Row</SmallTableCell>
 					<SmallTableCell>{streak.loses || '-'}</SmallTableCell>
 				</tr>

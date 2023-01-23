@@ -10,10 +10,10 @@ export default function TeamFixturesLeagueSelection({
 	return (
 		<div>
 			<label htmlFor="league-select">
-				<span className="mb-1 block text-sm font-medium text-gray-100">Select League</span>
+				<span className="mb-1 block text-sm font-medium text-neutral-100">Select League</span>
 				<select
 					name="league-select"
-					className="bg-gray-800"
+					className="bg-neutral-800"
 					onChange={(e) => {
 						setSelectedLeague(parseInt(e.target.value, 10));
 					}}
