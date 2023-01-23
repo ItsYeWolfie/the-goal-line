@@ -1,8 +1,8 @@
-import { AiFillCheckCircle, AiFillCloseCircle, AiFillMinusCircle } from 'react-icons/ai';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { ILeagueWithSeason } from '../../../../../types/League.types';
 import { ITeam, ITeamStatistics } from '../../../../../types/Team.types';
+import FormIconArray from '../../../icons/FormIconArray';
 
 export default function TeamOverviewTeamCard({
 	team,
@@ -81,35 +81,7 @@ export default function TeamOverviewTeamCard({
 				</div>
 				<div className="flex flex-col md:text-center">
 					<p className="order-last mx-auto max-w-sm">
-						{form.split('').map((f, i) => {
-							let icon: JSX.Element = <AiFillCloseCircle />;
-
-							switch (f) {
-								case 'W':
-									icon = <AiFillCheckCircle className="text-green-500" />;
-									break;
-
-								case 'D':
-									icon = <AiFillCloseCircle className="text-yellow-500" />;
-									break;
-
-								case 'L':
-									icon = <AiFillMinusCircle className="text-red-500" />;
-									break;
-
-								default:
-									break;
-							}
-
-							return (
-								<icon.type
-									key={i}
-									className={`${icon.props.className} inline-block text-base`}
-								>
-									<span className="sr-only">{f}</span>
-								</icon.type>
-							);
-						})}
+						<FormIconArray array={form.split('')} />
 					</p>
 					<p className="text-xs md:mb-2">Recent Form</p>
 				</div>

@@ -1,4 +1,6 @@
+import React from 'react';
 import { ILeagueWithStanding } from '../../../../../types/League.types';
+import FormIconArray from '../../../icons/FormIconArray';
 import TableCell from '../../../table/TableCell';
 import TableHeader from '../../../table/TableHeader';
 
@@ -44,7 +46,7 @@ export default function TeamLeagueTable({ league }: { league: ILeagueWithStandin
 					</tr>
 				)}
 				{league.standings.map((standing) => (
-					<>
+					<React.Fragment key={standing.team.id}>
 						<tr className="bg-neutral-700">
 							<TableCell className="w-32">Group</TableCell>
 							<TableCell>{standing.group}</TableCell>
@@ -68,35 +70,10 @@ export default function TeamLeagueTable({ league }: { league: ILeagueWithStandin
 						<tr className="bg-neutral-600">
 							<TableCell>Form</TableCell>
 							<TableCell>
-								{standing.form.split('').map((form) => {
-									let color = '';
-
-									switch (form) {
-										case 'W':
-											color = 'bg-green-500';
-											break;
-
-										case 'D':
-											color = 'bg-yellow-500';
-											break;
-
-										case 'L':
-											color = 'bg-red-500';
-											break;
-
-										default:
-											color = 'bg-neutral-500';
-									}
-
-									return (
-										<span className={`${color} mr-1 inline-block h-3 w-3 rounded-full`}>
-											<span className="sr-only">{form}</span>
-										</span>
-									);
-								})}
+								<FormIconArray array={standing.form.split('')} />
 							</TableCell>
 						</tr>
-					</>
+					</React.Fragment>
 				))}
 			</tbody>
 		</table>

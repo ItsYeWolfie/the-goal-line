@@ -20,7 +20,7 @@ export async function teamFixturesLoader() {
 }
 
 export async function teamStandingsLoader() {
-	const teamLeagueStandings = fetchData<ILeagueWithStanding>('https://api.npoint.io/cf670ab6cc08e892046f');
+	const teamLeagueStandings = fetchData<ILeagueWithStanding>('https://api.npoint.io/0d55679471bdef188818');
 	const leagueStandings = fetchData<ILeagueWithStanding[]>('https://api.npoint.io/9755c43d23971a73fe3f');
 	return defer({ leagueStandings, teamLeagueStandings });
 }
@@ -34,7 +34,7 @@ export async function teamPlayersLoader() {
 export async function teamTransfersLoader() {
 	const transfers = fetchData<ITransfer[]>('https://api.npoint.io/e6cbde96c194aef54417');
 
-	return transfers;
+	return defer({ transfers });
 }
 
 export async function teamCoachesLoader() {
@@ -42,5 +42,7 @@ export async function teamCoachesLoader() {
 }
 
 export async function teamInjuriesLoader() {
-	return fetchData<IPlayerInjury[]>('https://api.npoint.io/b3dd1a4b6c818458d567');
+	const injuries = fetchData<IPlayerInjury[]>('https://api.npoint.io/b3dd1a4b6c818458d567');
+
+	return defer({ injuries });
 }

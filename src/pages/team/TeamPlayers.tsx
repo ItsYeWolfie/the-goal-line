@@ -4,6 +4,7 @@ import { IPlayerWithStatistics } from '../../../types/Player.types';
 import { ILeagueWithSeason } from '../../../types/League.types';
 import TeamPlayersTable from '../../components/tabs/team/players/TeamPlayersTable';
 import { filterSelfDuplicates, getPlayersByPosition } from '../../../lib/helpers/ArrayMethods';
+import MainLoadingSpinner from '../../components/MainLoadingSpinner';
 
 function TeamPlayersSection({ playersData }: { playersData: IPlayerWithStatistics[] }) {
 	const [activeLeagueId, setActiveLeagueId] = useState(0);
@@ -80,7 +81,7 @@ export default function TeamPlayers() {
 	const { players } = useLoaderData() as { players: IPlayerWithStatistics[] };
 
 	return (
-		<Suspense fallback={<div>Loading...</div>}>
+		<Suspense fallback={<MainLoadingSpinner />}>
 			<Await resolve={players}>
 				{(playersData: IPlayerWithStatistics[]) => {
 					return TeamPlayersSection({ playersData });
