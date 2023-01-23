@@ -80,7 +80,7 @@ export default function FixturesMain() {
 								<div className="relative flex h-full w-full items-center">
 								<div
 										
-										className={`absolute top-[-150px] right-[-90%] z-[10] ${String(match.fixture.id) === hoveredMatchId ? '' : 'hidden'} h-[250px] w-[350px] rounded-[20px] bg-cyan-800 `}
+										className={`absolute top-[-150px] right-[-90%] z-[10] ${String(match.fixture.id) === hoveredMatchId ? '' : 'hidden'} h-[250px] w-[350px] overflow-hidden rounded-[20px] bg-cyan-800 `}
 										id={`modal-info-${match.fixture.id}`}
  										 >
 												<div className="grid h-full w-full grid-cols-2">
@@ -154,7 +154,7 @@ export default function FixturesMain() {
 								{match.goals.home}:{match.goals.away}
 								</p>
 								<p
-									className="xl:rigth-[10%] absolute right-[13%] w-[25%] text-[15px] text-gray-200 sm:right-[10%] sm:text-[17px] md:right-[15%] md:text-[17px] lg:right-[10%] xl:text-[17px]"
+									className=" xl:rigth-[10%] absolute right-[13%] w-[25%] text-[15px] text-gray-200 sm:right-[10%] sm:text-[17px] md:right-[15%] md:text-[17px] lg:right-[10%] xl:text-[17px]"
 								>
 									 {match.teams.away.name}
 								</p>

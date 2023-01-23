@@ -1,10 +1,11 @@
-import Banner from '../banners/Banner';
-import Banner1 from '../banners/Banner1';
+import Banner from '../Banners/Banner';
+import Banner1 from '../Banners/Banner1';
 import FixturesMain from '../FixturesMain/FixturesMain';
-import KitsSlider from '../kits/kits';
+import KitsSlider from '../Kits/kits';
 import HorizontalLine from '../Layout/Horizontal-Line';
 import Layout from '../Layout/Layout';
 import LogosSlider from '../logos/Logos';
+import NewsSlider from '../News/News-Slider';
 
 export default function HomePage() {
 	return (
@@ -18,6 +19,9 @@ export default function HomePage() {
 			<LogosSlider />
 			<HorizontalLine />
 			<Banner1 />
+			<HorizontalLine />
+			<NewsSlider />
+			<HorizontalLine />
 		</Layout>
 	);
 }
