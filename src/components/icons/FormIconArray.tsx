@@ -12,11 +12,11 @@ export default function FormIconArray({ array }: { array: string[] }) {
 						break;
 
 					case 'D':
-						icon = <AiFillCloseCircle className="text-yellow-500" />;
+						icon = <AiFillMinusCircle className="text-yellow-500" />;
 						break;
 
 					case 'L':
-						icon = <AiFillMinusCircle className="text-red-500" />;
+						icon = <AiFillCloseCircle className="text-red-500" />;
 						break;
 
 					default:

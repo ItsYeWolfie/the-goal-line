@@ -43,16 +43,16 @@ export default function TeamPage() {
 			</section>
 			<div className="grid grid-cols-12 md:space-x-4">
 				<div className="col-span-12 flex flex-col space-y-4 md:col-span-6">
-					<TeamOverviewSequences biggest={biggest} />
 					<TeamOverviewFixtures fixtures={fixtures} />
 					<TeamOverviewStatistics
 						cleanSheet={cleanSheet}
 						failedToScore={failedToScore}
 					/>
+					<TeamOverviewGoals goals={goals} />
 					<TeamOverviewLineups lineups={lineups} />
+					<TeamOverviewSequences biggest={biggest} />
 				</div>
 				<div className="col-span-12 flex flex-col space-y-4 md:col-span-6">
-					<TeamOverviewGoals goals={goals} />
 					<TeamOverviewGoalsAtMinute goals={goals} />
 					<TeamOverviewGoalsAverage goals={goals} />
 					<TeamOverviewPenalties
