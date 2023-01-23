@@ -1,16 +1,19 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+const flowbite = require('flowbite/plugin');
 const forms = require('@tailwindcss/forms');
-
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
-	content: ['./index.html', './src/**/*.{html,js,ts,jsx,tsx}'],
+	content: [
+		"./node_modules/flowbite/**/*.js",
+		'./src/**/*.{html,js,ts,jsx,tsx}'],
+	darkMode: 'class',
+	plugins: [forms, flowbite],
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ['Inter', 'sans-serif', ...defaultTheme.fontFamily.sans],
+				sans: ['Roboto', ...defaultTheme.fontFamily.sans],
 			},
 		},
 	},
-	plugins: [forms],
 };
