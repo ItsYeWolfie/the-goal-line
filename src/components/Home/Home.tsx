@@ -1,5 +1,6 @@
 import Banner from '../banners/Banner';
 import Banner1 from '../banners/Banner1';
+import FixturesMain from '../FixturesMain/FixturesMain';
 import KitsSlider from '../kits/kits';
 import HorizontalLine from '../Layout/Horizontal-Line';
 import Layout from '../Layout/Layout';
@@ -10,12 +11,13 @@ export default function HomePage() {
 		<Layout>
 			<Banner />
 			<HorizontalLine />
+			<FixturesMain />
+			<HorizontalLine />
 			<KitsSlider />
 			<HorizontalLine />
 			<LogosSlider />
 			<HorizontalLine />
 			<Banner1 />
-			<HorizontalLine />
 		</Layout>
 	);
 }
