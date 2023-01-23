@@ -1,3 +1,4 @@
+import { AiFillCheckCircle, AiFillCloseCircle, AiFillMinusCircle } from 'react-icons/ai';
 import { ILeagueStanding } from '../../../../../types/League.types';
 import SmallTableCell from '../../../table/SmallTableCell';
 import TableHeader from '../../../table/TableHeader';
@@ -116,19 +117,19 @@ export default function StandingsTable({ standings }: { standings: ILeagueStandi
 							<SmallTableCell>{standing.points}</SmallTableCell>
 							<SmallTableCell className="hidden sm:table-cell">
 								{formArray.map((f, i) => {
-									let color = 'bg-neutral-500';
+									let icon: JSX.Element = <AiFillCloseCircle />;
 
 									switch (f) {
 										case 'W':
-											color = 'bg-green-500';
+											icon = <AiFillCheckCircle className="text-green-500" />;
 											break;
 
 										case 'D':
-											color = 'bg-yellow-500';
+											icon = <AiFillCloseCircle className="text-yellow-500" />;
 											break;
 
 										case 'L':
-											color = 'bg-red-500';
+											icon = <AiFillMinusCircle className="text-red-500" />;
 											break;
 
 										default:
@@ -136,12 +137,12 @@ export default function StandingsTable({ standings }: { standings: ILeagueStandi
 									}
 
 									return (
-										<div
+										<icon.type
 											key={i}
-											className={`${color} mr-1 inline-block h-4 w-4 rounded-full`}
+											className={`${icon.props.className} inline-block text-base`}
 										>
 											<span className="sr-only">{f}</span>
-										</div>
+										</icon.type>
 									);
 								})}
 							</SmallTableCell>

@@ -1,3 +1,4 @@
+import { AiFillCheckCircle, AiFillCloseCircle, AiFillMinusCircle } from 'react-icons/ai';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { ILeagueWithSeason } from '../../../../../types/League.types';
@@ -66,7 +67,7 @@ export default function TeamOverviewTeamCard({
 							<div className="flex items-center gap-2 text-sm">
 								<img
 									className="h-4 w-4"
-									src={league.flag}
+									src={league.flag ? league.flag : league.logo}
 									alt={`${league.country}'s flag`}
 								/>
 								<h2 className="font-bold">{league.country}</h2>
@@ -80,34 +81,33 @@ export default function TeamOverviewTeamCard({
 				</div>
 				<div className="flex flex-col md:text-center">
 					<p className="order-last mx-auto max-w-sm">
-						{form.split('').map((letter, index) => {
-							let color;
+						{form.split('').map((f, i) => {
+							let icon: JSX.Element = <AiFillCloseCircle />;
 
-							switch (letter) {
+							switch (f) {
 								case 'W':
-									color = 'bg-green-600';
+									icon = <AiFillCheckCircle className="text-green-500" />;
 									break;
 
 								case 'D':
-									color = 'bg-yellow-600';
+									icon = <AiFillCloseCircle className="text-yellow-500" />;
 									break;
 
 								case 'L':
-									color = 'bg-red-600';
+									icon = <AiFillMinusCircle className="text-red-500" />;
 									break;
 
 								default:
-									color = 'bg-neutral-600';
 									break;
 							}
 
 							return (
-								<span
-									className={`${color} order-[-1] ml-1 inline-block h-4 w-4 rounded-full text-xs font-bold text-white md:order-last`}
-									key={index}
+								<icon.type
+									key={i}
+									className={`${icon.props.className} inline-block text-base`}
 								>
-									<span className="sr-only">{letter}</span>
-								</span>
+									<span className="sr-only">{f}</span>
+								</icon.type>
 							);
 						})}
 					</p>
