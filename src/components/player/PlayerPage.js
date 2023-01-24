@@ -1,5 +1,6 @@
 import { html } from 'lit';
 import { LitLightElement } from '../../lib/LitElement';
+import './Overview';
 
 
 
@@ -21,7 +22,7 @@ class PlayerPage extends LitLightElement {
 				name: 'Overview',
 				slug: 'overview',
 				html: html`
-					<h1>hello</h1>
+					<overview-page></overview-page>
 				`,
 			},
 			{
