@@ -1,4 +1,4 @@
-import { ILeagueStanding } from '../../../../../types/League.types';
+import { ILeagueStanding } from '../../../../types/League.types';
 import FormIconArray from '../../../icons/FormIconArray';
 import SmallTableCell from '../../../table/SmallTableCell';
 import TableHeader from '../../../table/TableHeader';

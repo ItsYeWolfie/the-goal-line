@@ -1,4 +1,4 @@
-import { IPlayerWithStatistics } from '../../types/Player.types';
+import { IPlayerWithStatistics } from '../../src/types/Player.types';
 
 export const getPlayersByPosition = (playersList: IPlayerWithStatistics[], position: string) =>
 	playersList.filter((player) => player.statistics[0].games.position === position);

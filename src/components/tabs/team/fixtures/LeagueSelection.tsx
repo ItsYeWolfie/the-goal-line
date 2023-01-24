@@ -1,4 +1,4 @@
-import { IFixture } from '../../../../../types/Fixture.types';
+import { IFixture } from '../../../../types/Fixture.types';
 
 export default function TeamFixturesLeagueSelection({
 	setSelectedLeague,

@@ -1,4 +1,4 @@
-import { IVenue } from '../../../../../types/Venue.types';
+import { IVenue } from '../../../../types/Venue.types';
 
 export default function TeamOverviewVenueCard({ venue }: { venue: IVenue }) {
 	return (

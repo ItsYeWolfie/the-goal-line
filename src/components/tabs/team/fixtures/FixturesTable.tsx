@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrophy } from '@fortawesome/free-solid-svg-icons';
-import { IFixture } from '../../../../../types/Fixture.types';
+import { IFixture } from '../../../../types/Fixture.types';
 import TableHeader from '../../../table/TableHeader';
 import SmallTableCell from '../../../table/SmallTableCell';
 

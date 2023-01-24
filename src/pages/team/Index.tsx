@@ -1,6 +1,6 @@
 import { Outlet, useLoaderData, useNavigation } from 'react-router-dom';
 import { useEffect } from 'react';
-import { ITeamAndVenue } from '../../../types/Team.types';
+import { ITeamAndVenue } from '../../types/Team.types';
 import TeamTabs from './TeamTabs';
 
 export default function TeamIndex() {

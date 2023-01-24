@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCrown, faFutbol, faRug, faShirt } from '@fortawesome/free-solid-svg-icons';
-import { IPlayerWithStatistics } from '../../../../../types/Player.types';
+import { IPlayerWithStatistics } from '../../../../types/Player.types';
 import TableHeader from '../../../table/TableHeader';
 import SmallTableCell from '../../../table/SmallTableCell';
 

@@ -1,4 +1,4 @@
-import { ITransferDetailsModified } from '../../../../../types/Transfers.type';
+import { ITransferDetailsModified } from '../../../../types/Transfers.type';
 import SmallTableCell from '../../../table/SmallTableCell';
 import TableHeader from '../../../table/TableHeader';
 
@@ -19,7 +19,7 @@ export default function PlayerTransfersTable({
 					<TableHeader className="px-3 py-1 text-left">Type</TableHeader>
 				</tr>
 			</thead>
-			<tbody className="max-h-96 overflow-auto text-xs">
+			<tbody className="overflow-auto text-xs md:max-h-96">
 				{transfers.length === 0 && (
 					<tr>
 						<SmallTableCell

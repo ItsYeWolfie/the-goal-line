@@ -1,11 +1,11 @@
 import { useLoaderData, useParams } from 'react-router-dom';
 import { useState, useEffect, useMemo } from 'react';
-import { IFixture } from '../../../types/Fixture.types';
+import { IFixture } from '../../types/Fixture.types';
 import TeamFixturesTable from '../../components/tabs/team/fixtures/FixturesTable';
 import TeamFixturesLeagueSelection from '../../components/tabs/team/fixtures/LeagueSelection';
 import TeamFixturesLeagueCard from '../../components/tabs/team/fixtures/LeagueCard';
-import { filterSelfDuplicates } from '../../../lib/helpers/ArrayMethods';
-import { ILeagueWithSeason } from '../../../types/League.types';
+import { ILeagueWithSeason } from '../../types/League.types';
+import { filterSelfDuplicates } from '../../lib/helpers/ArrayMethods';
 
 export default function TeamFixtures() {
 	const { teamID } = useParams<{ teamID: string }>();

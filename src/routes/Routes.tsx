@@ -10,7 +10,7 @@ import teamOverviewLoader, {
 	teamPlayersLoader,
 	teamStandingsLoader,
 	teamTransfersLoader,
-} from '../../lib/loaders/TeamLoaders';
+} from '../lib/loaders/TeamLoaders';
 import TeamFixtures from '../pages/team/TeamFixtures';
 import TeamStandings from '../pages/team/TeamStandings';
 import TeamPlayers from '../pages/team/TeamPlayers';

@@ -1,4 +1,4 @@
-import { ILeagueWithSeason } from '../../../../../types/League.types';
+import { ILeagueWithSeason } from '../../../../types/League.types';
 
 export default function TeamFixturesLeagueCard({
 	leagues,

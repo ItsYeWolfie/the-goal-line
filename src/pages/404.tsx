@@ -1,7 +1,7 @@
 import { Link, useRouteError } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import errorLinks from '../../lib/ErrorLinks';
+import errorLinks from '../lib/ErrorLinks';
 
 export default function NotFound() {
 	const error = useRouteError() as Error;

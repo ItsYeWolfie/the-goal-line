@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
-import { ILeagueWithSeason } from '../../../../../types/League.types';
-import { ITeam, ITeamStatistics } from '../../../../../types/Team.types';
+import { ILeagueWithSeason } from '../../../../types/League.types';
+import { ITeam, ITeamStatistics } from '../../../../types/Team.types';
 import FormIconArray from '../../../icons/FormIconArray';
 
 export default function TeamOverviewTeamCard({

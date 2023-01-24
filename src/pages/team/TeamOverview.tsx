@@ -1,5 +1,5 @@
 import { useLoaderData, useOutletContext } from 'react-router-dom';
-import { ITeamAndVenue, ITeamStatistics } from '../../../types/Team.types';
+import { ITeamAndVenue, ITeamStatistics } from '../../types/Team.types';
 import TeamOverviewSequences from '../../components/tabs/team/overview/Sequences';
 import TeamOverviewFixtures from '../../components/tabs/team/overview/Fixtures';
 import TeamOverviewStatistics from '../../components/tabs/team/overview/Statistics';

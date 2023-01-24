@@ -1,9 +1,9 @@
 import { Await, useLoaderData } from 'react-router-dom';
 import { useState, Suspense, useEffect, useMemo, useCallback } from 'react';
-import { IPlayerWithStatistics } from '../../../types/Player.types';
-import { ILeagueWithSeason } from '../../../types/League.types';
+import { IPlayerWithStatistics } from '../../types/Player.types';
+import { ILeagueWithSeason } from '../../types/League.types';
 import TeamPlayersTable from '../../components/tabs/team/players/TeamPlayersTable';
-import { filterSelfDuplicates, getPlayersByPosition } from '../../../lib/helpers/ArrayMethods';
+import { filterSelfDuplicates, getPlayersByPosition } from '../../lib/helpers/ArrayMethods';
 import MainLoadingSpinner from '../../components/MainLoadingSpinner';
 
 function TeamPlayersSection({ playersData }: { playersData: IPlayerWithStatistics[] }) {

@@ -2,11 +2,12 @@ import { ITeamBasic } from './Team.types';
 import { IHuman } from './General.types';
 
 export interface ICoach extends IHuman {
+	photo: string;
 	team: ITeamBasic;
 	career: ICoachTeamType[];
 }
 
-interface ICoachTeamType {
+export interface ICoachTeamType {
 	start: string | null;
 	team: ITeamBasic;
 	end: string | null;

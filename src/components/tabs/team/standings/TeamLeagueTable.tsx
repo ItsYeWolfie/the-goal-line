@@ -1,5 +1,5 @@
 import React from 'react';
-import { ILeagueWithStanding } from '../../../../../types/League.types';
+import { ILeagueWithStanding } from '../../../../types/League.types';
 import FormIconArray from '../../../icons/FormIconArray';
 import TableCell from '../../../table/TableCell';
 import TableHeader from '../../../table/TableHeader';

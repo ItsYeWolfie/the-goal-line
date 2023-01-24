@@ -1,6 +1,6 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
-import { ICoach } from '../../../types/Coach.types';
+import { ICoach, ICoachTeamHistory } from '../../types/Coach.types';
 import TeamCoachesTable from '../../components/tabs/team/coaches/TeamCoachesTable';
 
 export default function TeamCoaches() {
@@ -10,29 +10,42 @@ export default function TeamCoaches() {
 			coaches.map((coach) => {
 				const coachHistory = coach.career.find((career) => career.team.id === 33)!;
 				const coachObject = {
-					name: coach.name,
 					id: coach.id,
+					name: coach.name,
+					firstName: coach.firstname,
+					lastName: coach.lastname,
 					age: coach.age,
+					photo: coach.photo,
+					career: coach.career.find((career) => career.team.id === 33),
 				};
 				return { coachObject, coachHistory };
 			}),
 		[coaches],
 	);
 
+	const [activeCoach, setActiveCoach] = useState<ICoachTeamHistory>(coachesHistory[0]);
+
 	return (
 		<section className="flex flex-col justify-between sm:h-[50rem]">
-			<TeamCoachesTable coachesHistory={coachesHistory} />
+			<TeamCoachesTable
+				coachesHistory={coachesHistory}
+				setActiveCoach={setActiveCoach}
+				activeCoach={activeCoach}
+			/>
 			<div className="grid w-full auto-rows-max grid-cols-12 gap-y-8 gap-x-4 p-8">
 				<div className="col-span-4 row-span-full md:col-span-2 xl:col-span-1">
 					<img
-						src="https://media.api-sports.io/football/teams/33.png"
-						alt="Manchester United Logo"
+						src={activeCoach.coachObject.photo}
+						alt={activeCoach.coachObject.name}
+						className="h-full w-full rounded-full object-cover"
 					/>
 				</div>
 				<div className="col-span-8 flex flex-col gap-2 leading-loose sm:col-span-4 lg:col-span-3 xl:col-span-3 xl:border-b xl:border-neutral-500">
-					<header className="text-xl">Oliver Soiskjae</header>
-					<p className="text-sm text-neutral-300">Joined: 11/5/2021</p>
-					<p className="text-sm text-neutral-300">Left: 7/11/2022</p>
+					<header className="text-xl">
+						{activeCoach.coachObject.firstName} {activeCoach.coachObject.lastName}
+					</header>
+					<p className="text-sm text-neutral-300">Joined: {activeCoach.coachHistory.start}</p>
+					<p className="text-sm text-neutral-300">Left: {activeCoach.coachHistory.end || '-'}</p>
 				</div>
 				<div className="col-span-6 flex flex-col justify-between gap-2 text-center sm:col-span-2 lg:col-span-3 xl:col-span-2">
 					<div className="flex flex-col justify-between gap-2">
@@ -84,7 +97,9 @@ export default function TeamCoaches() {
 							<p className="text-xs">Games Drawn</p>
 						</div>
 					</div>
-					<footer className="mt-4 text-xs text-neutral-300 sm:mt-auto">* Data is only valid from 11/5/2021</footer>
+					<footer className="mt-4 text-xs text-neutral-300 sm:mt-auto">
+						* Data is only valid from {activeCoach.coachHistory.start}
+					</footer>
 				</div>
 				<div className="col-span-full h-64 bg-neutral-700 p-2 text-sm sm:col-span-8">
 					<header className="w-full place-self-start text-xs uppercase">Career Milestones</header>

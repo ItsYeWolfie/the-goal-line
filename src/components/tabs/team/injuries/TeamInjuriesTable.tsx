@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { IPlayerInjury } from '../../../../../types/Player.types';
+import { IPlayerInjury } from '../../../../types/Player.types';
 import TableCell from '../../../table/TableCell';
 import TableHeader from '../../../table/TableHeader';
 

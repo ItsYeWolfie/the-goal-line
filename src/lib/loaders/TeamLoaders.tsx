@@ -1,11 +1,11 @@
 import { defer } from 'react-router-dom';
 import fetchData from '../helpers/Fetch';
-import { ITeamAndVenue, ITeamStatistics } from '../../types/Team.types';
-import { IFixture } from '../../types/Fixture.types';
-import { ILeagueWithStanding } from '../../types/League.types';
-import { IPlayerInjury, IPlayerWithStatistics } from '../../types/Player.types';
-import { ITransfer } from '../../types/Transfers.type';
-import { ICoach } from '../../types/Coach.types';
+import { ITeamAndVenue, ITeamStatistics } from '../../src/types/Team.types';
+import { IFixture } from '../../src/types/Fixture.types';
+import { ILeagueWithStanding } from '../../src/types/League.types';
+import { IPlayerInjury, IPlayerWithStatistics } from '../../src/types/Player.types';
+import { ITransfer } from '../../src/types/Transfers.type';
+import { ICoach } from '../../src/types/Coach.types';
 
 export default async function teamOverviewLoader(): Promise<ITeamStatistics> {
 	return fetchData<ITeamStatistics>('https://api.npoint.io/259bb0faaedc5732aebe');

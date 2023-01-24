@@ -1,4 +1,4 @@
-import { ITeamStatistics } from '../../../../../types/Team.types';
+import { ITeamStatistics } from '../../../../types/Team.types';
 import SmallTableCell from '../../../table/SmallTableCell';
 import TableHeader from '../../../table/TableHeader';
 
