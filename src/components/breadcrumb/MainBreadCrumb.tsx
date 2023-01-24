@@ -17,7 +17,7 @@ export default function MainBreadCrumb() {
 					<div>
 						<Link
 							to="/"
-							className="text-gray-200 hover:text-gray-100"
+							className="text-neutral-200 hover:text-neutral-100"
 						>
 							<AiFillHome
 								className="h-5 w-5 shrink-0"
@@ -31,12 +31,12 @@ export default function MainBreadCrumb() {
 					<li key={page.name}>
 						<div className="flex items-center">
 							<HiOutlineChevronRight
-								className="h-5 w-5 shrink-0 text-gray-200"
+								className="h-5 w-5 shrink-0 text-neutral-200"
 								aria-hidden="true"
 							/>
 							<Link
 								to={page.href}
-								className="ml-4 text-sm font-medium text-gray-200 hover:text-gray-100"
+								className="ml-4 text-sm font-medium text-neutral-200 hover:text-neutral-100"
 							>
 								{page.name}
 							</Link>

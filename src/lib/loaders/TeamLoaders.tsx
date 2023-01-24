@@ -1,22 +1,27 @@
 import { defer } from 'react-router-dom';
 import fetchData from '../helpers/Fetch';
-import { ITeamAndVenue, ITeamStatistics } from '../../src/types/Team.types';
-import { IFixture } from '../../src/types/Fixture.types';
-import { ILeagueWithStanding } from '../../src/types/League.types';
-import { IPlayerInjury, IPlayerWithStatistics } from '../../src/types/Player.types';
-import { ITransfer } from '../../src/types/Transfers.type';
-import { ICoach } from '../../src/types/Coach.types';
+import { ITeamAndVenue, ITeamStatistics } from '../../types/Team.types';
+import { IFixture } from '../../types/Fixture.types';
+import { ILeagueWithStanding } from '../../types/League.types';
+import { IPlayerInjury, IPlayerWithStatistics } from '../../types/Player.types';
+import { ITransfer } from '../../types/Transfers.type';
+import { ICoach } from '../../types/Coach.types';
 
 export default async function teamOverviewLoader(): Promise<ITeamStatistics> {
-	return fetchData<ITeamStatistics>('https://api.npoint.io/259bb0faaedc5732aebe');
+	const teamStatistics = fetchData<ITeamStatistics>('https://api.npoint.io/259bb0faaedc5732aebe');
+
+	return defer({ teamStatistics });
 }
 
 export async function teamLoader() {
-	return fetchData<ITeamAndVenue>('https://api.npoint.io/585facaf04546274c0c0/');
+	const teamAndVenue = fetchData<ITeamAndVenue>('https://api.npoint.io/585facaf04546274c0c0/');
+	return defer({ teamAndVenue });
 }
 
 export async function teamFixturesLoader() {
-	return fetchData<IFixture[]>('https://api.npoint.io/3d56ae8265c24b49d6f8');
+	const fixtures = fetchData<IFixture[]>('https://api.npoint.io/3d56ae8265c24b49d6f8');
+
+	return defer({ fixtures });
 }
 
 export async function teamStandingsLoader() {
@@ -38,7 +43,9 @@ export async function teamTransfersLoader() {
 }
 
 export async function teamCoachesLoader() {
-	return fetchData<ICoach[]>('https://api.npoint.io/62712e4d8cdc5074390e');
+	const coaches = fetchData<ICoach[]>('https://api.npoint.io/62712e4d8cdc5074390e');
+
+	return defer({ coaches });
 }
 
 export async function teamInjuriesLoader() {

@@ -21,5 +21,8 @@ export interface ICoachTeamHistory {
 export interface ICoachObject {
 	id: number;
 	name: string;
+	firstName: string;
+	lastName: string;
 	age: number;
+	photo: string;
 }

@@ -4,7 +4,7 @@ import { IFixture } from '../../../../types/Fixture.types';
 import TableHeader from '../../../table/TableHeader';
 import SmallTableCell from '../../../table/SmallTableCell';
 
-export default function TeamFixturesTable({ fixtures, teamIDInt }: { fixtures: IFixture[]; teamIDInt: number }) {
+export default function TeamFixturesTable({ fixtures, teamID: teamIDInt }: { fixtures: IFixture[]; teamID: number }) {
 	return (
 		<table className="min-w-full">
 			<thead className="sticky top-0 bg-neutral-800 text-left text-xs">
