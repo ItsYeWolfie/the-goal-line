@@ -1,12 +1,28 @@
 import { Outlet, useLoaderData, useNavigation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { ITeamAndVenue } from '../../types/Team.types';
 import TeamTabs from './TeamTabs';
 import MainBreadCrumb from '../../components/breadcrumb/MainBreadCrumb';
+import { BreadcrumbContext, IBreadcrumbContext } from '../../contexts/Breadcrumb.context';
 
 export default function TeamIndex() {
 	const { team, venue } = useLoaderData() as ITeamAndVenue;
 	const navigation = useNavigation();
+
+	const { setBreadcrumbs } = useContext<IBreadcrumbContext>(BreadcrumbContext);
+
+	useEffect(() => {
+		setBreadcrumbs([
+			{
+				href: '/teams',
+				name: 'Teams',
+			},
+			{
+				href: `/team/${team.id}`,
+				name: team.name,
+			},
+		]);
+	}, [team.id, team.name, setBreadcrumbs]);
 
 	useEffect(() => {
 		document.title = `${team.name} - The Goal Line`;
@@ -19,18 +35,7 @@ export default function TeamIndex() {
 
 	return (
 		<section className="container mx-auto rounded-lg bg-neutral-800 py-2 md:px-8">
-			<MainBreadCrumb
-				array={[
-					{
-						name: 'Teams',
-						href: '/teams',
-					},
-					{
-						name: team.name,
-						href: `/team/${team.id}`,
-					},
-				]}
-			/>
+			<MainBreadCrumb />
 			<TeamTabs />
 			<section
 				className={`py-8 ${

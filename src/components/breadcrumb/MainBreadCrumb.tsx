@@ -1,21 +1,11 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { AiFillHome } from 'react-icons/ai';
-import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 import { HiOutlineChevronRight } from 'react-icons/hi';
 import { BreadcrumbContext, IBreadcrumbContext } from '../../contexts/Breadcrumb.context';
 
-export default function MainBreadCrumb({ array }: { array: IBreadcrumbContext['breadcrumbs'] }) {
-	const location = useLocation();
-	const { breadcrumbs, setBreadcrumbs } = useContext<IBreadcrumbContext>(BreadcrumbContext);
-	const currentBreadCrumb = breadcrumbs.find((breadcrumb) => breadcrumb.href === location.pathname);
-	useEffect(() => {
-		if (currentBreadCrumb) {
-			return;
-		}
-
-		setBreadcrumbs([...breadcrumbs, ...array]);
-	}, []);
+export default function MainBreadCrumb() {
+	const { breadcrumbs } = useContext<IBreadcrumbContext>(BreadcrumbContext);
 
 	return (
 		<nav
