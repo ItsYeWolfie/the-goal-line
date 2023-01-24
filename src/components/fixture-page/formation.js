@@ -4,28 +4,22 @@ import { LitLightElement } from '../../lib/LitElement';
 class Formation extends LitLightElement {
 	static properties = {
 		formation: { type: Array },
-		lineups: { type: Array },
 		loading: { type: Boolean },
 	};
 
 	constructor() {
 		super();
 		this.formation = [];
-		this.lineups = [];
 		this.loading = true;
 	}
 
 	async connectedCallback() {
 		super.connectedCallback();
-		const response = await fetch('https://api.npoint.io/6c7dc019d30ed2833962');
+		const response = await fetch('https://api.npoint.io/f7cb825e4feb737b6771');
 		const data = await response.json();
 		this.formation = data;
 		this.loading = false;
-		// console.log(data);
-		const res = await fetch('https://api.npoint.io/f7cb825e4feb737b6771');
-		const lineupsData = await res.json();
-		this.lineups = lineupsData;
-		console.log(lineupsData);
+		console.log(data);
 	}
 
 	render() {
@@ -43,27 +37,27 @@ class Formation extends LitLightElement {
 		>
 			<span class="flex justify-around">
 				<span class="flex flex-col items-center md:my-auto lg:my-auto"
-					><img src="${this.formation.teams.home.logo}" width="50px" height="50px" />
-					<p>${this.formation.lineups[0].formation}</p></span
+					><img src="${this.formation[0].team.logo}" width="50px" height="50px" />
+					<p>${this.formation[0].formation}</p></span
 				>
 				<span class="flex flex-col items-center md:hidden lg:my-auto lg:hidden"
-					><img src="${this.formation.teams.away.logo}" width="50px" height="50px" />
-					<p>${this.formation.lineups[1].formation}</p></span
+					><img src="${this.formation[1].team.logo}" width="50px" height="50px" />
+					<p>${this.formation[1].formation}</p></span
 				>
 			</span>
 			<div class="mx-auto flex h-[16rem] w-[23.8rem] bg-green-900 md:mx-0 lg:mx-0">
-				<div class="absolute h-64 w-48 grid-cols-4 grid-rows-4 border-2 border-solid border-white">
-					<div class="absolute top-8 -ml-8 grid h-48 w-64 -rotate-90 grid-cols-5 grid-rows-5 justify-center">
-						${this.lineups[0].startXI.map((player) => {
+				<div class="absolute h-64 w-48 border-2 border-solid border-white">
+					<div class="absolute top-8 -ml-8 grid h-48 w-64 z-50 -rotate-90 auto-cols-auto auto-rows-auto place-items-center place-content-center justify-around align-middle gap-2 p-2">
+						${this.formation[0].startXI.map((player) => {
 							const grid = player.player.grid.split(':');
 							const row = parseInt(grid[0]);
 							const col = parseInt(grid[1]);
 							console.log(row, col);
 							return html`<div
-								class="row-span-${row} col-span-${col} z-100 h-8 w-8 rounded-full bg-blue-500 text-center"
+								class="row-start-${row} col-start-${col} h-7 w-7 items-center rounded-full bg-lime-700 text-center"
 							>
 								${player.player.pos}
-							</div> `;
+							</div>`;
 						})};
 					</div>
 					<div class="absolute -ml-[1px] mt-12 h-40 w-20 border-2 border-solid border-white">
@@ -77,14 +71,14 @@ class Formation extends LitLightElement {
 					></div>
 				</div>
 				<div class="absolute ml-[191px] h-64 w-48 border-2 border-solid border-white">
-					<div class="absolute top-8 -ml-8 grid h-48 w-64 rotate-90 grid-cols-5 grid-rows-5">
-						${this.lineups[1].startXI.map((player) => {
+					<div class="absolute top-8 -ml-8 grid h-48 w-64  z-50 rotate-90  justify-around gap-2 p-2">
+						${this.formation[1].startXI.map((player) => {
 							const grid = player.player.grid.split(':');
 							const row = parseInt(grid[0]);
 							const col = parseInt(grid[1]);
 							console.log(row, col);
 							return html`<div
-								class="row-span-${row} col-span-${col} h-8 w-8 rounded-full bg-gray-500 text-center"
+								class="row-start-${row} col-start-${col} h-7 w-7  items-center rounded-full bg-sky-600 text-center"
 							>
 								${player.player.pos}
 							</div>`;
@@ -101,8 +95,8 @@ class Formation extends LitLightElement {
 					</div>
 				</div>
 				<span class="my-auto hidden items-center md:flex md:flex-col lg:flex lg:flex-col"
-					><img src="${this.formation.teams.away.logo}" width="50px" height="50px" />
-					<p>${this.formation.lineups[1].formation}</p></span
+					><img src="${this.formation[1].team.logo}" width="50px" height="50px" />
+					<p>${this.formation[1].formation}</p></span
 				>
 			</div>
 		</div> `;
