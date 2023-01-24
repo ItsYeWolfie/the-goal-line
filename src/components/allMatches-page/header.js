@@ -15,7 +15,7 @@ class Header extends LitLightElement {
 		const tomorrowWeek = moment().add(1, 'days').format('ddd').toLocaleUpperCase();
 		const dayAfterTomorrowWeek = moment().add(2, 'days').format('ddd').toLocaleUpperCase();
 
-		return html`<div class="flex gap-4 md:gap-20 lg:gap-8">
+		return html`<div class="flex gap-4 md:gap-20 lg:gap-10">
 			<span
 				class="my-auto h-5 w-10 cursor-pointer rounded-sm bg-gray-200 text-center text-gray-800 hover:bg-sky-600 hover:text-gray-200"
 				>LIVE</span
