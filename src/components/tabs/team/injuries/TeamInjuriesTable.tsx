@@ -33,7 +33,7 @@ export default function TeamInjuriesTable({ injuriesData }: { injuriesData: IPla
 					});
 					return (
 						<tr
-							key={injury.fixture.id + injury.player.id}
+							key={injury.fixture.timestamp + injury.player.name}
 							className={index % 2 === 0 ? 'bg-neutral-700' : 'bg-neutral-800'}
 						>
 							<TableCell>{formattedDate}</TableCell>

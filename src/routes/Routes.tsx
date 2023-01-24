@@ -17,11 +17,13 @@ import TeamPlayers from '../pages/team/TeamPlayers';
 import TeamTransfers from '../pages/team/TeamTransfers';
 import TeamCoaches from '../pages/team/TeamCoaches';
 import TeamInjuries from '../pages/team/TeamInjuries';
+import Index from '../pages/Index';
 
 export const router = createBrowserRouter([
 	{
 		path: '/',
 		errorElement: <NotFound />,
+		element: <Index />,
 		children: [
 			{
 				path: '/',
