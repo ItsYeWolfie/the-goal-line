@@ -40,7 +40,7 @@ export default function Banner() {
 				>
 					<div className="items-strech relative flex h-full w-full flex-col justify-between rounded-[20px] bg-gray-50 dark:bg-gray-900  md:w-8/12 md:flex-row  lg:w-7/12  xl:w-8/12  2xl:w-9/12">
 						<img
-							className="h-full w-full rounded-[20px] opacity-[0.6]"
+							className="h-full w-full rounded-[20px] opacity-[0.7]"
 							src="src/images/140324050941-bernabeu.jpg"
 							alt=""
 						/>

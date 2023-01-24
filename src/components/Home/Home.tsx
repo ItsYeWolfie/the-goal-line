@@ -1,7 +1,8 @@
 import Banner from '../Banners/Banner';
 import Banner1 from '../Banners/Banner1';
 import FixturesMain from '../FixturesMain/FixturesMain';
-import KitsSlider from '../Kits/kits';
+import StandingsMain from '../FixturesMain/StandingsMain';
+import KitsSlider from '../kits/kits';
 import HorizontalLine from '../Layout/Horizontal-Line';
 import Layout from '../Layout/Layout';
 import LogosSlider from '../logos/Logos';
@@ -11,6 +12,8 @@ export default function HomePage() {
 	return (
 		<Layout>
 			<Banner />
+			<HorizontalLine />
+			<StandingsMain />
 			<HorizontalLine />
 			<FixturesMain />
 			<HorizontalLine />

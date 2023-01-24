@@ -1,3 +1,4 @@
+/* eslint-disable tailwindcss/no-custom-classname */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-shadow */
@@ -88,7 +89,7 @@ export default function NewsSlider() {
 						</p>
 					</div>
 
-					<FaNewspaper className=" absolute left-[0%] text-blue-400 lg:text-2xl" />
+					<FaNewspaper className=" absolute left-[0%] text-yellow-400 lg:text-2xl" />
 					<span className="absolute left-[6%] items-center text-[14px] font-[400] text-gray-200 md:left-[3%] md:text-lg lg:text-xl">
 						All News and Transfer Today
 					</span>

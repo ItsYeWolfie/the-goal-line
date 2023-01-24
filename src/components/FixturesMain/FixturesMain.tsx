@@ -3,7 +3,7 @@
 /* eslint-disable prettier/prettier */
 
 import { useState, useEffect } from 'react';
-import { FaInfoCircle } from 'react-icons/fa';
+import { FaFutbol, FaInfoCircle } from 'react-icons/fa';
 import moment from 'moment';
 import fetchData from '../../../lib/helpers/Fetch';
 import { FootballMatch } from '../../../types/Fixture-Main.types';
@@ -34,13 +34,12 @@ export default function FixturesMain() {
 		<section className="m-[3%]">
 			<div className="w-full rounded-t-[40px]">
 				<div className="relative h-[125px] w-full border-b-[5px] border-gray-300">
-					<div className="flex">
+					<div className="flex items-center">
 						<p
-							className="mt-[6%] ml-[3%] w-full text-[20px] text-gray-200 sm:mt-[2%] md:mt-[1%] md:ml-[1%]"
+							className=" mt-[6%]  ml-[3%] flex w-full  gap-[1%] text-[20px] text-gray-200 sm:mt-[2%] md:mt-[1%] md:ml-[1%]"
 						>
-							<i
-								className=" mr-[1%] mt-[1%] rounded-full text-[20px] text-yellow-500"
-							 />
+							<FaFutbol className=" mr-[0.4%] mt-[0.4%]  rounded-full text-[20px] text-yellow-500"
+							  />
 							Football Matches
 						</p>
 					</div>
