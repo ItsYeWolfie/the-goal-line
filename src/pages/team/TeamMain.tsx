@@ -28,7 +28,7 @@ export default function TeamMainPage({ team, venue }: ITeamAndVenue) {
 				<TeamTabs />
 			</div>
 			<section
-				className={`shrink-0 grow-0 overflow-y-auto p-2 dark:bg-neutral-800 ${
+				className={`shrink-0 grow-0 overflow-y-auto p-2 ${
 					navigation.state === 'loading' ? 'animate-pulse opacity-25 transition-opacity duration-300' : ''
 				}`}
 			>

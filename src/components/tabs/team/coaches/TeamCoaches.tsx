@@ -101,7 +101,7 @@ export default function TeamCoaches({ coaches }: { coaches: ICoach[] }) {
 				<div className="col-span-full h-64 bg-neutral-300 p-2 text-sm dark:bg-neutral-700 sm:col-span-8">
 					<header className="w-full place-self-start text-xs uppercase">Career Milestones</header>
 					<div className="flex h-full flex-col items-center justify-center">
-						<p className="text-neutral-300">No milestones yet</p>
+						<p className="text-neutral-700 dark:text-neutral-300">No milestones yet</p>
 					</div>
 				</div>
 			</div>

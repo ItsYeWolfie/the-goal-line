@@ -44,7 +44,7 @@ export default function StandingsTable({ standings }: { standings: ILeagueStandi
 							backgroundColor = 'bg-red-500 dark:bg-red-700';
 							break;
 						default:
-							backgroundColor = 'text-neutral-700';
+							backgroundColor = 'text-neutral-700 dark:text-neutral-300';
 							break;
 					}
 
