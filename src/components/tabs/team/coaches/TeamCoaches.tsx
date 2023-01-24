@@ -3,7 +3,6 @@ import { ICoach, ICoachTeamHistory } from '../../../../types/Coach.types';
 import TeamCoachesTable from './TeamCoachesTable';
 
 export default function TeamCoaches({ coaches }: { coaches: ICoach[] }) {
-	console.log('coaches', coaches);
 	const coachesHistory = useMemo(
 		() =>
 			coaches.map((coach) => {

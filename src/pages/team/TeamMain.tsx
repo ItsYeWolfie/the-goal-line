@@ -21,26 +21,19 @@ export default function TeamMainPage({ team, venue }: ITeamAndVenue) {
 		]);
 	}, [team.id, team.name, setBreadcrumbs]);
 
-	useEffect(() => {
-		document.title = `${team.name} - The Goal Line`;
-		document.body.classList.add('overflow-y-scroll');
-
-		return () => {
-			document.body.classList.remove('overflow-y-scroll');
-		};
-	}, [team.name]);
-
 	return (
-		<section className="container mx-auto rounded-lg py-2 md:px-8">
-			<MainBreadCrumb />
-			<TeamTabs />
+		<>
+			<div className="static top-0 z-20 flex shrink-0 grow-0 flex-col bg-sky-900 p-2 md:sticky">
+				<MainBreadCrumb />
+				<TeamTabs />
+			</div>
 			<section
-				className={`py-8 ${
+				className={`shrink-0 grow-0 overflow-y-auto bg-neutral-800 p-2 ${
 					navigation.state === 'loading' ? 'animate-pulse opacity-25 transition-opacity duration-300' : ''
 				}`}
 			>
 				<Outlet context={{ team, venue }} />
 			</section>
-		</section>
+		</>
 	);
 }

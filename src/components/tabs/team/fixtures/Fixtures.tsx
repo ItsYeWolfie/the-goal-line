@@ -12,7 +12,6 @@ export default function TeamFixtures({ teamFixtures }: { teamFixtures: IFixture[
 	const {
 		team: { id },
 	} = useOutletContext<ITeamAndVenue>();
-	console.log(teamFixtures);
 	teamFixtures.sort((a, b) => {
 		return new Date(b.fixture.date).getTime() - new Date(a.fixture.date).getTime();
 	});

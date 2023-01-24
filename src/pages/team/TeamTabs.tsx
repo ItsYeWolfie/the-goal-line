@@ -16,12 +16,12 @@ export default function TeamTabs() {
 		<>
 			<DropdownList
 				title={dropdownName}
-				className="relative z-50 w-full items-center rounded-md border border-transparent bg-neutral-700 px-4 py-2 text-sm font-medium text-neutral-200 hover:bg-neutral-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 md:hidden"
+				className="relative z-20 w-full items-center border border-transparent bg-neutral-700 px-4 py-2 text-sm font-medium text-neutral-200 hover:bg-neutral-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 md:hidden"
 			>
 				<div className="absolute top-full right-0 z-10 w-full rounded-md bg-neutral-700 shadow-lg">
 					{teamTabs.map((tab: ITab) => (
 						<NavLink
-							to={tab.href}
+							to={`/team/${teamID}${tab.href}`}
 							key={tab.name}
 							onClick={() => setDropdownName(tab.name)}
 							className={({ isActive }) =>

@@ -9,10 +9,10 @@ export default function MainBreadCrumb() {
 
 	return (
 		<nav
-			className="flex py-8"
+			className="flex px-2 py-4"
 			aria-label="Breadcrumb"
 		>
-			<ol className="flex items-center space-x-4">
+			<ol className="flex items-center gap-x-4">
 				<li>
 					<div>
 						<Link

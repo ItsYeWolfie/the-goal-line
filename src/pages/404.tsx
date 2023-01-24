@@ -31,7 +31,7 @@ export default function NotFound() {
 						<ul className="mt-4 divide-y divide-neutral-500 border-y border-neutral-500">
 							{errorLinks.map((link) => (
 								<li
-									className="relative flex items-start space-x-4 py-6"
+									className="relative flex items-start gap-x-4 py-6"
 									key={link.title}
 								>
 									<div className="shrink-0">
@@ -83,7 +83,7 @@ export default function NotFound() {
 			{/* <footer className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
 				<div className="border-t border-neutral-200 py-12 text-center md:flex md:justify-between">
 					<p className="text-base text-neutral-400">&copy; Your Company, Inc. All rights reserved.</p>
-					<div className="mt-6 flex justify-center space-x-8 md:mt-0">
+					<div className="mt-6 flex justify-center gap-x-8 md:mt-0">
 						{social.map((item, itemIdx) => (
 							<Link
 								key={itemIdx}

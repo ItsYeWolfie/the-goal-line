@@ -38,7 +38,7 @@ export default function TeamOverviewPage() {
 					return (
 						<>
 							<section className="mb-4">
-								<div className="w-full md:flex md:space-x-4">
+								<div className="w-full md:flex md:gap-x-4">
 									<TeamOverviewTeamCard
 										team={team}
 										form={form}
@@ -47,8 +47,8 @@ export default function TeamOverviewPage() {
 									<TeamOverviewVenueCard venue={venue} />
 								</div>
 							</section>
-							<div className="grid grid-cols-12 md:space-x-4">
-								<div className="col-span-12 flex flex-col space-y-4 md:col-span-6">
+							<div className="grid grid-cols-12 md:gap-x-4">
+								<div className="col-span-12 flex flex-col gap-y-4 md:col-span-6">
 									<TeamOverviewFixtures fixtures={fixtures} />
 									<TeamOverviewStatistics
 										cleanSheet={cleanSheet}
@@ -58,7 +58,7 @@ export default function TeamOverviewPage() {
 									<TeamOverviewLineups lineups={lineups} />
 									<TeamOverviewSequences biggest={biggest} />
 								</div>
-								<div className="col-span-12 flex flex-col space-y-4 md:col-span-6">
+								<div className="col-span-12 flex flex-col gap-y-4 md:col-span-6">
 									<TeamOverviewGoalsAtMinute goals={goals} />
 									<TeamOverviewGoalsAverage goals={goals} />
 									<TeamOverviewPenalties

@@ -17,7 +17,7 @@ export default function MainLoadingSpinner() {
 	}, []);
 
 	return (
-		<section className="absolute top-0 left-0 h-full w-full bg-neutral-800 bg-opacity-70">
+		<section className="absolute top-0 left-0 z-50 h-full w-full bg-neutral-800 bg-opacity-70">
 			<div className="flex h-full items-center justify-center">
 				<ImSpinner10 className="animate-spin text-5xl text-neutral-100" />
 			</div>
