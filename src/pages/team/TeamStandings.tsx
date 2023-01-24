@@ -1,6 +1,6 @@
 import { Await, useLoaderData } from 'react-router-dom';
 import { Suspense } from 'react';
-import { ILeagueWithStanding } from '../../../types/League.types';
+import { ILeagueWithStanding } from '../../types/League.types';
 import StandingsTable from '../../components/tabs/team/standings/StandingsTable';
 import TeamLeagueTable from '../../components/tabs/team/standings/TeamLeagueTable';
 import MainLoadingSpinner from '../../components/MainLoadingSpinner';

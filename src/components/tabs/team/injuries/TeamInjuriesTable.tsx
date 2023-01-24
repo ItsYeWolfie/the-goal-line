@@ -1,7 +1,9 @@
 import { useMemo } from 'react';
-import { IPlayerInjury } from '../../../../../types/Player.types';
+import { IPlayerInjury } from '../../../../types/Player.types';
 import TableCell from '../../../table/TableCell';
+import TableHead from '../../../table/TableHead';
 import TableHeader from '../../../table/TableHeader';
+import TableRow from '../../../table/TableRow';
 
 export default function TeamInjuriesTable({ injuriesData }: { injuriesData: IPlayerInjury[] }) {
 	useMemo(
@@ -13,8 +15,8 @@ export default function TeamInjuriesTable({ injuriesData }: { injuriesData: IPla
 	);
 
 	return (
-		<table className="w-full">
-			<thead className="bg-neutral-900 text-left text-xs">
+		<table className="w-full text-xs">
+			<TableHead className="text-left">
 				<tr>
 					<TableHeader className="px-3 py-1">Date</TableHeader>
 					<TableHeader className="px-3 py-1">Player</TableHeader>
@@ -23,8 +25,8 @@ export default function TeamInjuriesTable({ injuriesData }: { injuriesData: IPla
 					<TableHeader className="hidden px-3 py-1 sm:table-cell">League</TableHeader>
 					<TableHeader className="hidden px-3 py-1 lg:table-cell">Season</TableHeader>
 				</tr>
-			</thead>
-			<tbody className="text-xs">
+			</TableHead>
+			<tbody>
 				{injuriesData.map((injury, index) => {
 					const formattedDate = new Date(injury.fixture.date).toLocaleDateString('en-GB', {
 						day: 'numeric',
@@ -32,9 +34,9 @@ export default function TeamInjuriesTable({ injuriesData }: { injuriesData: IPla
 						year: 'numeric',
 					});
 					return (
-						<tr
-							key={injury.fixture.id + injury.player.id}
-							className={index % 2 === 0 ? 'bg-neutral-700' : 'bg-neutral-800'}
+						<TableRow
+							key={injury.fixture.timestamp + injury.player.name}
+							even={index % 2 === 0}
 						>
 							<TableCell>{formattedDate}</TableCell>
 							<TableCell>{injury.player.name}</TableCell>
@@ -60,7 +62,7 @@ export default function TeamInjuriesTable({ injuriesData }: { injuriesData: IPla
 							<TableCell className="hidden lg:table-cell">
 								{injury.league.season}/{injury.league.season + 1}
 							</TableCell>
-						</tr>
+						</TableRow>
 					);
 				})}
 			</tbody>

@@ -1,13 +1,14 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrophy } from '@fortawesome/free-solid-svg-icons';
-import { IFixture } from '../../../../../types/Fixture.types';
+import { IFixture } from '../../../../types/Fixture.types';
 import TableHeader from '../../../table/TableHeader';
 import SmallTableCell from '../../../table/SmallTableCell';
+import TableHead from '../../../table/TableHead';
 
-export default function TeamFixturesTable({ fixtures, teamIDInt }: { fixtures: IFixture[]; teamIDInt: number }) {
+export default function TeamFixturesTable({ fixtures, teamID: teamIDInt }: { fixtures: IFixture[]; teamID: number }) {
 	return (
 		<table className="min-w-full">
-			<thead className="sticky top-0 bg-neutral-800 text-left text-xs">
+			<TableHead className="sticky top-0 text-left text-xs">
 				<tr>
 					<TableHeader className="p-3 sm:pl-6 md:table-cell">Opponent</TableHeader>
 					<TableHeader className="hidden p-3 lg:table-cell">Round</TableHeader>
@@ -16,9 +17,9 @@ export default function TeamFixturesTable({ fixtures, teamIDInt }: { fixtures: I
 					<TableHeader className="p-3 md:table-cell">Status</TableHeader>
 					<TableHeader className="p-3  md:table-cell">Result</TableHeader>
 				</tr>
-			</thead>
+			</TableHead>
 
-			<tbody className="divide-y divide-neutral-500 text-sm text-neutral-300">
+			<tbody className="text-sm text-gray-300">
 				{fixtures.map((fixture) => {
 					const { fixture: match, goals, league, teams } = fixture;
 					const { home, away } = teams;
@@ -26,15 +27,15 @@ export default function TeamFixturesTable({ fixtures, teamIDInt }: { fixtures: I
 					const isWinner = Object.values(teams).find((team) => team.id === teamIDInt && team.winner);
 
 					const { status } = match;
-					let backgroundColor = 'bg-neutral-700';
+					let backgroundColor = 'bg-gray-700';
 					if (isWinner) {
-						backgroundColor = 'bg-green-700';
+						backgroundColor = 'bg-green-600 dark:bg-green-700';
 					} else if (status.short === 'FT' && goals.home === goals.away) {
-						backgroundColor = 'bg-yellow-700';
+						backgroundColor = 'bg-yellow-600 dark:bg-yellow-700';
 					} else if (!isWinner && status.short === 'FT') {
-						backgroundColor = 'bg-red-700';
+						backgroundColor = 'bg-red-600 dark:bg-red-700';
 					} else if (status.short === 'NS') {
-						backgroundColor = 'bg-blue-800';
+						backgroundColor = 'bg-blue-600 dark:bg-blue-800';
 					}
 					const { date } = match;
 					const formattedDate = new Date(date).toLocaleDateString('en-GB', {
@@ -44,11 +45,11 @@ export default function TeamFixturesTable({ fixtures, teamIDInt }: { fixtures: I
 					});
 					return (
 						<tr
-							className={`${backgroundColor} bg-opacity-40 transition-colors duration-300 hover:bg-neutral-600`}
+							className={`${backgroundColor} transition-colors duration-300 hover:bg-gray-400 dark:bg-opacity-40 dark:hover:bg-gray-600`}
 							key={fixture.fixture.id}
 						>
 							<SmallTableCell className="text-sm sm:pl-6">
-								<div className="font-medium text-neutral-200">
+								<div className="font-medium text-gray-200">
 									<div className="flex items-center gap-3">
 										<img
 											src={isHome ? away.logo : home.logo}

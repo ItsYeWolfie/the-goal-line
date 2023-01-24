@@ -1,4 +1,4 @@
-import { ILeagueWithSeason } from '../../../../../types/League.types';
+import { ILeagueWithSeason } from '../../../../types/League.types';
 
 export default function TeamFixturesLeagueCard({
 	leagues,
@@ -8,7 +8,7 @@ export default function TeamFixturesLeagueCard({
 	selectedLeague: number;
 }) {
 	return (
-		<div className="bg-neutral-800 p-4 text-white md:rounded-md md:text-center">
+		<div className="bg-gray-200 p-4 text-gray-900 dark:bg-gray-800 dark:text-white md:rounded-md md:text-center">
 			{leagues
 				.filter((league) => {
 					return league.id === selectedLeague;

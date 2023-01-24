@@ -4,37 +4,37 @@ export const teamTabs: ITab[] = [
 	{
 		name: 'Overview',
 		slug: 'overview',
-		href: './',
+		href: '/',
 	},
 	{
 		name: 'Fixtures',
 		slug: 'fixtures',
-		href: './fixtures',
+		href: '/fixtures',
 	},
 	{
 		name: 'Players',
 		slug: 'players',
-		href: './players',
+		href: '/players',
 	},
 	{
 		name: 'Transfers',
 		slug: 'transfers',
-		href: './transfers',
+		href: '/transfers',
 	},
 	{
 		name: 'Standings',
 		slug: 'standings',
-		href: './standings',
+		href: '/standings',
 	},
 	{
 		name: 'Coaches',
 		slug: 'coaches',
-		href: './coaches',
+		href: '/coaches',
 	},
 	{
 		name: 'Injuries',
 		slug: 'injuries',
-		href: './injuries',
+		href: '/injuries',
 	},
 ];
 

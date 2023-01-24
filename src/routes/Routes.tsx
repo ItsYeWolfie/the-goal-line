@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import NotFound from '../pages/404';
-import TeamPage from '../pages/team/TeamOverview';
+import TeamOverviewPage from '../pages/team/TeamOverview';
 import TeamIndex from '../pages/team/Index';
 import teamOverviewLoader, {
 	teamCoachesLoader,
@@ -10,18 +10,20 @@ import teamOverviewLoader, {
 	teamPlayersLoader,
 	teamStandingsLoader,
 	teamTransfersLoader,
-} from '../../lib/loaders/TeamLoaders';
-import TeamFixtures from '../pages/team/TeamFixtures';
+} from '../lib/loaders/TeamLoaders';
+import TeamFixturesPage from '../pages/team/TeamFixtures';
 import TeamStandings from '../pages/team/TeamStandings';
 import TeamPlayers from '../pages/team/TeamPlayers';
 import TeamTransfers from '../pages/team/TeamTransfers';
-import TeamCoaches from '../pages/team/TeamCoaches';
-import TeamInjuries from '../pages/team/TeamInjuries';
+import TeamCoachesPage from '../pages/team/TeamCoaches';
+import TeamInjuriesPage from '../pages/team/TeamInjuries';
+import Index from '../pages/Index';
 
 export const router = createBrowserRouter([
 	{
 		path: '/',
 		errorElement: <NotFound />,
+		element: <Index />,
 		children: [
 			{
 				path: '/',
@@ -35,12 +37,12 @@ export const router = createBrowserRouter([
 				children: [
 					{
 						index: true,
-						element: <TeamPage />,
+						element: <TeamOverviewPage />,
 						loader: teamOverviewLoader,
 					},
 					{
 						path: 'fixtures',
-						element: <TeamFixtures />,
+						element: <TeamFixturesPage />,
 						loader: teamFixturesLoader,
 					},
 					{
@@ -60,12 +62,12 @@ export const router = createBrowserRouter([
 					},
 					{
 						path: 'coaches',
-						element: <TeamCoaches />,
+						element: <TeamCoachesPage />,
 						loader: teamCoachesLoader,
 					},
 					{
 						path: 'injuries',
-						element: <TeamInjuries />,
+						element: <TeamInjuriesPage />,
 						loader: teamInjuriesLoader,
 					},
 				],

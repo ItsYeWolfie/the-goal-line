@@ -25,6 +25,9 @@ interface IPlayerStatistics extends IPlayer {
 }
 
 interface IPlayer extends IHumanBasic {
+	age: number;
+	firstname: string;
+	lastname: string;
 	photo: string;
 	injured: false;
 }
