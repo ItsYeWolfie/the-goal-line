@@ -19,7 +19,7 @@ export default function TeamFixturesTable({ fixtures, teamID: teamIDInt }: { fix
 				</tr>
 			</TableHead>
 
-			<tbody className="text-sm text-neutral-300">
+			<tbody className="text-sm text-gray-300">
 				{fixtures.map((fixture) => {
 					const { fixture: match, goals, league, teams } = fixture;
 					const { home, away } = teams;
@@ -27,7 +27,7 @@ export default function TeamFixturesTable({ fixtures, teamID: teamIDInt }: { fix
 					const isWinner = Object.values(teams).find((team) => team.id === teamIDInt && team.winner);
 
 					const { status } = match;
-					let backgroundColor = 'bg-neutral-700';
+					let backgroundColor = 'bg-gray-700';
 					if (isWinner) {
 						backgroundColor = 'bg-green-600 dark:bg-green-700';
 					} else if (status.short === 'FT' && goals.home === goals.away) {
@@ -45,11 +45,11 @@ export default function TeamFixturesTable({ fixtures, teamID: teamIDInt }: { fix
 					});
 					return (
 						<tr
-							className={`${backgroundColor} transition-colors duration-300 hover:bg-neutral-400 dark:bg-opacity-40 dark:hover:bg-neutral-600`}
+							className={`${backgroundColor} transition-colors duration-300 hover:bg-gray-400 dark:bg-opacity-40 dark:hover:bg-gray-600`}
 							key={fixture.fixture.id}
 						>
 							<SmallTableCell className="text-sm sm:pl-6">
-								<div className="font-medium text-neutral-200">
+								<div className="font-medium text-gray-200">
 									<div className="flex items-center gap-3">
 										<img
 											src={isHome ? away.logo : home.logo}

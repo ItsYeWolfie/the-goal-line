@@ -6,7 +6,7 @@ import TableRow from '../../../table/TableRow';
 
 export default function TeamOverviewGoals({ goals }: { goals: ITeamStatistics['goals'] }) {
 	return (
-		<table className="bg-neutral-700 uppercase">
+		<table className="bg-gray-700 uppercase">
 			<TableHead className="text-xs">
 				<tr>
 					<TableHeader className="py-1 px-3 text-left">Total Goals</TableHeader>
@@ -26,7 +26,7 @@ export default function TeamOverviewGoals({ goals }: { goals: ITeamStatistics['g
 					<SmallTableCell className="text-center">{goals.against.total.away || '-'}</SmallTableCell>
 				</TableRow>
 			</tbody>
-			<tfoot className="border-t bg-neutral-400 text-xs dark:bg-neutral-800">
+			<tfoot className="border-t bg-gray-400 text-xs dark:bg-gray-800">
 				<tr>
 					<SmallTableCell>Total</SmallTableCell>
 					<SmallTableCell className="text-center">{goals.for.total.total || '-'}</SmallTableCell>

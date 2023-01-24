@@ -7,7 +7,7 @@ import TableRow from '../../../table/TableRow';
 export default function TeamOverviewSequences({ biggest }: { biggest: ITeamStatistics['biggest'] }) {
 	const { wins, goals, loses, streak } = biggest;
 	return (
-		<table className="w-full bg-neutral-700 text-xs">
+		<table className="w-full bg-gray-700 text-xs">
 			<TableHead>
 				<tr>
 					<TableHeader

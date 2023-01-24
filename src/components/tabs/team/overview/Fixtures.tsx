@@ -8,7 +8,7 @@ export default function TeamOverviewFixtures({ fixtures }: { fixtures: ITeamStat
 	const { wins, draws, loses, played } = fixtures;
 	return (
 		<div className="min-w-full max-w-full overflow-x-auto">
-			<table className="w-full bg-neutral-100 text-xs uppercase dark:bg-neutral-700">
+			<table className="w-full bg-gray-100 text-xs uppercase dark:bg-gray-700">
 				<TableHead>
 					<tr>
 						<TableHeader className="py-1 px-3 text-left">Fixtures</TableHeader>
@@ -35,7 +35,7 @@ export default function TeamOverviewFixtures({ fixtures }: { fixtures: ITeamStat
 						<SmallTableCell className="text-center">{played.away || '-'}</SmallTableCell>
 					</TableRow>
 				</tbody>
-				<tfoot className="bg-neutral-400 dark:bg-neutral-800">
+				<tfoot className="bg-gray-400 dark:bg-gray-800">
 					<tr>
 						<SmallTableCell>Total</SmallTableCell>
 						<SmallTableCell className="text-center">{wins.total || '-'}</SmallTableCell>

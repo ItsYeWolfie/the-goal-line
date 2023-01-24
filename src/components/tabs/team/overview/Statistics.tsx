@@ -12,7 +12,7 @@ export default function TeamOverviewStatistics({
 	failedToScore: ITeamStatistics['failed_to_score'];
 }) {
 	return (
-		<table className="w-full bg-neutral-700">
+		<table className="w-full bg-gray-700">
 			<TableHead className="text-xs">
 				<tr>
 					<TableHeader className="py-1 px-3 text-left">Statistics</TableHeader>

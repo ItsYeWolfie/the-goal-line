@@ -51,12 +51,16 @@ export default function TeamCoachesTable({
 						<TableRow
 							key={coach.coachObject.id}
 							even={index % 2 === 0}
-							className="hover:bg-neutral-400 dark:hover:bg-neutral-700"
+							className={`transition-all duration-300 hover:bg-green-300 dark:hover:bg-green-500 ${
+								activeCoach.coachObject.id === coach.coachObject.id
+									? 'bg-green-500 bg-opacity-60 dark:bg-green-800'
+									: ''
+							}`}
 							onClick={() => setActiveCoach(coach)}
 						>
 							<SmallTableCell className="max-w-[1rem]">
 								<button
-									className="h-6 w-6 rounded-full text-neutral-700 hover:text-neutral-900 focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2 focus:ring-offset-neutral-200 dark:text-neutral-300 dark:hover:text-neutral-100 dark:focus:ring-offset-neutral-800"
+									className="h-6 w-6 rounded-full text-gray-700 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-200 dark:text-gray-300 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800"
 									type="button"
 								>
 									<span className="sr-only">Set Active Coach</span>
@@ -65,7 +69,7 @@ export default function TeamCoachesTable({
 											<span className="sr-only">Active Coach</span>
 										</AiOutlineCheckCircle>
 									) : (
-										<AiOutlineCheckCircle className="h-6 w-6 text-neutral-700 dark:text-neutral-300">
+										<AiOutlineCheckCircle className="h-6 w-6 text-gray-700 dark:text-gray-300">
 											<span className="sr-only">Set Active Coach</span>
 										</AiOutlineCheckCircle>
 									)}

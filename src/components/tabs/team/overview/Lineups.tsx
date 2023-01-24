@@ -6,7 +6,7 @@ import TableRow from '../../../table/TableRow';
 
 export default function TeamOverviewLineups({ lineups }: { lineups: ITeamStatistics['lineups'] }) {
 	return (
-		<table className="bg-neutral-700">
+		<table className="bg-gray-700">
 			<TableHead className="text-xs">
 				<tr>
 					<TableHeader className="py-1 pl-3 text-left">Formation Lineup</TableHeader>

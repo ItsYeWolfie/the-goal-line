@@ -22,18 +22,18 @@ export default function TeamMainPage({ team, venue }: ITeamAndVenue) {
 	}, [team.id, team.name, setBreadcrumbs]);
 
 	return (
-		<>
+		<section className="flex grow flex-col">
 			<div className="sticky top-0 z-20 flex flex-col bg-sky-900 p-2">
 				<MainBreadCrumb />
 				<TeamTabs />
 			</div>
 			<section
-				className={`shrink-0 grow-0 overflow-y-auto p-2 ${
+				className={`container mx-auto shrink-0 grow-0 overflow-y-auto p-2 ${
 					navigation.state === 'loading' ? 'animate-pulse opacity-25 transition-opacity duration-300' : ''
 				}`}
 			>
 				<Outlet context={{ team, venue }} />
 			</section>
-		</>
+		</section>
 	);
 }

@@ -37,39 +37,39 @@ export default function TeamCoaches({ coaches }: { coaches: ICoach[] }) {
 						className="h-full w-full rounded-full object-cover"
 					/>
 				</div>
-				<div className="col-span-8 flex flex-col gap-2 leading-loose sm:col-span-4 lg:col-span-3 xl:col-span-3 xl:border-b xl:border-neutral-500">
+				<div className="col-span-8 flex flex-col gap-2 leading-loose sm:col-span-4 lg:col-span-3 xl:col-span-3 xl:border-b xl:border-gray-500">
 					<header className="text-xl">
 						{activeCoach.coachObject.firstName} {activeCoach.coachObject.lastName}
 					</header>
-					<p className="text-sm text-neutral-700 dark:text-neutral-300">Joined: {activeCoach.coachHistory.start}</p>
-					<p className="text-sm text-neutral-700 dark:text-neutral-300">Left: {activeCoach.coachHistory.end || '-'}</p>
+					<p className="text-sm text-gray-700 dark:text-gray-300">Joined: {activeCoach.coachHistory.start}</p>
+					<p className="text-sm text-gray-700 dark:text-gray-300">Left: {activeCoach.coachHistory.end || '-'}</p>
 				</div>
 				<div className="col-span-6 flex flex-col justify-between gap-2 text-center sm:col-span-2 lg:col-span-3 xl:col-span-2">
 					<div className="flex flex-col justify-between gap-2">
-						<header className="text-xs uppercase text-neutral-600 dark:text-neutral-400">League Wins</header>
+						<header className="text-xs uppercase text-gray-600 dark:text-gray-400">League Wins</header>
 						<p>0</p>
 					</div>
 					<div className="flex flex-col justify-between gap-2">
-						<header className="text-xs uppercase text-neutral-600 dark:text-neutral-400">Cup Wins</header>
+						<header className="text-xs uppercase text-gray-600 dark:text-gray-400">Cup Wins</header>
 						<p>0</p>
 					</div>
 				</div>
 				<div className="col-span-6 flex flex-col justify-between gap-2 text-center sm:col-span-2 lg:col-span-3 xl:col-span-2">
 					<div className="flex flex-col justify-between gap-2">
-						<header className="text-xs uppercase text-neutral-600 dark:text-neutral-400">Promotions</header>
+						<header className="text-xs uppercase text-gray-600 dark:text-gray-400">Promotions</header>
 						<p>0</p>
 					</div>
 					<div className="flex flex-col justify-between gap-2">
-						<header className="text-xs uppercase text-neutral-600 dark:text-neutral-400">Relegations</header>
+						<header className="text-xs uppercase text-gray-600 dark:text-gray-400">Relegations</header>
 						<p>0</p>
 					</div>
 				</div>
 				<div className="col-span-6 flex flex-col justify-between text-center sm:col-span-3 sm:col-start-6 md:col-span-3 md:col-start-6 xl:col-span-2">
-					<p className="text-xs uppercase text-neutral-600 dark:text-neutral-400">Major League Honors</p>
+					<p className="text-xs uppercase text-gray-600 dark:text-gray-400">Major League Honors</p>
 					<p className="text-sm">None</p>
 				</div>
 				<div className="col-span-6 flex flex-col justify-between text-center sm:col-span-3 md:col-span-3 xl:col-span-2">
-					<p className="text-xs uppercase text-neutral-600 dark:text-neutral-400">Major Cup Honors</p>
+					<p className="text-xs uppercase text-gray-600 dark:text-gray-400">Major Cup Honors</p>
 					<p className="text-sm">None</p>
 				</div>
 				<div className="col-span-full flex flex-col sm:col-span-3 xl:col-start-2">
@@ -94,14 +94,14 @@ export default function TeamCoaches({ coaches }: { coaches: ICoach[] }) {
 							<p className="text-xs">Games Drawn</p>
 						</div>
 					</div>
-					<footer className="mt-4 text-xs text-neutral-700 dark:text-neutral-300 sm:mt-auto">
+					<footer className="mt-4 text-xs text-gray-700 dark:text-gray-300 sm:mt-auto">
 						* Data is only valid from {activeCoach.coachHistory.start}
 					</footer>
 				</div>
-				<div className="col-span-full h-64 bg-neutral-300 p-2 text-sm dark:bg-neutral-700 sm:col-span-8">
+				<div className="col-span-full h-64 bg-gray-300 p-2 text-sm dark:bg-gray-700 sm:col-span-8">
 					<header className="w-full place-self-start text-xs uppercase">Career Milestones</header>
 					<div className="flex h-full flex-col items-center justify-center">
-						<p className="text-neutral-700 dark:text-neutral-300">No milestones yet</p>
+						<p className="text-gray-700 dark:text-gray-300">No milestones yet</p>
 					</div>
 				</div>
 			</div>

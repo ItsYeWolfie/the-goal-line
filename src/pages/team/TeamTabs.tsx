@@ -16,9 +16,9 @@ export default function TeamTabs() {
 		<>
 			<DropdownList
 				title={dropdownName}
-				className="relative z-20 w-full items-center border border-transparent text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 dark:bg-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-600 md:hidden"
+				className="relative z-20 w-full items-center border border-transparent text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 md:hidden"
 			>
-				<div className="absolute top-full right-0 z-10 w-full rounded-md bg-neutral-700 shadow-lg">
+				<div className="absolute top-full right-0 z-10 w-full rounded-md bg-gray-700 shadow-lg">
 					{teamTabs.map((tab: ITab) => (
 						<NavLink
 							to={`/team/${teamID}${tab.href}`}
@@ -26,8 +26,8 @@ export default function TeamTabs() {
 							onClick={() => setDropdownName(tab.name)}
 							className={({ isActive }) =>
 								`${
-									isActive ? 'dark:bg-neutral-600' : 'dark:bg-neutral-700'
-								} block px-4 py-2 text-sm text-neutral-200 dark:hover:bg-neutral-600`
+									isActive ? 'dark:bg-gray-600' : 'dark:bg-gray-700'
+								} block px-4 py-2 text-sm text-gray-200 dark:hover:bg-gray-600`
 							}
 							type="button"
 						>
@@ -43,8 +43,8 @@ export default function TeamTabs() {
 						key={tab.name}
 						className={({ isActive }) =>
 							`${
-								isActive ? 'border-indigo-400 text-indigo-500' : 'border-transparent hover:border-neutral-300'
-							} border-b-2 px-3 py-2 text-center text-sm font-medium text-neutral-200 transition-colors duration-300 ease-in-out hover:text-neutral-400`
+								isActive ? 'border-indigo-400 text-indigo-500' : 'border-transparent hover:border-gray-300'
+							} border-b-2 px-3 py-2 text-center text-sm font-medium text-gray-200 transition-colors duration-300 ease-in-out hover:text-gray-400`
 						}
 						type="button"
 					>

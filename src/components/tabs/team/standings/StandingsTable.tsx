@@ -1,10 +1,13 @@
+import { useOutletContext } from 'react-router-dom';
 import { ILeagueStanding } from '../../../../types/League.types';
+import { ITeamAndVenue } from '../../../../types/Team.types';
 import FormIconArray from '../../../icons/FormIconArray';
 import SmallTableCell from '../../../table/SmallTableCell';
 import TableHead from '../../../table/TableHead';
 import TableHeader from '../../../table/TableHeader';
 
 export default function StandingsTable({ standings }: { standings: ILeagueStanding[] }) {
+	const { team: teamContext } = useOutletContext() as { team: ITeamAndVenue['team'] };
 	return (
 		<table className="basis-8/12">
 			<TableHead className="sticky top-0">
@@ -21,10 +24,9 @@ export default function StandingsTable({ standings }: { standings: ILeagueStandi
 					<TableHeader className="hidden p-3 text-left sm:table-cell">Form</TableHeader>
 				</tr>
 			</TableHead>
-			<tbody className="text-sm text-neutral-300">
+			<tbody className="text-sm text-gray-300">
 				{standings.map((standing, index) => {
-					let backgroundColor =
-						index % 2 === 0 ? 'bg-neutral-300 dark:bg-neutral-600' : 'bg-neutral-200 dark:bg-neutral-700';
+					let backgroundColor = index % 2 === 0 ? 'bg-gray-300 dark:bg-gray-600' : 'bg-gray-200 dark:bg-gray-700';
 					const teamRank = standing.rank;
 
 					switch (true) {
@@ -44,7 +46,7 @@ export default function StandingsTable({ standings }: { standings: ILeagueStandi
 							backgroundColor = 'bg-red-500 dark:bg-red-700';
 							break;
 						default:
-							backgroundColor = 'text-neutral-700 dark:text-neutral-300';
+							backgroundColor = 'text-gray-700 dark:text-gray-300';
 							break;
 					}
 
@@ -52,11 +54,11 @@ export default function StandingsTable({ standings }: { standings: ILeagueStandi
 					const formArray = form.split('');
 					return (
 						<tr
-							className={`transition-colors duration-300 dark:bg-opacity-40  dark:hover:bg-neutral-600 ${backgroundColor}`}
+							className={`transition-colors duration-300 dark:bg-opacity-40  dark:hover:bg-gray-600 ${backgroundColor}`}
 							key={team.id}
 						>
 							<SmallTableCell className="w-16 text-center">{standing.rank}</SmallTableCell>
-							<SmallTableCell>
+							<SmallTableCell className={`${teamContext.id === team.id ? 'text-yellow-400' : ''}`}>
 								<img
 									className="inline-block h-6 w-6"
 									src={team.logo}
@@ -64,7 +66,7 @@ export default function StandingsTable({ standings }: { standings: ILeagueStandi
 									loading="lazy"
 								/>
 								<span className="ml-2 font-semibold">{team.name}</span>
-								<div className="mt-1 flex flex-col text-xs text-neutral-300">
+								<div className="mt-1 flex flex-col text-xs text-gray-300">
 									<div className="flex items-center gap-1 md:hidden">
 										<span className="font-semibold">Matches:</span>
 										<span>
@@ -96,7 +98,7 @@ export default function StandingsTable({ standings }: { standings: ILeagueStandi
 													break;
 
 												default:
-													formClass = 'bg-neutral-500';
+													formClass = 'bg-gray-500';
 											}
 
 											return (

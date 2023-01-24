@@ -70,12 +70,12 @@ export default function PlayerTransfers({ transfers }: { transfers: ITransferMod
 				<header className="mb-2 font-medium uppercase">Transfer History</header>
 				<div className="flex flex-wrap gap-8">
 					<label
-						className="flex flex-col rounded-full text-sm text-neutral-700 dark:text-neutral-300"
+						className="flex flex-col rounded-full text-sm text-gray-700 dark:text-gray-300"
 						htmlFor="year"
 					>
 						<span className="mb-1">Year</span>
 						<select
-							className="bg-neutral-300 text-sm text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300"
+							className="bg-gray-300 text-sm text-gray-700 dark:bg-gray-700 dark:text-gray-300"
 							onChange={(e) => {
 								setYear(Number(e.target.value));
 							}}
@@ -93,12 +93,12 @@ export default function PlayerTransfers({ transfers }: { transfers: ITransferMod
 						</select>
 					</label>
 					<label
-						className="flex flex-col rounded-full text-sm text-neutral-700 dark:text-neutral-300"
+						className="flex flex-col rounded-full text-sm text-gray-700 dark:text-gray-300"
 						htmlFor="type"
 					>
 						<span className="mb-1">Type</span>
 						<select
-							className="bg-neutral-300 text-sm text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300"
+							className="bg-gray-300 text-sm text-gray-700 dark:bg-gray-700 dark:text-gray-300"
 							onChange={(e) => {
 								setType(e.target.value);
 							}}

@@ -7,7 +7,7 @@ interface ITableRowProps {
 export default function TableRow({ children, className, even, ...props }: ITableRowProps) {
 	return (
 		<tr
-			className={`${className} ${even ? 'bg-neutral-300 dark:bg-neutral-600' : 'bg-neutral-200 dark:bg-neutral-700'}`}
+			className={`${className} ${even ? 'bg-gray-300 dark:bg-gray-600' : 'bg-gray-200 dark:bg-gray-700'}`}
 			{...props}
 		>
 			{children}

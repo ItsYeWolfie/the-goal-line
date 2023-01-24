@@ -34,7 +34,7 @@ export default function TeamFixtures({ teamFixtures }: { teamFixtures: IFixture[
 		);
 	}, [selectedLeague, teamFixtures]);
 	return (
-		<>
+		<section className="">
 			<div className="flex flex-col justify-between gap-4 md:mb-8 md:flex-row md:items-center">
 				<div className="flex items-center gap-4">
 					<TeamFixturesLeagueSelection
@@ -53,6 +53,6 @@ export default function TeamFixtures({ teamFixtures }: { teamFixtures: IFixture[
 				teamID={id}
 				fixtures={filteredFixtures}
 			/>
-		</>
+		</section>
 	);
 }

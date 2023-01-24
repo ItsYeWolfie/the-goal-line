@@ -17,7 +17,7 @@ export default function TeamPlayersTable({
 }) {
 	return (
 		<article className="mb-2">
-			<header className="mb-2 text-xl font-medium text-neutral-700 dark:text-neutral-300">{title}</header>
+			<header className="mb-2 text-xl font-medium text-gray-700 dark:text-gray-300">{title}</header>
 			<table className="w-full text-sm">
 				<TableHead>
 					<tr>
@@ -43,7 +43,7 @@ export default function TeamPlayersTable({
 						</TableHeader>
 					</tr>
 				</TableHead>
-				<tbody className="text-sm text-neutral-700 dark:text-neutral-300">
+				<tbody className="text-sm text-gray-700 dark:text-gray-300">
 					{players.map((statistic, index) => (
 						<TableRow
 							key={statistic.player.id}
