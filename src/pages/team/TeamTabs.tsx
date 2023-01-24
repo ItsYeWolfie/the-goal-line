@@ -16,7 +16,7 @@ export default function TeamTabs() {
 		<>
 			<DropdownList
 				title={dropdownName}
-				className="relative z-20 w-full items-center border border-transparent bg-neutral-700 px-4 py-2 text-sm font-medium text-neutral-200 hover:bg-neutral-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 md:hidden"
+				className="relative z-20 w-full items-center border border-transparent text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 dark:bg-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-600 md:hidden"
 			>
 				<div className="absolute top-full right-0 z-10 w-full rounded-md bg-neutral-700 shadow-lg">
 					{teamTabs.map((tab: ITab) => (
@@ -26,8 +26,8 @@ export default function TeamTabs() {
 							onClick={() => setDropdownName(tab.name)}
 							className={({ isActive }) =>
 								`${
-									isActive ? 'bg-neutral-600' : 'bg-neutral-700'
-								} block px-4 py-2 text-sm text-neutral-200 hover:bg-neutral-600`
+									isActive ? 'dark:bg-neutral-600' : 'dark:bg-neutral-700'
+								} block px-4 py-2 text-sm text-neutral-200 dark:hover:bg-neutral-600`
 							}
 							type="button"
 						>

@@ -14,7 +14,7 @@ export default function TeamOverviewTeamCard({
 	form: ITeamStatistics['form'];
 }) {
 	return (
-		<div className="relative flex shrink-0 grow-0 basis-5/12 flex-col gap-y-8 rounded-sm bg-neutral-800 py-8 px-4 text-sm lg:basis-4/12">
+		<div className="relative flex shrink-0 grow-0 basis-5/12 flex-col gap-y-8 rounded-sm py-8 px-4 text-sm dark:bg-neutral-800 lg:basis-4/12">
 			<img
 				className="m-auto h-36 w-36"
 				src={team.logo}
@@ -45,19 +45,19 @@ export default function TeamOverviewTeamCard({
 			<p className="order-last mx-auto max-w-sm" />
 			<div className="grid grid-cols-12 gap-y-2 px-2">
 				<div className="col-span-12 flex justify-between px-2">
-					<span className="items-center text-xs font-bold uppercase text-neutral-400">Founded</span>
+					<span className="items-center text-xs font-bold uppercase dark:text-neutral-400">Founded</span>
 					<header className="text-right">{team.founded}</header>
 				</div>
-				<div className="col-span-12 flex items-center justify-between bg-neutral-700 px-2">
-					<span className="text-xs font-bold uppercase text-neutral-400">League Nation</span>
+				<div className="col-span-12 flex items-center justify-between bg-neutral-200 px-2 dark:bg-neutral-700">
+					<span className="text-xs font-bold uppercase dark:text-neutral-400">League Nation</span>
 					<header className="text-right">{team.country}</header>
 				</div>
 				<div className="col-span-12 flex items-center justify-between px-2">
-					<span className="text-xs font-bold uppercase text-neutral-400">Team Code</span>
+					<span className="text-xs font-bold uppercase dark:text-neutral-400">Team Code</span>
 					<header className="text-right">{team.code}</header>
 					{team.national && (
 						<div className="flex items-center justify-center">
-							<span className="text-xs font-bold uppercase text-neutral-400">National Team</span>
+							<span className="text-xs font-bold uppercase dark:text-neutral-400">National Team</span>
 							<FontAwesomeIcon
 								icon={faCheckCircle}
 								className="block text-right text-xl text-green-500"
@@ -65,8 +65,8 @@ export default function TeamOverviewTeamCard({
 						</div>
 					)}
 				</div>
-				<div className="col-span-12 flex flex-nowrap justify-between overflow-x-auto bg-neutral-700 px-2 py-1">
-					<header className="shrink-0 grow-0 basis-6/12 text-xs font-bold uppercase text-neutral-400">
+				<div className="col-span-12 flex flex-nowrap justify-between overflow-x-auto bg-neutral-200 px-2 py-1 dark:bg-neutral-700">
+					<header className="shrink-0 grow-0 basis-6/12 text-xs font-bold uppercase dark:text-neutral-400">
 						Recent Form
 					</header>
 					<div className="flex flex-nowrap gap-x-1">

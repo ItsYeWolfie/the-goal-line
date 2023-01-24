@@ -1,6 +1,8 @@
 import { ITransferDetailsModified } from '../../../../types/Transfers.type';
 import SmallTableCell from '../../../table/SmallTableCell';
+import TableHead from '../../../table/TableHead';
 import TableHeader from '../../../table/TableHeader';
+import TableRow from '../../../table/TableRow';
 
 export default function PlayerTransfersTable({
 	transfers,
@@ -11,32 +13,32 @@ export default function PlayerTransfersTable({
 }) {
 	return (
 		<table className="w-full">
-			<thead className="sticky top-0 bg-neutral-800 text-xs">
+			<TableHead className="sticky top-0 text-xs">
 				<tr>
 					<TableHeader className="px-3 py-1 text-left">Date</TableHeader>
 					<TableHeader className="px-3 py-1 text-left">Player</TableHeader>
 					<TableHeader className="px-3 py-1 text-left">{side}</TableHeader>
 					<TableHeader className="px-3 py-1 text-left">Type</TableHeader>
 				</tr>
-			</thead>
+			</TableHead>
 			<tbody className="overflow-auto text-xs md:max-h-96">
 				{transfers.length === 0 && (
-					<tr>
+					<TableRow even>
 						<SmallTableCell
 							colSpan={4}
-							className="bg-neutral-700 text-center"
+							className="text-center"
 						>
 							No transfers
 						</SmallTableCell>
-					</tr>
+					</TableRow>
 				)}
 				{transfers.map((transfer, index) => {
 					const date = new Date(transfer.date);
 
 					return (
-						<tr
+						<TableRow
 							key={transfer.player.id + date.getTime()}
-							className={index % 2 === 0 ? 'bg-neutral-700' : ''}
+							even={index % 2 === 0}
 						>
 							<SmallTableCell>
 								{date.toLocaleString('en-GB', {
@@ -72,7 +74,7 @@ export default function PlayerTransfersTable({
 							)}
 
 							<SmallTableCell>{transfer.type}</SmallTableCell>
-						</tr>
+						</TableRow>
 					);
 				})}
 			</tbody>

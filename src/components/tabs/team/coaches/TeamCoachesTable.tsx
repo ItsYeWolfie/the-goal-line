@@ -2,7 +2,9 @@ import { Dispatch, SetStateAction } from 'react';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import { ICoachTeamHistory } from '../../../../types/Coach.types';
 import SmallTableCell from '../../../table/SmallTableCell';
+import TableHead from '../../../table/TableHead';
 import TableHeader from '../../../table/TableHeader';
+import TableRow from '../../../table/TableRow';
 
 export default function TeamCoachesTable({
 	coachesHistory,
@@ -16,7 +18,7 @@ export default function TeamCoachesTable({
 	return (
 		<table className="w-full text-xs">
 			<caption className="mb-2 text-left text-lg uppercase">Head Coaches</caption>
-			<thead>
+			<TableHead className="text-xs">
 				<tr>
 					<TableHeader className="px-3 py-1 text-left">
 						<span className="sr-only">Set Active Coach Column</span>
@@ -29,7 +31,7 @@ export default function TeamCoachesTable({
 					<TableHeader className="hidden px-3 text-left md:table-cell">League Wins</TableHeader>
 					<TableHeader className="hidden px-3 text-left md:table-cell">Cup Wins</TableHeader>
 				</tr>
-			</thead>
+			</TableHead>
 			<tbody>
 				{coachesHistory.map((coach, index) => {
 					const startDate = new Date(coach.coachHistory?.start ? coach.coachHistory?.start : 0);
@@ -46,14 +48,15 @@ export default function TeamCoachesTable({
 					const durationInDays = Math.floor(duration / (1000 * 3600 * 24));
 
 					return (
-						<tr
+						<TableRow
 							key={coach.coachObject.id}
-							className={`${index % 2 === 0 ? 'bg-neutral-700' : 'bg-neutral-800'} hover:bg-neutral-700`}
+							even={index % 2 === 0}
+							className="hover:bg-neutral-400 dark:hover:bg-neutral-700"
 							onClick={() => setActiveCoach(coach)}
 						>
 							<SmallTableCell className="max-w-[1rem]">
 								<button
-									className="h-6 w-6 rounded-full text-neutral-300 hover:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2 focus:ring-offset-neutral-800"
+									className="h-6 w-6 rounded-full text-neutral-700 hover:text-neutral-900 focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2 focus:ring-offset-neutral-200 dark:text-neutral-300 dark:hover:text-neutral-100 dark:focus:ring-offset-neutral-800"
 									type="button"
 								>
 									<span className="sr-only">Set Active Coach</span>
@@ -62,7 +65,7 @@ export default function TeamCoachesTable({
 											<span className="sr-only">Active Coach</span>
 										</AiOutlineCheckCircle>
 									) : (
-										<AiOutlineCheckCircle className="h-6 w-6 text-neutral-300">
+										<AiOutlineCheckCircle className="h-6 w-6 text-neutral-700 dark:text-neutral-300">
 											<span className="sr-only">Set Active Coach</span>
 										</AiOutlineCheckCircle>
 									)}
@@ -93,7 +96,7 @@ export default function TeamCoachesTable({
 							<SmallTableCell className="hidden sm:table-cell">-</SmallTableCell>
 							<SmallTableCell className="hidden md:table-cell">0</SmallTableCell>
 							<SmallTableCell className="hidden md:table-cell">0</SmallTableCell>
-						</tr>
+						</TableRow>
 					);
 				})}
 			</tbody>

@@ -26,11 +26,11 @@ export default function TeamPlayersSection({ playersData }: { playersData: IPlay
 	}, [leagues]);
 	return (
 		<>
-			<div className="sticky top-0 z-10 mb-8 bg-neutral-800 p-4">
+			<div className="sticky top-0 z-10 mb-8 p-4">
 				<label htmlFor="league">
-					<span className="mb-1 block text-sm font-medium text-neutral-100">League</span>
+					<span className="mb-1 block text-sm font-medium text-neutral-900 dark:text-neutral-100">League</span>
 					<select
-						className="bg-neutral-800"
+						className="bg-neutral-200 dark:bg-neutral-800"
 						name="league"
 						onChange={handleLeagueChange}
 					>

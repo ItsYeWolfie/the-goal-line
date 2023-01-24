@@ -1,11 +1,13 @@
 import { ITeamStatistics } from '../../../../types/Team.types';
 import SmallTableCell from '../../../table/SmallTableCell';
+import TableHead from '../../../table/TableHead';
 import TableHeader from '../../../table/TableHeader';
+import TableRow from '../../../table/TableRow';
 
 export default function TeamOverviewGoalsAtMinute({ goals }: { goals: ITeamStatistics['goals'] }) {
 	return (
-		<table className="bg-neutral-700 uppercase">
-			<thead className="bg-neutral-800 text-sm">
+		<table className="text-xs uppercase">
+			<TableHead>
 				<tr>
 					<TableHeader className="py-1 px-3 text-left">Goals at Minute</TableHeader>
 					<TableHeader
@@ -21,20 +23,20 @@ export default function TeamOverviewGoalsAtMinute({ goals }: { goals: ITeamStati
 						Received
 					</TableHeader>
 				</tr>
-			</thead>
-			<tbody className="text-xs">
+			</TableHead>
+			<tbody>
 				{Object.keys(goals.for.minute).map((minute: string, index) => {
 					return (
-						<tr
-							className={index % 2 === 0 ? 'bg-neutral-600' : ''}
+						<TableRow
 							key={minute}
+							even={index % 2 === 0}
 						>
 							<SmallTableCell className="w-48">{minute}</SmallTableCell>
 							<SmallTableCell className="text-center">{goals.for.minute[minute].total || '-'}</SmallTableCell>
 							<SmallTableCell className="text-center">{goals.for.minute[minute].percentage || '-'}</SmallTableCell>
 							<SmallTableCell className="text-center">{goals.against.minute[minute].total || '-'}</SmallTableCell>
 							<SmallTableCell className="text-center">{goals.against.minute[minute].percentage || '-'}</SmallTableCell>
-						</tr>
+						</TableRow>
 					);
 				})}
 			</tbody>

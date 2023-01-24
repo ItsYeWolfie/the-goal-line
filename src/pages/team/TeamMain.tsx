@@ -23,12 +23,12 @@ export default function TeamMainPage({ team, venue }: ITeamAndVenue) {
 
 	return (
 		<>
-			<div className="static top-0 z-20 flex shrink-0 grow-0 flex-col bg-sky-900 p-2 md:sticky">
+			<div className="sticky top-0 z-20 flex flex-col bg-sky-900 p-2">
 				<MainBreadCrumb />
 				<TeamTabs />
 			</div>
 			<section
-				className={`shrink-0 grow-0 overflow-y-auto bg-neutral-800 p-2 ${
+				className={`shrink-0 grow-0 overflow-y-auto p-2 dark:bg-neutral-800 ${
 					navigation.state === 'loading' ? 'animate-pulse opacity-25 transition-opacity duration-300' : ''
 				}`}
 			>

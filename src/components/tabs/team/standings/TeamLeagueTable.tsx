@@ -2,12 +2,14 @@ import React from 'react';
 import { ILeagueWithStanding } from '../../../../types/League.types';
 import FormIconArray from '../../../icons/FormIconArray';
 import TableCell from '../../../table/TableCell';
+import TableHead from '../../../table/TableHead';
 import TableHeader from '../../../table/TableHeader';
+import TableRow from '../../../table/TableRow';
 
 export default function TeamLeagueTable({ league }: { league: ILeagueWithStanding }) {
 	return (
 		<table>
-			<thead className="bg-neutral-800">
+			<TableHead>
 				<tr>
 					<TableHeader
 						className="px-3 py-1 text-left text-sm"
@@ -26,10 +28,10 @@ export default function TeamLeagueTable({ league }: { league: ILeagueWithStandin
 						</div>
 					</TableHeader>
 				</tr>
-			</thead>
+			</TableHead>
 			<tbody className="text-xs">
 				{league.country !== 'World' && (
-					<tr className="bg-neutral-600">
+					<TableRow>
 						<TableCell className="w-32">Country</TableCell>
 						<TableCell>
 							<div className="flex items-center">
@@ -43,36 +45,36 @@ export default function TeamLeagueTable({ league }: { league: ILeagueWithStandin
 								)}
 							</div>
 						</TableCell>
-					</tr>
+					</TableRow>
 				)}
 				{league.standings.map((standing) => (
 					<React.Fragment key={standing.team.id}>
-						<tr className="bg-neutral-700">
+						<TableRow even>
 							<TableCell className="w-32">Group</TableCell>
 							<TableCell>{standing.group}</TableCell>
-						</tr>
-						<tr className="bg-neutral-600">
+						</TableRow>
+						<TableRow>
 							<TableCell>Rank</TableCell>
 							<TableCell>{standing.rank}</TableCell>
-						</tr>
-						<tr className="bg-neutral-700">
+						</TableRow>
+						<TableRow even>
 							<TableCell>Status</TableCell>
 							<TableCell>{standing.description}</TableCell>
-						</tr>
-						<tr className="bg-neutral-600">
+						</TableRow>
+						<TableRow>
 							<TableCell>Points</TableCell>
 							<TableCell>{standing.points}</TableCell>
-						</tr>
-						<tr className="bg-neutral-700">
+						</TableRow>
+						<TableRow even>
 							<TableCell>Goals Difference</TableCell>
 							<TableCell>{standing.goalsDiff}</TableCell>
-						</tr>
-						<tr className="bg-neutral-600">
+						</TableRow>
+						<TableRow>
 							<TableCell>Form</TableCell>
 							<TableCell>
 								<FormIconArray array={standing.form.split('')} />
 							</TableCell>
-						</tr>
+						</TableRow>
 					</React.Fragment>
 				))}
 			</tbody>

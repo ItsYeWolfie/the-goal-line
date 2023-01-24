@@ -36,7 +36,7 @@ export default function MainBreadCrumb() {
 							/>
 							<Link
 								to={page.href}
-								className="ml-4 text-sm font-medium text-neutral-200 hover:text-neutral-100"
+								className="ml-4 text-xs font-medium text-neutral-200 hover:text-neutral-100 sm:text-sm"
 							>
 								{page.name}
 							</Link>
