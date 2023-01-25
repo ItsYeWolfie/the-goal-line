@@ -21,7 +21,7 @@ export default function TeamPlayersTable({
 			<table className="w-full text-sm">
 				<TableHead>
 					<tr>
-						<TableHeader className="px-3 text-left sm:pl-6">Name</TableHeader>
+						<TableHeader className="px-3 py-1 text-left sm:pl-6">Name</TableHeader>
 						<TableHeader className="px-3 text-center">Age</TableHeader>
 						<TableHeader className="px-3 text-center">
 							<FontAwesomeIcon icon={faShirt} />
@@ -29,13 +29,13 @@ export default function TeamPlayersTable({
 						<TableHeader className="px-3 text-center">
 							<FontAwesomeIcon icon={faFutbol} />
 						</TableHeader>
-						<TableHeader className="px-3 text-center">
+						<TableHeader className="hidden px-3 text-center sm:table-cell">
 							<FontAwesomeIcon
 								icon={faRug}
 								className="rotate-90 text-yellow-500"
 							/>
 						</TableHeader>
-						<TableHeader className="px-3 py-1 text-center">
+						<TableHeader className="hidden px-3 text-center sm:table-cell">
 							<FontAwesomeIcon
 								icon={faRug}
 								className="rotate-90 text-red-500"
@@ -75,13 +75,13 @@ export default function TeamPlayersTable({
 									.map((stat) => stat.goals.total)
 									.reduce((a, b) => a + b, 0)}
 							</SmallTableCell>
-							<SmallTableCell className="text-center">
+							<SmallTableCell className="hidden text-center sm:table-cell">
 								{statistic.statistics
 									.filter((stat) => stat.league.id === activeLeagueId)
 									.map((stat) => stat.cards.yellow)
 									.reduce((a, b) => a + b, 0)}
 							</SmallTableCell>
-							<SmallTableCell className="text-center">
+							<SmallTableCell className="hidden text-center sm:table-cell">
 								{statistic.statistics
 									.filter((stat) => stat.league.id === activeLeagueId)
 									.map((stat) => stat.cards.red)

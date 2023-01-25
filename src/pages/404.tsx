@@ -19,9 +19,7 @@ export default function NotFound() {
 				<div className="mx-auto max-w-xl py-16 sm:py-24">
 					<div className="text-center">
 						<p className="text-base font-semibold text-indigo-500">{error.statusText || error.message}</p>
-						<h1 className="mt-2 text-4xl font-bold tracking-tight text-gray-200 sm:text-5xl">
-							Something went wrong.
-						</h1>
+						<h1 className="mt-2 text-4xl font-bold tracking-tight text-gray-200 sm:text-5xl">Something went wrong.</h1>
 						<p className="mt-2 text-lg text-gray-300">
 							An error occurred while processing your request. Please try again.
 						</p>

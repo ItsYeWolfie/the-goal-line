@@ -20,7 +20,7 @@ export default function TeamCoachesTable({
 			<caption className="mb-2 text-left text-lg uppercase">Head Coaches</caption>
 			<TableHead className="text-xs">
 				<tr>
-					<TableHeader className="px-3 py-1 text-left">
+					<TableHeader className="hidden px-3 py-1 text-left sm:table-cell">
 						<span className="sr-only">Set Active Coach Column</span>
 					</TableHeader>
 					<TableHeader className="px-3 py-1 text-left">Head Coach</TableHeader>
@@ -58,7 +58,7 @@ export default function TeamCoachesTable({
 							}`}
 							onClick={() => setActiveCoach(coach)}
 						>
-							<SmallTableCell className="max-w-[1rem]">
+							<SmallTableCell className="hidden max-w-[1rem] sm:table-cell">
 								<button
 									className="h-6 w-6 rounded-full text-gray-700 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-200 dark:text-gray-300 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800"
 									type="button"
@@ -94,7 +94,7 @@ export default function TeamCoachesTable({
 							<SmallTableCell>{startDate.toLocaleDateString()}</SmallTableCell>
 							<SmallTableCell>
 								{endDate.getTime() === 0 ? '-' : endDate.toLocaleDateString()}
-								<span className="ml-2 md:hidden"> ({durationInDays} days)</span>
+								<p className="mt-1 md:hidden"> ({durationInDays} days)</p>
 							</SmallTableCell>
 							<SmallTableCell className="hidden md:table-cell">{durationInDays} days</SmallTableCell>
 							<SmallTableCell className="hidden sm:table-cell">-</SmallTableCell>

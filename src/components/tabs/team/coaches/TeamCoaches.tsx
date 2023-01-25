@@ -29,7 +29,7 @@ export default function TeamCoaches({ coaches }: { coaches: ICoach[] }) {
 				setActiveCoach={setActiveCoach}
 				activeCoach={activeCoach}
 			/>
-			<div className="grid w-full auto-rows-max grid-cols-12 gap-y-8 gap-x-4 p-8">
+			<div className="grid w-full auto-rows-max grid-cols-12 gap-y-8 gap-x-4 px-2 py-4 sm:p-8">
 				<div className="col-span-4 row-span-full md:col-span-2 xl:col-span-1">
 					<img
 						src={activeCoach.coachObject.photo}
@@ -64,7 +64,7 @@ export default function TeamCoaches({ coaches }: { coaches: ICoach[] }) {
 						<p>0</p>
 					</div>
 				</div>
-				<div className="col-span-6 flex flex-col justify-between text-center sm:col-span-3 sm:col-start-6 md:col-span-3 md:col-start-6 xl:col-span-2">
+				<div className="col-span-6 flex flex-col justify-between text-center sm:col-span-3 sm:col-start-7 md:col-span-3 md:col-start-6 xl:col-span-2">
 					<p className="text-xs uppercase text-gray-600 dark:text-gray-400">Major League Honors</p>
 					<p className="text-sm">None</p>
 				</div>
