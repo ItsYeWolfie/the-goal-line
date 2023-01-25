@@ -9,30 +9,28 @@ export default function MainBreadCrumb() {
 	const { breadcrumbs } = useContext<IGlobalHeader>(GlobalHeaderContext);
 
 	return (
-		<section className="flex justify-between py-2 sm:px-2 sm:py-4">
+		<section className="flex items-center justify-between py-2 sm:px-2 sm:py-4">
 			<nav
 				className="flex"
 				aria-label="Breadcrumb"
 			>
 				<ol className="flex items-center gap-x-4">
 					<li>
-						<div>
-							<Link
-								to="/"
-								className="text-gray-200 hover:text-gray-100"
-							>
-								<img
-									className="h-8 w-auto"
-									src="/logo-no-background-sm.png"
-									alt="Your Company"
-								/>
-								<AiFillHome
-									className="hidden h-5 w-5 shrink-0 sm:block"
-									aria-hidden="true"
-								/>
-								<span className="sr-only">Home</span>
-							</Link>
-						</div>
+						<Link
+							to="/"
+							className="text-gray-200 hover:text-gray-100"
+						>
+							<img
+								className="h-8 w-auto sm:hidden"
+								src="/logo-no-background-sm.png"
+								alt="Your Company"
+							/>
+							<AiFillHome
+								className="hidden h-5 w-5 shrink-0 sm:block"
+								aria-hidden="true"
+							/>
+							<span className="sr-only">Home</span>
+						</Link>
 					</li>
 					{breadcrumbs.map((page) => (
 						<li key={page.name}>

@@ -28,9 +28,7 @@ export default function DarkModeToggle({ className }: { className?: string }) {
 		<button
 			type="button"
 			onClick={toggleDarkMode}
-			className={`${
-				className || ''
-			} flex h-8 w-8 items-center justify-center rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-offset-gray-800`}
+			className={`${className || ''} flex h-8 w-8`}
 		>
 			{darkMode ? (
 				<BsMoonFill className="h-5 w-5 text-gray-200" />
@@ -40,3 +38,7 @@ export default function DarkModeToggle({ className }: { className?: string }) {
 		</button>
 	);
 }
+
+DarkModeToggle.defaultProps = {
+	className: '',
+};

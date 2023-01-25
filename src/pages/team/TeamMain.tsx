@@ -1,13 +1,13 @@
 import { useContext, useEffect } from 'react';
 import { Outlet, useNavigation } from 'react-router-dom';
-import MainBreadCrumb from '../../components/breadcrumb/MainBreadCrumb';
-import { BreadcrumbContext, IBreadcrumbContext } from '../../contexts/Breadcrumb.context';
+import { GlobalHeaderContext, IGlobalHeader } from '../../contexts/GlobalHeader.context';
 import { ITeamAndVenue } from '../../types/Team.types';
 import TeamTabs from './TeamTabs';
 
 export default function TeamMainPage({ team, venue }: ITeamAndVenue) {
 	const navigation = useNavigation();
-	const { setBreadcrumbs } = useContext<IBreadcrumbContext>(BreadcrumbContext);
+	const { setBreadcrumbs } = useContext<IGlobalHeader>(GlobalHeaderContext);
+	const { setTabsComponent } = useContext<IGlobalHeader>(GlobalHeaderContext);
 	useEffect(() => {
 		setBreadcrumbs([
 			{
@@ -21,12 +21,11 @@ export default function TeamMainPage({ team, venue }: ITeamAndVenue) {
 		]);
 	}, [team.id, team.name, setBreadcrumbs]);
 
+	useEffect(() => {
+		setTabsComponent(<TeamTabs />);
+	}, [setTabsComponent]);
 	return (
 		<section className="flex grow flex-col">
-			<div className="sticky top-0 z-20 flex flex-col bg-sky-900 p-2">
-				<MainBreadCrumb />
-				<TeamTabs />
-			</div>
 			<section
 				className={`container mx-auto shrink-0 grow-0 overflow-y-auto p-2 ${
 					navigation.state === 'loading' ? 'animate-pulse opacity-25 transition-opacity duration-300' : ''
