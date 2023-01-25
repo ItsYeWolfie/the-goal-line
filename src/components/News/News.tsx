@@ -10,6 +10,7 @@ import moment from 'moment';
 import { useEffect, useState } from 'react';
 import { fetchData } from '../../../lib/helpers/Fetch';
 import { News } from '../../../types/News.types';
+import RelatedNews from './Related-News';
 
 export default function NewsPage() {
 	const [data, setData] = useState<News[]>([]);
@@ -26,7 +27,6 @@ export default function NewsPage() {
 			.then((data) => {
 				setOriginalData(data);
 				setCurrentData(data[0]);
-				console.log(currentData);
 				setActiveCategory(dataTofilter[0]);
 				if (dataTofilter[0] === null) {
 					setData(data);
@@ -156,7 +156,6 @@ export default function NewsPage() {
 							</div>
 						</div>
 					</div>
-
 					<div className="w-full md:col-span-2">
 						<div className="my-[5%] h-[150px] w-full text-white sm:mt-[5%] sm:h-[240px] md:mt-[0%] md:h-[200px] 2xl:h-[300px]">
 							<img
@@ -170,28 +169,11 @@ export default function NewsPage() {
 								<p className="py-[2%] pl-[4%] text-[1rem] sm:text-[1.4rem]">Related News</p>
 							</div>
 							{data.map((item) => (
-								<div
+								<RelatedNews
 									key={item.id}
-									className="grid h-[155px] grid-cols-2 border-b-[1px] border-gray-400 bg-gray-900 sm:h-[200px] md:h-[180px] lg:h-[160px] xl:h-[170px] 2xl:h-[220px]"
-								>
-									<div className="h-full w-full">
-										<img
-											className="my-[5%] mx-auto h-[80%] w-[85%] rounded-[10px]"
-											src={item.largeImage}
-											alt=""
-										/>
-									</div>
-									<div className="my-auto h-[90%] w-[90%] justify-between text-lg text-white sm:text-[1.5rem] md:text-[1rem] lg:text-[1.2rem] 2xl:text-[1.5rem]">
-										<p>{item.title}</p>
-										<button
-											type="button"
-											className="mt-[5%] rounded-[5px] bg-gray-600 px-[5%] sm:mt-[18%] md:mt-[1%] lg:mt-[5%] xl:mt-[12%] 2xl:mt-[5%] 2xl:text-[1.3rem]"
-											onClick={() => handleReadMore(item.id)}
-										>
-											Read More
-										</button>
-									</div>
-								</div>
+									relatednews={item}
+									handleReadMore={handleReadMore}
+								/>
 							))}
 						</div>
 					</div>
