@@ -1,6 +1,7 @@
 import { html } from 'lit';
 import { LitLightElement } from '../../lib/LitElement';
 import './Overview';
+import './TrophiesPage';
 
 
 
@@ -28,6 +29,9 @@ class PlayerPage extends LitLightElement {
 			{
 				name: 'Trophies',
 				slug: 'trophies',
+				html: html`
+					<trophies-page></trophies-page>
+				`,
 				
 			},
 			{
