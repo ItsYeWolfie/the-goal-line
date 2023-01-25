@@ -1,8 +1,7 @@
-import { Dialog, Disclosure, Transition } from '@headlessui/react';
-import { ChevronDownIcon } from '@heroicons/react/20/solid';
+import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { Fragment } from 'react';
-import filters from '../../../lib/data/teams-filters';
+import { teamsFilters } from '../../../lib/data/teams-filters';
 
 export default function TeamsPageMobileOverlay({
 	mobileFiltersOpen,
@@ -61,28 +60,26 @@ export default function TeamsPageMobileOverlay({
 							</div>
 
 							<form className="mt-4">
-								{filters.map((section) => (
-									<Disclosure
-										as="div"
+								{teamsFilters.map((section, sectionIdx) => (
+									<div
 										key={section.name}
-										className="border-t border-gray-200 py-4 dark:border-gray-800"
+										className={`${sectionIdx === 0 ? '' : 'pt-10'} px-2`}
 									>
-										{({ open }) => (
-											<fieldset>
-												<legend className="w-full px-2">
-													<Disclosure.Button className="flex w-full items-center justify-between p-2 text-gray-400 hover:text-gray-500 dark:text-gray-600 dark:hover:text-gray-500">
-														<span className="text-sm font-medium text-gray-900 dark:text-gray-100">{section.name}</span>
-														<span className="ml-6 flex h-7 items-center">
-															<ChevronDownIcon
-																className={`${open ? '-rotate-180' : 'rotate-0'} h-5 w-5`}
-																aria-hidden="true"
-															/>
-														</span>
-													</Disclosure.Button>
-												</legend>
-											</fieldset>
-										)}
-									</Disclosure>
+										<fieldset>
+											<label
+												htmlFor={section.id}
+												className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+											>
+												{section.name}
+												<input
+													type="text"
+													id={section.id}
+													name={section.name}
+													className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:border-gray-500 dark:bg-gray-700 sm:text-sm"
+												/>
+											</label>
+										</fieldset>
+									</div>
 								))}
 							</form>
 						</Dialog.Panel>

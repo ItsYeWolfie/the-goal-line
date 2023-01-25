@@ -27,7 +27,7 @@ export default function TeamMainPage({ team, venue }: ITeamAndVenue) {
 	return (
 		<section className="flex grow flex-col">
 			<section
-				className={`container mx-auto shrink-0 grow-0 overflow-y-auto p-2 ${
+				className={`container mx-auto shrink-0 grow-0 overflow-y-auto px-2 py-4 sm:py-8 ${
 					navigation.state === 'loading' ? 'animate-pulse opacity-25 transition-opacity duration-300' : ''
 				}`}
 			>
