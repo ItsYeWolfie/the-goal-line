@@ -4,6 +4,7 @@ import { FaInfoCircle } from 'react-icons/fa';
 import fetchData from '../../../lib/helpers/Fetch';
 import { FootballMatch } from '../../../types/Fixture-Main.types';
 import FixtureHeader from './Fixture-Header';
+import FixtureMainInfo from './Fixture-Main-Info';
 
 const urls = [
 	'https://api.npoint.io/cfdd9340ece0aa795c9e',
@@ -15,7 +16,7 @@ export default function FixturesMain() {
 	const [matches, setMatches] = useState<FootballMatch[]>([]);
 	const [currentUrl, setCurrentUrl] = useState<string>(urls[0]);
 	const [activeButton, setActiveButton] = useState<number>(0);
-	const [hoveredMatchId, setHoveredMatchId] = useState<string | null>(null);
+	const [hoveredMatchId, setHoveredMatchId] = useState<number | null>(null);
 
 	const handleButtonClick = (index: number) => {
 		setCurrentUrl(urls[index]);
@@ -47,46 +48,10 @@ export default function FixturesMain() {
 						>
 							<div className="col-span-1 h-full w-full">
 								<div className="relative flex h-full w-full items-center">
-									<div
-										className={`absolute top-[-150px] right-[-90%] z-[10] ${
-											String(match.fixture.id) === hoveredMatchId ? '' : 'hidden'
-										} h-[250px] w-[350px] overflow-hidden rounded-[20px] bg-cyan-800 `}
-										id={`modal-info-${match.fixture.id}`}
-									>
-										<div className="grid h-full w-full grid-cols-2">
-											<div className="h-full w-full">
-												<p className="my-[5%] ml-[5%] w-[90%] text-center text-[18px] text-gray-200">
-													{match.teams.home.name}
-												</p>
-												<img
-													className="mx-auto h-[100px] w-[100px]"
-													src={match.teams.home.logo}
-													alt=""
-												/>
-											</div>
-											<div className="h-full w-full">
-												<p className="relative my-[5%] ml-[5%] w-[90%] text-center text-[18px] text-gray-200">
-													{match.teams.away.name}
-												</p>
-												<img
-													className="mx-auto h-[100px] w-[100px]"
-													src={match.teams.away.logo}
-													alt=""
-												/>
-												<div className="relative flex w-full items-center ">
-													<img
-														className="absolute left-[-80px] top-[10px] h-[25px]  w-[25px]"
-														src={match.league.logo}
-														alt=""
-													/>
-													<p className="absolute left-[-50px] top-[10px] mr-[3%] text-lime-400">{match.league.name}</p>
-													<p className="absolute left-[-70px] top-[40px] text-lime-400">{match.league.round}</p>
-													<p className="absolute right-[7px] top-[80px] text-gray-200">{match.fixture.status.long}</p>
-													<p className="absolute left-[-160px]  top-[80px] text-gray-200">{match.league.country}</p>
-												</div>
-											</div>
-										</div>
-									</div>
+									<FixtureMainInfo
+										match={match}
+										hoverdMatchId={hoveredMatchId}
+									/>
 									<img
 										className="absolute left-[2%] h-[30px] w-[30px] sm:h-[35px] sm:w-[35px] md:h-[35px] md:w-[35px]"
 										src={match.teams.home.logo}
@@ -122,7 +87,7 @@ export default function FixturesMain() {
 									<p className="absolute right-[5%]">
 										<FaInfoCircle
 											className="text-[25px] text-yellow-400"
-											onMouseEnter={() => setHoveredMatchId(String(match.fixture.id))}
+											onMouseEnter={() => setHoveredMatchId(match.fixture.id)}
 											onMouseLeave={() => setHoveredMatchId(null)}
 										/>
 									</p>

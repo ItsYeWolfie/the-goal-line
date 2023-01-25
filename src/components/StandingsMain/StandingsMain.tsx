@@ -18,7 +18,7 @@ export default function StandingsMain() {
 	return (
 		<section className="m-[3%]">
 			<StandingMainHeader />
-			<div className="flex  w-full cursor-all-scroll flex-col items-center   bg-gray-800">
+			<div className="flex  w-full cursor-all-scroll flex-col items-center rounded-[20px]  bg-gray-800">
 				<h1 className="mt-[5%] pt-[2%]  text-lg font-medium text-gray-200 lg:mt-0 xl:mt-[0%]">2020-21 Season</h1>
 				<div className="mt-6 flex h-[390px] w-full flex-col overflow-scroll">
 					<div className="">
