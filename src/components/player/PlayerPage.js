@@ -2,6 +2,7 @@ import { html } from 'lit';
 import { LitLightElement } from '../../lib/LitElement';
 import './Overview';
 import './TrophiesPage';
+import './Sidelines';
 
 
 
@@ -41,6 +42,9 @@ class PlayerPage extends LitLightElement {
 			{
 				name: 'Sidelines',
 				slug: 'sidelines',
+				html: html`
+					<sidelines-p></sidelines-p>
+				`,
 			},
 			{
 				name: 'Transfers',

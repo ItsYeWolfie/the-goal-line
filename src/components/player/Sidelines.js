@@ -1,23 +1,23 @@
 import { html } from 'lit';
 import { LitLightElement } from '../../lib/LitElement';
 
-class TrophiesPage extends LitLightElement {
+class Sidelines extends LitLightElement {
 	static properties = {
-		trophies: { type: Array },
+		sidelines: { type: Array },
 		loading: { type: Boolean },
 	};
 
 	constructor() {
 		super();
-		this.trophies = [];
+		this.sidelines = [];
 		this.loading = true;
 	}
 
 	async connectedCallback() {
 		super.connectedCallback();
-		const response = await fetch('https://api.npoint.io/3ab2b7fa0e7154edd1db');
+		const response = await fetch(' https://api.npoint.io/fa7a62b9f7e7fd32e57d');
 		const data = await response.json();
-		this.trophies = data;
+		this.sidelines = data;
 		this.loading = false;
 		Object.keys(data).forEach((key) => {
 			this[key] = data[key];
@@ -44,10 +44,10 @@ class TrophiesPage extends LitLightElement {
 					<table class="bg-gray-700 uppercase">
 						<thead class="bg-gray-800 text-sm">
 							<tr>
-								<th class="py-1 pl-3 text-left">League</th>
-								<th class="py-1 pl-3 text-left">Country</th>
-								<th class="py-1 pl-3 text-left">Season</th>
-								<th class="py-1 pl-3 text-left">Place</th>
+								<th class="py-1 pl-3 text-left">Type</th>
+								<th class="py-1 pl-3 text-left">Start Date</th>
+								<th class="py-1 pl-3 text-left">end date</th>
+								
 								
 								
 							</tr>
@@ -60,10 +60,10 @@ class TrophiesPage extends LitLightElement {
 								: this.response.map(
 										(res, index) => html`
 											<tr class="${index % 2 === 1 ? 'bg-gray-600' : ''}">
-												<td class="py-4 pl-3">${res.league}</td>
-												<td class="py-4 pl-3">${res.country}</td>
-												<td class="py-4 pl-3">${res.season}</td>
-												<td class="py-4 pl-3">${res.place}</td>
+												<td class="py-4 pl-3">${res.type}</td>
+												<td class="py-4 pl-3">${res.start}</td>
+                                                <td class="py-4 pl-3">${res.end}</td>
+												
 											</tr>
 										`
 								  )}
@@ -76,4 +76,4 @@ class TrophiesPage extends LitLightElement {
 		`;
 	}
 }
-customElements.define('trophies-page', TrophiesPage);
+customElements.define('sidelines-p', Sidelines);
