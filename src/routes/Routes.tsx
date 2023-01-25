@@ -17,17 +17,18 @@ import TeamPlayers from '../pages/team/TeamPlayers';
 import TeamTransfers from '../pages/team/TeamTransfers';
 import TeamCoachesPage from '../pages/team/TeamCoaches';
 import TeamInjuriesPage from '../pages/team/TeamInjuries';
-import Index from '../pages/Index';
+import Root from '../pages/Root';
+import IndexPage from '../pages/Index';
 
 export const router = createBrowserRouter([
 	{
 		path: '/',
 		errorElement: <NotFound />,
-		element: <Index />,
+		element: <Root />,
 		children: [
 			{
 				path: '/',
-				element: 'Home',
+				element: <IndexPage />,
 				index: true,
 			},
 			{
