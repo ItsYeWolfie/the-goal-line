@@ -1,26 +1,20 @@
-import { useMemo, useState } from 'react';
-import { Outlet } from 'react-router';
-import { BreadcrumbContext } from '../contexts/Breadcrumb.context';
-import { IBreadCrumb } from '../types/BreadCrumb.types';
+import { useContext, useEffect } from 'react';
+import { GlobalHeaderContext, IGlobalHeader } from '../contexts/GlobalHeader.context';
 
-export default function Index() {
-	const [breadcrumbs, setBreadcrumbs] = useState<IBreadCrumb[]>([
-		{
-			href: '/',
-			name: 'Home',
-		},
-	]);
+export default function IndexPage() {
+	const { setTabsComponent, setBreadcrumbs } = useContext<IGlobalHeader>(GlobalHeaderContext);
 
-	const value = useMemo(() => {
-		return {
-			breadcrumbs,
-			setBreadcrumbs,
-		};
-	}, [breadcrumbs]);
+	useEffect(() => {
+		setBreadcrumbs([]);
+	}, [setBreadcrumbs]);
+
+	useEffect(() => {
+		setTabsComponent(null);
+	}, [setTabsComponent]);
 
 	return (
-		<BreadcrumbContext.Provider value={value}>
-			<Outlet />
-		</BreadcrumbContext.Provider>
+		<div>
+			<h1>Index Page</h1>
+		</div>
 	);
 }

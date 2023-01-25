@@ -38,7 +38,9 @@ export default function DropdownList({ children, title, className }: IDropdownLi
 		>
 			<button
 				type="button"
-				className="flex w-full items-center justify-between rounded-md bg-gray-200 px-4 py-2 text-sm font-medium text-gray-800 dark:bg-gray-700 dark:text-gray-200"
+				className={`${
+					isDropdownOpen ? '' : 'rounded-b-md '
+				}flex w-full items-center justify-between rounded-t-md bg-gray-200 px-4 py-2 text-sm font-medium text-gray-800 dark:bg-gray-700 dark:text-gray-200`}
 				onClick={() => setIsDropdownOpen(!isDropdownOpen)}
 			>
 				<header>{title}</header>
