@@ -19,17 +19,29 @@ import TeamCoachesPage from '../pages/team/TeamCoaches';
 import TeamInjuriesPage from '../pages/team/TeamInjuries';
 import Root from '../pages/Root';
 import IndexPage from '../pages/Index';
+import TeamsIndexPage from '../pages/teams/Index';
+import teamsLoader from '../lib/loaders/TeamsLoaders';
 
 export const router = createBrowserRouter([
 	{
 		path: '/',
-		errorElement: <NotFound />,
 		element: <Root />,
+		errorElement: <NotFound />,
 		children: [
 			{
 				path: '/',
 				element: <IndexPage />,
 				index: true,
+			},
+			{
+				path: 'teams',
+				children: [
+					{
+						index: true,
+						element: <TeamsIndexPage />,
+						loader: teamsLoader,
+					},
+				],
 			},
 			{
 				path: '/team/:teamID',
