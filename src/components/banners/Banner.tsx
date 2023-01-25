@@ -15,6 +15,7 @@ export default function Banner() {
 			const now = new Date().getTime();
 			// Find the distance between now and the count down date
 			const distance = countDownDate - now;
+
 			// Time calculations for days, hours, minutes and seconds
 			const days = Math.floor(distance / (1000 * 60 * 60 * 24));
 			const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));

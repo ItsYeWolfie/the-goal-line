@@ -7,10 +7,12 @@ import HorizontalLine from '../Layout/Horizontal-Line';
 import Layout from '../Layout/Layout';
 import LogosSlider from '../logos/Logos';
 import NewsSlider from '../News/News-Slider';
+import Search from '../SearchBar-Main/Search';
 
 export default function HomePage() {
 	return (
 		<Layout>
+			<Search />
 			<Banner />
 			<HorizontalLine />
 			<StandingsMain />
