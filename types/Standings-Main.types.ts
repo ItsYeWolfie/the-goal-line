@@ -29,6 +29,7 @@ interface HomeStatistics {
 	played: number;
 }
 export interface TeamStatistics {
+	id: Key | null | undefined;
 	all: AllStatistics;
 	away: AwayStatistics;
 	form: string;
