@@ -46,7 +46,7 @@ class FixtureInfo extends LitLightElement {
 				class="flex h-10 w-full items-center justify-around rounded-md bg-gray-800 align-middle md:mx-auto md:w-4/5 lg:ml-40 lg:flex lg:w-full lg:justify-around"
 			>
 				<p class="text-xs md:text-lg"><i class="fa-regular fa-calendar-days"></i> ${date}</p>
-				<p class="flex text-xs md:text-lg">
+				<p class="flex items-center text-xs md:text-lg">
 					<img class="pr-1" src="../../images/icons8-whistle.svg" width="25px" /> ${this.fixtures
 						.fixture.referee}
 				</p>

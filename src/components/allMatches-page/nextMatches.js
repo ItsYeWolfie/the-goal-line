@@ -1,7 +1,7 @@
 import { html } from 'lit';
 import { LitLightElement } from '../../lib/LitElement';
 
-class Matches extends LitLightElement {
+class NextMatches extends LitLightElement {
 	static properties = {
 		fixture: { type: Array },
 		loading: { type: Boolean },
@@ -17,11 +17,11 @@ class Matches extends LitLightElement {
 
 	async connectedCallback() {
 		super.connectedCallback();
-		const response = await fetch('https://api.npoint.io/bc3172aed63c37c3eddc');
+		const response = await fetch('https://api.npoint.io/6f917c1a4fbfd66738af');
 		const data = await response.json();
 		this.fixture = data;
 		this.loading = false;
-		// console.log(data);
+		// console.log(dataL);
 		const groupedMatches = {};
 		this.fixture.forEach((fixture) => {
 			const leagueId = fixture.league.id;
@@ -81,11 +81,7 @@ class Matches extends LitLightElement {
 										><div
 											class="mb-2 flex cursor-pointer items-center rounded-md bg-gray-700 duration-150 ease-in hover:h-16 hover:border-2 hover:border-solid hover:border-gray-700 hover:bg-gray-800"
 										>
-											<span class="ml-2"
-												>${fixture.fixture.status.short === 'NS'
-													? `${date}`
-													: fixture.fixture.status.short}</span
-											>
+											<span class="ml-2">${date}</span>
 											<div class="flex flex-col p-2">
 												<span class="ml-2 mb-1 flex">
 													<img
@@ -122,4 +118,4 @@ class Matches extends LitLightElement {
 		`;
 	}
 }
-customElements.define('matches-m', Matches);
+customElements.define('matches-n', NextMatches);

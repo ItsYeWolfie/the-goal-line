@@ -1,7 +1,7 @@
 import { html } from 'lit';
 import { LitLightElement } from '../../lib/LitElement';
 
-class Matches extends LitLightElement {
+class LiveMatches extends LitLightElement {
 	static properties = {
 		fixture: { type: Array },
 		loading: { type: Boolean },
@@ -17,11 +17,12 @@ class Matches extends LitLightElement {
 
 	async connectedCallback() {
 		super.connectedCallback();
-		const response = await fetch('https://api.npoint.io/bc3172aed63c37c3eddc');
+		const response = await fetch('https://api.npoint.io/4297af90cd1386b54c79');
 		const data = await response.json();
 		this.fixture = data;
 		this.loading = false;
-		// console.log(data);
+		this.addEventListener('live-clicked', this.handleLiveClick);
+		// console.log(dataL);
 		const groupedMatches = {};
 		this.fixture.forEach((fixture) => {
 			const leagueId = fixture.league.id;
@@ -33,7 +34,11 @@ class Matches extends LitLightElement {
 			groupedMatches[leagueId].league = fixture.league;
 		});
 		this.groupedMatches = groupedMatches;
-		// console.log(groupedMatches);
+		console.log(groupedMatches);
+	}
+
+	handleLiveClick() {
+		document.querySelector('matches-l').classList.toggle('hidden');
 	}
 
 	render() {
@@ -48,7 +53,7 @@ class Matches extends LitLightElement {
 		}
 
 		return html`
-			<div class="animate-fade-in delay-300">
+			<div class="animate-fade-in hidden delay-300">
 				${Object.keys(this.groupedMatches).map((leagueId) => {
 					return html`
 						<div>
@@ -81,10 +86,10 @@ class Matches extends LitLightElement {
 										><div
 											class="mb-2 flex cursor-pointer items-center rounded-md bg-gray-700 duration-150 ease-in hover:h-16 hover:border-2 hover:border-solid hover:border-gray-700 hover:bg-gray-800"
 										>
-											<span class="ml-2"
-												>${fixture.fixture.status.short === 'NS'
-													? `${date}`
-													: fixture.fixture.status.short}</span
+											<span class="my-auto ml-2"
+												>${fixture.fixture.status.elapsed === 90
+													? `${fixture.fixture.status.elapsed}+`
+													: fixture.fixture.status.elapsed}'</span
 											>
 											<div class="flex flex-col p-2">
 												<span class="ml-2 mb-1 flex">
@@ -122,4 +127,4 @@ class Matches extends LitLightElement {
 		`;
 	}
 }
-customElements.define('matches-m', Matches);
+customElements.define('matches-l', LiveMatches);

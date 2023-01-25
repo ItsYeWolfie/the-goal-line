@@ -50,7 +50,7 @@ class Match extends LitLightElement {
 			`;
 		}
 		return html`<div
-			class="h-auto w-full justify-between rounded-md bg-gray-800 align-middle md:mx-auto md:w-4/5 md:justify-around lg:ml-40 lg:h-40 lg:w-full"
+			class="h-auto w-full justify-between rounded-md bg-gray-800 align-middle md:mx-auto md:w-4/5 md:justify-around lg:ml-40 lg:w-full"
 		>
 			<div class="flex justify-around">
 				<div class="mt-6 flex flex-col">

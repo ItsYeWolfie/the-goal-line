@@ -3,6 +3,10 @@ import moment from 'moment/moment';
 import { LitLightElement } from '../../lib/LitElement';
 
 class Header extends LitLightElement {
+	handleLiveClick() {
+		this.dispatchEvent(new CustomEvent('live-clicked'));
+	}
+
 	render() {
 		const dayBeforeYesterday = moment().subtract(2, 'days').format('D MMM').toLocaleUpperCase();
 		const yesterday = moment().subtract(1, 'days').format('D MMM').toLocaleUpperCase();
@@ -15,9 +19,10 @@ class Header extends LitLightElement {
 		const tomorrowWeek = moment().add(1, 'days').format('ddd').toLocaleUpperCase();
 		const dayAfterTomorrowWeek = moment().add(2, 'days').format('ddd').toLocaleUpperCase();
 
-		return html`<div class="flex gap-4 md:gap-20 lg:gap-10">
+		return html`<div class="flex gap-4 md:gap-20 lg:gap-8">
 			<span
 				class="my-auto h-5 w-10 cursor-pointer rounded-sm bg-gray-200 text-center text-gray-800 hover:bg-sky-600 hover:text-gray-200"
+				onclick="${this.handleLiveClick}"
 				>LIVE</span
 			>
 			<div class="flex cursor-pointer flex-col items-center text-xs hover:text-sky-600 md:text-sm">

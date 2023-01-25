@@ -47,18 +47,19 @@ class Formation extends LitLightElement {
 			</span>
 			<div class="mx-auto flex h-[16rem] w-[23.8rem] bg-green-900 md:mx-0 lg:mx-0">
 				<div class="absolute h-64 w-48 border-2 border-solid border-white">
-					<div class="absolute top-8 -ml-8 grid h-48 w-64 z-50 -rotate-90 auto-cols-auto auto-rows-auto place-items-center place-content-center justify-around align-middle gap-2 p-2">
+					<div class="absolute top-8 -ml-8 grid h-48 w-64 z-50 -rotate-90
+						 justify-around align-middle gap-2 p-2">
 						${this.formation[0].startXI.map((player) => {
 							const grid = player.player.grid.split(':');
 							const row = parseInt(grid[0]);
 							const col = parseInt(grid[1]);
 							console.log(row, col);
 							return html`<div
-								class="row-start-${row} col-start-${col} h-7 w-7 items-center rounded-full bg-lime-700 text-center"
+								class="row-start-${row} col-start-${col} flex h-7 w-7 justify-center rounded-full bg-lime-700"
 							>
 								${player.player.pos}
 							</div>`;
-						})};
+						})}
 					</div>
 					<div class="absolute -ml-[1px] mt-12 h-40 w-20 border-2 border-solid border-white">
 						<div class="absolute mt-7 -ml-0.5 h-24 w-12 border-2 border-solid border-white"></div>
@@ -71,14 +72,14 @@ class Formation extends LitLightElement {
 					></div>
 				</div>
 				<div class="absolute ml-[191px] h-64 w-48 border-2 border-solid border-white">
-					<div class="absolute top-8 -ml-8 grid h-48 w-64  z-50 rotate-90  justify-around gap-2 p-2">
+					<div class="absolute top-8 -ml-8 grid h-48 w-64 z-50 rotate-90 justify-around gap-2 p-2">
 						${this.formation[1].startXI.map((player) => {
 							const grid = player.player.grid.split(':');
 							const row = parseInt(grid[0]);
 							const col = parseInt(grid[1]);
 							console.log(row, col);
 							return html`<div
-								class="row-start-${row} col-start-${col} h-7 w-7  items-center rounded-full bg-sky-600 text-center"
+								class="row-start-${row} col-start-${col} text flex  h-7 w-7 items-center justify-center rounded-full bg-sky-600"
 							>
 								${player.player.pos}
 							</div>`;

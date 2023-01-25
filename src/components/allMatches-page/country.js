@@ -10,6 +10,8 @@ class CountriesList extends LitLightElement {
 		selectedCountryData: { type: Object },
 		showList: { type: Boolean },
 		showSelectedCountryData: { type: Boolean },
+		cups: { type: Array },
+		groupedCups: { type: Array },
 	};
 
 	constructor() {
@@ -20,6 +22,8 @@ class CountriesList extends LitLightElement {
 		this.showList = true;
 		this.selectedCountry = [];
 		this.showSelectedCountryData = false;
+		this.cups = [];
+		this.groupedCups = [];
 	}
 
 	async connectedCallback() {
@@ -29,6 +33,26 @@ class CountriesList extends LitLightElement {
 		this.countries = data;
 		this.loading = false;
 		// console.log(data);
+
+		const res = await fetch('https://api.npoint.io/484684e50cfa51dfed36');
+		const dataC = await res.json();
+		this.cups = dataC;
+		// console.log(dataC);
+
+		const groupedCups = {};
+		this.cups.forEach((cup) => {
+			const country = cup.country.name;
+			if (!groupedCups[country]) {
+				groupedCups[country] = [cup];
+			} else {
+				groupedCups[country].push(cup);
+			}
+			groupedCups[country].name = cup.name;
+		});
+
+		this.groupedCups = groupedCups;
+		console.log(groupedCups);
+
 		if (this.selectedCountry) {
 			const selectedCountryDataResponse = await fetch(`https://api.npoint.io/699acd2fa754e5bd47d6`);
 			const selectedCountryData = await selectedCountryDataResponse.json();
@@ -49,6 +73,12 @@ class CountriesList extends LitLightElement {
 			country.name.toLowerCase().startsWith(this.searchTerm.toLowerCase())
 		);
 	}
+
+	// filterCups() {
+	// 	return this.cups.filter((cups) =>
+	// 		cups.name.toLowerCase().startsWith(this.searchTerm.toLowerCase())
+	// 	);
+	// }
 
 	render() {
 		if (this.loading) {
@@ -95,6 +125,22 @@ class CountriesList extends LitLightElement {
 										>
 									</div>
 								`
+							)}
+							${Object.keys(this.groupedCups === 'World').map(
+								(cups) =>
+									html` <div class="flex h-auto p-2">
+										<span class="my-auto"
+											><img
+												class="rounded-sm"
+												src="${cups.league.logo === null
+													? '../images/noimg.png'
+													: cups.league.logo}"
+												width="30px"
+										/></span>
+										<span class="ml-2 cursor-pointer text-sm text-gray-300 hover:text-sky-600"
+											>${cups.league.name}</span
+										>
+									</div>`
 							)}
 					  `
 					: html``}
