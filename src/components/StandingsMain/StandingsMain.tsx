@@ -221,11 +221,11 @@ export default function StandingsMain() {
 				</div>
 				<div className=" mt-[4%] mb-[3%] ml-[5%] flex  w-full  items-center justify-start gap-5">
 					<p className=" flex items-center gap-2 text-gray-200">
-						<FaCircle className="fa-solid fa-circle text-blue-400  " />
+						<FaCircle className=" text-blue-400  " />
 						Champions League
 					</p>
 					<p className=" flex items-center gap-2 text-gray-200">
-						<FaCircle className="fa-solid fa-circle text-red-400 " />
+						<FaCircle className=" text-red-400 " />
 						Europa League
 					</p>
 				</div>

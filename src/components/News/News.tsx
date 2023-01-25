@@ -3,13 +3,13 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
-
 /* eslint-disable tailwindcss/no-custom-classname */
 /* eslint-disable no-template-curly-in-string */
 import moment from 'moment';
 import { useEffect, useState } from 'react';
 import { fetchData } from '../../../lib/helpers/Fetch';
 import { News } from '../../../types/News.types';
+import NewsHeader from './News-header';
 import RelatedNews from './Related-News';
 
 export default function NewsPage() {
@@ -54,6 +54,7 @@ export default function NewsPage() {
 		if (selectedData) {
 			setCurrentData(selectedData);
 		}
+		window.scrollTo(0, 0);
 	};
 
 	const currentDate = moment().format('MM/DD/YYYY');
@@ -64,30 +65,11 @@ export default function NewsPage() {
 			<section className="m-[3%] mt-0 pt-[6%]">
 				<div className="relative h-[50px]  w-full md:h-[70px]">
 					<div className="absolute left-[0%] bottom-[20%] flex h-[80%] w-[90%] items-center gap-[3%]">
-						<p
-							onClick={() => handleClick(0)}
-							className={`${
-								activeCategory === dataTofilter[0] ? ' border-b-[5px] border-yellow-400  text-yellow-400 ' : ''
-							} h-full cursor-pointer`}
-						>
-							All News
-						</p>
-						<p
-							onClick={() => handleClick(1)}
-							className={`${
-								activeCategory === dataTofilter[1] ? ' border-b-[5px] border-yellow-400  text-yellow-400 ' : ''
-							} h-full cursor-pointer`}
-						>
-							Champions
-						</p>
-						<p
-							onClick={() => handleClick(2)}
-							className={`${
-								activeCategory === dataTofilter[2] ? ' border-b-[5px] border-yellow-400  text-yellow-400 ' : ''
-							} h-full cursor-pointer`}
-						>
-							Transfers
-						</p>
+						<NewsHeader
+							activeCategory={activeCategory}
+							dataTofilter={dataTofilter}
+							handleClick={handleClick}
+						/>
 					</div>
 				</div>
 				<div className="h-auto w-full gap-[1%] bg-slate-900 md:grid md:grid-cols-5">
@@ -144,13 +126,6 @@ export default function NewsPage() {
 								<img
 									className="h-full w-full bg-white opacity-[0.8]"
 									src="src/images/gjirafavisa.png"
-									alt=""
-								/>
-							</div>
-							<div className="mt-[5%] hidden h-[300px] w-full sm:block 2xl:h-[450px]">
-								<img
-									className="newsImg h-full w-full bg-white opacity-[0.8]"
-									src="src/images/gjirafavideo.jpeg"
 									alt=""
 								/>
 							</div>

@@ -41,7 +41,7 @@ export default function NewsByTitle() {
 						</div>
 						<div className="mt-[3%] flex w-full items-center space-x-4">
 							<img
-								className=" md:w-15  h-11 w-11 rounded-full"
+								className=" h-11  w-11 rounded-full md:w-16"
 								src="../src/images/news-user.png"
 								alt=""
 							/>
