@@ -7,7 +7,7 @@ interface NewsProps {
 
 export default function NewsCard({ news }: NewsProps) {
 	return (
-		<div className="h-full w-[48%] flex-none  rounded sm:w-[35%] md:w-[35%] lg:w-[26%]">
+		<div className="h-full w-[50%] flex-none  rounded sm:w-[35%] md:w-[35%] lg:w-[26%]">
 			<div className="mx-auto h-[60%] w-[100%]  rounded-[15px] bg-gray-900 align-middle">
 				<Link to={`/news/${news.title}`}>
 					<img

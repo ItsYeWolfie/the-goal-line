@@ -7,7 +7,7 @@ interface KitProps {
 export default function Kit({ kit }: KitProps) {
 	return (
 		<div className=" h-full w-[35%] flex-none rounded sm:w-[28%]  md:w-[28%] lg:w-[20%]">
-			<div className="mx-auto h-[80%] w-[80%] rounded-[15px] bg-gray-800 align-middle  ">
+			<div className="mx-auto h-[80%] w-[80%] rounded-[15px] bg-gray-800 align-middle hover:border-[2px] hover:border-yellow-400  ">
 				<img
 					className="mx-auto h-[95%] w-full rounded-[15px] pt-[2.5%] "
 					src={kit.image}

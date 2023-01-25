@@ -33,7 +33,7 @@ export default function NewsByTitle() {
 	const threeHoursAgo = moment().subtract(3, 'hours').format('hh:mm A');
 	return (
 		<Layout>
-			<div className=" mx-auto h-full w-[80%] gap-[1%] bg-gray-900 pt-[3%] sm:p-[4%] md:grid md:grid-cols-5">
+			<div className=" mx-auto h-full w-full gap-[1%] bg-gray-900 pt-[3%] sm:p-[4%] md:grid md:w-[80%] md:grid-cols-5">
 				<div className="w-full  md:col-span-5">
 					<div className="rounded-[10px] border-[1px] border-gray-400">
 						<div className="mx-auto mt-[5%] w-[90%] text-[1.2rem] font-bold text-white sm:text-[1.5rem] md:text-[1.5rem] lg:text-[1.6rem] 2xl:text-[2.3rem]">
