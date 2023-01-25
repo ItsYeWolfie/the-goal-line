@@ -1,8 +1,11 @@
 import { FiPhone } from 'react-icons/fi';
 import { BsEnvelope } from 'react-icons/bs';
 import { AiOutlineGithub } from 'react-icons/ai';
+import { useContext, useEffect } from 'react';
+import { GlobalHeaderContext, IGlobalHeader } from '../contexts/GlobalHeader.context';
 
 export default function ContactPage() {
+	const { setBreadcrumbs } = useContext<IGlobalHeader>(GlobalHeaderContext);
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		const form = event.currentTarget;
@@ -13,6 +16,20 @@ export default function ContactPage() {
 		const value = Object.fromEntries(data.entries());
 		console.log(value);
 	};
+
+	useEffect(() => {
+		setBreadcrumbs([
+			{
+				name: 'Contact Us',
+				href: '/contact-us',
+			},
+		]);
+
+		return () => {
+			setBreadcrumbs([]);
+		};
+	}, [setBreadcrumbs]);
+
 	return (
 		<div className="bg-gray-100 dark:bg-inherit">
 			<div className="mx-auto max-w-7xl py-8 px-4 sm:py-12 sm:px-6 lg:px-8">
