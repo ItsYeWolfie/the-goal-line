@@ -39,7 +39,7 @@ export default function GlobalHeader() {
 						/>
 					)}
 				</div>
-				<nav className="flex w-screen justify-around bg-white dark:bg-gray-900 sm:mt-5 sm:block sm:w-auto sm:flex-1 sm:space-y-1 sm:px-2">
+				<nav className="flex w-screen justify-around bg-white dark:bg-gray-900 sm:mt-5 sm:block sm:w-auto sm:flex-1 sm:flex-col sm:space-y-1 sm:px-2">
 					{navigation.map((item) => (
 						<NavLink
 							key={item.name}
