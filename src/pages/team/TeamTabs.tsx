@@ -18,7 +18,7 @@ export default function TeamTabs() {
 				title={dropdownName}
 				className="relative z-20 w-full items-center border border-transparent text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 md:hidden"
 			>
-				<div className="absolute top-full right-0 z-10 w-full rounded-md bg-gray-700 shadow-lg">
+				<div className="absolute top-full right-0 z-10 w-full rounded-b-md bg-gray-300 shadow-lg dark:bg-gray-700">
 					{teamTabs.map((tab: ITab) => (
 						<NavLink
 							to={`/team/${teamID}${tab.href}`}
@@ -27,7 +27,7 @@ export default function TeamTabs() {
 							className={({ isActive }) =>
 								`${
 									isActive ? 'dark:bg-gray-600' : 'dark:bg-gray-700'
-								} block px-4 py-2 text-sm text-gray-200 dark:hover:bg-gray-600`
+								} block px-4 py-2 text-sm text-gray-800 dark:text-gray-200 dark:hover:bg-gray-600`
 							}
 							type="button"
 						>
