@@ -1,15 +1,16 @@
-import { FaTrophy, FaArrowRight } from 'react-icons/fa';
+import { BsChevronRight } from 'react-icons/Bs';
+import { GiTrophy } from 'react-icons/gi';
 
 export default function StandingMainHeader() {
 	return (
 		<div className="  w-full">
 			<div className="flex items-center">
 				<p className=" ml-[3%] flex w-2/3 gap-[1%] text-[20px]  text-gray-200 md:ml-[1%]">
-					<FaTrophy className=" mr-[1%]  mt-[2%] rounded-full text-[20px] text-yellow-500 md:mt-[0.5%]" />
+					<GiTrophy className=" mr-[1%]  mt-[2%] rounded-full text-[20px] text-yellow-500 md:mt-[0.5%]" />
 					Standings
 				</p>
 				<p className="  flex w-1/3 justify-end gap-[2%] text-right text-[20px]  text-gray-200 md:ml-[1%] ">
-					View All <FaArrowRight className="mt-[3%] md:mt-[1%]" />
+					View All <BsChevronRight className="mt-[3%] md:mt-[1%]" />
 				</p>
 			</div>
 			<div className="my-[2%] flex">

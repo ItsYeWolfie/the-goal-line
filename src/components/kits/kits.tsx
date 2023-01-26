@@ -51,7 +51,7 @@ export default function KitsSlider() {
 			<section className="m-[3%] overflow-hidden">
 				<div className=" grid h-[190px] w-full grid-rows-6 gap-0 text-gray-200   sm:h-[240px] md:h-[280px] lg:h-[300px]">
 					<div className="relative row-span-1 h-[100%] w-full items-center">
-						<FaTshirt className=" absolute top-[10%] left-[0%] text-yellow-400 lg:top-[5%] lg:text-2xl" />
+						<FaTshirt className=" absolute top-[10%] left-[0%] text-yellow-400 lg:top-[10%] lg:text-2xl" />
 						<span className="absolute top-[5%] left-[6%] items-center text-[15px] font-[400] text-gray-200 md:left-[3%] md:text-lg  lg:text-2xl ">
 							Shopping
 						</span>

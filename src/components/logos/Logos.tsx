@@ -4,7 +4,8 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 
 import { useState, useEffect } from 'react';
-import { FaGamepad, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { RiChatFollowUpFill } from 'react-icons/ri';
 import { Logos } from '../../../types/Logos.types';
 import Logo from './Logo';
 import fetchData from '../../../lib/helpers/Fetch';
@@ -51,7 +52,7 @@ export default function LogosSlider() {
 		<section className="m-[3%]">
 			<div className="clublogos grid h-[100px] w-full grid-rows-6 gap-0 text-gray-200 sm:h-[150px] md:h-[150px] lg:h-[180px] xl:h-[180px] 2xl:h-[220px]">
 				<div className="relative row-span-1 h-[100%] w-full items-center">
-					<FaGamepad className=" absolute top-[10%] left-[0%] text-yellow-400 lg:top-[5%] lg:text-2xl" />
+					<RiChatFollowUpFill className=" absolute top-[10%] left-[0%] text-yellow-400 lg:top-[10%] lg:text-2xl" />
 					<span className="absolute top-[5%] left-[6%] items-center text-[15px] font-[400] text-gray-200 md:left-[3%] md:text-lg  lg:text-2xl ">
 						Follow Club
 					</span>
