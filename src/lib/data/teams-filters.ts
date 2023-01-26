@@ -1,19 +1,44 @@
 export const teamsFilters = [
 	{
 		id: 'name',
-		name: 'Name',
+		name: 'name',
+		type: 'text',
 	},
 	{
 		id: 'league',
-		name: 'League',
+		name: 'league',
+		type: 'select',
+		options: [
+			{
+				id: 'Premier League',
+				name: 'Premier League',
+				value: 'Premier League',
+			},
+		],
 	},
 	{
 		id: 'season',
-		name: 'Season',
+		name: 'season',
+		type: 'select',
+		options: [
+			// {
+			// 	id: '2022',
+			// 	name: '2022',
+			// 	value: '2022',
+			// },
+		],
 	},
 	{
 		id: 'country',
-		name: 'Country',
+		name: 'country',
+		type: 'select',
+		options: [
+			// {
+			// 	id: 'england',
+			// 	name: 'Premier League',
+			// 	value: 'Premier League',
+			// },
+		],
 	},
 ];
 

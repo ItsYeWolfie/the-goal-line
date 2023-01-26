@@ -23,6 +23,10 @@ export default function TeamPlayersSection({ playersData }: { playersData: IPlay
 
 	useEffect(() => {
 		setActiveLeagueId(leagues[0].id);
+
+		return () => {
+			setActiveLeagueId(0);
+		};
 	}, [leagues]);
 	return (
 		<>

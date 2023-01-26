@@ -19,10 +19,18 @@ export default function TeamMainPage({ team, venue }: ITeamAndVenue) {
 				name: team.name,
 			},
 		]);
+
+		return () => {
+			setBreadcrumbs([]);
+		};
 	}, [team.id, team.name, setBreadcrumbs]);
 
 	useEffect(() => {
 		setTabsComponent(<TeamTabs />);
+
+		return () => {
+			setTabsComponent(null);
+		};
 	}, [setTabsComponent]);
 	return (
 		<section className="flex grow flex-col">

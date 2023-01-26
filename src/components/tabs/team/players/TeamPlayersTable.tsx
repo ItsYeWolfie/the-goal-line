@@ -50,7 +50,16 @@ export default function TeamPlayersTable({
 							even={index % 2 === 0}
 						>
 							<SmallTableCell className="sm:pl-6">
-								{statistic.player.firstname} {statistic.player.lastname}
+								<div className="flex items-center">
+									<img
+										src={statistic.player.photo}
+										alt={`${statistic.player.firstname} ${statistic.player.lastname}`}
+										className="mr-2 h-6 w-6 rounded-full"
+									/>
+									<header>
+										{statistic.player.firstname} {statistic.player.lastname}
+									</header>
+								</div>
 								{statistic.statistics
 									.filter((stat) => stat.league.id === activeLeagueId)
 									.map((stat) => stat.games.captain)

@@ -63,6 +63,10 @@ export default function PlayerTransfers({ transfers }: { transfers: ITransferMod
 
 	useEffect(() => {
 		setYear(years[0]);
+
+		return () => {
+			setYear(0);
+		};
 	}, [years]);
 	return (
 		<>

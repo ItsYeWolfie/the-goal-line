@@ -1,17 +1,35 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { ArrowLongLeftIcon, ArrowLongRightIcon } from '@heroicons/react/20/solid';
 import { ITeamAndVenue } from '../../../types/Team.types';
 
-export default function TeamsDisplaySection({ teams }: { teams: ITeamAndVenue[] }) {
-	const [filteredTeams, setFilteredTeams] = useState<ITeamAndVenue[]>(teams.slice(0, 10));
+export default function TeamsDisplaySection({
+	filteredTeams,
+	setFilteredTeams,
+}: {
+	filteredTeams: ITeamAndVenue[];
+	setFilteredTeams: (teams: ITeamAndVenue[]) => void;
+}) {
+	const [currentPage, setCurrentPage] = useState(1);
+	const [totalPages, setTotalPages] = useState(1);
+	const [displayedTeams, setDisplayedTeams] = useState<ITeamAndVenue[]>([]);
+
 	const handlePageChange = (page: number) => {
-		const start = page * 10;
-		const end = start + 10;
-		setFilteredTeams(teams.slice(start, end));
+		if (page < 1 || page > totalPages) return;
+		setCurrentPage(page);
+		setDisplayedTeams(filteredTeams.slice((page - 1) * 10, page * 10));
 	};
+
+	useEffect(() => {
+		setDisplayedTeams(filteredTeams.slice(0, 10));
+	}, [filteredTeams, setFilteredTeams]);
+
+	useEffect(() => {
+		setTotalPages(Math.ceil(filteredTeams.length / 10));
+	}, [filteredTeams]);
 	return filteredTeams && filteredTeams.length > 0 ? (
 		<>
-			{filteredTeams.map((team) => (
+			{displayedTeams.map((team) => (
 				<Link
 					key={team.team.id}
 					to={`/team/${team.team.id}/`}
@@ -31,19 +49,52 @@ export default function TeamsDisplaySection({ teams }: { teams: ITeamAndVenue[] 
 					</div>
 				</Link>
 			))}
-			{teams.length > 10 && (
-				<div className="col-span-12 mt-4 flex items-center justify-center gap-2">
-					{[...Array(Math.ceil(teams.length / 10)).keys()].map((page) => (
+			{filteredTeams.length > 10 && (
+				<nav className="col-span-12 flex items-center justify-between border-t border-gray-200 px-4 sm:px-0">
+					<div className="-mt-px flex w-0 flex-1">
 						<button
-							key={page}
+							className="inline-flex items-center border-t-2 border-transparent pt-4 pr-1  text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-300 dark:hover:border-gray-700 dark:hover:text-gray-300"
 							type="button"
-							className="rounded-sm bg-gray-800 py-1 px-3 dark:bg-gray-200"
-							onClick={() => handlePageChange(page)}
+							onClick={() => handlePageChange(currentPage - 1)}
 						>
-							<header className="text-gray-300 dark:text-gray-700">{page + 1}</header>
+							<ArrowLongLeftIcon
+								className="mr-3 h-5 w-5 text-gray-400 dark:text-gray-600"
+								aria-hidden="true"
+							/>
+							Previous
 						</button>
-					))}
-				</div>
+					</div>
+					<div className="hidden md:-mt-px md:flex">
+						{[...Array(Math.ceil(filteredTeams.length / 10)).keys()].map((page) => (
+							<button
+								key={page}
+								type="button"
+								className={`
+								${
+									currentPage === page + 1
+										? 'border-indigo-500 text-indigo-600'
+										: 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-300'
+								} inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium`}
+								onClick={() => handlePageChange(page + 1)}
+							>
+								{page + 1}
+							</button>
+						))}
+					</div>
+					<div className="-mt-px flex w-0 flex-1 justify-end">
+						<button
+							type="button"
+							className="inline-flex items-center border-t-2 border-transparent pt-4 pl-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-300 dark:hover:border-gray-700 dark:hover:text-gray-300"
+							onClick={() => handlePageChange(currentPage + 1)}
+						>
+							Next
+							<ArrowLongRightIcon
+								className="ml-3 h-5 w-5 text-gray-400"
+								aria-hidden="true"
+							/>
+						</button>
+					</div>
+				</nav>
 			)}
 		</>
 	) : (

@@ -1,5 +1,4 @@
-import { Suspense, useState, useContext, useEffect } from 'react';
-import { Await, useLoaderData } from 'react-router-dom';
+import { useState, useContext, useEffect } from 'react';
 import { PlusIcon } from '@heroicons/react/20/solid';
 import { ITeamAndVenue } from '../../types/Team.types';
 import { GlobalHeaderContext, IGlobalHeader } from '../../contexts/GlobalHeader.context';
@@ -7,11 +6,41 @@ import TeamsPageMobileOverlay from '../../components/tabs/teams/MobileOverlay';
 import TeamsDisplaySection from '../../components/tabs/teams/TeamDisplaySection';
 import teamsFilters from '../../lib/data/teams-filters';
 import LoadingTeamsDisplaySection from '../../components/tabs/teams/loading/LoadingTeamDisplaySection';
+import fetchData from '../../lib/helpers/Fetch';
 
 export default function TeamsIndexPage() {
-	const { teams } = useLoaderData() as { teams: ITeamAndVenue[] };
+	const [teams, setTeams] = useState<ITeamAndVenue[]>([]);
 	const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+	const [loading, setLoading] = useState(true);
+	const [filteredTeams, setFilteredTeams] = useState<ITeamAndVenue[]>(teams);
+	const [searchData, setSearchData] = useState({
+		name: '',
+		country: 'All',
+		season: 'All',
+		league: 'All',
+	});
+
 	const { setBreadcrumbs } = useContext<IGlobalHeader>(GlobalHeaderContext);
+
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+		const { name, value } = e.target;
+		setSearchData((prev) => ({ ...prev, [name]: value }));
+	};
+
+	const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		const { name, country } = searchData;
+		const filtered = teams.filter((team) => {
+			const nameMatch = team.team.name.toLowerCase().includes(name.toLowerCase());
+			const countryMatch = country === 'All' ? true : team.team.country === country;
+			// const seasonMatch = season === 'All' ? true : team.team.season === season;
+			// const leagueMatch = league === 'All' ? true : team.league.name === league;
+			return nameMatch && countryMatch;
+		});
+
+		setFilteredTeams(filtered);
+	};
+
 	useEffect(() => {
 		setBreadcrumbs([
 			{
@@ -20,6 +49,14 @@ export default function TeamsIndexPage() {
 			},
 		]);
 	}, [setBreadcrumbs]);
+
+	useEffect(() => {
+		fetchData<ITeamAndVenue[]>('https://api.npoint.io/bd094ce005a62650121b').then((data) => {
+			setTeams(data);
+			setFilteredTeams(data);
+			setLoading(false);
+		});
+	}, []);
 
 	return (
 		<main className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -53,7 +90,10 @@ export default function TeamsIndexPage() {
 					</button>
 
 					<div className="sticky hidden lg:block">
-						<form className="space-y-10 divide-y divide-gray-200 dark:divide-gray-800">
+						<form
+							className="space-y-10 divide-y divide-gray-200 dark:divide-gray-800"
+							onSubmit={handleSearch}
+						>
 							{teamsFilters.map((section, sectionIdx) => (
 								<div
 									key={section.name}
@@ -62,32 +102,58 @@ export default function TeamsIndexPage() {
 									<fieldset>
 										<label
 											htmlFor={section.id}
-											className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+											className="block text-sm font-medium capitalize text-gray-700 dark:text-gray-300"
 										>
 											{section.name}
-											<input
-												type="text"
-												id={section.id}
-												name={section.name}
-												className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:border-gray-500 dark:bg-gray-700 sm:text-sm"
-											/>
+											{section.type === 'select' ? (
+												<select
+													id={section.id}
+													name={section.name}
+													className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:border-gray-500 dark:bg-gray-700 sm:text-sm"
+													onChange={handleChange}
+												>
+													<option value="All">All</option>
+													{section.options &&
+														section.options.map((option) => (
+															<option
+																key={option.id}
+																value={option.value}
+															>
+																{option.name}
+															</option>
+														))}
+												</select>
+											) : (
+												<input
+													type="text"
+													id={section.id}
+													name={section.name}
+													className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:border-gray-500 dark:bg-gray-700 sm:text-sm"
+													onChange={handleChange}
+												/>
+											)}
 										</label>
 									</fieldset>
 								</div>
 							))}
 							<button
 								className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-								type="button"
+								type="submit"
 							>
-								Filter
+								Search
 							</button>
 						</form>
 					</div>
 				</aside>
 				<div className="mt-6 grid grid-cols-12 gap-4 text-gray-900 dark:text-gray-100 lg:col-span-2 lg:mt-0 xl:col-span-3">
-					<Suspense fallback={<LoadingTeamsDisplaySection />}>
-						<Await resolve={teams}>{(_teams) => <TeamsDisplaySection teams={_teams} />}</Await>
-					</Suspense>
+					{loading ? (
+						<LoadingTeamsDisplaySection />
+					) : (
+						<TeamsDisplaySection
+							filteredTeams={filteredTeams}
+							setFilteredTeams={setFilteredTeams}
+						/>
+					)}
 				</div>
 			</div>
 		</main>
