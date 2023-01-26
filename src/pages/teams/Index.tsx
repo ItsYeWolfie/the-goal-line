@@ -99,14 +99,7 @@ export default function TeamsIndexPage() {
 					</div>
 				</aside>
 				<div className="mt-6 grid grid-cols-12 gap-4 text-gray-900 dark:text-gray-100 lg:col-span-2 lg:mt-0 xl:col-span-3">
-					{loading ? (
-						<LoadingTeamsDisplaySection />
-					) : (
-						<TeamsDisplaySection
-							filteredTeams={filteredTeams}
-							setFilteredTeams={setFilteredTeams}
-						/>
-					)}
+					{loading ? <LoadingTeamsDisplaySection /> : <TeamsDisplaySection filteredTeams={filteredTeams} />}
 				</div>
 			</div>
 		</main>
