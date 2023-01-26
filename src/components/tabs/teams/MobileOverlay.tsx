@@ -1,14 +1,18 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { Fragment } from 'react';
-import { teamsFilters } from '../../../lib/data/teams-filters';
+import TeamSearch from './TeamSearch';
 
 export default function TeamsPageMobileOverlay({
 	mobileFiltersOpen,
 	setMobileFiltersOpen,
+	handleChange,
+	handleSearch,
 }: {
 	mobileFiltersOpen: boolean;
 	setMobileFiltersOpen: (open: boolean) => void;
+	handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
+	handleSearch: (e: React.FormEvent<HTMLFormElement>) => void;
 }) {
 	return (
 		<Transition.Root
@@ -59,29 +63,10 @@ export default function TeamsPageMobileOverlay({
 								</button>
 							</div>
 
-							<form className="mt-4">
-								{teamsFilters.map((section, sectionIdx) => (
-									<div
-										key={section.name}
-										className={`${sectionIdx === 0 ? '' : 'pt-10'} px-2`}
-									>
-										<fieldset>
-											<label
-												htmlFor={section.id}
-												className="block text-sm font-medium text-gray-700 dark:text-gray-300"
-											>
-												{section.name}
-												<input
-													type="text"
-													id={section.id}
-													name={section.name}
-													className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:border-gray-500 dark:bg-gray-700 sm:text-sm"
-												/>
-											</label>
-										</fieldset>
-									</div>
-								))}
-							</form>
+							<TeamSearch
+								handleSearch={handleSearch}
+								handleChange={handleChange}
+							/>
 						</Dialog.Panel>
 					</Transition.Child>
 				</div>
