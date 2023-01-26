@@ -43,7 +43,6 @@ module.exports = {
 				tabWidth: 2,
 				useTabs: true,
 				semi: true,
-				endOfLine: 'lf',
 				singleQuote: true,
 				plugins: ['prettier-plugin-organize-attributes', 'prettier-plugin-tailwindcss'],
 				attributeGroups: ['$CODE_GUIDE'],
