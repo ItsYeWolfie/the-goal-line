@@ -17,12 +17,11 @@ class LiveMatches extends LitLightElement {
 
 	async connectedCallback() {
 		super.connectedCallback();
-		const response = await fetch('https://api.npoint.io/4297af90cd1386b54c79');
+		const response = await fetch('https://api.npoint.io/21b159edf9777a913002');
 		const data = await response.json();
 		this.fixture = data;
 		this.loading = false;
-		this.addEventListener('live-clicked', this.handleLiveClick);
-		// console.log(dataL);
+		// console.log(data);
 		const groupedMatches = {};
 		this.fixture.forEach((fixture) => {
 			const leagueId = fixture.league.id;
@@ -37,10 +36,6 @@ class LiveMatches extends LitLightElement {
 		console.log(groupedMatches);
 	}
 
-	handleLiveClick() {
-		document.querySelector('matches-l').classList.toggle('hidden');
-	}
-
 	render() {
 		if (this.loading) {
 			return html`
@@ -53,7 +48,7 @@ class LiveMatches extends LitLightElement {
 		}
 
 		return html`
-			<div class="animate-fade-in hidden delay-300">
+			<div class="animate-fade-in delay-300">
 				${Object.keys(this.groupedMatches).map((leagueId) => {
 					return html`
 						<div>
@@ -86,7 +81,7 @@ class LiveMatches extends LitLightElement {
 										><div
 											class="mb-2 flex cursor-pointer items-center rounded-md bg-gray-700 duration-150 ease-in hover:h-16 hover:border-2 hover:border-solid hover:border-gray-700 hover:bg-gray-800"
 										>
-											<span class="my-auto ml-2"
+											<span class="ml-2"
 												>${fixture.fixture.status.elapsed === 90
 													? `${fixture.fixture.status.elapsed}+`
 													: fixture.fixture.status.elapsed}'</span

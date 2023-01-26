@@ -1,29 +1,29 @@
 import { html } from 'lit';
 import { LitLightElement } from '../../lib/LitElement';
 
-class Matches extends LitLightElement {
+class PrevMatches1 extends LitLightElement {
 	static properties = {
-		fixture: { type: Array },
+		fixtures: { type: Array },
 		loading: { type: Boolean },
 		groupedMatches: { type: Array },
 	};
 
 	constructor() {
 		super();
+		this.fixtures = [];
 		this.loading = true;
-		this.fixture = [];
 		this.groupedMatches = [];
 	}
 
 	async connectedCallback() {
 		super.connectedCallback();
-		const response = await fetch('https://api.npoint.io/e8b6e47d59c88aec9aaa');
+		const response = await fetch('https://api.npoint.io/f166532b54e6ad6616b6');
 		const data = await response.json();
-		this.fixture = data;
+		this.fixtures = data;
 		this.loading = false;
 		// console.log(data);
 		const groupedMatches = {};
-		this.fixture.forEach((fixture) => {
+		this.fixtures.forEach((fixture) => {
 			const leagueId = fixture.league.id;
 			if (!groupedMatches[leagueId]) {
 				groupedMatches[leagueId] = [fixture];
@@ -81,14 +81,7 @@ class Matches extends LitLightElement {
 										><div
 											class="mb-2 flex cursor-pointer items-center rounded-md bg-gray-700 duration-150 ease-in hover:h-16 hover:border-2 hover:border-solid hover:border-gray-700 hover:bg-gray-800"
 										>
-											<span class="ml-2"
-												>${fixture.fixture.status.elapsed === null
-													? `${date}`
-													: `${fixture.fixture.status.elapsed}'` &&
-													  fixture.fixture.status.elapsed === 90
-													? fixture.fixture.status.short
-													: `${fixture.fixture.status.elapsed}'`}</span
-											>
+											<span class="ml-2">${fixture.fixture.status.short}</span>
 											<div class="flex flex-col p-2">
 												<span class="ml-2 mb-1 flex">
 													<img
@@ -125,4 +118,4 @@ class Matches extends LitLightElement {
 		`;
 	}
 }
-customElements.define('matches-m', Matches);
+customElements.define('matches-p1', PrevMatches1);

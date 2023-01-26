@@ -1,13 +1,23 @@
 import { html } from 'lit';
 import moment from 'moment/moment';
 import { LitLightElement } from '../../lib/LitElement';
+import './nextMatches.js';
+import './nextMatches1.js';
+import './liveMatches.js';
+import './matches.js';
+import './prevMatches.js';
+import './prevmatches1.js';
 
 class Header extends LitLightElement {
-	handleLiveClick() {
-		this.dispatchEvent(new CustomEvent('live-clicked'));
-	}
+	static properties = {
+		activeTab: {},
+	};
 
-	render() {
+	constructor() {
+		super();
+		this.tabs = [];
+		const url = new URL(window.location.href);
+
 		const dayBeforeYesterday = moment().subtract(2, 'days').format('D MMM').toLocaleUpperCase();
 		const yesterday = moment().subtract(1, 'days').format('D MMM').toLocaleUpperCase();
 		const today = moment().format('D MMM').toLocaleUpperCase();
@@ -19,28 +29,74 @@ class Header extends LitLightElement {
 		const tomorrowWeek = moment().add(1, 'days').format('ddd').toLocaleUpperCase();
 		const dayAfterTomorrowWeek = moment().add(2, 'days').format('ddd').toLocaleUpperCase();
 
-		return html`<div class="flex gap-4 md:gap-20 lg:gap-8">
-			<span
-				class="my-auto h-5 w-10 cursor-pointer rounded-sm bg-gray-200 text-center text-gray-800 hover:bg-sky-600 hover:text-gray-200"
-				onclick="${this.handleLiveClick}"
-				>LIVE</span
-			>
-			<div class="flex cursor-pointer flex-col items-center text-xs hover:text-sky-600 md:text-sm">
-				<span>${dayBeforeYesterdayWeek}</span><span class="text-xs">${dayBeforeYesterday}</span>
+		this.tabs = [
+			{
+				name: 'LIVE',
+				slug: 'LIVE',
+				html: html`<matches-l></matches-l>`,
+			},
+			{
+				name: dayBeforeYesterday,
+				slug: dayBeforeYesterdayWeek,
+				html: html`<matches-p></matches-p>`,
+			},
+			{
+				name: yesterday,
+				slug: yesterdayWeek,
+				html: html`<matches-p1></matches-p1>`,
+			},
+			{
+				name: today,
+				slug: 'TODAY',
+				html: html`<matches-m></matches-m>`,
+			},
+			{
+				name: tomorrow,
+				slug: tomorrowWeek,
+				html: html`<matches-n></matches-n>`,
+			},
+			{
+				name: dayAfterTomorrow,
+				slug: dayAfterTomorrowWeek,
+				html: html`<matches-n1></matches-n1>`,
+			},
+		];
+
+		this.slug = url.searchParams.get('tab') || this.tabs[1].name;
+		this.activeTab = today;
+	}
+
+	setActiveTab(tabName) {
+		this.activeTab = tabName;
+		const url = new URL(window.location.href);
+		url.searchParams.set('tab', this.tabs.find((tab) => tab.name === tabName).name);
+		window.history.pushState({}, '', url);
+	}
+
+	createRenderRoot() {
+		return this;
+	}
+
+	render() {
+		return html`
+			<div class="flex justify-around p-2">
+				${this.tabs.map(
+					(tab) => html` <div
+						class="${tab.name === this.activeTab
+							? 'text-sky-600 text-sm'
+							: ''} my-auto flex cursor-pointer flex-col items-center text-xs hover:text-sky-600
+							md:text-sm"
+						href="#"
+						@click="${() => this.setActiveTab(tab.name)}"
+					>
+						<span>${tab.slug === 'LIVE' ? '' : tab.slug}</span>
+						<p>${tab.name}</p>
+					</div>`
+				)}
 			</div>
-			<div class="flex cursor-pointer flex-col items-center text-xs hover:text-sky-600 md:text-sm">
-				<span>${yesterdayWeek}</span><span class="text-xs">${yesterday}</span>
-			</div>
-			<div class="flex cursor-pointer flex-col items-center text-xs text-sky-600 md:text-sm">
-				<span>TODAY</span><span class="text-xs" id="today">${today}</span>
-			</div>
-			<div class="flex cursor-pointer flex-col items-center text-xs hover:text-sky-600 md:text-sm">
-				<span>${tomorrowWeek}</span><span class="text-xs">${tomorrow}</span>
-			</div>
-			<div class="flex cursor-pointer flex-col items-center text-xs hover:text-sky-600 md:text-sm">
-				<span>${dayAfterTomorrowWeek}</span><span class="text-xs">${dayAfterTomorrow}</span>
-			</div>
-		</div> `;
+
+			${this.tabs.find((tab) => tab.name === this.activeTab)?.html}
+		`;
 	}
 }
 

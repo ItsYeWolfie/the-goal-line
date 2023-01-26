@@ -17,7 +17,7 @@ class NextMatches extends LitLightElement {
 
 	async connectedCallback() {
 		super.connectedCallback();
-		const response = await fetch('https://api.npoint.io/6f917c1a4fbfd66738af');
+		const response = await fetch('https://api.npoint.io/8dc33d7e75e24b2bff7b');
 		const data = await response.json();
 		this.fixture = data;
 		this.loading = false;

@@ -159,7 +159,7 @@ class CountriesList extends LitLightElement {
 									<i class="fa fa-chevron-left"></i
 									><span class="ml-4 text-lg">Leagues of ${this.selectedCountryName}</span>
 								</button>
-								${this.selectedCountryData
+								${this.selectedCountryData && this.selectedCountryName === 'England'
 									? this.selectedCountryData.map(
 											(league) =>
 												html` <span class="flex items-center p-2"
