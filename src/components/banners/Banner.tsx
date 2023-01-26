@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable tailwindcss/no-custom-classname */
-/* eslint-disable jsx-a11y/alt-text */
+
 import React, { useState, useEffect } from 'react';
 
 export default function Banner() {
@@ -36,26 +35,26 @@ export default function Banner() {
 		<section className="m-[3%] mt-0 pt-[5%] ">
 			<div className="2xl:w-full">
 				<div
-					className="items-strech banner flex h-[500px] flex-col justify-center space-y-4 shadow-lg sm:h-[650px] md:h-[270px] md:flex-row md:space-y-0 md:space-x-6 lg:h-[370px] lg:space-x-8 2xl:h-[420px]"
+					className=" banner flex h-[500px] flex-col justify-center space-y-4 shadow-lg sm:h-[650px] md:h-[270px] md:flex-row md:space-y-0 md:space-x-6 lg:h-[370px] lg:space-x-8 2xl:h-[420px]"
 					id="banner"
 				>
-					<div className="items-strech relative flex h-full  w-full flex-col justify-between rounded-[20px]   bg-gray-50 shadow-lg shadow-slate-600 dark:bg-gray-900  md:w-8/12 md:flex-row  lg:w-7/12  xl:w-8/12  2xl:w-9/12">
+					<div className=" relative flex h-full  w-full flex-col justify-between rounded-[20px]   bg-gray-50 shadow-lg shadow-slate-600 dark:bg-gray-900  md:w-8/12 md:flex-row  lg:w-7/12  xl:w-8/12  2xl:w-9/12">
 						<img
 							className="h-full w-full rounded-[20px] opacity-[0.4]"
 							src="src/images/140324050941-bernabeu.jpg"
 							alt=""
 						/>
-						<div className="z-1 absolute top-[5%] left-[10%] w-[80%]  px-3 py-[1%] text-center font-mono text-[1rem] font-semibold italic text-white  sm:left-[20%] sm:w-[60%] sm:text-[1.3rem] md:left-[5%] md:w-[90%] md:text-[1.3rem] lg:left-[15%] lg:w-[70%] xl:left-[25%] xl:w-[50%]">
+						<div className="absolute top-[5%] left-[10%] z-[1] w-[80%]  px-3 py-[1%] text-center font-mono text-[1rem] font-semibold italic text-white  sm:left-[20%] sm:w-[60%] sm:text-[1.3rem] md:left-[5%] md:w-[90%] md:text-[1.3rem] lg:left-[15%] lg:w-[70%] xl:left-[25%] xl:w-[50%]">
 							Real Madrid vs Barcelona
 						</div>
-						<p className="z-1 absolute  top-[45%] left-[30%] w-[40%] px-3 py-[1%] text-center font-mono text-[0.7rem] font-semibold italic text-white sm:left-[30%]  sm:w-[40%] sm:text-[1rem]  md:left-[27.5%] md:w-[45%] md:text-[1.1rem] lg:left-[30%] lg:w-[40%] xl:left-[35%] xl:w-[30%]">
+						<p className="absolute top-[45%]  left-[30%] z-[1] w-[40%] px-3 py-[1%] text-center font-mono text-[0.7rem] font-semibold italic text-white sm:left-[30%]  sm:w-[40%] sm:text-[1rem]  md:left-[27.5%] md:w-[45%] md:text-[1.1rem] lg:left-[30%] lg:w-[40%] xl:left-[35%] xl:w-[30%]">
 							19 March - 2023
 						</p>
-						<p className="z-1 absolute top-[25%] left-[20%] w-[60%] px-3 py-[1%] text-center font-mono text-[0.7rem] font-extrabold italic text-white sm:left-[27.5%] sm:w-[45%] sm:text-[1.2rem] md:left-[20%] md:w-[60%] md:text-[1.2rem] lg:left-[22.5%] lg:w-[55%] xl:left-[32.5%] xl:w-[35%]">
+						<p className="absolute top-[25%] left-[20%] z-[1] w-[60%] px-3 py-[1%] text-center font-mono text-[0.7rem] font-extrabold italic text-white sm:left-[27.5%] sm:w-[45%] sm:text-[1.2rem] md:left-[20%] md:w-[60%] md:text-[1.2rem] lg:left-[22.5%] lg:w-[55%] xl:left-[32.5%] xl:w-[35%]">
 							Santiago Bernabeu
 						</p>
 						<p
-							className="z-1  font absolute bottom-[2%] right-[25%] w-[50%] rounded-tl-[20px] rounded-br-[20px] px-3 py-[1%] text-center font-mono text-[0.8rem] font-semibold italic text-white sm:text-[1rem] md:text-[1rem] lg:text-[1.2rem]"
+							className="  absolute bottom-[2%] right-[25%] z-[1] w-[50%] rounded-tl-[20px] rounded-br-[20px] px-3 py-[1%] text-center font-mono text-[0.8rem] font-semibold italic text-white sm:text-[1rem] md:text-[1rem] lg:text-[1.2rem]"
 							id="demo"
 						>
 							{timer}
@@ -67,15 +66,17 @@ export default function Banner() {
 								<h3 className="pt-[5%] text-center font-[450] text-gray-200 lg:text-xl xl:text-[1.3rem] 2xl:text-[1.5rem]">
 									Live Match
 								</h3>
-								<p className="color mt-[3%] mb-[1%] text-center text-[13px] font-medium text-lime-500 lg:text-lg xl:text-[1.2rem] 2xl:text-[1.3rem]">
+								<p className=" mt-[3%] mb-[1%] text-center text-[13px] font-medium text-lime-500 lg:text-lg xl:text-[1.2rem] 2xl:text-[1.3rem]">
 									{gameTimeInMinutes >= 20 ? gameTimeInMinutes : 20}:
 									{gameTimeInSeconds < 10 ? `0${gameTimeInSeconds}` : gameTimeInSeconds}{' '}
 								</p>
 								<img
+									alt=""
 									className="absolute top-[23%] right-[10%] h-[16%] w-[19%] rounded-full sm:top-[23%] sm:h-[18%] sm:w-[13%] md:right-[4%] md:top-[25%] md:h-[16%] md:w-[16%] lg:top-[23%]"
 									src=" https://i.pinimg.com/564x/6b/cf/50/6bcf5098d8250e99fadaeaa1c0fb04b8.jpg"
 								/>
 								<img
+									alt=""
 									className="absolute top-[23%] left-[10%] h-[16%] w-[19%] rounded-full sm:top-[23%] sm:h-[18%] sm:w-[13%] md:left-[4%] md:top-[25%] md:h-[16%] md:w-[16%] lg:top-[23%]"
 									src=" https://i.pinimg.com/564x/a6/7a/f9/a67af9c593ba25a687b95e35d294dc18.jpg"
 								/>
