@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { ArrowLongLeftIcon, ArrowLongRightIcon } from '@heroicons/react/20/solid';
 import { ITeamAndVenue } from '../../../types/Team.types';
 
+const splitCount = 10;
+
 export default function TeamsDisplaySection({
 	filteredTeams,
 	setFilteredTeams,
@@ -12,20 +14,39 @@ export default function TeamsDisplaySection({
 }) {
 	const [currentPage, setCurrentPage] = useState(1);
 	const [totalPages, setTotalPages] = useState(1);
+	const [displayedPages, setDisplayedPages] = useState<number[]>([]);
 	const [displayedTeams, setDisplayedTeams] = useState<ITeamAndVenue[]>([]);
 
 	const handlePageChange = (page: number) => {
 		if (page < 1 || page > totalPages) return;
 		setCurrentPage(page);
-		setDisplayedTeams(filteredTeams.slice((page - 1) * 10, page * 10));
+		setDisplayedTeams(filteredTeams.slice((page - 1) * splitCount, page * splitCount));
+
+		if (page <= 3) {
+			const pages = Array.from({ length: 5 }, (_, i) => {
+				const pageNumber = i + 1;
+				return pageNumber > 0 && pageNumber <= totalPages ? pageNumber : null;
+			}).filter((_page) => _page !== null) as number[];
+			setDisplayedPages(pages);
+		} else if (page >= totalPages - 2) {
+			setDisplayedPages([totalPages - 3, totalPages - 2, totalPages - 1, totalPages]);
+		} else {
+			setDisplayedPages([page - 2, page - 1, page, page + 1, page + 2]);
+		}
 	};
 
 	useEffect(() => {
-		setDisplayedTeams(filteredTeams.slice(0, 10));
-	}, [filteredTeams, setFilteredTeams]);
+		setDisplayedTeams(filteredTeams.slice(0, splitCount));
+		setDisplayedPages(
+			Array.from({ length: 5 }, (_, i) => {
+				const pageNumber = i + 1;
+				return pageNumber > 0 && pageNumber <= totalPages ? pageNumber : null;
+			}).filter((page) => page !== null) as number[],
+		);
+	}, [filteredTeams, setFilteredTeams, totalPages]);
 
 	useEffect(() => {
-		setTotalPages(Math.ceil(filteredTeams.length / 10));
+		setTotalPages(Math.ceil(filteredTeams.length / splitCount));
 	}, [filteredTeams]);
 	return filteredTeams && filteredTeams.length > 0 ? (
 		<>
@@ -49,7 +70,7 @@ export default function TeamsDisplaySection({
 					</div>
 				</Link>
 			))}
-			{filteredTeams.length > 10 && (
+			{filteredTeams.length > splitCount && (
 				<nav className="col-span-12 flex items-center justify-between border-t border-gray-200 px-4 sm:px-0">
 					<div className="-mt-px flex w-0 flex-1">
 						<button
@@ -65,21 +86,52 @@ export default function TeamsDisplaySection({
 						</button>
 					</div>
 					<div className="hidden md:-mt-px md:flex">
-						{[...Array(Math.ceil(filteredTeams.length / 10)).keys()].map((page) => (
+						{totalPages > 5 && currentPage > 4 && (
+							<>
+								<button
+									type="button"
+									className="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-300 dark:hover:border-gray-700 dark:hover:text-gray-300"
+									onClick={() => handlePageChange(1)}
+								>
+									1
+								</button>
+								<span className="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 dark:text-gray-300">
+									...
+								</span>
+							</>
+						)}
+						{displayedPages.map((page) => (
 							<button
 								key={page}
 								type="button"
-								className={`
-								${
-									currentPage === page + 1
+								className={`${
+									page === currentPage
 										? 'border-indigo-500 text-indigo-600'
-										: 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-300 dark:hover:text-gray-300'
-								} inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium`}
-								onClick={() => handlePageChange(page + 1)}
+										: 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-300 dark:hover:border-gray-700 dark:hover:text-gray-300'
+								} inline-flex items-center border-t-2 px-4 pt-4 text-sm font-medium`}
+								onClick={() => handlePageChange(page)}
 							>
-								{page + 1}
+								{page}
 							</button>
 						))}
+						{Math.max(...displayedPages) < totalPages - 1 && (
+							<span className="border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-700 dark:text-gray-300">
+								...
+							</span>
+						)}
+						{totalPages > splitCount && currentPage <= totalPages - 3 && (
+							<button
+								type="button"
+								className={`${
+									totalPages === currentPage
+										? 'border-indigo-500 text-indigo-600'
+										: 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-300 dark:hover:border-gray-700 dark:hover:text-gray-300'
+								} inline-flex items-center border-t-2 px-4 pt-4 text-sm font-medium`}
+								onClick={() => handlePageChange(totalPages)}
+							>
+								{totalPages}
+							</button>
+						)}
 					</div>
 					<div className="-mt-px flex w-0 flex-1 justify-end">
 						<button
