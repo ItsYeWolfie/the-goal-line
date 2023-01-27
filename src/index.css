@@ -5,7 +5,3 @@
 body {
 	@apply h-screen dark:bg-gray-800 dark:text-white;
 }
-
-#root {
-	@apply h-full;
-}

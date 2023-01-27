@@ -2,11 +2,11 @@ import { useContext } from 'react';
 import { AiFillHome } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { HiOutlineChevronRight } from 'react-icons/hi';
-import { GlobalHeaderContext, IGlobalHeader } from '../../contexts/GlobalHeader.context';
+import { GlobalHeaderContext } from '../../contexts/GlobalHeader.context';
 import DarkModeToggle from './DarkModeToggle';
 
 export default function MainBreadCrumb() {
-	const { breadcrumbs } = useContext<IGlobalHeader>(GlobalHeaderContext);
+	const { breadcrumbs } = useContext(GlobalHeaderContext);
 
 	return (
 		<section className="flex items-center justify-between py-2 sm:px-2 sm:py-4">

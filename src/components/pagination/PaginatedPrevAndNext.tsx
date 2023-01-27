@@ -23,7 +23,7 @@ export default function PaginatedPrevAndNext({
 
 		if (page <= 3) {
 			const pages = Array.from({ length: 5 }, (_, i) => {
-				const pageNumber = i + 1;
+				const pageNumber: number = i + 1;
 				return pageNumber > 0 && pageNumber <= totalPages ? pageNumber : null;
 			}).filter((_page) => _page !== null) as number[];
 			setDisplayedPages(pages);
@@ -94,7 +94,7 @@ export default function PaginatedPrevAndNext({
 						</button>
 					))}
 					{Math.max(...displayedPages) < totalPages - 1 && (
-						<span className="border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-700 dark:text-gray-300">
+						<span className="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 dark:text-gray-300">
 							...
 						</span>
 					)}

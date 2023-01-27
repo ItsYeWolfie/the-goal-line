@@ -59,22 +59,13 @@ export default function TeamsIndexPage() {
 	}, []);
 
 	return (
-		<main className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+		<main className="mx-auto max-w-2xl p-4 sm:py-8 sm:px-6 lg:max-w-7xl lg:px-8">
 			<TeamsPageMobileOverlay
 				handleSearch={handleSearch}
 				handleChange={handleChange}
 				mobileFiltersOpen={mobileFiltersOpen}
 				setMobileFiltersOpen={setMobileFiltersOpen}
 			/>
-			<div className="border-b border-gray-200 pb-10 dark:border-gray-800">
-				<h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
-					Latest High-Performing Teams
-				</h1>
-				<p className="mt-4 text-base text-gray-500 dark:text-gray-500">
-					Checkout and browse the latest teams which had a very performing run!
-				</p>
-			</div>
-
 			<div className="pt-12 lg:grid lg:grid-cols-3 lg:gap-x-8 xl:grid-cols-4">
 				<aside>
 					<h2 className="sr-only">Filters</h2>
@@ -98,7 +89,7 @@ export default function TeamsIndexPage() {
 						/>
 					</div>
 				</aside>
-				<div className="mt-6 grid grid-cols-12 gap-4 text-gray-900 dark:text-gray-100 lg:col-span-2 lg:mt-0 xl:col-span-3">
+				<div className="mt-6 grid grid-cols-12 items-start gap-4 text-gray-900 dark:text-gray-100 lg:col-span-2 lg:mt-0 xl:col-span-3">
 					{loading ? <LoadingTeamsDisplaySection /> : <TeamsDisplaySection filteredTeams={filteredTeams} />}
 				</div>
 			</div>
