@@ -51,7 +51,7 @@ class CountriesList extends LitLightElement {
 		});
 
 		this.groupedCups = groupedCups;
-		console.log(groupedCups);
+		console.log(groupedCups.World);
 
 		if (this.selectedCountry) {
 			const selectedCountryDataResponse = await fetch(`https://api.npoint.io/699acd2fa754e5bd47d6`);
@@ -74,11 +74,52 @@ class CountriesList extends LitLightElement {
 		);
 	}
 
-	// filterCups() {
-	// 	return this.cups.filter((cups) =>
-	// 		cups.name.toLowerCase().startsWith(this.searchTerm.toLowerCase())
-	// 	);
-	// }
+	sortedCountries(countries) {
+		const topCountries = ['England', 'Italy', 'Spain', 'France', 'Germany', 'Switzerland'];
+
+		return countries.sort((a, b) => {
+			if (topCountries.includes(a.name) && !topCountries.includes(b.name)) {
+				return -1;
+			}
+			if (!topCountries.includes(a.name) && topCountries.includes(b.name)) {
+				return 1;
+			}
+			if (a.name < b.name) {
+				return -1;
+			}
+			if (a.name > b.name) {
+				return 1;
+			}
+			return 0;
+		});
+	}
+
+	sortedCups(cups) {
+		const topCups = [
+			'UEFA Champions League',
+			'UEFA Europa League',
+			'Confederations Cup',
+			'World Cup',
+			'FIFA Club World Cup',
+			'Copa America',
+		];
+
+		return cups.sort((a, b) => {
+			if (topCups.includes(a.name) && !topCups.includes(b.name)) {
+				return -1;
+			}
+			if (!topCups.includes(a.name) && topCups.includes(b.name)) {
+				return 1;
+			}
+			if (a.name < b.name) {
+				return -1;
+			}
+			if (a.name > b.name) {
+				return 1;
+			}
+			return 0;
+		});
+	}
 
 	render() {
 		if (this.loading) {
@@ -104,7 +145,7 @@ class CountriesList extends LitLightElement {
 				></span>
 				${this.showList
 					? html`
-							${this.filterCountries().map(
+							${this.sortedCountries(this.filterCountries()).map(
 								(country) => html`
 									<div class="flex h-auto p-2">
 										<span class="my-auto"
@@ -126,22 +167,23 @@ class CountriesList extends LitLightElement {
 									</div>
 								`
 							)}
-							${Object.keys(this.groupedCups === 'World').map(
+							${this.groupedCups.World.map(
 								(cups) =>
 									html` <div class="flex h-auto p-2">
 										<span class="my-auto"
 											><img
-												class="rounded-sm"
+												class="rounded-sm bg-gray-200"
 												src="${cups.league.logo === null
 													? '../images/noimg.png'
 													: cups.league.logo}"
 												width="30px"
+												;
 										/></span>
 										<span class="ml-2 cursor-pointer text-sm text-gray-300 hover:text-sky-600"
 											>${cups.league.name}</span
 										>
 									</div>`
-							)}
+							)}y
 					  `
 					: html``}
 				${this.showSelectedCountryData

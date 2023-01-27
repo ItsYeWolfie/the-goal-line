@@ -70,7 +70,7 @@ class Header extends LitLightElement {
 		this.activeTab = tabName;
 		const url = new URL(window.location.href);
 		url.searchParams.set('tab', this.tabs.find((tab) => tab.name === tabName).name);
-		window.history.pushState({}, '', url);
+		window.history.replaceState({}, '', url);
 	}
 
 	createRenderRoot() {
@@ -79,11 +79,13 @@ class Header extends LitLightElement {
 
 	render() {
 		return html`
-			<div class="flex justify-around p-2">
+			<div
+				class="flex w-full justify-around rounded-t-md border-b-2 border-gray-200 border-opacity-30 bg-gray-700 p-2"
+			>
 				${this.tabs.map(
 					(tab) => html` <div
 						class="${tab.name === this.activeTab
-							? 'text-sky-600 text-sm'
+							? 'text-sky-600 text-sm md:text-base'
 							: ''} my-auto flex cursor-pointer flex-col items-center text-xs hover:text-sky-600
 							md:text-sm"
 						href="#"
@@ -94,7 +96,6 @@ class Header extends LitLightElement {
 					</div>`
 				)}
 			</div>
-
 			${this.tabs.find((tab) => tab.name === this.activeTab)?.html}
 		`;
 	}

@@ -26,14 +26,14 @@ class Formation extends LitLightElement {
 		if (this.loading) {
 			return html`
 				<div
-					class="flex h-10 w-full items-center justify-around rounded-md bg-gray-800 align-middle md:mx-auto md:w-4/5 lg:ml-40 lg:flex lg:w-full lg:justify-around"
+					class="flex h-10 w-full items-center justify-around rounded-md bg-gray-800 align-middle md:mx-auto md:w-4/5 lg:flex lg:w-full lg:justify-around"
 				>
 					<img class="animate-spin" src="../images/icons8-wait.svg" />
 				</div>
 			`;
 		}
 		return html`<div
-			class="h-auto w-full flex-col rounded-md bg-gray-800 pt-4 pb-4 md:mx-auto md:flex md:w-4/5 md:flex-row md:justify-evenly lg:ml-40 lg:flex lg:w-full lg:flex-row lg:justify-evenly"
+			class="h-auto w-full flex-col rounded-md bg-gray-800 pt-4 pb-4 md:mx-auto md:flex md:w-4/5 md:flex-row md:justify-evenly lg:flex lg:w-full lg:flex-row lg:justify-evenly"
 		>
 			<span class="flex justify-around">
 				<span class="flex flex-col items-center md:my-auto lg:my-auto"
@@ -72,14 +72,14 @@ class Formation extends LitLightElement {
 					></div>
 				</div>
 				<div class="absolute ml-[191px] h-64 w-48 border-2 border-solid border-white">
-					<div class="absolute top-8 -ml-8 grid h-48 w-64 z-50 rotate-90 justify-around gap-2 p-2">
+					<div class="absolute top-8 -ml-8 grid h-48 w-64 z-50 rotate-90 justify-evenly align-middle gap-2 p-2">
 						${this.formation[1].startXI.map((player) => {
 							const grid = player.player.grid.split(':');
 							const row = parseInt(grid[0]);
 							const col = parseInt(grid[1]);
 							console.log(row, col);
 							return html`<div
-								class="row-start-${row} col-start-${col} text flex  h-7 w-7 items-center justify-center rounded-full bg-sky-600"
+								class="row-start-${row} col-start-${col} flex h-7 w-7 items-center justify-center rounded-full bg-sky-600"
 							>
 								${player.player.pos}
 							</div>`;

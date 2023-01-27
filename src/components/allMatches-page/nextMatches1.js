@@ -40,7 +40,7 @@ class NextMatches1 extends LitLightElement {
 		if (this.loading) {
 			return html`
 				<div
-					class="flex h-10 w-full items-center justify-around rounded-md bg-gray-700 align-middle md:mx-auto lg:flex lg:w-full lg:justify-around"
+					class="mt-4 flex h-14 w-full items-center justify-around rounded-md bg-gray-700 align-middle md:mx-auto lg:flex lg:w-full lg:justify-around"
 				>
 					<img class="animate-spin" src="../images/icons8-wait.svg" />
 				</div>
@@ -81,7 +81,7 @@ class NextMatches1 extends LitLightElement {
 										><div
 											class="mb-2 flex cursor-pointer items-center rounded-md bg-gray-700 duration-150 ease-in hover:h-16 hover:border-2 hover:border-solid hover:border-gray-700 hover:bg-gray-800"
 										>
-											<span class="ml-2">${date}</span>
+											<span class="ml-2 flex w-8 justify-center">${date}</span>
 											<div class="flex flex-col p-2">
 												<span class="ml-2 mb-1 flex">
 													<img
