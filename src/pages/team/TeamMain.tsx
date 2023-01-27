@@ -19,15 +19,23 @@ export default function TeamMainPage({ team, venue }: ITeamAndVenue) {
 				name: team.name,
 			},
 		]);
+
+		return () => {
+			setBreadcrumbs([]);
+		};
 	}, [team.id, team.name, setBreadcrumbs]);
 
 	useEffect(() => {
 		setTabsComponent(<TeamTabs />);
+
+		return () => {
+			setTabsComponent(null);
+		};
 	}, [setTabsComponent]);
 	return (
 		<section className="flex grow flex-col">
 			<section
-				className={`container mx-auto shrink-0 grow-0 overflow-y-auto p-2 ${
+				className={`container mx-auto shrink-0 grow-0 overflow-y-auto px-2 py-4 sm:py-8 ${
 					navigation.state === 'loading' ? 'animate-pulse opacity-25 transition-opacity duration-300' : ''
 				}`}
 			>

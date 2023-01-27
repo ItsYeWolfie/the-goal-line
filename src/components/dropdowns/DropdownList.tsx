@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { ReactElement, useEffect, useRef, useState } from 'react';
 import { BsChevronBarContract, BsChevronBarExpand } from 'react-icons/bs';
 
 interface IDropdownListProps {
-	children: React.ReactNode;
+	children: ReactElement;
 	title: string;
 	className?: string;
 }
@@ -10,11 +10,11 @@ interface IDropdownListProps {
 export default function DropdownList({ children, title, className }: IDropdownListProps) {
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-	const dropdownRef = useRef(null);
+	const dropdownRef: React.RefObject<HTMLDivElement> = useRef(null);
 
 	useEffect(() => {
-		function handleClickOutside(event) {
-			if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+		function handleClickOutside(event: MouseEvent) {
+			if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
 				setIsDropdownOpen(false);
 			}
 		}

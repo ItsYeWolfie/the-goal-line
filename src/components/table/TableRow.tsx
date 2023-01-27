@@ -2,11 +2,15 @@ interface ITableRowProps {
 	children: React.ReactNode;
 	className?: string;
 	even?: boolean;
+	onClick?: () => void;
 }
 
-export default function TableRow({ children, className, even }: ITableRowProps) {
+export default function TableRow({ children, className, even, onClick }: ITableRowProps) {
 	return (
-		<tr className={`${className} ${even ? 'bg-gray-300 dark:bg-gray-600' : 'bg-gray-200 dark:bg-gray-700'}`}>
+		<tr
+			onClick={onClick}
+			className={`${className} ${even ? 'bg-gray-300 dark:bg-gray-600' : 'bg-gray-200 dark:bg-gray-700'}`}
+		>
 			{children}
 		</tr>
 	);
@@ -15,4 +19,5 @@ export default function TableRow({ children, className, even }: ITableRowProps) 
 TableRow.defaultProps = {
 	className: '',
 	even: false,
+	onClick: () => {},
 };
