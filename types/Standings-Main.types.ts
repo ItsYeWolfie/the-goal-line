@@ -1,3 +1,5 @@
+import { Key } from 'react';
+
 interface Team {
 	id: number;
 	logo: string;

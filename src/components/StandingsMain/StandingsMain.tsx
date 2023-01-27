@@ -4,6 +4,7 @@ import { FaCircle } from 'react-icons/fa';
 import fetchData from '../../../lib/helpers/Fetch';
 import { TeamStatistics } from '../../../types/Standings-Main.types';
 import StandingMainHeader from './Standings-M-Header';
+import StadingsTableHeader from './Standings-Table-Header';
 import StandingsTableRow from './Standings-Table-Row';
 
 export default function StandingsMain() {
@@ -25,72 +26,7 @@ export default function StandingsMain() {
 						<div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
 							<div className=" overflow-scroll shadow  sm:rounded-lg">
 								<table className="min-w-full   text-sm text-gray-200">
-									<thead className=" bg-gray-900 text-xs font-medium uppercase">
-										<tr>
-											<th> </th>
-											<th
-												className="px-6 py-3 text-left text-[19px] tracking-wider"
-												scope="col"
-											>
-												Club
-											</th>
-											<th
-												className="px-6 py-3 text-left tracking-wider"
-												scope="col"
-											>
-												MP
-											</th>
-											<th
-												className="px-6 py-3 text-left tracking-wider"
-												scope="col"
-											>
-												W
-											</th>
-											<th
-												className="px-6 py-3 text-left tracking-wider"
-												scope="col"
-											>
-												D
-											</th>
-											<th
-												className="px-6 py-3 text-left tracking-wider"
-												scope="col"
-											>
-												L
-											</th>
-											<th
-												className="px-6 py-3 text-left tracking-wider"
-												scope="col"
-											>
-												GF
-											</th>
-											<th
-												className="px-6 py-3 text-left tracking-wider"
-												scope="col"
-											>
-												GA
-											</th>
-											<th
-												className="px-6 py-3 text-left tracking-wider"
-												scope="col"
-											>
-												GD
-											</th>
-											<th
-												className="px-6 py-3 text-left tracking-wider"
-												scope="col"
-											>
-												Pts
-											</th>
-											<th
-												className="px-6 py-3 text-left tracking-wider"
-												scope="col"
-											>
-												Last 5
-											</th>
-										</tr>
-									</thead>
-
+									<StadingsTableHeader />
 									<tbody className="text-[18px]  text-gray-200">
 										{data.map((item) => (
 											<StandingsTableRow

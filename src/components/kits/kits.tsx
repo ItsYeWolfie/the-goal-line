@@ -1,7 +1,3 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable tailwindcss/no-custom-classname */
-/* eslint-disable @typescript-eslint/no-shadow */
 import { useState, useEffect } from 'react';
 import { FaTshirt, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { Kits } from '../../../types/Kits.types';
@@ -9,7 +5,7 @@ import fetchData from '../../../lib/helpers/Fetch';
 import Kit from './kit';
 
 export default function KitsSlider() {
-	const [data, setData] = useState<Kits[]>([]);
+	const [kit, setKits] = useState<Kits[]>([]);
 	const [error, setError] = useState<string | null>(null);
 	const [loading, setLoading] = useState(true);
 	const [scrollingDiv, setScrollingDiv] = useState<HTMLDivElement | null>(null);
@@ -18,11 +14,11 @@ export default function KitsSlider() {
 		setLoading(true);
 		fetchData<Kits[]>('src/data/kits.json')
 			.then((data) => {
-				setData(data);
+				setKits(data);
 				setLoading(false);
 			})
-			.catch((error) => {
-				setError(error.message);
+			.catch((e) => {
+				setError(e.message);
 				setLoading(false);
 			});
 	}, []);
@@ -68,7 +64,7 @@ export default function KitsSlider() {
 						className="no-scrollbar row-span-5  flex h-full w-full  flex-nowrap  overflow-x-scroll  scroll-smooth"
 						ref={(el) => setScrollingDiv(el)}
 					>
-						{data.map((item) => (
+						{kit.map((item) => (
 							<Kit
 								key={item.id}
 								kit={item}
