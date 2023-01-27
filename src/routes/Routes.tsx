@@ -19,8 +19,10 @@ import TeamCoachesPage from '../pages/team/TeamCoaches';
 import TeamInjuriesPage from '../pages/team/TeamInjuries';
 import Root from '../pages/Root';
 import IndexPage from '../pages/Index';
+
 import TeamsIndexPage from '../pages/teams/Index';
 import teamsLoader from '../lib/loaders/TeamsLoaders';
+import ContactPage from '../pages/ContactPage';
 
 export const router = createBrowserRouter([
 	{
@@ -84,6 +86,10 @@ export const router = createBrowserRouter([
 						loader: teamInjuriesLoader,
 					},
 				],
+			},
+			{
+				path: '/contact-us',
+				element: <ContactPage />,
 			},
 		],
 	},
