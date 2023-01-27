@@ -3,16 +3,20 @@ import { useState, useEffect } from 'react';
 import { FaCircle } from 'react-icons/fa';
 import fetchData from '../../../lib/helpers/Fetch';
 import { TeamStatistics } from '../../../types/Standings-Main.types';
+import StandingsMainLoader from '../Index-Loaders/Standings-Loader-Main';
 import StandingMainHeader from './Standings-M-Header';
 import StadingsTableHeader from './Standings-Table-Header';
 import StandingsTableRow from './Standings-Table-Row';
 
 export default function StandingsMain() {
 	const [data, setData] = useState<TeamStatistics[]>([]);
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
+		setLoading(true);
 		fetchData<TeamStatistics[]>('https://api.npoint.io/782a05439d88d05d9069').then((data) => {
 			setData(data);
+			setLoading(false);
 		});
 	}, []);
 
@@ -25,17 +29,21 @@ export default function StandingsMain() {
 					<div className="">
 						<div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
 							<div className=" overflow-scroll shadow  sm:rounded-lg">
-								<table className="min-w-full   text-sm text-gray-200">
-									<StadingsTableHeader />
-									<tbody className="text-[18px]  text-gray-200">
-										{data.map((item) => (
-											<StandingsTableRow
-												key={item.team.id}
-												item={item}
-											/>
-										))}
-									</tbody>
-								</table>
+								{loading ? (
+									<StandingsMainLoader />
+								) : (
+									<table className="min-w-full   text-sm text-gray-200">
+										<StadingsTableHeader />
+										<tbody className="text-[18px]  text-gray-200">
+											{data.map((item) => (
+												<StandingsTableRow
+													key={item.team.id}
+													item={item}
+												/>
+											))}
+										</tbody>
+									</table>
+								)}
 							</div>
 						</div>
 					</div>

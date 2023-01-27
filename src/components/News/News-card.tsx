@@ -11,7 +11,7 @@ export default function NewsCard({ news }: NewsProps) {
 			<div className="mx-auto h-[60%] w-[100%]  rounded-[15px] bg-gray-900 align-middle">
 				<Link to={`/news/${news.title}`}>
 					<img
-						className="mx-auto h-[100%] w-full rounded-[15px]"
+						className="mx-auto h-[90%] w-full rounded-[15px] pt-[10%]"
 						src={news.largeImage}
 						alt=""
 					/>

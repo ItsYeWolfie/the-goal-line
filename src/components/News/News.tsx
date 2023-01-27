@@ -1,10 +1,6 @@
-/* eslint-disable @typescript-eslint/no-shadow */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable tailwindcss/no-custom-classname */
-/* eslint-disable no-template-curly-in-string */
+
 import moment from 'moment';
 import { useEffect, useState } from 'react';
 import { fetchData } from '../../../lib/helpers/Fetch';
@@ -24,17 +20,17 @@ export default function NewsPage() {
 	useEffect(() => {
 		setLoading(true);
 		fetchData<News[]>('src/data/news.json')
-			.then((data) => {
-				setOriginalData(data);
-				setCurrentData(data[0]);
+			.then((res) => {
+				setOriginalData(res);
+				setCurrentData(res[0]);
 				setActiveCategory(dataTofilter[0]);
 				if (dataTofilter[0] === null) {
-					setData(data);
+					setData(res);
 				}
 				setLoading(false);
 			})
-			.catch((error) => {
-				setError(error.message);
+			.catch((e) => {
+				setError(e.message);
 				setLoading(false);
 			});
 	}, []);
@@ -80,7 +76,7 @@ export default function NewsPage() {
 							</div>
 							<div className="mt-[3%] flex w-full items-center space-x-4">
 								<img
-									className=" xl:w-15  h-11 w-11 rounded-full"
+									className="  h-11 w-11 rounded-full"
 									src="src/images/news-user.png"
 									alt=""
 								/>

@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-shadow */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
 import { useState, useEffect } from 'react';
 import { FaNewspaper, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
@@ -8,6 +7,8 @@ import { News } from '../../../types/News.types';
 import fetchData from '../../../lib/helpers/Fetch';
 import NewsCard from './News-card';
 import NewsHeader from './News-header';
+import FixtureLoader from '../Index-Loaders/Fixtures-Loader';
+import SliderLoader from '../Index-Loaders/Slider-Loader';
 
 export default function NewsSlider() {
 	const [data, setData] = useState<News[]>([]);
@@ -21,16 +22,16 @@ export default function NewsSlider() {
 	useEffect(() => {
 		setLoading(true);
 		fetchData<News[]>('src/data/news.json')
-			.then((data) => {
-				setOriginalData(data);
+			.then((res) => {
+				setOriginalData(res);
 				setActiveCategory(dataTofilter[0]);
 				if (dataTofilter[0] === null) {
-					setData(data);
+					setData(res);
 				}
 				setLoading(false);
 			})
-			.catch((error) => {
-				setError(error.message);
+			.catch((e) => {
+				setError(e.message);
 				setLoading(false);
 			});
 	}, []);
@@ -85,12 +86,16 @@ export default function NewsSlider() {
 					className="no-scrollbar  flex h-full w-full flex-nowrap  gap-[2%]  overflow-x-scroll  scroll-smooth"
 					ref={(el) => setScrollingDiv(el)}
 				>
-					{data.map((item) => (
-						<NewsCard
-							key={item.id}
-							news={item}
-						/>
-					))}
+					{loading ? (
+						<SliderLoader />
+					) : (
+						data.map((item) => (
+							<NewsCard
+								key={item.id}
+								news={item}
+							/>
+						))
+					)}
 				</div>
 			</div>
 		</section>

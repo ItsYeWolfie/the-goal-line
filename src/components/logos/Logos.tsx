@@ -4,6 +4,7 @@ import { RiChatFollowUpFill } from 'react-icons/ri';
 import { Logos } from '../../../types/Logos.types';
 import Logo from './Logo';
 import fetchData from '../../../lib/helpers/Fetch';
+import SliderLoader from '../Index-Loaders/Slider-Loader';
 
 export default function LogosSlider() {
 	const [data, setData] = useState<Logos[]>([]);
@@ -36,9 +37,6 @@ export default function LogosSlider() {
 		}
 	};
 
-	if (loading) {
-		return <div>Loading...</div>;
-	}
 	if (error) {
 		return <div>Error: {error}</div>;
 	}
@@ -66,12 +64,16 @@ export default function LogosSlider() {
 					id="div-s"
 					ref={(el) => setScrollingDiv(el)}
 				>
-					{data.map((item) => (
-						<Logo
-							key={item.id}
-							logo={item}
-						/>
-					))}
+					{loading ? (
+						<SliderLoader />
+					) : (
+						data.map((item) => (
+							<Logo
+								key={item.id}
+								logo={item}
+							/>
+						))
+					)}
 				</div>
 			</div>
 		</section>

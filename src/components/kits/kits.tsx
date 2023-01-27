@@ -3,6 +3,7 @@ import { FaTshirt, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { Kits } from '../../../types/Kits.types';
 import fetchData from '../../../lib/helpers/Fetch';
 import Kit from './kit';
+import SliderLoader from '../Index-Loaders/Slider-Loader';
 
 export default function KitsSlider() {
 	const [kit, setKits] = useState<Kits[]>([]);
@@ -35,9 +36,6 @@ export default function KitsSlider() {
 		}
 	};
 
-	if (loading) {
-		return <div>Loading...</div>;
-	}
 	if (error) {
 		return <div>Error: {error}</div>;
 	}
@@ -64,12 +62,16 @@ export default function KitsSlider() {
 						className="no-scrollbar row-span-5  flex h-full w-full  flex-nowrap  overflow-x-scroll  scroll-smooth"
 						ref={(el) => setScrollingDiv(el)}
 					>
-						{kit.map((item) => (
-							<Kit
-								key={item.id}
-								kit={item}
-							/>
-						))}
+						{loading ? (
+							<SliderLoader />
+						) : (
+							kit.map((item) => (
+								<Kit
+									key={item.id}
+									kit={item}
+								/>
+							))
+						)}
 					</div>
 				</div>
 			</section>
