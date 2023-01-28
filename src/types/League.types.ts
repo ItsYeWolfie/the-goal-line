@@ -1,4 +1,12 @@
+import { ISeason } from './Season.types';
+import { ICountry } from './Country.types';
 import { ITeamBasic } from './Team.types';
+
+export interface ILeagueData {
+	league: ILeagueBasicWithType;
+	country: ICountry;
+	seasons: ISeason[];
+}
 
 export interface ILeague extends ILeagueBasic {
 	round?: string;

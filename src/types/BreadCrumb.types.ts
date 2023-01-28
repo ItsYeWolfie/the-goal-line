@@ -1,4 +1,4 @@
 export interface IBreadCrumb {
-	name: string;
+	name: string | Element;
 	href: string;
 }

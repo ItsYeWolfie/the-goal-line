@@ -3,7 +3,7 @@ import { ITeamBasic } from './Team.types';
 import { IFixtureInfoBasic } from './Fixture.types';
 import { ILeagueWithSeason } from './League.types';
 
-export interface IPlayerWithStatistics extends IHumanBasic {
+export interface IPlayerWithStatistics {
 	player: IPlayerStatistics;
 	statistics: IPlayerStatistics[];
 }
