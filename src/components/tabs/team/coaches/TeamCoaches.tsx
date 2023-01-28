@@ -1,12 +1,17 @@
 import { useMemo, useState } from 'react';
+import { useOutletContext } from 'react-router-dom';
 import { ICoach, ICoachTeamHistory } from '../../../../types/Coach.types';
+import { ITeamAndVenue } from '../../../../types/Team.types';
 import TeamCoachesTable from './TeamCoachesTable';
 
 export default function TeamCoaches({ coaches }: { coaches: ICoach[] }) {
+	const {
+		team: { id },
+	} = useOutletContext<ITeamAndVenue>();
 	const coachesHistory = useMemo(
 		() =>
 			coaches.map((coach) => {
-				const coachHistory = coach.career.find((career) => career.team.id === 33)!;
+				const coachHistory = coach.career.find((career) => career.team.id === id)!;
 				const coachObject = {
 					id: coach.id,
 					name: coach.name,
@@ -14,11 +19,11 @@ export default function TeamCoaches({ coaches }: { coaches: ICoach[] }) {
 					lastName: coach.lastname,
 					age: coach.age,
 					photo: coach.photo,
-					career: coach.career.find((career) => career.team.id === 33),
+					career: coach.career.find((career) => career.team.id === id),
 				};
 				return { coachObject, coachHistory };
 			}),
-		[coaches],
+		[coaches, id],
 	);
 
 	const [activeCoach, setActiveCoach] = useState<ICoachTeamHistory>(coachesHistory[0]);

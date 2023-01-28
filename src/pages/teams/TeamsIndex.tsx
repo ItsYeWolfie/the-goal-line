@@ -8,7 +8,7 @@ import LoadingTeamsDisplaySection from '../../components/tabs/teams/loading/Load
 import fetchData from '../../lib/helpers/Fetch';
 import TeamSearch from '../../components/tabs/teams/TeamSearch';
 
-export default function TeamsIndexPage() {
+export default function TeamsIndex() {
 	const [teams, setTeams] = useState<ITeamAndVenue[]>([]);
 	const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 	const [loading, setLoading] = useState(true);

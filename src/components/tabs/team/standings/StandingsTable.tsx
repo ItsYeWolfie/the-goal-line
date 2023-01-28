@@ -1,4 +1,5 @@
 import { useOutletContext } from 'react-router-dom';
+import GetRankColor from '../../../../lib/helpers/rank-color';
 import { ILeagueStanding } from '../../../../types/League.types';
 import { ITeamAndVenue } from '../../../../types/Team.types';
 import FormIconArray from '../../../icons/FormIconArray';
@@ -26,29 +27,7 @@ export default function StandingsTable({ standings }: { standings: ILeagueStandi
 			</TableHead>
 			<tbody className="text-sm text-gray-300">
 				{standings.map((standing, index) => {
-					let backgroundColor = index % 2 === 0 ? 'bg-gray-300 dark:bg-gray-600' : 'bg-gray-200 dark:bg-gray-700';
-					const teamRank = standing.rank;
-
-					switch (true) {
-						case teamRank === 1:
-							backgroundColor = 'bg-green-800 dark:bg-green-600';
-							break;
-						case teamRank < 5:
-							backgroundColor = 'bg-green-700';
-							break;
-						case teamRank < 7:
-							backgroundColor = 'bg-green-600 dark:bg-green-800';
-							break;
-						case teamRank > 16:
-							backgroundColor = 'bg-red-700 dark:bg-red-500';
-							break;
-						case teamRank > 14:
-							backgroundColor = 'bg-red-500 dark:bg-red-700';
-							break;
-						default:
-							backgroundColor = 'text-gray-700 dark:text-gray-300';
-							break;
-					}
+					const backgroundColor = GetRankColor(standing.rank, index);
 
 					const { team, form } = standing;
 					const formArray = form.split('');

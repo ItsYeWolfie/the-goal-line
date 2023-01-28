@@ -13,7 +13,7 @@ export default function TeamsDisplaySection({ filteredTeams }: { filteredTeams: 
 			{displayedTeams.map((team) => (
 				<Link
 					key={team.team.id}
-					to={`/team/${team.team.id}/`}
+					to={`/teams/${team.team.id}/`}
 					className="col-span-12 flex h-32 items-center justify-center bg-cover bg-center bg-no-repeat sm:col-span-6"
 					style={{
 						backgroundImage: `url(${team.venue.image || team.team.logo}`,

@@ -1,16 +1,14 @@
 import { useState } from 'react';
-import { NavLink, useLocation, useParams } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { ITab } from '../../types/Tab.types';
-import DropdownList from '../../components/dropdowns/DropdownList';
-import teamTabs from '../../lib/tabs/TeamTabsLinks';
+import DropdownList from '../dropdowns/DropdownList';
 
-export default function TeamTabs() {
-	const { teamID } = useParams<{ teamID: string }>();
+export default function HeaderTabs({ params, dir, tabs }: { params: string | undefined; dir: string; tabs: ITab[] }) {
 	const { pathname } = useLocation();
 	const [dropdownName, setDropdownName] = useState(
-		teamTabs.find((tab: ITab) => {
-			return `/team/${teamID}${tab.href}` === pathname;
-		})?.name || 'Team',
+		tabs.find((tab: ITab) => {
+			return `/${dir}/${params}${tab.href}` === pathname;
+		})?.name || 'League',
 	);
 	return (
 		<>
@@ -19,9 +17,9 @@ export default function TeamTabs() {
 				className="relative z-20 w-full items-center border border-transparent text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 md:hidden"
 			>
 				<div className="absolute top-full right-0 z-10 w-full rounded-b-md bg-gray-300 shadow-lg dark:bg-gray-700">
-					{teamTabs.map((tab: ITab) => (
+					{tabs.map((tab: ITab) => (
 						<NavLink
-							to={`/team/${teamID}${tab.href}`}
+							to={`/${dir}/${params}${tab.href}`}
 							key={tab.name}
 							onClick={() => setDropdownName(tab.name)}
 							className={({ isActive }) =>
@@ -37,9 +35,9 @@ export default function TeamTabs() {
 				</div>
 			</DropdownList>
 			<nav className="hidden flex-wrap items-center space-x-4 md:flex">
-				{teamTabs.map((tab: ITab) => (
+				{tabs.map((tab: ITab) => (
 					<NavLink
-						to={`/team/${teamID}${tab.href}`}
+						to={`/${dir}/${params}${tab.href}`}
 						key={tab.name}
 						className={({ isActive }) =>
 							`${

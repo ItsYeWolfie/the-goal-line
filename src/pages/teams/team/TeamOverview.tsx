@@ -1,18 +1,18 @@
 import { Await, useLoaderData, useOutletContext } from 'react-router-dom';
 import { Suspense } from 'react';
-import { ITeamAndVenue, ITeamStatistics } from '../../types/Team.types';
-import TeamOverviewSequences from '../../components/tabs/team/overview/Sequences';
-import TeamOverviewFixtures from '../../components/tabs/team/overview/Fixtures';
-import TeamOverviewStatistics from '../../components/tabs/team/overview/Statistics';
-import TeamOverviewLineups from '../../components/tabs/team/overview/Lineups';
-import TeamOverviewGoals from '../../components/tabs/team/overview/Goals';
-import TeamOverviewGoalsAtMinute from '../../components/tabs/team/overview/GoalsAtMinute';
-import TeamOverviewGoalsAverage from '../../components/tabs/team/overview/GoalsAverage';
-import TeamOverviewPenalties from '../../components/tabs/team/overview/Penalties';
-import TeamOverviewCardsAtMinute from '../../components/tabs/team/overview/CardsAtMinute';
-import TeamOverviewVenueCard from '../../components/tabs/team/overview/VenueCard';
-import TeamOverviewTeamCard from '../../components/tabs/team/overview/TeamCard';
-import MainLoadingSpinner from '../../components/MainLoadingSpinner';
+import { ITeamAndVenue, ITeamStatistics } from '../../../types/Team.types';
+import TeamOverviewSequences from '../../../components/tabs/team/overview/Sequences';
+import TeamOverviewFixtures from '../../../components/tabs/team/overview/Fixtures';
+import TeamOverviewStatistics from '../../../components/tabs/team/overview/Statistics';
+import TeamOverviewLineups from '../../../components/tabs/team/overview/Lineups';
+import TeamOverviewGoals from '../../../components/tabs/team/overview/Goals';
+import TeamOverviewGoalsAtMinute from '../../../components/tabs/team/overview/GoalsAtMinute';
+import TeamOverviewGoalsAverage from '../../../components/tabs/team/overview/GoalsAverage';
+import TeamOverviewPenalties from '../../../components/tabs/team/overview/Penalties';
+import TeamOverviewCardsAtMinute from '../../../components/tabs/team/overview/CardsAtMinute';
+import TeamOverviewVenueCard from '../../../components/tabs/team/overview/VenueCard';
+import TeamOverviewTeamCard from '../../../components/tabs/team/overview/TeamCard';
+import MainLoadingSpinner from '../../../components/MainLoadingSpinner';
 
 export default function TeamOverviewPage() {
 	const { team, venue } = useOutletContext<ITeamAndVenue>();

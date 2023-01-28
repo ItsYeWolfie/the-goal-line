@@ -9,22 +9,22 @@ export default function GlobalHeader() {
 	return (
 		<div
 			className={`${
-				expanded ? 'sm:basis-44' : 'sm:basis-auto'
-			} fixed bottom-0 z-10 flex bg-white dark:border-gray-800 dark:bg-gray-900 sm:sticky sm:top-0 sm:h-screen sm:shrink-0 sm:flex-col sm:border-r sm:border-gray-200`}
+				expanded ? 'md:basis-44' : 'md:basis-auto'
+			} fixed bottom-0 z-10 flex bg-white dark:border-gray-800 dark:bg-gray-900 md:sticky md:top-0 md:h-screen md:shrink-0 md:flex-col md:border-r md:border-gray-200`}
 		>
 			{expanded ? (
 				<CgArrowsExpandDownLeft
-					className="absolute top-0 right-0 m-2 hidden cursor-pointer text-gray-400 dark:text-gray-600 sm:block"
+					className="absolute top-0 right-0 m-2 hidden cursor-pointer text-gray-400 dark:text-gray-600 md:block"
 					onClick={() => setExpanded(!expanded)}
 				/>
 			) : (
 				<CgArrowsExpandUpRight
-					className="absolute top-0 right-0 m-2 hidden cursor-pointer text-gray-400 dark:text-gray-600 sm:block"
+					className="absolute top-0 right-0 m-2 hidden cursor-pointer text-gray-400 dark:text-gray-600 md:block"
 					onClick={() => setExpanded(!expanded)}
 				/>
 			)}
-			<div className="flex flex-1 overflow-y-auto pt-2 sm:flex-col sm:pt-5 sm:pb-4">
-				<div className="hidden sm:flex sm:shrink-0 sm:items-center sm:px-4">
+			<div className="flex flex-1 overflow-y-auto pt-2 md:flex-col md:pt-5 md:pb-4">
+				<div className="hidden md:flex md:shrink-0 md:items-center md:px-4">
 					{expanded ? (
 						<img
 							className="h-8 w-auto"
@@ -39,7 +39,7 @@ export default function GlobalHeader() {
 						/>
 					)}
 				</div>
-				<nav className="flex w-screen justify-around bg-white dark:bg-gray-900 sm:mt-5 sm:block sm:w-auto sm:flex-1 sm:flex-col sm:space-y-1 sm:px-2">
+				<nav className="flex w-screen justify-around bg-white dark:bg-gray-900 md:mt-5 md:block md:w-auto md:flex-1 md:flex-col md:space-y-1 md:px-2">
 					{navigation.map((item) => (
 						<NavLink
 							key={item.name}
@@ -58,7 +58,7 @@ export default function GlobalHeader() {
 					))}
 				</nav>
 			</div>
-			<div className="hidden sm:flex sm:flex-col sm:overflow-y-auto sm:pt-5 sm:pb-4">
+			<div className="hidden md:flex md:flex-col md:overflow-y-auto md:pt-5 md:pb-4">
 				<div className="flex shrink-0 border-t border-gray-200 p-4 dark:border-gray-800">
 					<Link
 						to="/profile"

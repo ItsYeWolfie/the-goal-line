@@ -1,8 +1,8 @@
 import { Suspense } from 'react';
 import { Await, useLoaderData } from 'react-router-dom';
-import { ICoach } from '../../types/Coach.types';
-import MainLoadingSpinner from '../../components/MainLoadingSpinner';
-import TeamCoaches from '../../components/tabs/team/coaches/TeamCoaches';
+import { ICoach } from '../../../types/Coach.types';
+import MainLoadingSpinner from '../../../components/MainLoadingSpinner';
+import TeamCoaches from '../../../components/tabs/team/coaches/TeamCoaches';
 
 export default function TeamCoachesPage() {
 	const { coaches } = useLoaderData() as { coaches: ICoach[] };

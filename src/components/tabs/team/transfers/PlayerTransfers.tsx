@@ -1,8 +1,13 @@
 import { useEffect, useMemo, useState, useCallback } from 'react';
+import { useOutletContext } from 'react-router-dom';
+import { ITeamAndVenue } from '../../../../types/Team.types';
 import { ITransferModified } from '../../../../types/Transfers.type';
 import PlayerTransfersTable from './PlayerTransfersTable';
 
 export default function PlayerTransfers({ transfers }: { transfers: ITransferModified[] }) {
+	const {
+		team: { id },
+	} = useOutletContext<ITeamAndVenue>();
 	const [type, setType] = useState('All');
 	const [year, setYear] = useState(0);
 	const transfersPerPlayer = useMemo(
@@ -25,7 +30,7 @@ export default function PlayerTransfers({ transfers }: { transfers: ITransferMod
 	const filterTransfers = useCallback(
 		(side: 'in' | 'out') => {
 			return getTransfers().filter((transfer) => {
-				if (transfer.teams[side].id === 33) return false;
+				if (transfer.teams[side].id === id) return false;
 				if (year !== -1 && new Date(transfer.date).getFullYear() !== Number(year)) return false;
 				if (type === 'Transfer') {
 					if (
@@ -45,7 +50,7 @@ export default function PlayerTransfers({ transfers }: { transfers: ITransferMod
 				return true;
 			});
 		},
-		[getTransfers, type, year],
+		[getTransfers, id, type, year],
 	);
 
 	const filteredTransfersIn = useMemo(() => filterTransfers('out'), [filterTransfers]);
