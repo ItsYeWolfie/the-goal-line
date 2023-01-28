@@ -55,7 +55,7 @@ export default function NotFound() {
 														className="absolute inset-0"
 														aria-hidden="true"
 													/>
-													{link.title}
+													<span className="relative text-gray-800 dark:text-gray-200">{link.title}</span>
 												</Link>
 											</span>
 										</h3>

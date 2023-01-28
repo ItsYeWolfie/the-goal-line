@@ -22,13 +22,17 @@ export default function Root() {
 	return (
 		<main className="flex">
 			<GlobalHeader />
-			<div className="flex-1">
+			<div className="flex flex-1 flex-col">
 				<GlobalHeaderContext.Provider value={value}>
 					<div className="sticky top-0 z-20 flex flex-col bg-sky-900 p-2 dark:bg-gray-900">
 						<MainBreadCrumb />
 						{tabsComponent && tabsComponent}
 					</div>
-					<Outlet />
+					<main className="overflow-auto">
+						<section className="container mx-auto shrink-0 grow-0 p-4 px-2 pb-32 sm:py-8">
+							<Outlet />
+						</section>
+					</main>
 				</GlobalHeaderContext.Provider>
 			</div>
 		</main>
