@@ -25,7 +25,9 @@ class Standings extends LitLightElement {
 	render() {
 		if (this.loading) {
 			return html`
-				<div class="flex items-center justify-center bg-gray-800">
+				<div
+					class="flex h-10 w-full items-center justify-around rounded-md bg-gray-800 align-middle md:mx-auto lg:flex lg:w-full lg:justify-around"
+				>
 					<img class="animate-spin" src="../images/icons8-wait.svg" />
 				</div>
 			`;

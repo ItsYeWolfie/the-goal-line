@@ -56,7 +56,11 @@ class Match extends LitLightElement {
 				<div class="mt-6 flex flex-col">
 					<span class="mb-2 flex flex-col items-center md:flex md:flex-row"
 						><img src="${this.fixtures.teams.home.logo}" width="50px" height="50px" />
-						<h2 class="text-md my-auto ml-1 md:text-xl">${this.fixtures.teams.home.name}</h2></span
+						<h2
+							class="text-md my-auto ml-1 flex w-12 items-center justify-center text-center md:w-auto md:text-xl"
+						>
+							${this.fixtures.teams.home.name}
+						</h2></span
 					>
 					${this.filteredEvents.map(
 						(event) => html`

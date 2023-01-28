@@ -99,7 +99,6 @@ class CountriesList extends LitLightElement {
 			'UEFA Champions League',
 			'UEFA Europa League',
 			'Confederations Cup',
-			'World Cup',
 			'FIFA Club World Cup',
 			'Copa America',
 		];
@@ -167,7 +166,7 @@ class CountriesList extends LitLightElement {
 									</div>
 								`
 							)}
-							${this.groupedCups.World.map(
+							${this.sortedCups(this.groupedCups.World).map(
 								(cups) =>
 									html` <div class="flex h-auto p-2">
 										<span class="my-auto"
@@ -183,7 +182,7 @@ class CountriesList extends LitLightElement {
 											>${cups.league.name}</span
 										>
 									</div>`
-							)}y
+							)}
 					  `
 					: html``}
 				${this.showSelectedCountryData

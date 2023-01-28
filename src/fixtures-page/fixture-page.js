@@ -6,3 +6,4 @@ import '../components/fixture-page/statistic.js';
 import '../components/fixture-page/odds.js';
 import '../components/fixture-page/hhmatches.js';
 import '../components/fixture-page/standings.js';
+import '../components/fixture-page/mob-tabs.js';

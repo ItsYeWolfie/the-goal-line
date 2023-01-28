@@ -48,14 +48,14 @@ class Formation extends LitLightElement {
 			<div class="mx-auto flex h-[16rem] w-[23.8rem] bg-green-900 md:mx-0 lg:mx-0">
 				<div class="absolute h-64 w-48 border-2 border-solid border-white">
 					<div class="absolute top-8 -ml-8 grid h-48 w-64 z-50 -rotate-90
-						 justify-around align-middle gap-2 p-2">
+						auto-rows-auto auto-cols-auto place-items-center gap-x-4 gap-2 p-2">
 						${this.formation[0].startXI.map((player) => {
 							const grid = player.player.grid.split(':');
 							const row = parseInt(grid[0]);
 							const col = parseInt(grid[1]);
 							console.log(row, col);
 							return html`<div
-								class="row-start-${row} col-start-${col} flex h-7 w-7 justify-center rounded-full bg-lime-700"
+								class="row-start-${row} col-start-${col} flex h-7 w-7 items-center justify-center rounded-full bg-lime-700"
 							>
 								${player.player.pos}
 							</div>`;
@@ -72,7 +72,8 @@ class Formation extends LitLightElement {
 					></div>
 				</div>
 				<div class="absolute ml-[191px] h-64 w-48 border-2 border-solid border-white">
-					<div class="absolute top-8 -ml-8 grid h-48 w-64 z-50 rotate-90 justify-evenly align-middle gap-2 p-2">
+					<div class="absolute top-8 -ml-8 grid h-48 w-64 z-50 rotate-90
+						auto-rows-auto justify-center place-items-center gap-x-4 gap-2 p-2">
 						${this.formation[1].startXI.map((player) => {
 							const grid = player.player.grid.split(':');
 							const row = parseInt(grid[0]);
