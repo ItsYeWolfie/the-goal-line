@@ -1,4 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
+import CoachPage from '../components/CoachPage/CoachPage';
 import Home from '../components/Home/Home';
 import News from '../components/News/News';
 import NewsByTitle from '../components/News/NewsbyTitle';
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
 			{
 				path: '/news/:title',
 				element: <NewsByTitle />,
+			},
+			{
+				path: '/coach/:name',
+				element: <CoachPage />,
 			},
 		],
 	},
