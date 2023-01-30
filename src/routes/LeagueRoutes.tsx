@@ -1,5 +1,5 @@
 import { RouteObject } from 'react-router-dom';
-import LeagueMainSection from '../components/tabs/leagues/league/LeagueMainSection';
+import LeagueOverview from '../components/tabs/leagues/league/overview/Index';
 import { leagueLoader } from '../lib/loaders/league-loaders';
 import LeagueIndex from '../pages/leagues/league/LeagueIndex';
 import LeaguesIndex from '../pages/leagues/LeaguesIndex';
@@ -16,7 +16,7 @@ export const LeagueRoutes: RouteObject[] = [
 		children: [
 			{
 				index: true,
-				element: <LeagueMainSection />,
+				element: <LeagueOverview />,
 			},
 		],
 	},

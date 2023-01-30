@@ -1,5 +1,5 @@
 import { AiFillHome, AiOutlineMessage } from 'react-icons/ai';
-import { GiShieldEchoes } from 'react-icons/gi';
+import { GiShieldEchoes, GiTrophyCup } from 'react-icons/gi';
 
 export const navigation = [
 	{ name: 'Dashboard', icon: AiFillHome, href: '/' },
@@ -7,7 +7,7 @@ export const navigation = [
 	{ name: 'Contact Us', icon: AiOutlineMessage, href: '/contact-us' },
 	{
 		name: 'Leagues',
-		icon: GiShieldEchoes,
+		icon: GiTrophyCup,
 		href: '/leagues',
 	},
 ];
