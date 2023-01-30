@@ -17,3 +17,10 @@ interface IHumanBirth {
 	place: string;
 	country: string;
 }
+
+export interface ILeagueFixturesSearch {
+	teamId: number;
+	date: string;
+	referee: string;
+	status: 'FT' | 'PST' | 'NS' | 'All';
+}
