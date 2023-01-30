@@ -5,15 +5,15 @@ interface Team {
 }
 
 interface Birth {
-	date: string | null;
+	date: string;
 	place: string;
 	country: string;
 }
 
 interface Career {
-	end: Date;
+	end: Date | null;
 	team: Team;
-	start: Date;
+	start: Date | null;
 }
 
 export interface ICoaches {

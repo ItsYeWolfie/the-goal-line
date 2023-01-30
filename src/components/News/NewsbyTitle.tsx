@@ -73,7 +73,7 @@ export default function NewsByTitle() {
 								alt=""
 							/>
 						</div>
-						<div className="mx-auto mt-[5%] w-[95%] break-words text-gray-300 sm:text-[1.2rem] lg:text-[1.1rem] 2xl:text-[1.8rem]">
+						<div className="mx-auto my-[5%] w-[95%] break-words text-gray-300 sm:text-[1.2rem] lg:text-[1.1rem] 2xl:text-[1.8rem]">
 							{currentNews.body}
 						</div>
 					</div>
