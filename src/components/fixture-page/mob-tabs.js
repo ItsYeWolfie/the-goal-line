@@ -55,7 +55,7 @@ class MobTabs extends LitLightElement {
 		];
 
 		this.slug = url.searchParams.get('tab') || this.tabs[1].name;
-		this.activeTab = 'INFO';
+		this.activeTab = 'LINEUPS';
 	}
 
 	setActiveTab(tabName) {
@@ -72,7 +72,7 @@ class MobTabs extends LitLightElement {
 	render() {
 		return html`
 			<div
-				class="mb-4 flex w-full justify-around rounded-t-md border-opacity-30 bg-gray-800 p-2 md:mx-auto md:w-4/5"
+				class="mb-4 flex w-full justify-around rounded-t-md border-b-2 border-gray-200 border-opacity-30 bg-gray-800 p-2 md:mx-auto md:w-4/5"
 			>
 				${this.tabs.map(
 					(tab) => html` <div

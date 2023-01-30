@@ -33,32 +33,32 @@ class Header extends LitLightElement {
 			{
 				name: 'LIVE',
 				slug: 'LIVE',
-				html: html`<matches-l></matches-l>`,
+				html: html`<matches-l class="mt-16"></matches-l>`,
 			},
 			{
 				name: dayBeforeYesterday,
 				slug: dayBeforeYesterdayWeek,
-				html: html`<matches-p></matches-p>`,
+				html: html`<matches-p class="mt-16 md:mt-20 lg:mt-16"></matches-p>`,
 			},
 			{
 				name: yesterday,
 				slug: yesterdayWeek,
-				html: html`<matches-p1></matches-p1>`,
+				html: html`<matches-p1 class="mt-16 md:mt-20 lg:mt-16"></matches-p1>`,
 			},
 			{
 				name: today,
 				slug: 'TODAY',
-				html: html`<matches-m></matches-m>`,
+				html: html`<matches-m class="mt-16 md:mt-20 lg:mt-16"></matches-m>`,
 			},
 			{
 				name: tomorrow,
 				slug: tomorrowWeek,
-				html: html`<matches-n></matches-n>`,
+				html: html`<matches-n class="mt-16 md:mt-20 lg:mt-16"></matches-n>`,
 			},
 			{
 				name: dayAfterTomorrow,
 				slug: dayAfterTomorrowWeek,
-				html: html`<matches-n1></matches-n1>`,
+				html: html`<matches-n1 class="mt-16 md:mt-20 lg:mt-16"></matches-n1>`,
 			},
 		];
 
@@ -80,14 +80,14 @@ class Header extends LitLightElement {
 	render() {
 		return html`
 			<div
-				class="flex w-full justify-around rounded-t-md border-b-2 border-gray-200 border-opacity-30 bg-gray-700 p-2"
+				class="fixed -ml-2 flex w-full justify-around rounded-t-md border-b-2 border-gray-200 border-opacity-30 bg-gray-900 p-2 lg:w-[32.2%] lg:bg-gray-800"
 			>
 				${this.tabs.map(
 					(tab) => html` <div
 						class="${tab.name === this.activeTab
-							? 'text-sky-600 text-sm md:text-base'
-							: ''} my-auto flex cursor-pointer flex-col items-center text-xs hover:text-sky-600
-							md:text-sm"
+							? 'text-sky-600 text-sm md:text-lg lg:text-base'
+							: ''} my-auto flex cursor-pointer flex-col items-center text-xs
+							hover:text-sky-600 md:text-sm"
 						href="#"
 						@click="${() => this.setActiveTab(tab.name)}"
 					>

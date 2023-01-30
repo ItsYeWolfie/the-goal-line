@@ -19,7 +19,7 @@ class Formation extends LitLightElement {
 		const data = await response.json();
 		this.formation = data;
 		this.loading = false;
-		console.log(data);
+		// console.log(data);
 	}
 
 	render() {
@@ -45,54 +45,61 @@ class Formation extends LitLightElement {
 					<p>${this.formation[1].formation}</p></span
 				>
 			</span>
-			<div class="mx-auto flex h-[16rem] w-[23.8rem] bg-green-900 md:mx-0 lg:mx-0">
+			<div class="mx-auto flex h-[16rem] w-[23.9rem] bg-green-900 md:mx-0 lg:mx-0">
 				<div class="absolute h-64 w-48 border-2 border-solid border-white">
+					<div class="absolute -ml-0.5 -mt-[0.10rem] h-3 w-3 rounded-br-full border-2 border-solid border-white"></div>
 					<div class="absolute top-8 -ml-8 grid h-48 w-64 z-50 -rotate-90
-						auto-rows-auto auto-cols-auto place-items-center gap-x-4 gap-2 p-2">
+						auto-rows-auto grid-cols-4 -pl-1 pr-4 place-items-center justify-around">
 						${this.formation[0].startXI.map((player) => {
 							const grid = player.player.grid.split(':');
 							const row = parseInt(grid[0]);
 							const col = parseInt(grid[1]);
-							console.log(row, col);
-							return html`<div
-								class="row-start-${row} col-start-${col} flex h-7 w-7 items-center justify-center rounded-full bg-lime-700"
+							// console.log(row, col);
+							return html`<span
+								class="row-start-${row} col-start-${col *
+								3} relative h-7 w-7 rounded-full bg-lime-700 text-center"
 							>
 								${player.player.pos}
-							</div>`;
+							</span>`;
 						})}
 					</div>
-					<div class="absolute -ml-[1px] mt-12 h-40 w-20 border-2 border-solid border-white">
-						<div class="absolute mt-7 -ml-0.5 h-24 w-12 border-2 border-solid border-white"></div>
+					<div class="absolute -ml-[0.063rem] mt-12 h-40 w-20 border-2 border-solid border-white">
+						<div class="absolute mt-7 -ml-[0.14rem] h-24 w-12 border-2 border-solid border-white"></div>
 						<span
-							class="absolute ml-[77px] mt-12 h-14 rounded-r-full border-2 border-solid border-white px-3"
+							class="absolute ml-[4.813rem] mt-12 h-14 rounded-r-full border-2 border-solid border-white px-3"
 						></span>
+						<div class="absolute -ml-[0.14rem] mt-[12.05rem] h-3 w-3 rounded-tr-full border-2 border-solid border-white"></div>
 					</div>
 					<div
-						class="absolute ml-[155px] mt-[90px] rounded-full border-2 border-solid border-white px-8 py-8"
+						class="absolute ml-[9.688rem] mt-[5.625rem] rounded-full border-2 border-solid border-white px-8 py-8"
 					></div>
 				</div>
-				<div class="absolute ml-[191px] h-64 w-48 border-2 border-solid border-white">
+				<div class="absolute ml-[11.938rem] h-64 w-48 border-2 border-solid border-white">
+
+					<div class="absolute ml-[11.125rem] -mt-[0.10rem] h-3 w-3 rounded-bl-full border-2 border-solid border-white"></div>
 					<div class="absolute top-8 -ml-8 grid h-48 w-64 z-50 rotate-90
-						auto-rows-auto justify-center place-items-center gap-x-4 gap-2 p-2">
+						auto-rows-auto grid-cols-4 -pl-1 pr-4 place-items-center justify-around">
 						${this.formation[1].startXI.map((player) => {
 							const grid = player.player.grid.split(':');
 							const row = parseInt(grid[0]);
 							const col = parseInt(grid[1]);
-							console.log(row, col);
-							return html`<div
-								class="row-start-${row} col-start-${col} flex h-7 w-7 items-center justify-center rounded-full bg-sky-600"
+							// console.log(row, col);
+							return html`<span
+								class="row-start-${row} col-start-${col *
+								3} h-7 w-7 rounded-full bg-sky-600  text-center"
 							>
 								${player.player.pos}
-							</div>`;
+							</span>`;
 						})}
 						</div>
-						<div class="absolute mt-12 ml-[110px] h-40 w-20 border-2 border-solid border-white">
+						<div class="absolute mt-12 ml-[6.875rem] h-40 w-20 border-2 border-solid border-white">
 							<div
-								class="absolute mt-7 ml-[30.5px] h-24 w-12 border-2 border-solid border-white"
+								class="absolute mt-7 ml-[1.906rem] h-24 w-12 border-2 border-solid border-white"
 							></div>
-							<div
-								class="absolute -ml-[27.5px] mt-12 h-14 rounded-l-full border-2 border-solid border-white px-3"
-							></div>
+							<span
+								class="absolute -ml-[1.7rem] mt-12 h-14 rounded-l-full border-2 border-solid border-white px-3"
+							></span>
+							<div class="absolute ml-[4.15rem] mt-[12.05rem] h-3 w-3 rounded-tl-full border-2 border-solid border-white"></div>
 						</div>
 					</div>
 				</div>

@@ -1,39 +1,25 @@
 import { html } from 'lit';
 import { LitLightElement } from '../../lib/LitElement';
 
-class NextMatches1 extends LitLightElement {
+class LeagueMatches extends LitLightElement {
 	static properties = {
 		fixture: { type: Array },
 		loading: { type: Boolean },
-		groupedMatches: { type: Array },
 	};
 
 	constructor() {
 		super();
 		this.loading = true;
 		this.fixture = [];
-		this.groupedMatches = [];
 	}
 
 	async connectedCallback() {
 		super.connectedCallback();
-		const response = await fetch('https://api.npoint.io/21137151d671e81998f1');
+		const response = await fetch('https://api.npoint.io/48683749646f145669a8');
 		const data = await response.json();
 		this.fixture = data;
 		this.loading = false;
-		// console.log(dataL);
-		const groupedMatches = {};
-		this.fixture.forEach((fixture) => {
-			const leagueId = fixture.league.id;
-			if (!groupedMatches[leagueId]) {
-				groupedMatches[leagueId] = [fixture];
-			} else {
-				groupedMatches[leagueId].push(fixture);
-			}
-			groupedMatches[leagueId].league = fixture.league;
-		});
-		this.groupedMatches = groupedMatches;
-		// console.log(groupedMatches);
+		console.log(data);
 	}
 
 	render() {
@@ -49,42 +35,27 @@ class NextMatches1 extends LitLightElement {
 
 		return html`
 			<div class="animate-fade-in delay-300">
-				${Object.keys(this.groupedMatches).map((leagueId) => {
+				${this.fixture.map((fixture) => {
+					const day = fixture.fixture.date;
+					const date = new Date(day).toLocaleTimeString('en-GB', {
+						hour: '2-digit',
+						minute: '2-digit',
+					});
 					return html`
-						<div>
-							<a href="../fixtures-page/league-matches.html"
-								><div class="flex cursor-pointer p-2 hover:text-sky-600">
-									<span class="my-auto"
-										><img
-											class="rounded-sm"
-											src="${this.groupedMatches[leagueId].league.flag === null
-												? '../images/noimg.png'
-												: this.groupedMatches[leagueId].league.flag}"
-											width="30px"
-											height="20px"
-									/></span>
-									<span class="ml-2 flex flex-col">
-										<span class="text-sm">${this.groupedMatches[leagueId].league.name}</span>
-										<span class="text-xs text-gray-500"
-											>${this.groupedMatches[leagueId].league.country}</span
-										>
-									</span>
-									<span class="my-auto ml-auto"
-										><i class="fa-solid fa-chevron-right"></i
-									></span></div
-							></a>
-							${this.groupedMatches[leagueId].map((fixture) => {
-								const day = fixture.fixture.date;
-								const date = new Date(day).toLocaleTimeString('en-GB', {
-									hour: '2-digit',
-									minute: '2-digit',
-								});
-								return html`
 									<a href="./fixture.html" target="_blank"
 										><div
 											class="mb-2 flex cursor-pointer items-center rounded-md bg-gray-700 duration-150 ease-in hover:h-16 hover:border-2 hover:border-solid hover:border-gray-700 hover:bg-gray-800"
 										>
-											<span class="ml-2 flex w-8 justify-center">${date}</span>
+											<span class="ml-2 flex w-8 justify-center"
+												>${
+													fixture.fixture.status.elapsed === null
+														? `${date}`
+														: `${fixture.fixture.status.elapsed}'` &&
+														  fixture.fixture.status.elapsed === 90
+														? fixture.fixture.status.short
+														: `${fixture.fixture.status.elapsed}'`
+												}</span
+											>
 											<div class="flex flex-col p-2">
 												<span class="ml-2 mb-1 flex">
 													<img
@@ -112,8 +83,6 @@ class NextMatches1 extends LitLightElement {
 											</div>
 										</div></a
 									>
-								`;
-							})}
 						</div>
 					`;
 				})}
@@ -121,4 +90,4 @@ class NextMatches1 extends LitLightElement {
 		`;
 	}
 }
-customElements.define('matches-n1', NextMatches1);
+customElements.define('matches-league', LeagueMatches);

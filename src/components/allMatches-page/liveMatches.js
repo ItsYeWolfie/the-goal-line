@@ -52,24 +52,27 @@ class LiveMatches extends LitLightElement {
 				${Object.keys(this.groupedMatches).map((leagueId) => {
 					return html`
 						<div>
-							<div class="flex cursor-pointer p-2 hover:text-sky-600">
-								<span class="my-auto"
-									><img
-										class="rounded-sm"
-										src="${this.groupedMatches[leagueId].league.flag === null
-											? '../images/noimg.png'
-											: this.groupedMatches[leagueId].league.flag}"
-										width="30px"
-										height="20px"
-								/></span>
-								<span class="ml-2 flex flex-col">
-									<span class="text-sm">${this.groupedMatches[leagueId].league.name}</span>
-									<span class="text-xs text-gray-500"
-										>${this.groupedMatches[leagueId].league.country}</span
-									>
-								</span>
-								<span class="my-auto ml-auto"><i class="fa-solid fa-chevron-right"></i></span>
-							</div>
+							<a href="../fixtures-page/league-matches.html"
+								><div class="flex cursor-pointer p-2 hover:text-sky-600">
+									<span class="my-auto"
+										><img
+											class="rounded-sm"
+											src="${this.groupedMatches[leagueId].league.flag === null
+												? '../images/noimg.png'
+												: this.groupedMatches[leagueId].league.flag}"
+											width="30px"
+											height="20px"
+									/></span>
+									<span class="ml-2 flex flex-col">
+										<span class="text-sm">${this.groupedMatches[leagueId].league.name}</span>
+										<span class="text-xs text-gray-500"
+											>${this.groupedMatches[leagueId].league.country}</span
+										>
+									</span>
+									<span class="my-auto ml-auto"
+										><i class="fa-solid fa-chevron-right"></i
+									></span></div
+							></a>
 							${this.groupedMatches[leagueId].map((fixture) => {
 								const day = fixture.fixture.date;
 								const date = new Date(day).toLocaleTimeString('en-GB', {
