@@ -1,5 +1,6 @@
 import { html } from 'lit';
 import { LitLightElement } from '../../lib/LitElement';
+import './StatisticsTable';
 
 class Overview extends LitLightElement {
 	static properties = {
@@ -104,6 +105,7 @@ class Overview extends LitLightElement {
 			 </div>
 			
 			</div>
+            <statistics-table></statistics-table>
 			
 		</div>`;
 	}

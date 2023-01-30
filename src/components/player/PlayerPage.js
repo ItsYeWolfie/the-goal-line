@@ -3,6 +3,7 @@ import { LitLightElement } from '../../lib/LitElement';
 import './Overview';
 import './TrophiesPage';
 import './Sidelines';
+import './StatisticsTable';
 
 
 
