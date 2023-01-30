@@ -48,85 +48,87 @@ export default function PaginatedPrevAndNext({
 		setTotalPages(Math.ceil(items.length / splitCount));
 	}, [items, splitCount]);
 
+	if (items.length <= splitCount) {
+		return null;
+	}
+
 	return (
-		items.length > splitCount && (
-			<nav className={className}>
-				<div className="-mt-px flex w-0 flex-1">
-					<button
-						className="inline-flex items-center border-t-2 border-transparent pt-4 pr-1  text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-300 dark:hover:border-gray-700 dark:hover:text-gray-300"
-						type="button"
-						onClick={() => handlePageChange(currentPage - 1)}
-					>
-						<ArrowLongLeftIcon
-							className="mr-3 h-5 w-5 text-gray-400 dark:text-gray-600"
-							aria-hidden="true"
-						/>
-						Previous
-					</button>
-				</div>
-				<div className="hidden md:-mt-px md:flex">
-					{totalPages > 5 && currentPage > 4 && (
-						<>
-							<button
-								type="button"
-								className="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-300 dark:hover:border-gray-700 dark:hover:text-gray-300"
-								onClick={() => handlePageChange(1)}
-							>
-								1
-							</button>
-							<span className="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 dark:text-gray-300">
-								...
-							</span>
-						</>
-					)}
-					{displayedPages.map((page) => (
+		<nav className={className}>
+			<div className="-mt-px flex w-0 flex-1">
+				<button
+					className="inline-flex items-center border-t-2 border-transparent pt-4 pr-1  text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-300 dark:hover:border-gray-700 dark:hover:text-gray-300"
+					type="button"
+					onClick={() => handlePageChange(currentPage - 1)}
+				>
+					<ArrowLongLeftIcon
+						className="mr-3 h-5 w-5 text-gray-400 dark:text-gray-600"
+						aria-hidden="true"
+					/>
+					Previous
+				</button>
+			</div>
+			<div className="hidden md:-mt-px md:flex">
+				{totalPages > 5 && currentPage > 4 && (
+					<>
 						<button
-							key={page}
 							type="button"
-							className={`${
-								page === currentPage
-									? 'border-indigo-500 text-indigo-600'
-									: 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-300 dark:hover:border-gray-700 dark:hover:text-gray-300'
-							} inline-flex items-center border-t-2 px-4 pt-4 text-sm font-medium`}
-							onClick={() => handlePageChange(page)}
+							className="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-300 dark:hover:border-gray-700 dark:hover:text-gray-300"
+							onClick={() => handlePageChange(1)}
 						>
-							{page}
+							1
 						</button>
-					))}
-					{Math.max(...displayedPages) < totalPages - 1 && (
 						<span className="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 dark:text-gray-300">
 							...
 						</span>
-					)}
-					{totalPages > splitCount && currentPage <= totalPages - 3 && (
-						<button
-							type="button"
-							className={`${
-								totalPages === currentPage
-									? 'border-indigo-500 text-indigo-600'
-									: 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-300 dark:hover:border-gray-700 dark:hover:text-gray-300'
-							} inline-flex items-center border-t-2 px-4 pt-4 text-sm font-medium`}
-							onClick={() => handlePageChange(totalPages)}
-						>
-							{totalPages}
-						</button>
-					)}
-				</div>
-				<div className="-mt-px flex w-0 flex-1 justify-end">
+					</>
+				)}
+				{displayedPages.map((page) => (
+					<button
+						key={page}
+						type="button"
+						className={`${
+							page === currentPage
+								? 'border-indigo-500 text-indigo-600'
+								: 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-300 dark:hover:border-gray-700 dark:hover:text-gray-300'
+						} inline-flex items-center border-t-2 px-4 pt-4 text-sm font-medium`}
+						onClick={() => handlePageChange(page)}
+					>
+						{page}
+					</button>
+				))}
+				{Math.max(...displayedPages) < totalPages - 1 && (
+					<span className="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 dark:text-gray-300">
+						...
+					</span>
+				)}
+				{totalPages > splitCount && currentPage <= totalPages - 3 && (
 					<button
 						type="button"
-						className="inline-flex items-center border-t-2 border-transparent pt-4 pl-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-300 dark:hover:border-gray-700 dark:hover:text-gray-300"
-						onClick={() => handlePageChange(currentPage + 1)}
+						className={`${
+							totalPages === currentPage
+								? 'border-indigo-500 text-indigo-600'
+								: 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-300 dark:hover:border-gray-700 dark:hover:text-gray-300'
+						} inline-flex items-center border-t-2 px-4 pt-4 text-sm font-medium`}
+						onClick={() => handlePageChange(totalPages)}
 					>
-						Next
-						<ArrowLongRightIcon
-							className="ml-3 h-5 w-5 text-gray-400"
-							aria-hidden="true"
-						/>
+						{totalPages}
 					</button>
-				</div>
-			</nav>
-		)
+				)}
+			</div>
+			<div className="-mt-px flex w-0 flex-1 justify-end">
+				<button
+					type="button"
+					className="inline-flex items-center border-t-2 border-transparent pt-4 pl-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-300 dark:hover:border-gray-700 dark:hover:text-gray-300"
+					onClick={() => handlePageChange(currentPage + 1)}
+				>
+					Next
+					<ArrowLongRightIcon
+						className="ml-3 h-5 w-5 text-gray-400"
+						aria-hidden="true"
+					/>
+				</button>
+			</div>
+		</nav>
 	);
 }
 

@@ -52,6 +52,7 @@ module.exports = {
 			},
 		],
 		'react/no-array-index-key': 'warn',
+		'react/jsx-props-no-spreading': 'off',
 		'tailwindcss/migration-from-tailwind-2': 0,
 	},
 };
