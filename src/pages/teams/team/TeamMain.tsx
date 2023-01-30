@@ -17,14 +17,23 @@ export default function TeamMainPage({ team, venue }: ITeamAndVenue) {
 			},
 			{
 				href: `/team/${team.id}`,
-				name: team.name,
+				name: (
+					<div className="flex items-center">
+						<img
+							className="mr-2 h-6 w-6 rounded-full"
+							src={team.logo}
+							alt={team.name}
+						/>
+						{team.name}
+					</div>
+				),
 			},
 		]);
 
 		return () => {
 			setBreadcrumbs([]);
 		};
-	}, [team.id, team.name, setBreadcrumbs]);
+	}, [team, setBreadcrumbs]);
 
 	useEffect(() => {
 		setTabsComponent(

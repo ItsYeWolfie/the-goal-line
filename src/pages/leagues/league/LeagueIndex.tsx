@@ -9,11 +9,7 @@ export default function LeagueIndex() {
 
 	return (
 		<Suspense fallback={<MainLeagueSectionLoader />}>
-			<Await resolve={leagueData}>
-				{(league: ILeagueData) => {
-					return <LeagueMain league={league} />;
-				}}
-			</Await>
+			<Await resolve={leagueData}>{(league: ILeagueData) => <LeagueMain league={league} />}</Await>
 		</Suspense>
 	);
 }

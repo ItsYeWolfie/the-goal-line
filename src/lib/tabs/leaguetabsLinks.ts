@@ -4,7 +4,12 @@ export const leagueTabs: ITab[] = [
 	{
 		name: 'Overview',
 		slug: 'overview',
-		href: '',
+		href: '/',
+	},
+	{
+		name: 'Fixtures',
+		slug: 'fixtures',
+		href: '/fixtures',
 	},
 ];
 

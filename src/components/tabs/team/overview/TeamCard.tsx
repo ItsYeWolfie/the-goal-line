@@ -22,7 +22,7 @@ export default function TeamOverviewTeamCard({
 			/>
 			<div className="grid grid-cols-12 items-center gap-x-4">
 				<img
-					className="col-span-2"
+					className="col-span-2 rounded-full bg-white"
 					src={league.logo}
 					alt={league.name}
 				/>
