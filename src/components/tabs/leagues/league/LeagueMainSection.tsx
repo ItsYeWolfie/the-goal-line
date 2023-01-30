@@ -38,8 +38,8 @@ export default function LeagueMainSection() {
 	};
 
 	return (
-		<main className="row-auto grid grid-cols-12 gap-2">
-			<section className="col-span-4 row-span-2 flex flex-col gap-8 bg-gray-700 p-4">
+		<main className="row-auto grid grid-cols-12 gap-y-8 gap-x-4 md:gap-y-4">
+			<section className="col-span-12 flex h-full flex-col gap-8 bg-gray-200 p-4 dark:bg-gray-700 md:col-span-9 xl:col-span-4 xl:row-span-2">
 				<header className="flex flex-col gap-4">
 					<div className="flex items-center">
 						<img
@@ -47,7 +47,7 @@ export default function LeagueMainSection() {
 							alt={league.country.name}
 							className="mr-2 h-6 w-6 rounded-full object-cover"
 						/>
-						<h3 className="text-sm uppercase">{league.country.name}</h3>
+						<h3 className="text-sm font-medium uppercase">{league.country.name}</h3>
 					</div>
 					<div className="flex gap-1">
 						<img
@@ -57,15 +57,15 @@ export default function LeagueMainSection() {
 						/>
 
 						<div className="flex flex-col items-start justify-evenly">
-							<h3>{league.league.name}</h3>
-							<select className="border-none bg-transparent text-xs">
+							<h3 className="font-bold">{league.league.name}</h3>
+							<select className="border-none bg-transparent text-xs font-bold">
 								{league.seasons
 									.sort((a, b) => b.year - a.year)
 									.map((season) => (
 										<option
 											key={season.year}
 											value={season.year}
-											className="bg-gray-700 text-sm text-white"
+											className="bg-gray-700 text-sm font-medium text-white"
 										>
 											{season.year} / {season.year + 1}
 										</option>
@@ -84,7 +84,7 @@ export default function LeagueMainSection() {
 							<TableHeader className="pl-3">D</TableHeader>
 							<TableHeader className="pl-3">L</TableHeader>
 							<TableHeader className="pl-3">GD</TableHeader>
-							<TableHeader className="pl-3">PTS</TableHeader>
+							<TableHeader className="px-3">PTS</TableHeader>
 						</tr>
 					</TableHead>
 					<tbody className="text-sm text-gray-300">
@@ -124,187 +124,185 @@ export default function LeagueMainSection() {
 					</tbody>
 				</table>
 			</section>
-			<section className="col-span-8 grid h-80 grid-cols-12 divide-x divide-gray-500 border-b border-gray-500">
-				<div className="col-span-6 flex flex-col gap-1 overflow-auto px-4 py-2">
-					<header className="text-xs font-medium uppercase">Matches/Results &rarr;</header>
-					<div className="flex items-center justify-between">
-						<h3 className="text-sm font-medium">{currentDate}</h3>
-						<div className="flex shrink-0 gap-[1px]">
-							<button
-								type="button"
-								className="flex h-7 w-10 items-center justify-center rounded-l-lg bg-gray-700 text-sm text-white"
-								onClick={() => {
-									handleDateChange(-1);
-								}}
-							>
-								<BsChevronLeft>
-									<span className="sr-only">Previous</span>
-								</BsChevronLeft>
-							</button>
-							<button
-								type="button"
-								className="flex h-7 w-10 items-center justify-center rounded-r-lg bg-gray-700 text-sm text-white"
-								onClick={() => {
-									handleDateChange(1);
-								}}
-							>
-								<BsChevronRight>
-									<span className="sr-only">Next</span>
-								</BsChevronRight>
-							</button>
-						</div>
-					</div>
-					<div className="mt-4 flex flex-col gap-4 overflow-auto px-2">
-						{[
-							{
-								fixtureId: 1,
-								time: '20:45',
-								homeTeam: 'Manchester City',
-								awayTeam: 'Manchester United',
-								homeTeamLogo: 'https://media.api-sports.io/football/teams/50.png',
-								awayTeamLogo: 'https://media.api-sports.io/football/teams/33.png',
-							},
-
-							{
-								fixtureId: 2,
-								time: '22:00',
-								homeTeam: 'Liverpool',
-								awayTeam: 'Chelsea',
-								homeTeamLogo: 'https://media.api-sports.io/football/teams/39.png',
-								awayTeamLogo: 'https://media.api-sports.io/football/teams/61.png',
-							},
-						].map((match) => (
-							<div
-								key={match.fixtureId}
-								className="flex flex-col gap-1 border-b border-gray-500 pb-1"
-							>
-								<header className="text-xs uppercase text-gray-400">Kick Off {match.time}</header>
-								<div className="grid grid-cols-12 items-center justify-between gap-2">
-									<div className="col-span-5 flex items-center gap-2">
-										<img
-											src={match.homeTeamLogo}
-											alt={match.homeTeam}
-											className="h-4 w-4 rounded-full object-cover"
-										/>
-										<span>{match.homeTeam}</span>
-									</div>
-									<p className="col-span-2 text-center text-gray-400">vs</p>
-									<div className="col-span-5 flex items-center gap-2 justify-self-end">
-										<img
-											src={match.awayTeamLogo}
-											alt={match.awayTeam}
-											className="h-4 w-4 rounded-full object-cover"
-										/>
-										<span>{match.awayTeam}</span>
-									</div>
-								</div>
-							</div>
-						))}
+			<section className="col-span-12 flex flex-col gap-1 overflow-auto sm:col-span-6 lg:h-96 xl:col-span-4">
+				<header className="text-xs font-medium uppercase">Matches/Results &rarr;</header>
+				<div className="flex items-center justify-between">
+					<h3 className="text-sm font-medium">{currentDate}</h3>
+					<div className="flex shrink-0 gap-[1px]">
+						<button
+							type="button"
+							className="flex h-7 w-10 items-center justify-center rounded-l-lg bg-gray-200 text-sm text-gray-900 dark:bg-gray-700 dark:text-white"
+							onClick={() => {
+								handleDateChange(-1);
+							}}
+						>
+							<BsChevronLeft>
+								<span className="sr-only">Previous</span>
+							</BsChevronLeft>
+						</button>
+						<button
+							type="button"
+							className="flex h-7 w-10 items-center justify-center rounded-r-lg bg-gray-200 text-sm text-gray-900 dark:bg-gray-700 dark:text-white"
+							onClick={() => {
+								handleDateChange(1);
+							}}
+						>
+							<BsChevronRight>
+								<span className="sr-only">Next</span>
+							</BsChevronRight>
+						</button>
 					</div>
 				</div>
-				<div className="col-span-4 flex flex-col gap-1 overflow-auto px-4 py-2">
-					<header className="text-xs font-medium uppercase">Competition Reputation</header>
-					<div className="overflow-auto">
-						{[
-							{
-								id: 39,
-								league: 'Premier League',
-								flag: 'https://media.api-sports.io/flags/gb.svg',
-								name: 'England',
-							},
-							{
-								id: 140,
-								league: 'La Liga',
-								flag: 'https://media.api-sports.io/flags/es.svg',
-								name: 'Spain',
-							},
-							{
-								id: 135,
-								league: 'Serie A',
-								flag: 'https://media.api-sports.io/flags/it.svg',
-								name: 'Italy',
-							},
-							{
-								id: 78,
-								league: 'Bundesliga',
-								flag: 'https://media.api-sports.io/flags/de.svg',
-								name: 'Germany',
-							},
-							{
-								id: 61,
-								league: 'Ligue 1',
-								flag: 'https://media.api-sports.io/flags/fr.svg',
-								name: 'France',
-							},
-							{
-								id: 2,
-								league: 'Liga Portugal',
-								flag: 'https://media.api-sports.io/flags/pt.svg',
-								name: 'Portugal',
-							},
-							{
-								id: 132,
-								league: 'Eredevise',
-								flag: 'https://media.api-sports.io/flags/nl.svg',
-								name: 'Netherlands',
-							},
-							{
-								id: 141,
-								league: 'Austrian Football Bundesliga',
-								flag: 'https://media.api-sports.io/flags/at.svg',
-								name: 'Austria',
-							},
-						].map((_league, index) => (
-							<div
-								key={_league.id}
-								className={`${
-									_league.id === league.league.id && 'bg-green-600'
-								} flex items-center gap-4 overflow-auto rounded-md px-2`}
-							>
-								<div className="flex h-6 w-6 items-center justify-center rounded-full text-xs font-medium text-white">
-									{index + 1}
+				<div className="mt-4 flex flex-col gap-4 overflow-auto px-2">
+					{[
+						{
+							fixtureId: 1,
+							time: '20:45',
+							homeTeam: 'Manchester City',
+							awayTeam: 'Manchester United',
+							homeTeamLogo: 'https://media.api-sports.io/football/teams/50.png',
+							awayTeamLogo: 'https://media.api-sports.io/football/teams/33.png',
+						},
+
+						{
+							fixtureId: 2,
+							time: '22:00',
+							homeTeam: 'Liverpool',
+							awayTeam: 'Chelsea',
+							homeTeamLogo: 'https://media.api-sports.io/football/teams/39.png',
+							awayTeamLogo: 'https://media.api-sports.io/football/teams/61.png',
+						},
+					].map((match) => (
+						<div
+							key={match.fixtureId}
+							className="flex flex-col gap-1 border-b border-gray-500 pb-1"
+						>
+							<header className="text-xs uppercase text-gray-400">Kick Off {match.time}</header>
+							<div className="grid grid-cols-12 items-center justify-between gap-2">
+								<div className="col-span-5 flex items-center gap-2">
+									<img
+										src={match.homeTeamLogo}
+										alt={match.homeTeam}
+										className="h-4 w-4 rounded-full object-cover"
+									/>
+									<span>{match.homeTeam}</span>
 								</div>
-								<div>
-									<span className="text-sm">{_league.league}</span>
-									<div className="flex items-center gap-2">
-										<img
-											src={_league.flag}
-											alt={_league.name}
-											className="h-4 w-4"
-										/>
-										<span className="text-xs text-gray-400">{_league.name}</span>
-									</div>
+								<p className="col-span-2 text-center text-gray-400">vs</p>
+								<div className="col-span-5 flex items-center gap-2 justify-self-end">
+									<img
+										src={match.awayTeamLogo}
+										alt={match.awayTeam}
+										className="h-4 w-4 rounded-full object-cover"
+									/>
+									<span>{match.awayTeam}</span>
 								</div>
 							</div>
-						))}
-					</div>
+						</div>
+					))}
 				</div>
 			</section>
-			<section className="col-span-8 col-start-5 grid h-96 grid-cols-12">
+			<section className="col-span-12 flex flex-col gap-1 overflow-auto sm:col-span-6 lg:h-96 xl:col-span-2">
+				<header className="text-xs font-medium uppercase">Competition Reputation</header>
+				<div className="overflow-auto">
+					{[
+						{
+							id: 39,
+							league: 'Premier League',
+							flag: 'https://media.api-sports.io/flags/gb.svg',
+							name: 'England',
+						},
+						{
+							id: 140,
+							league: 'La Liga',
+							flag: 'https://media.api-sports.io/flags/es.svg',
+							name: 'Spain',
+						},
+						{
+							id: 135,
+							league: 'Serie A',
+							flag: 'https://media.api-sports.io/flags/it.svg',
+							name: 'Italy',
+						},
+						{
+							id: 78,
+							league: 'Bundesliga',
+							flag: 'https://media.api-sports.io/flags/de.svg',
+							name: 'Germany',
+						},
+						{
+							id: 61,
+							league: 'Ligue 1',
+							flag: 'https://media.api-sports.io/flags/fr.svg',
+							name: 'France',
+						},
+						{
+							id: 2,
+							league: 'Liga Portugal',
+							flag: 'https://media.api-sports.io/flags/pt.svg',
+							name: 'Portugal',
+						},
+						{
+							id: 132,
+							league: 'Eredevise',
+							flag: 'https://media.api-sports.io/flags/nl.svg',
+							name: 'Netherlands',
+						},
+						{
+							id: 141,
+							league: 'Austrian Football Bundesliga',
+							flag: 'https://media.api-sports.io/flags/at.svg',
+							name: 'Austria',
+						},
+					].map((_league, index) => (
+						<div
+							key={_league.id}
+							className={`${
+								_league.id === league.league.id && 'bg-green-600 text-white'
+							} flex items-center gap-4 overflow-auto rounded-md px-2`}
+						>
+							<div className="flex h-6 w-6 items-center justify-center rounded-full text-xs font-medium">
+								{index + 1}
+							</div>
+							<div>
+								<span className="text-sm font-medium">{_league.league}</span>
+								<div className="flex items-center gap-2">
+									<img
+										src={_league.flag}
+										alt={_league.name}
+										className="h-4 w-4"
+									/>
+									<span className="text-xs font-medium text-gray-400">{_league.name}</span>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</section>
+			<section className="col-span-12 grid grid-cols-12 items-start justify-start md:col-span-12 xl:col-start-5">
 				<header className="col-span-12 text-xs font-medium uppercase">Player Stats &rarr;</header>
-				<div className="col-span-8 grid grid-cols-12 gap-8 px-1 py-2">
-					<div className="col-span-6 flex flex-col gap-1">
+				<div className="col-span-12 grid grid-cols-12 gap-8 px-1 py-2">
+					<div className="col-span-12 flex flex-col gap-1 sm:col-span-6">
 						<header className="text-xs font-medium uppercase">Goals &rarr;</header>
 						<LeagueTopStatistics
 							url="https://api.npoint.io/85ea319f8ea05af3e11d"
 							type="goals"
 						/>
 					</div>
-					<div className="col-span-6 flex flex-col gap-1">
+					<div className="col-span-12 flex flex-col gap-1 sm:col-span-6">
 						<header className="text-xs font-medium uppercase">Assists &rarr;</header>
 						<LeagueTopStatistics
 							url="https://api.npoint.io/f071335311dda656b656"
 							type="assists"
 						/>
 					</div>
-					<div className="col-span-6 flex flex-col gap-1">
+					<div className="col-span-12 flex flex-col gap-1 sm:col-span-6">
 						<header className="text-xs font-medium uppercase">Yellow Cards &rarr;</header>
 						<LeagueTopStatistics
 							url="https://api.npoint.io/4b3f817285714aaf9f87"
 							type="yellowCards"
 						/>
 					</div>
-					<div className="col-span-6 flex flex-col gap-1">
+					<div className="col-span-12 flex flex-col gap-1 sm:col-span-6">
 						<header className="text-xs font-medium uppercase">Red Cards &rarr;</header>
 						<LeagueTopStatistics
 							url="https://api.npoint.io/e703a80403f01ca5408b"
@@ -312,11 +310,13 @@ export default function LeagueMainSection() {
 						/>
 					</div>
 				</div>
-
-				<div className="col-span-4 flex flex-col gap-1 overflow-auto px-4 py-2">
-					<header className="text-xs font-medium uppercase">Injury League Table &rarr;</header>
-					<LeagueInjuriesTable />
-				</div>
+			</section>
+			<section
+				className="col-span-12 mt-8 flex flex-col gap-1 overflow-auto sm:h-96 md:col-span-3 md:col-start-10
+			 md:row-start-1 md:mt-0 md:h-auto xl:col-start-11 xl:h-96"
+			>
+				<header className="text-xs font-medium uppercase">League Injuries Table &rarr;</header>
+				<LeagueInjuriesTable />
 			</section>
 		</main>
 	);

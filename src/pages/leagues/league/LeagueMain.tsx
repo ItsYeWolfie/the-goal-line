@@ -50,7 +50,7 @@ export default function LeagueMain({ league }: { league: ILeagueData }) {
 
 	return (
 		<section
-			className={`${navigation.state === 'loading' && 'animate-pulse opacity-25 transition-opacity duration-300'}`}
+			className={`${navigation.state === 'loading' ? 'animate-pulse opacity-25 transition-opacity duration-300' : ''}`}
 		>
 			<Outlet context={{ league }} />
 		</section>

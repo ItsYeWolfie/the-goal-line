@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
+
 import TableHead from '../../../table/TableHead';
 import TableHeader from '../../../table/TableHeader';
 import fetchData from '../../../../lib/helpers/Fetch';
@@ -46,6 +48,7 @@ export default function LeagueInjuriesTable() {
 										src={team.logo}
 										alt={team.name}
 										className="mr-2 inline-block h-4 w-4"
+										loading="lazy"
 									/>
 									{team.name}
 								</SmallTableCell>

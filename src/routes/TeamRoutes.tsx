@@ -9,7 +9,7 @@ import teamOverviewLoader, {
 	teamTransfersLoader,
 } from '../lib/loaders/team-loaders';
 import teamsLoader from '../lib/loaders/teams-loaders';
-import TeamCoachesPage from '../pages/teams/team/TeamCoaches';
+import TeamCoachesPage from '../pages/teams/team/TeamCoachesPage';
 import TeamFixturesPage from '../pages/teams/team/TeamFixtures';
 import TeamIndex from '../pages/teams/team/TeamIndex';
 import TeamInjuriesPage from '../pages/teams/team/TeamInjuries';

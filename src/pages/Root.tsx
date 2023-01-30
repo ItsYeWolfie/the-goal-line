@@ -29,7 +29,7 @@ export default function Root() {
 						{tabsComponent && tabsComponent}
 					</div>
 					<main className="overflow-auto">
-						<section className="container mx-auto shrink-0 grow-0 p-4 px-2 pb-32 sm:py-8">
+						<section className="container mx-auto mb-16 shrink-0 grow-0 p-4 px-2 sm:py-8 md:mb-0">
 							<Outlet />
 						</section>
 					</main>

@@ -28,7 +28,7 @@ export default function TeamCoaches({ coaches }: { coaches: ICoach[] }) {
 
 	const [activeCoach, setActiveCoach] = useState<ICoachTeamHistory>(coachesHistory[0]);
 	return (
-		<section className="flex flex-col justify-between sm:h-[50rem]">
+		<section className="flex flex-col justify-between md:h-[50rem]">
 			<TeamCoachesTable
 				coachesHistory={coachesHistory}
 				setActiveCoach={setActiveCoach}

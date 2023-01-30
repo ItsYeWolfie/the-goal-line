@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import fetchData from '../../../../lib/helpers/Fetch';
 import RankToString from '../../../../lib/helpers/rank-string';
 import { IPlayerWithStatistics } from '../../../../types/Player.types';
@@ -44,8 +44,8 @@ export default function LeagueTopStatistics({
 
 				return (
 					<div
-						className={`col-span-12 grid grid-cols-12 items-center gap-2 p-1 text-xs ${
-							index % 2 === 0 ? 'bg-gray-700' : ''
+						className={`col-span-12 grid grid-cols-12 items-center gap-2 p-1 text-xs${
+							index % 2 === 0 ? ' bg-gray-200 dark:bg-gray-700' : ''
 						}`}
 						key={playerStatistic.player.id}
 					>
