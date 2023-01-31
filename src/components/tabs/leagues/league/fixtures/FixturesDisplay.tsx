@@ -19,7 +19,7 @@ export default function LeagueFixturesDisplay({
 					key={fixture.fixture.id}
 					className="grid grid-cols-12 items-center gap-x-4"
 				>
-					<div className="col-span-1 w-max rounded-sm bg-sky-800 p-1 text-sm">
+					<div className="col-span-1 w-max rounded-md bg-sky-800 p-1 text-sm">
 						{new Date(fixture.fixture.date).toLocaleTimeString('en-GB', {
 							hour: '2-digit',
 							minute: '2-digit',
@@ -33,7 +33,7 @@ export default function LeagueFixturesDisplay({
 							className="h-8 w-8"
 						/>
 					</div>
-					<div className="col-span-2 rounded-sm bg-sky-600 p-1 text-center text-sm md:col-span-1">
+					<div className="col-span-2 rounded-md bg-sky-600 p-1 text-center text-sm md:col-span-1">
 						{fixture.goals.home} - {fixture.goals.away}
 					</div>
 					<div className="col-span-4 flex items-center gap-x-2 justify-self-start">
@@ -44,7 +44,7 @@ export default function LeagueFixturesDisplay({
 						/>
 						<div className="text-sm">{fixture.teams.away.name}</div>
 					</div>
-					<div className="col-span-1 hidden shrink-0 grow-0 justify-self-end rounded-sm bg-sky-800 p-1 text-sm sm:block">
+					<div className="col-span-1 hidden shrink-0 grow-0 justify-self-end rounded-md bg-sky-800 p-1 text-sm sm:block">
 						{fixture.fixture.status.short}
 						{fixture.fixture.status.elapsed && <span className="ml-1">{fixture.fixture.status.elapsed}&apos;</span>}
 					</div>

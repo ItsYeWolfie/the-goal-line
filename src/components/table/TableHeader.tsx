@@ -4,13 +4,14 @@ interface ITableHeaderProps {
 	colSpan?: number;
 }
 
-export default function TableHeader({ children, className, colSpan }: ITableHeaderProps) {
+export default function TableHeader(props: ITableHeaderProps) {
 	return (
 		<th
-			className={`font-medium uppercase tracking-wider text-gray-700 dark:text-gray-300 ${className}`}
-			colSpan={colSpan}
+			{...props}
+			className={`font-medium uppercase tracking-wider text-gray-700 dark:text-gray-300 ${props.className}`}
+			colSpan={props.colSpan}
 		>
-			{children}
+			{props.children}
 		</th>
 	);
 }

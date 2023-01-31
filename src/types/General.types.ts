@@ -18,7 +18,7 @@ interface IHumanBirth {
 	country: string;
 }
 
-export interface ILeagueFixturesSearch {
+export interface ILeagueFixturesSearchForm {
 	teamId: number;
 	date: string;
 	referee: string;

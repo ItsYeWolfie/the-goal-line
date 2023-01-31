@@ -38,7 +38,7 @@ export default function PaginatedPrevAndNext({
 		setDisplayedItems(items.slice(0, splitCount));
 		setDisplayedPages(
 			Array.from({ length: 5 }, (_, i) => {
-				const pageNumber = i + 1;
+				const pageNumber: number = i + 1;
 				return pageNumber > 0 && pageNumber <= totalPages ? pageNumber : null;
 			}).filter((page) => page !== null) as number[],
 		);

@@ -21,3 +21,8 @@ export async function leagueFixturesLoader() {
 	const leagueFixtures = fetchData<ILeagueData>('https://api.npoint.io/48683749646f145669a8');
 	return defer({ leagueFixtures });
 }
+
+export async function leaguePlayerStatisticsLoader() {
+	const playerStatistics = fetchData<ILeagueData>('https://api.npoint.io/31ed8262a154dcc284a2');
+	return defer({ playerStatistics });
+}

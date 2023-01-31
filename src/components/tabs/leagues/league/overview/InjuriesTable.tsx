@@ -16,7 +16,7 @@ export default function LeagueOverviewInjuriesTable() {
 			const uniqueTeams = data.filter((team, index, self) => {
 				return index === self.findIndex((t) => t.id === team.id);
 			});
-			const injuriesPerTeamCount = data.reduce((acc, team) => {
+			const injuriesPerTeamCount = data.reduce((acc: Record<string, number>, team) => {
 				acc[team.id] = (acc[team.id] || 0) + 1;
 				return acc;
 			}, {});
@@ -27,7 +27,7 @@ export default function LeagueOverviewInjuriesTable() {
 
 	return (
 		<section
-			className="col-span-12 mt-8 flex flex-col gap-1 overflow-auto sm:h-96 md:col-span-3 md:col-start-10
+			className="col-span-12 mt-8 flex flex-col gap-1 overflow-auto sm:h-96 md:col-span-4 md:col-start-9
        md:row-start-1 md:mt-0 md:h-auto xl:col-start-11 xl:h-96"
 		>
 			<header className="text-xs font-medium uppercase">League Injuries Table &rarr;</header>

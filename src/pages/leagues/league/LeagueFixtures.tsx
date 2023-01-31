@@ -1,17 +1,19 @@
 import { PlusIcon } from '@heroicons/react/20/solid';
 import { useEffect, useState } from 'react';
+import MainLoadingSpinner from '../../../components/MainLoadingSpinner';
 import LeagueFixturesDisplay from '../../../components/tabs/leagues/league/fixtures/FixturesDisplay';
 import LeagueFixturesSearch from '../../../components/tabs/leagues/league/fixtures/FixturesSearch';
 import LeagueMobileSearch from '../../../components/tabs/leagues/league/fixtures/MobileSearch';
 import fetchData from '../../../lib/helpers/Fetch';
 import { IFixture } from '../../../types/Fixture.types';
-import { ILeagueFixturesSearch } from '../../../types/General.types';
+import { ILeagueFixturesSearchForm } from '../../../types/General.types';
 import { ITeamBasic } from '../../../types/Team.types';
 
 const splitCount = 13;
 
 export default function LeagueFixturesPage() {
 	const [fixtures, setFixtures] = useState<IFixture[]>([]);
+	const [loading, setLoading] = useState(true);
 	const [filteredFixtures, setFilteredFixtures] = useState<IFixture[]>([]);
 	const [displayedItems, setDisplayedItems] = useState<IFixture[]>([]);
 	const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
@@ -19,7 +21,7 @@ export default function LeagueFixturesPage() {
 	const [fixtureDates, setFixtureDates] = useState<string[]>([]);
 	const [fixtureReferees, setFixtureReferees] = useState<string[]>([]);
 
-	const handleSearch = (data: ILeagueFixturesSearch) => {
+	const handleSearch = (data: ILeagueFixturesSearchForm) => {
 		let { teamId } = data;
 		const { date, referee, status } = data;
 		teamId = Number(teamId);
@@ -87,8 +89,15 @@ export default function LeagueFixturesPage() {
 				.sort();
 
 			setFixtureReferees(referees);
+
+			setLoading(false);
 		});
 	}, []);
+
+	if (loading) {
+		return <MainLoadingSpinner />;
+	}
+
 	return (
 		<main className="mx-auto max-w-2xl p-4 sm:py-8 sm:px-6 lg:max-w-7xl lg:px-8">
 			<LeagueMobileSearch

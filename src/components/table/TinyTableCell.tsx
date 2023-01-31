@@ -5,13 +5,14 @@ interface ITableCellProps {
 	last?: boolean;
 }
 
-export default function TinyTableCell({ children, className, colSpan, last }: ITableCellProps) {
+export default function TinyTableCell(props: ITableCellProps) {
 	return (
 		<td
-			className={`py-1 pl-3${last ? ' pr-3' : ''} ${className}`}
-			colSpan={colSpan}
+			{...props}
+			className={`py-1 pl-3${props.last ? ' pr-3' : ''} ${props.className}`}
+			colSpan={props.colSpan}
 		>
-			{children}
+			{props.children}
 		</td>
 	);
 }

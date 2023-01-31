@@ -1,7 +1,6 @@
 import { useForm } from 'react-hook-form';
-import { ITeamBasic } from '../../../../../types/Team.types';
-
 import { ILeagueFixturesSearchForm } from '../../../../../types/General.types';
+import { ITeamBasic } from '../../../../../types/Team.types';
 
 export default function LeagueFixturesSearch({
 	fixtureTeams,

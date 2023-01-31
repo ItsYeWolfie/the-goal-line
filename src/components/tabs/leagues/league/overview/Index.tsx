@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import { Await, useLoaderData, useOutletContext } from 'react-router-dom';
 import { ILeagueData, ILeagueStanding } from '../../../../../types/League.types';
+import MainLoadingSpinner from '../../../../MainLoadingSpinner';
 import LeagueOverviewDailyMatches from './DailyMatxhes';
 import LeaguOverviewHeader from './Header';
 import LeagueOverviewInjuriesTable from './InjuriesTable';
@@ -14,9 +15,9 @@ export default function LeagueOverview() {
 
 	return (
 		<main className="row-auto grid grid-cols-12 gap-y-8 gap-x-4 md:gap-y-4">
-			<section className="col-span-12 flex h-full flex-col gap-8 bg-gray-200 p-4 dark:bg-gray-700 md:col-span-9 xl:col-span-4 xl:row-span-2">
+			<section className="col-span-12 flex h-full flex-col gap-8 bg-gray-200 p-4 dark:bg-gray-700 md:col-span-8 xl:col-span-4 xl:row-span-2">
 				<LeaguOverviewHeader league={league} />
-				<Suspense fallback={<div>Loading...</div>}>
+				<Suspense fallback={<MainLoadingSpinner />}>
 					<Await resolve={leagueStandings}>{(standings) => <LeagueOverviewStandings standings={standings} />}</Await>
 				</Suspense>
 			</section>

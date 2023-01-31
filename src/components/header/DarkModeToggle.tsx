@@ -18,10 +18,10 @@ export default function DarkModeToggle({ className }: { className?: string }) {
 	const toggleDarkMode = () => {
 		setDarkMode(!darkMode);
 
-		if (!localStorage.getItem('theme')) {
-			localStorage.setItem('theme', 'dark');
+		if (darkMode) {
+			localStorage.theme = 'light';
 		} else {
-			localStorage.removeItem('theme');
+			localStorage.theme = 'dark';
 		}
 	};
 	return (
