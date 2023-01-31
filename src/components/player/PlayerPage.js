@@ -75,7 +75,7 @@ class PlayerPage extends LitLightElement {
 	render() {
 		return html`
 					<section class="relative grid grid-cols-12">
-						<div class="col-span-9 px-8">
+						<div class="col-span-10 px-8">
 							<div class="sm:hidden">
 								<label class="sr-only" for="tabs">Select a tab</label>
 								<select
