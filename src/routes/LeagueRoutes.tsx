@@ -1,8 +1,15 @@
 import { RouteObject } from 'react-router-dom';
 import LeagueOverview from '../components/tabs/leagues/league/overview/Index';
-import { leagueFixturesLoader, leagueLoader, leagueOverviewLoader } from '../lib/loaders/league-loaders';
+import {
+	leagueFixturesLoader,
+	leagueLoader,
+	leagueOverviewLoader,
+	leaguePlayerStatisticsLoader,
+} from '../lib/loaders/league-loaders';
 import LeagueFixturesPage from '../pages/leagues/league/LeagueFixtures';
 import LeagueIndex from '../pages/leagues/league/LeagueIndex';
+import LeaguePlayerStatistics from '../pages/leagues/league/LeaguePlayerStatistics';
+import LeagueStatistics from '../pages/leagues/league/LeagueStatistics';
 import LeaguesIndex from '../pages/leagues/LeaguesIndex';
 
 export const LeagueRoutes: RouteObject[] = [
@@ -24,6 +31,11 @@ export const LeagueRoutes: RouteObject[] = [
 				path: 'fixtures',
 				element: <LeagueFixturesPage />,
 				loader: leagueFixturesLoader,
+			},
+			{
+				path: 'player-statistics',
+				element: <LeaguePlayerStatistics />,
+				loader: leaguePlayerStatisticsLoader,
 			},
 		],
 	},

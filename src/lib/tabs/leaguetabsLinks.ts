@@ -11,6 +11,11 @@ export const leagueTabs: ITab[] = [
 		slug: 'fixtures',
 		href: '/fixtures',
 	},
+	{
+		name: 'Player Statistics',
+		slug: 'player-statistics',
+		href: '/player-statistics',
+	},
 ];
 
 export default leagueTabs;

@@ -35,11 +35,13 @@
 		"react-icons": "^4.7.1",
 		"react-intersection-observer": "^9.4.1",
 		"react-router-dom": "^6.7.0",
+		"react-table": "^7.8.0",
 		"tailwindcss": "^3.2.4",
 		"vite": "^4.0.0"
 	},
 	"devDependencies": {
 		"@types/react-router-dom": "^5.3.3",
+		"@types/react-table": "^7.7.14",
 		"@typescript-eslint/eslint-plugin": "^5.48.2",
 		"@typescript-eslint/parser": "^5.48.2",
 		"eslint": "^8.32.0",
