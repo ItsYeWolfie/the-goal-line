@@ -43,9 +43,21 @@ class Match extends LitLightElement {
 		if (this.loading) {
 			return html`
 				<div
-					class="flex h-10 w-full items-center justify-around rounded-md bg-gray-800 align-middle md:mx-auto md:w-4/5  lg:flex lg:w-full lg:justify-around"
+					class="h-auto w-full justify-between rounded-md bg-gray-800 p-4 align-middle md:mx-auto md:w-4/5 md:justify-around  lg:w-full"
 				>
-					<img class="animate-spin" src="../images/icons8-wait.svg" />
+					<div class="flex animate-pulse space-x-4">
+						<div class="h-10 w-10 rounded-full bg-slate-700"></div>
+						<div class="flex-1 space-y-6 py-1">
+							<div class="h-2 rounded bg-slate-700"></div>
+							<div class="space-y-3">
+								<div class="grid grid-cols-3 gap-4">
+									<div class="col-span-2 h-2 rounded bg-slate-700"></div>
+									<div class="col-span-1 h-2 rounded bg-slate-700"></div>
+								</div>
+								<div class="h-2 rounded bg-slate-700"></div>
+							</div>
+						</div>
+					</div>
 				</div>
 			`;
 		}
