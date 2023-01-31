@@ -9,4 +9,5 @@ export interface IVenueBasic {
 	id: number;
 	city: string;
 	name: string;
+	country: string;
 }
