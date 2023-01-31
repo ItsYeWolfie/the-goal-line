@@ -1,19 +1,24 @@
+/* eslint-disable no-nested-ternary */
+// eslint-disable-next-line
+// @ts-nocheck
 import { useMemo, useState, useEffect } from 'react';
 import { useTable, useSortBy } from 'react-table';
 import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/20/solid';
-import { IPlayerWithStatistics } from '../../../types/Player.types';
 import TableHead from '../../../components/table/TableHead';
 import TinyTableCell from '../../../components/table/TinyTableCell';
 import fetchData from '../../../lib/helpers/Fetch';
 import TableRow from '../../../components/table/TableRow';
 import TableHeader from '../../../components/table/TableHeader';
+import MainLoadingSpinner from '../../../components/MainLoadingSpinner';
 
 export default function LeaguePlayerStatistics() {
-	const [data, setData] = useState<IPlayerWithStatistics[]>([]);
+	const [data, setData] = useState([]);
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		fetchData<IPlayerWithStatistics[]>('https://api.npoint.io/31ed8262a154dcc284a2').then((_data) => {
+		fetchData('https://api.npoint.io/31ed8262a154dcc284a2').then((_data) => {
 			setData(_data);
+			setLoading(false);
 		});
 	}, []);
 
@@ -68,6 +73,8 @@ export default function LeaguePlayerStatistics() {
 	const tableInstance = useTable({ columns, data: dataMemo }, useSortBy);
 
 	const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance;
+
+	if (loading) return <MainLoadingSpinner />;
 
 	return (
 		<table

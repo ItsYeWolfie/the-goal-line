@@ -9,7 +9,6 @@ import {
 import LeagueFixturesPage from '../pages/leagues/league/LeagueFixtures';
 import LeagueIndex from '../pages/leagues/league/LeagueIndex';
 import LeaguePlayerStatistics from '../pages/leagues/league/LeaguePlayerStatistics';
-import LeagueStatistics from '../pages/leagues/league/LeagueStatistics';
 import LeaguesIndex from '../pages/leagues/LeaguesIndex';
 
 export const LeagueRoutes: RouteObject[] = [

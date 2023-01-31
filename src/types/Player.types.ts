@@ -1,14 +1,19 @@
-import { IHumanBasic } from './General.types';
+import { IHuman, IHumanBasic } from './General.types';
 import { ITeamBasic } from './Team.types';
 import { IFixtureInfoBasic } from './Fixture.types';
 import { ILeagueWithSeason } from './League.types';
 
 export interface IPlayerWithStatistics {
-	player: IPlayerStatistics;
+	player: IPlayer;
 	statistics: IPlayerStatistics[];
 }
 
-interface IPlayerStatistics extends IPlayer {
+interface IPlayer extends IHuman {
+	photo: string;
+	injured: boolean;
+}
+
+export interface IPlayerStatistics {
 	team: ITeamBasic;
 	league: ILeagueWithSeason;
 	games: IPlayerGamesStats;
@@ -29,7 +34,7 @@ interface IPlayer extends IHumanBasic {
 	firstname: string;
 	lastname: string;
 	photo: string;
-	injured: false;
+	injured: boolean;
 }
 
 interface IPlayerGamesStats {

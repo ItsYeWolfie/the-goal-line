@@ -33,7 +33,7 @@ export default function MainBreadCrumb() {
 						</Link>
 					</li>
 					{breadcrumbs.map((page) => (
-						<li key={page.name}>
+						<li key={page.href}>
 							<div className="flex items-center">
 								<HiOutlineChevronRight
 									className="h-5 w-5 shrink-0 text-gray-200"

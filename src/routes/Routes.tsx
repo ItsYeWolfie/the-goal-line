@@ -5,6 +5,7 @@ import IndexPage from '../pages/Index';
 import ContactPage from '../pages/ContactPage';
 import TeamRoutes from './TeamRoutes';
 import LeagueRoutes from './LeagueRoutes';
+import PlayerRoutes from './PlayerRoutes';
 
 export const router = createBrowserRouter([
 	{
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
 			{
 				path: '/leagues',
 				children: LeagueRoutes,
+			},
+			{
+				path: '/players',
+				children: PlayerRoutes,
 			},
 		],
 	},
