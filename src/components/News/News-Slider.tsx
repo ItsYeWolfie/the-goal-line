@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import { useState, useEffect } from 'react';
@@ -7,7 +6,6 @@ import { News } from '../../../types/News.types';
 import fetchData from '../../../lib/helpers/Fetch';
 import NewsCard from './News-card';
 import NewsHeader from './News-header';
-import FixtureLoader from '../Index-Loaders/Fixtures-Loader';
 import SliderLoader from '../Index-Loaders/Slider-Loader';
 
 export default function NewsSlider() {
