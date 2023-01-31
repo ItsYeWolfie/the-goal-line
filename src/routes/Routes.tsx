@@ -32,7 +32,7 @@ export const router = createBrowserRouter([
 				path: '/coach/:name',
 				element: <CoachPage />,
 			},
-				{
+			{
 				path: '/venue/:name',
 				element: <VenuePage />,
 			},
