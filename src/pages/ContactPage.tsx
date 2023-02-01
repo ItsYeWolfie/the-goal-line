@@ -31,7 +31,7 @@ export default function ContactPage() {
 	}, [setBreadcrumbs]);
 
 	return (
-		<div className="mx-auto max-w-7xl py-8 px-4 sm:py-12 sm:px-6 lg:px-8">
+		<div className="mx-auto max-w-7xl">
 			<div className="relative bg-white shadow-xl">
 				<h2 className="sr-only">Contact us</h2>
 

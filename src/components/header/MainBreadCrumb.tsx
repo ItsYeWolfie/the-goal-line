@@ -1,19 +1,16 @@
 import { useContext } from 'react';
-import { AiFillHome } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { HiOutlineChevronRight } from 'react-icons/hi';
 import { GlobalHeaderContext } from '../../contexts/GlobalHeader.context';
 import DarkModeToggle from './DarkModeToggle';
+import navigation from '../../lib/navigation-links';
 
 export default function MainBreadCrumb() {
 	const { breadcrumbs } = useContext(GlobalHeaderContext);
 
 	return (
-		<section className="flex items-center justify-between py-2 sm:px-2 sm:py-4">
-			<nav
-				className="flex"
-				aria-label="Breadcrumb"
-			>
+		<section className="container mx-auto flex items-center justify-between p-2 sm:py-4 md:p-0">
+			<nav className="flex flex-1">
 				<ol className="flex items-center gap-x-2 sm:gap-x-4">
 					<li>
 						<Link
@@ -23,11 +20,12 @@ export default function MainBreadCrumb() {
 							<img
 								className="h-8 w-auto sm:hidden"
 								src="/logo-no-background-sm.png"
-								alt="Your Company"
+								alt="The Goal Line"
 							/>
-							<AiFillHome
-								className="hidden h-5 w-5 shrink-0 sm:block"
-								aria-hidden="true"
+							<img
+								className="hidden h-4 w-auto sm:block"
+								src="/logo-no-background.svg"
+								alt="The Goal Line"
 							/>
 							<span className="sr-only">Home</span>
 						</Link>
@@ -50,7 +48,29 @@ export default function MainBreadCrumb() {
 					))}
 				</ol>
 			</nav>
-			<DarkModeToggle />
+			<nav className="hidden flex-1 md:flex">
+				{navigation.map((link) => (
+					<NavLink
+						to={link.href}
+						key={link.name}
+						className={({ isActive }) =>
+							`${
+								isActive
+									? `relative bg-gray-900 text-gray-100 before:absolute before:bottom-0 before:left-0 before:h-1 before:w-full before:rounded-b-md before:rounded-t-md before:bg-red-700`
+									: `text-gray-200 hover:bg-gray-900 hover:text-gray-100`
+							} py-8 px-4 text-sm font-medium text-gray-900`
+						}
+					>
+						<div className="flex items-center gap-2">
+							<link.icon className="h-6 w-6" />
+							{link.name}
+						</div>
+					</NavLink>
+				))}
+			</nav>
+			<div className="flex justify-end">
+				<DarkModeToggle />
+			</div>
 		</section>
 	);
 }

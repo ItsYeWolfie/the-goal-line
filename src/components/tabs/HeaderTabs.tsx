@@ -34,16 +34,14 @@ export default function HeaderTabs({ params, dir, tabs }: { params: string | und
 					))}
 				</div>
 			</DropdownList>
-			<nav className="hidden flex-wrap items-center space-x-4 md:flex">
+			<nav className="container mx-auto hidden flex-wrap items-center space-x-4 pb-2 md:flex">
 				{tabs.map((tab: ITab) => (
 					<NavLink
 						to={`/${dir}/${params}${tab.href}`}
 						key={tab.name}
 						className={({ isActive }) =>
 							`${
-								isActive
-									? 'border-indigo-200 text-indigo-300 dark:border-indigo-400 dark:text-indigo-500'
-									: 'border-transparent hover:border-gray-300'
+								isActive ? 'border-indigo-400 text-indigo-500' : 'border-transparent hover:border-gray-300'
 							} border-b-2 px-3 py-2 text-center text-sm font-medium text-gray-200 transition-colors duration-300 ease-in-out hover:text-gray-400`
 						}
 						type="button"

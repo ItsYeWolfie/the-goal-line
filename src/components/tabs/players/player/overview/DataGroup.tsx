@@ -28,6 +28,8 @@ export function DataGroup({ object, title, className }: { object: any; title: st
 				<PlayerDataRow
 					key={key}
 					title={key}
+					// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+					// @ts-ignore
 					paragraph={value || '-'}
 					even={index % 2 === 0}
 				/>

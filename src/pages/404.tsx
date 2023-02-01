@@ -3,14 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import errorLinks from '../lib/ErrorLinks';
 import { IRouteError } from '../types/RouteError.types';
-import GlobalHeader from '../components/header/Global';
 import MainBreadCrumb from '../components/header/MainBreadCrumb';
 
 export default function NotFound() {
 	const error = useRouteError() as IRouteError;
 	return (
 		<main className="flex">
-			<GlobalHeader />
 			<div className="flex flex-1 flex-col">
 				<div className="sticky top-0 z-20 flex flex-col bg-sky-900 p-2 dark:bg-gray-900">
 					<MainBreadCrumb />

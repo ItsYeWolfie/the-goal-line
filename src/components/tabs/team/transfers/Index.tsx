@@ -128,21 +128,17 @@ export default function TeamTransfers({ transfers }: { transfers: ITransferModif
 			<section className="flex flex-col justify-between gap-8 lg:flex-row">
 				<div className="lg:basis-1/2">
 					<header className="mb-2 text-lg font-medium uppercase tracking-tight text-green-500">Transfers In</header>
-					<div className="overflow-auto lg:h-[50rem]">
-						<PlayerTransfersTable
-							transfers={filteredTransfersIn}
-							side="From"
-						/>
-					</div>
+					<PlayerTransfersTable
+						transfers={filteredTransfersIn}
+						side="From"
+					/>
 				</div>
 				<div className="lg:basis-1/2">
 					<header className="mb-2 text-lg font-medium uppercase tracking-tight text-red-500">Transfers Out</header>
-					<div className="overflow-auto lg:h-[50rem]">
-						<PlayerTransfersTable
-							transfers={filteredTransfersOut}
-							side="To"
-						/>
-					</div>
+					<PlayerTransfersTable
+						transfers={filteredTransfersOut}
+						side="To"
+					/>
 				</div>
 			</section>
 		</>

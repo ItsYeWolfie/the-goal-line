@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { ITeamAndVenue } from '../../../types/Team.types';
 import PaginatedPrevAndNext from '../../pagination/PrevAndNext';
 
-const splitCount = 10;
+const splitCount = 8;
 
 export default function TeamsDisplaySection({ filteredTeams }: { filteredTeams: ITeamAndVenue[] }) {
 	const [displayedTeams, setDisplayedTeams] = useState<ITeamAndVenue[]>([]);
