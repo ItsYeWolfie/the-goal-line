@@ -1,4 +1,4 @@
-import { PlayerDataRow } from './DataGroup';
+import { PlayerDataRow } from './overview/DataGroup';
 import { IPlayerWithStatistics } from '../../../../types/Player.types';
 
 export default function PlayerCard({ playerData }: { playerData: IPlayerWithStatistics }) {

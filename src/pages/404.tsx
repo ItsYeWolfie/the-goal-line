@@ -17,7 +17,7 @@ export default function NotFound() {
 				</div>
 				<main className="overflow-auto">
 					<section className="container mx-auto mb-16 shrink-0 grow-0 p-4 px-2 sm:py-8 md:mb-0">
-						<div className="h-full w-full bg-gray-100 dark:bg-gray-800">
+						<div className="h-full w-full">
 							<main className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
 								<div className="shrink-0 pt-16">
 									<img

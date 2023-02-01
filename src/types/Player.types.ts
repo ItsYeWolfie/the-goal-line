@@ -2,6 +2,8 @@ import { IHuman, IHumanBasic } from './General.types';
 import { ITeamBasic } from './Team.types';
 import { IFixtureInfoBasic } from './Fixture.types';
 import { ILeagueWithSeason } from './League.types';
+import { ITransferDetails } from './Transfers.type';
+import { ITrophy } from './Trophy.types';
 
 export interface IPlayerWithStatistics {
 	player: IPlayer;
@@ -11,6 +13,14 @@ export interface IPlayerWithStatistics {
 interface IPlayer extends IHuman {
 	photo: string;
 	injured: boolean;
+}
+
+export interface IPlayerModified {
+	player: IPlayer;
+	statistics: IPlayerStatistics[];
+	transfers: ITransferDetails[];
+	injuries: IPlayerInjury[];
+	trophies: ITrophy[];
 }
 
 export interface IPlayerStatistics {

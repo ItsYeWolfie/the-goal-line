@@ -16,7 +16,7 @@ import TeamInjuriesPage from '../pages/teams/team/TeamInjuries';
 import TeamOverviewPage from '../pages/teams/team/TeamOverview';
 import TeamPlayers from '../pages/teams/team/TeamPlayers';
 import TeamStandings from '../pages/teams/team/TeamStandings';
-import TeamTransfers from '../pages/teams/team/TeamTransfers';
+import TeamTransfersPage from '../pages/teams/team/TeamTransfers';
 import TeamsIndex from '../pages/teams/TeamsIndex';
 
 export const teamRoutes: RouteObject[] = [
@@ -52,7 +52,7 @@ export const teamRoutes: RouteObject[] = [
 			},
 			{
 				path: 'transfers',
-				element: <TeamTransfers />,
+				element: <TeamTransfersPage />,
 				loader: teamTransfersLoader,
 			},
 			{

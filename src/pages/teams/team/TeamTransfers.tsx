@@ -2,14 +2,14 @@ import { Suspense } from 'react';
 import { Await, useLoaderData } from 'react-router-dom';
 import { ITransferModified } from '../../../types/Transfers.type';
 import MainLoadingSpinner from '../../../components/MainLoadingSpinner';
-import PlayerTransfers from '../../../components/tabs/team/transfers/Index';
+import TeamTransfers from '../../../components/tabs/team/transfers/Index';
 
-export default function TeamTransfers() {
+export default function TeamTransfersPage() {
 	const { transfers } = useLoaderData() as { transfers: ITransferModified[] };
 
 	return (
 		<Suspense fallback={<MainLoadingSpinner />}>
-			<Await resolve={transfers}>{(transfersData) => <PlayerTransfers transfers={transfersData} />}</Await>
+			<Await resolve={transfers}>{(transfersData) => <TeamTransfers transfers={transfersData} />}</Await>
 		</Suspense>
 	);
 }

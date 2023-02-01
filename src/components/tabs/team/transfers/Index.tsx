@@ -4,7 +4,7 @@ import { ITeamAndVenue } from '../../../../types/Team.types';
 import { ITransferModified } from '../../../../types/Transfers.type';
 import PlayerTransfersTable from './Table';
 
-export default function PlayerTransfers({ transfers }: { transfers: ITransferModified[] }) {
+export default function TeamTransfers({ transfers }: { transfers: ITransferModified[] }) {
 	const {
 		team: { id },
 	} = useOutletContext<ITeamAndVenue>();

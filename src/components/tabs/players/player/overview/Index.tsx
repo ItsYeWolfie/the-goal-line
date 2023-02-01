@@ -1,13 +1,11 @@
 import { useState } from 'react';
-import { useOutletContext } from 'react-router-dom';
-import { DataGroup } from '../DataGroup';
-import PlayerOverviewBiography from '../../../../../pages/players/player/overview/Biography';
+import { DataGroup } from './DataGroup';
+import PlayerOverviewBiography from './Biography';
 import { IPlayerWithStatistics } from '../../../../../types/Player.types';
 import PlayerCard from '../PlayerCard';
 
-export default function PlayerOverview() {
+export default function PlayerOverview({ playerData }: { playerData: IPlayerWithStatistics }) {
 	const [activeStatistic, setActiveStatistic] = useState(0);
-	const { playerData } = useOutletContext() as { playerData: IPlayerWithStatistics };
 	return (
 		<section className="grid grid-cols-12 items-start gap-2 xl:items-stretch">
 			<PlayerCard playerData={playerData} />
