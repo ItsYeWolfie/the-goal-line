@@ -3,7 +3,7 @@ import { IPlayerWithStatistics } from '../../../../types/Player.types';
 
 export default function PlayerCard({ playerData }: { playerData: IPlayerWithStatistics }) {
 	return (
-		<div className="col-span-full flex flex-none flex-col overflow-auto rounded-lg border border-gray-400 dark:border-gray-600 sm:col-span-6 md:col-span-4 lg:col-span-3 lg:col-start-1 lg:row-start-1 lg:row-end-5 xl:col-span-2 xl:col-start-1 xl:row-span-2 xl:row-start-1">
+		<div className="col-span-full flex flex-none flex-col overflow-auto rounded-lg border border-gray-400 dark:border-gray-600 sm:col-span-6 md:col-span-4">
 			<div className="flex justify-evenly px-4">
 				<div className="flex w-3/12 shrink-0 grow-0 flex-col justify-evenly">
 					<img

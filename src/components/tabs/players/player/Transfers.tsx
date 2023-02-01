@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
-import LogoAndImage from '../../../../components/image/LogoAndImage';
-import TableHead from '../../../../components/table/Head';
-import TableHeader from '../../../../components/table/Header';
-import TableRow from '../../../../components/table/Row';
-import SmallTableCell from '../../../../components/table/SmallCell';
 import { ITransferDetails } from '../../../../types/Transfers.type';
+import LogoAndImage from '../../../image/LogoAndImage';
+import TableHead from '../../../table/Head';
+import TableHeader from '../../../table/Header';
+import TableRow from '../../../table/Row';
+import SmallTableCell from '../../../table/SmallCell';
 
-export default function PlayerTransfersPage({ playerTransfers }: { playerTransfers: ITransferDetails[] }) {
+export default function PlayerTransfers({ playerTransfers }: { playerTransfers: ITransferDetails[] }) {
 	return (
 		<div className="rounded-lg bg-gray-300 p-2 dark:bg-gray-700">
 			<header className="py-3 text-xl font-medium">Transfers</header>

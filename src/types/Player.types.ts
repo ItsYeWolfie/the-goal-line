@@ -4,6 +4,7 @@ import { IFixtureInfoBasic } from './Fixture.types';
 import { ILeagueWithSeason } from './League.types';
 import { ITransferDetails } from './Transfers.type';
 import { ITrophy } from './Trophy.types';
+import { ISideline } from './Sidelines.types';
 
 export interface IPlayerWithStatistics {
 	player: IPlayer;
@@ -21,6 +22,7 @@ export interface IPlayerModified {
 	transfers: ITransferDetails[];
 	injuries: IPlayerInjury[];
 	trophies: ITrophy[];
+	sidelines: ISideline[];
 }
 
 export interface IPlayerStatistics {

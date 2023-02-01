@@ -1,12 +1,12 @@
 export default function PlayerOverviewBiography() {
 	return (
-		<div className="col-span-full flex flex-none flex-col gap-2 rounded-md sm:col-span-6 sm:row-span-2 md:col-span-4 md:row-span-3 lg:col-span-3 lg:col-start-4 lg:row-start-1 xl:col-span-2 xl:col-start-3 xl:row-span-4 xl:row-start-1">
+		<div className="col-span-full flex flex-none flex-col gap-2 rounded-md bg-gray-200 dark:bg-gray-700 sm:col-span-6 sm:row-span-2 md:col-span-4 md:col-start-5 md:row-span-1 md:h-[20rem]">
 			<img
 				src="https://i.imgur.com/kL7MrRA.png"
 				alt="Neymar Kit"
-				className="rounded-lg bg-gray-200 p-2 dark:bg-gray-700"
+				className="rounded-lg p-2 xl:h-40"
 			/>
-			<p className="h-80 overflow-auto rounded-lg bg-gray-200 p-2 text-sm dark:bg-gray-700 sm:h-[30rem] md:h-[25rem] xl:h-96">
+			<p className="overflow-auto rounded-lg bg-gray-200 p-2 text-sm dark:bg-gray-700 sm:h-[30rem]">
 				Neymar da Silva Santos Júnior (born 5 February 1992), known as Neymar, is a Brazilian professional footballer
 				who plays as a forward for Ligue 1 club Paris Saint-Germain and the Brazil national team. A prolific goalscorer
 				and renowned playmaker, he is regarded as one of the best players in the world. Neymar has scored at least 100
