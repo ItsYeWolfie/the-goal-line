@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Outlet } from 'react-router';
+import GlobalHeader from '../components/header/Global';
 import MainBreadCrumb from '../components/header/MainBreadCrumb';
 import { GlobalHeaderContext } from '../contexts/GlobalHeader.context';
 import { IBreadCrumb } from '../types/BreadCrumb.types';
@@ -20,6 +21,7 @@ export default function Root() {
 
 	return (
 		<div className="flex flex-1 flex-col">
+			<GlobalHeader />
 			<GlobalHeaderContext.Provider value={value}>
 				<div className="sticky top-0 z-20 flex flex-col bg-sky-900 p-2 md:p-0">
 					<MainBreadCrumb />

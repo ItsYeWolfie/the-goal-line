@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ILeagueWithStanding } from '../../../../types/League.types';
 import FormIconArray from '../../../icons/FormIconArray';
 import TableCell from '../../../table/Cell';
@@ -15,7 +16,10 @@ export default function TeamLeagueTable({ league }: { league: ILeagueWithStandin
 						className="px-3 py-1 text-left text-sm"
 						colSpan={2}
 					>
-						<div className="flex items-center gap-2">
+						<Link
+							className="flex items-center gap-2"
+							to={`/leagues/${league.id}/`}
+						>
 							{league.name}
 							{league.logo && (
 								<img
@@ -25,7 +29,7 @@ export default function TeamLeagueTable({ league }: { league: ILeagueWithStandin
 								/>
 							)}
 							<span className="text-xs"> - {league.season}</span>
-						</div>
+						</Link>
 					</TableHeader>
 				</tr>
 			</TableHead>

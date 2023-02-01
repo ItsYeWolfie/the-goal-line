@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ITransferDetailsModified } from '../../../../types/Transfers.type';
 import SmallTableCell from '../../../table/SmallCell';
 import TableHead from '../../../table/Head';
 import TableHeader from '../../../table/Header';
 import TableRow from '../../../table/Row';
 import PaginatedPrevAndNext from '../../../pagination/PrevAndNext';
+import LogoAndImage from '../../../image/LogoAndImage';
 
 export default function PlayerTransfersTable({
 	transfers,
@@ -51,31 +53,28 @@ export default function PlayerTransfersTable({
 										day: 'numeric',
 									})}
 								</SmallTableCell>
-								<SmallTableCell>{transfer.player.name}</SmallTableCell>
 								<SmallTableCell>
-									<div className="flex items-center">
-										{side === 'From' ? (
-											<>
-												<img
-													src={transfer.teams.out.logo}
-													alt={transfer.teams.out.name}
-													className="mr-2 h-4 w-4"
-												/>
-												<p>{transfer.teams.out.name}</p>
-											</>
-										) : (
-											<>
-												<img
-													src={transfer.teams.in.logo}
-													alt={transfer.teams.in.name}
-													className="mr-2 h-4 w-4"
-													loading="lazy"
-												/>
-												<p>{transfer.teams.in.name}</p>
-											</>
-										)}
-									</div>
-									<div className="mt-1 flex flex-col text-xs text-gray-300 sm:hidden">
+									<Link to={`/players/${transfer.player.id}/`}>{transfer.player.name}</Link>
+								</SmallTableCell>
+								<SmallTableCell>
+									{side === 'From' ? (
+										<Link to={`/teams/${transfer.teams.out.id}/`}>
+											<LogoAndImage
+												src={transfer.teams.out.logo}
+												alt={transfer.teams.out.name}
+												name={transfer.teams.out.name}
+											/>
+										</Link>
+									) : (
+										<Link to={`/teams/${transfer.teams.in.id}/`}>
+											<LogoAndImage
+												src={transfer.teams.in.logo}
+												alt={transfer.teams.in.name}
+												name={transfer.teams.in.name}
+											/>
+										</Link>
+									)}
+									<div className="ml-2 mt-1 flex flex-col text-xs text-gray-700 dark:text-gray-300 sm:hidden">
 										<span>
 											{date.toLocaleString('en-GB', {
 												year: 'numeric',

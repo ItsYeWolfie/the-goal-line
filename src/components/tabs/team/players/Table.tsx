@@ -1,10 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCrown, faFutbol, faRug, faShirt } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 import { IPlayerWithStatistics } from '../../../../types/Player.types';
 import TableHeader from '../../../table/Header';
 import SmallTableCell from '../../../table/SmallCell';
 import TableHead from '../../../table/Head';
 import TableRow from '../../../table/Row';
+import LogoAndImage from '../../../image/LogoAndImage';
 
 export default function TeamPlayersTable({
 	title,
@@ -50,16 +52,13 @@ export default function TeamPlayersTable({
 							even={index % 2 === 0}
 						>
 							<SmallTableCell className="sm:pl-6">
-								<div className="flex items-center">
-									<img
-										src={statistic.player.photo}
+								<Link to={`/players/${statistic.player.id}/`}>
+									<LogoAndImage
 										alt={`${statistic.player.firstname} ${statistic.player.lastname}`}
-										className="mr-2 h-6 w-6 rounded-full"
+										src={statistic.player.photo}
+										name={`${statistic.player.firstname} ${statistic.player.lastname}`}
 									/>
-									<header>
-										{statistic.player.firstname} {statistic.player.lastname}
-									</header>
-								</div>
+								</Link>
 								{statistic.statistics
 									.filter((stat) => stat.league.id === activeLeagueId)
 									.map((stat) => stat.games.captain)

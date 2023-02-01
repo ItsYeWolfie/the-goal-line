@@ -9,15 +9,15 @@ import teamOverviewLoader, {
 	teamTransfersLoader,
 } from '../lib/loaders/team-loaders';
 import teamsLoader from '../lib/loaders/teams-loaders';
-import TeamCoachesPage from '../pages/teams/team/TeamCoachesPage';
-import TeamFixturesPage from '../pages/teams/team/TeamFixtures';
-import TeamIndex from '../pages/teams/team/TeamIndex';
-import TeamInjuriesPage from '../pages/teams/team/TeamInjuries';
-import TeamOverviewPage from '../pages/teams/team/TeamOverview';
-import TeamPlayers from '../pages/teams/team/TeamPlayers';
-import TeamStandings from '../pages/teams/team/TeamStandings';
-import TeamTransfersPage from '../pages/teams/team/TeamTransfers';
-import TeamsIndex from '../pages/teams/TeamsIndex';
+import TeamCoachesPage from '../pages/teams/team/Coaches';
+import TeamFixturesPage from '../pages/teams/team/Fixtures';
+import TeamIndex from '../pages/teams/team/Index';
+import TeamInjuriesPage from '../pages/teams/team/Injuries';
+import TeamOverviewPage from '../pages/teams/team/Overview';
+import TeamPlayers from '../pages/teams/team/Players';
+import TeamStandings from '../pages/teams/team/Standings';
+import TeamTransfersPage from '../pages/teams/team/Transfers';
+import TeamsIndex from '../pages/teams/Index';
 
 export const teamRoutes: RouteObject[] = [
 	{

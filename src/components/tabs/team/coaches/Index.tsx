@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { useOutletContext } from 'react-router-dom';
+import { Link, useOutletContext } from 'react-router-dom';
 import { ICoach, ICoachTeamHistory } from '../../../../types/Coach.types';
 import { ITeamAndVenue } from '../../../../types/Team.types';
 import TeamCoachesTable from './Table';
@@ -43,9 +43,12 @@ export default function TeamCoaches({ coaches }: { coaches: ICoach[] }) {
 					/>
 				</div>
 				<div className="col-span-8 flex flex-col gap-2 leading-loose sm:col-span-4 lg:col-span-3 xl:col-span-3 xl:border-b xl:border-gray-500">
-					<header className="text-xl">
+					<Link
+						className="text-xl"
+						to={`/coaches/${activeCoach.coachObject.id}/`}
+					>
 						{activeCoach.coachObject.firstName} {activeCoach.coachObject.lastName}
-					</header>
+					</Link>
 					<p className="text-sm text-gray-700 dark:text-gray-300">Joined: {activeCoach.coachHistory.start}</p>
 					<p className="text-sm text-gray-700 dark:text-gray-300">Left: {activeCoach.coachHistory.end || '-'}</p>
 				</div>

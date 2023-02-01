@@ -1,85 +1,26 @@
-import { Link, NavLink } from 'react-router-dom';
-import { useState } from 'react';
-import { CgArrowsExpandDownLeft, CgArrowsExpandUpRight } from 'react-icons/cg';
+import { NavLink } from 'react-router-dom';
 import navigation from '../../lib/navigation-links';
 
 export default function GlobalHeader() {
-	const [expanded, setExpanded] = useState(false);
-
 	return (
-		<div
-			className={`${
-				expanded ? 'md:basis-44' : 'md:basis-auto'
-			} fixed bottom-0 z-10 flex bg-white dark:border-gray-800 dark:bg-gray-900 md:sticky md:top-0 md:h-screen md:shrink-0 md:flex-col md:border-r md:border-gray-200`}
-		>
-			{expanded ? (
-				<CgArrowsExpandDownLeft
-					className="absolute top-0 right-0 m-2 hidden cursor-pointer text-gray-400 dark:text-gray-600 md:block"
-					onClick={() => setExpanded(!expanded)}
-				/>
-			) : (
-				<CgArrowsExpandUpRight
-					className="absolute top-0 right-0 m-2 hidden cursor-pointer text-gray-400 dark:text-gray-600 md:block"
-					onClick={() => setExpanded(!expanded)}
-				/>
-			)}
-			<div className="flex flex-1 overflow-y-auto pt-2 md:flex-col md:pt-5 md:pb-4">
-				<div className="hidden md:flex md:shrink-0 md:items-center md:px-4">
-					{expanded ? (
-						<img
-							className="h-8 w-auto"
-							src="/logo-no-background.svg"
-							alt="Your Company"
-						/>
-					) : (
-						<img
-							className="h-8 w-auto"
-							src="/logo-no-background-sm.png"
-							alt="Your Company"
-						/>
-					)}
-				</div>
-				<nav className="flex w-screen justify-around bg-white dark:bg-gray-900 md:mt-5 md:block md:w-auto md:flex-1 md:flex-col md:space-y-1 md:px-2">
-					{navigation.map((item) => (
-						<NavLink
-							key={item.name}
-							to={item.href}
-							className={({ isActive }) =>
-								`${
-									isActive
-										? 'bg-gray-100 text-gray-900 hover:bg-gray-100 hover:text-gray-900 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-900 dark:hover:text-gray-100'
-										: 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-900 dark:hover:text-gray-100'
-								} group flex items-center rounded-md p-2 text-sm font-medium text-gray-900`
-							}
-						>
-							<item.icon className={`${expanded ? 'mr-3 w-6 ' : 'w-full '}h-6 shrink-0`} />
-							{expanded && <span className="flex-1">{item.name}</span>}
-						</NavLink>
-					))}
-				</nav>
-			</div>
-			<div className="hidden md:flex md:flex-col md:overflow-y-auto md:pt-5 md:pb-4">
-				<div className="flex shrink-0 border-t border-gray-200 p-4 dark:border-gray-800">
-					<Link
-						to="/profile"
-						className="group block w-full shrink-0"
+		<div className="fixed bottom-0 z-10 flex bg-white dark:border-gray-800 dark:bg-gray-900 md:hidden">
+			<nav className="flex w-screen justify-around bg-white dark:bg-gray-900">
+				{navigation.map((item) => (
+					<NavLink
+						key={item.name}
+						to={item.href}
+						className={({ isActive }) =>
+							`${
+								isActive
+									? 'bg-gray-200 text-gray-900 hover:bg-gray-100 hover:text-gray-900 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-900 dark:hover:text-gray-100'
+									: 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-900 dark:hover:text-gray-100'
+							} flex items-center p-2 text-sm font-medium text-gray-900`
+						}
 					>
-						<div className="flex items-center">
-							<div className="inline-block h-9 w-9 rounded-full bg-gray-600" />
-							{expanded && (
-								<div className="ml-3">
-									<p className="text-sm font-medium text-gray-700 group-hover:text-gray-900 dark:text-gray-300 dark:group-hover:text-gray-100">
-										John Doe
-									</p>
-									<p className="text-xs font-medium text-gray-500 group-hover:text-gray-700 dark:group-hover:text-gray-300">
-										View profile
-									</p>
-								</div>
-							)}
-						</div>
-					</Link>
-				</div>
-			</div>
+						<item.icon className="h-8 w-8" />
+					</NavLink>
+				))}
+			</nav>
 		</div>
 	);
 }

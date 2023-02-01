@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import { Await, useLoaderData } from 'react-router-dom';
 import MainLoadingSpinner from '../../../components/MainLoadingSpinner';
 import { ITeamAndVenue } from '../../../types/Team.types';
-import TeamMainPage from './TeamMain';
+import TeamMainPage from './Main';
 
 export default function TeamIndex() {
 	const { teamAndVenue } = useLoaderData() as { teamAndVenue: ITeamAndVenue };

@@ -1,5 +1,7 @@
 import { useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { IPlayerInjury } from '../../../../types/Player.types';
+import LogoAndImage from '../../../image/LogoAndImage';
 import PaginatedPrevAndNext from '../../../pagination/PrevAndNext';
 import TableCell from '../../../table/Cell';
 import TableHead from '../../../table/Head';
@@ -42,7 +44,15 @@ export default function TeamInjuriesTable({ injuriesData }: { injuriesData: IPla
 								even={index % 2 === 0}
 							>
 								<TableCell>{formattedDate}</TableCell>
-								<TableCell>{injury.player.name}</TableCell>
+								<TableCell>
+									<Link to={`/players/${injury.player.id}`}>
+										<LogoAndImage
+											src={injury.player.photo}
+											alt={injury.player.name}
+											name={injury.player.name}
+										/>
+									</Link>
+								</TableCell>
 
 								<TableCell>
 									{injury.player.type}
@@ -50,14 +60,13 @@ export default function TeamInjuriesTable({ injuriesData }: { injuriesData: IPla
 								</TableCell>
 								<TableCell className="hidden lg:table-cell">{injury.player.reason}</TableCell>
 								<TableCell className="hidden sm:table-cell">
-									<div className="flex items-center">
-										<img
+									<Link to={`/leagues/${injury.league.id}/`}>
+										<LogoAndImage
 											src={injury.league.logo}
 											alt={injury.league.name}
-											className="mr-1 h-4 w-4"
+											name={injury.league.name}
 										/>
-										{injury.league.name}
-									</div>
+									</Link>
 									<div className="mt-1 lg:hidden">
 										Season: {injury.league.season}/{injury.league.season + 1}
 									</div>

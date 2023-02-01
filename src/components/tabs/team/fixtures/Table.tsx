@@ -1,11 +1,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrophy } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { IFixture } from '../../../../types/Fixture.types';
 import TableHeader from '../../../table/Header';
 import SmallTableCell from '../../../table/SmallCell';
 import TableHead from '../../../table/Head';
 import PaginatedPrevAndNext from '../../../pagination/PrevAndNext';
+import LogoAndImage from '../../../image/LogoAndImage';
 
 export default function TeamFixturesTable({ fixtures, teamID: teamIDInt }: { fixtures: IFixture[]; teamID: number }) {
 	const [displayedItems, setDisplayedItems] = useState([] as IFixture[]);
@@ -50,19 +52,18 @@ export default function TeamFixturesTable({ fixtures, teamID: teamIDInt }: { fix
 						});
 						return (
 							<tr
-								className={`${backgroundColor} transition-colors duration-300 hover:bg-gray-400 dark:bg-opacity-40 dark:hover:bg-gray-600`}
+								className={`${backgroundColor} transition-colors duration-300 dark:bg-opacity-40`}
 								key={fixture.fixture.id}
 							>
 								<SmallTableCell className="text-sm sm:pl-6">
 									<div className="font-medium text-gray-200">
-										<div className="flex items-center gap-3">
-											<img
-												src={isHome ? away.logo : home.logo}
+										<Link to={`/teams/${isHome ? away.id : home.id}/`}>
+											<LogoAndImage
 												alt={isHome ? away.name : home.name}
-												className="h-6 w-6"
+												src={isHome ? away.logo : home.logo}
+												name={isHome ? away.name : home.name}
 											/>
-											<span>{isHome ? away.name : home.name}</span>
-										</div>
+										</Link>
 									</div>
 									<div className="mt-1 flex flex-col text-xs">
 										<div className="flex items-center gap-1 lg:hidden">

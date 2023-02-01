@@ -4,7 +4,8 @@ export default function LogoAndImage({ src, alt, name }: { src: string; alt: str
 			<img
 				src={src}
 				alt={alt}
-				className="h-6 w-6"
+				loading="lazy"
+				className="h-6 w-6 rounded-full"
 			/>
 			{name}
 		</div>
