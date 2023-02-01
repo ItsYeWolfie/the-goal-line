@@ -48,6 +48,8 @@ export default function SearchModal({
 							>
 								<option>Team</option>
 								<option>Player</option>
+								<option>Coach</option>
+								<option>Venue</option>
 							</select>
 						</div>
 						<div className="absolute left-3 top-3">

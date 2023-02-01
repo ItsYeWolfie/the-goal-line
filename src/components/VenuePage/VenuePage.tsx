@@ -19,8 +19,8 @@ export default function VenuePage() {
 				setLoading(false);
 			})
 			.catch((error) => {
-				console.error(error);
 				setLoading(false);
+				console.log(error);
 			});
 	}, []);
 

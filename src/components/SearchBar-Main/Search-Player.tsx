@@ -7,7 +7,7 @@ interface PlayerResultProps {
 
 export default function PlayerResult({ player }: PlayerResultProps) {
 	return (
-		<div className="mt-[2%] flex h-[45px] w-full items-center md:h-[54px] ">
+		<div className="mt-[2%] flex h-[48px] w-full items-center md:h-[54px] ">
 			<div className="h-full w-[15%] rounded-[10px] bg-gray-200 md:w-[10%] ">
 				<img
 					src={player.photo}
