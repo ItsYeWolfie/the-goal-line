@@ -14,7 +14,7 @@ export default function MainBreadCrumb() {
 				className="flex"
 				aria-label="Breadcrumb"
 			>
-				<ol className="flex items-center gap-x-4">
+				<ol className="flex items-center gap-x-2 sm:gap-x-4">
 					<li>
 						<Link
 							to="/"
@@ -41,7 +41,7 @@ export default function MainBreadCrumb() {
 								/>
 								<Link
 									to={page.href}
-									className="ml-4 text-xs font-medium text-gray-200 hover:text-gray-100 sm:text-sm"
+									className="ml-2 text-xs font-medium text-gray-200 hover:text-gray-100 sm:ml-4 sm:text-sm"
 								>
 									{page.name}
 								</Link>
@@ -50,7 +50,7 @@ export default function MainBreadCrumb() {
 					))}
 				</ol>
 			</nav>
-			<DarkModeToggle className="hidden sm:block" />
+			<DarkModeToggle />
 		</section>
 	);
 }
