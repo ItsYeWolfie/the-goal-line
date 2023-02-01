@@ -80,7 +80,7 @@ class Header extends LitLightElement {
 	render() {
 		return html`
 			<div
-				class="fixed -ml-2 flex w-full justify-around rounded-t-md border-b-2 border-gray-200 border-opacity-30 bg-gray-900 p-2 lg:w-[32.2%] lg:bg-gray-800"
+				class="fixed flex w-full justify-around rounded-t-md border-b-2 border-gray-200 border-opacity-30 bg-gray-900 p-2 lg:w-[32.2%] lg:bg-gray-800"
 			>
 				${this.tabs.map(
 					(tab) => html` <div

@@ -5,14 +5,14 @@
 import React, { useState, useEffect } from 'react';
 import { FaChevronRight } from 'react-icons/fa';
 
-function TodayMatches() {
+function LiveMatches() {
 	const [fixture, setFixture] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [groupedMatches, setGroupedMatches] = useState({});
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const response = await fetch('https://api.npoint.io/e8b6e47d59c88aec9aaa');
+			const response = await fetch('https://api.npoint.io/21b159edf9777a913002');
 			const data = await response.json();
 			setFixture(data);
 			setLoading(false);
@@ -55,7 +55,7 @@ function TodayMatches() {
 			{Object.keys(groupedMatches).map((leagueId) => {
 				return (
 					<div key={leagueId}>
-						<a href="../pages/match.jsx">
+						<a href="../fixtures-page/league-matches.html">
 							<div className="flex cursor-pointer p-2 hover:text-sky-600">
 								<span className="my-auto">
 									<img
@@ -150,4 +150,4 @@ function TodayMatches() {
 		</div>
 	);
 }
-export default TodayMatches;
+export default LiveMatches;

@@ -1,11 +1,26 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable react/jsx-props-no-spreading */
+// @ts-nocheck
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable react/prop-types */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState } from 'react';
-import { Tab } from '@headlessui/react';
+import moment from 'moment/moment';
+import TodayMatches from './TodayMatches';
+import LiveMatches from './LiveMatches';
+import YesterdayMatches from './YesterdayMatches';
+import BeforeYesterdayMatches from './BeforeYesterdayMatches';
+import TomorrowMatches from './TomorrowMatches';
+import AfterTomorrowMatches from './AfterTomorrowMatches';
 
-function classNames(...classes) {
-	return classes.filter(Boolean).join(' ');
+// @ts-ignore
+function Tab({ name, Component }) {
+	return <div>{Component}</div>;
 }
 
-export default function DaysTab() {
+function Tabs() {
 	const dayBeforeYesterday = moment().subtract(2, 'days').format('D MMM').toLocaleUpperCase();
 	const yesterday = moment().subtract(1, 'days').format('D MMM').toLocaleUpperCase();
 	const today = moment().format('D MMM').toLocaleUpperCase();
@@ -16,115 +31,41 @@ export default function DaysTab() {
 	const yesterdayWeek = moment().subtract(1, 'days').format('ddd').toLocaleUpperCase();
 	const tomorrowWeek = moment().add(1, 'days').format('ddd').toLocaleUpperCase();
 	const dayAfterTomorrowWeek = moment().add(2, 'days').format('ddd').toLocaleUpperCase();
-	const [categories] = useState({
-		Recent: [
-			{
-				id: 1,
-				title: 'Does drinking coffee make you smarter?',
-				date: '5h ago',
-				commentCount: 5,
-				shareCount: 2,
-			},
-			{
-				id: 2,
-				title: "So you've bought coffee... now what?",
-				date: '2h ago',
-				commentCount: 3,
-				shareCount: 2,
-			},
-		],
-		Popular: [
-			{
-				id: 1,
-				title: 'Is tech making coffee better or worse?',
-				date: 'Jan 7',
-				commentCount: 29,
-				shareCount: 16,
-			},
-			{
-				id: 2,
-				title: 'The most innovative things happening in coffee',
-				date: 'Mar 19',
-				commentCount: 24,
-				shareCount: 12,
-			},
-		],
-		Trending: [
-			{
-				id: 1,
-				title: 'Ask Me Anything: 10 answers to your questions about coffee',
-				date: '2d ago',
-				commentCount: 9,
-				shareCount: 5,
-			},
-			{
-				id: 2,
-				title: "The worst advice we've ever heard about coffee",
-				date: '4d ago',
-				commentCount: 1,
-				shareCount: 2,
-			},
-		],
-	});
+	const tabs = [
+		{ name: 'LIVE', slug: 'LIVE', Component: <LiveMatches /> },
+		{ name: dayBeforeYesterday, slug: dayBeforeYesterdayWeek, Component: <BeforeYesterdayMatches /> },
+		{ name: yesterday, slug: yesterdayWeek, Component: <YesterdayMatches /> },
+		{ name: today, slug: 'TODAY', Component: <TodayMatches /> },
+		{ name: tomorrow, slug: tomorrowWeek, Component: <TomorrowMatches /> },
+		{ name: dayAfterTomorrow, slug: dayAfterTomorrowWeek, Component: <AfterTomorrowMatches /> },
+	];
+	const [activeTab, setActiveTab] = useState(today);
+
+	const handleTabClick = (tabName) => {
+		setActiveTab(tabName);
+		const url = new URL(window.location.href);
+		url.searchParams.set('tab', tabs.find((tab) => tab.name === tabName).name);
+		window.history.replaceState({}, '', url);
+	};
 
 	return (
-		<div className="w-full max-w-md px-2 py-16 sm:px-0">
-			<Tab.Group>
-				<Tab.List className="flex space-x-1 rounded-xl bg-blue-900/20 p-1">
-					{Object.keys(categories).map((category) => (
-						<Tab
-							key={category}
-							className={({ selected }) =>
-								classNames(
-									'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700',
-									'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
-									selected ? 'bg-white shadow' : 'text-blue-100 hover:bg-white/[0.12] hover:text-white',
-								)
-							}
-						>
-							{category}
-						</Tab>
-					))}
-				</Tab.List>
-				<Tab.Panels className="mt-2">
-					{Object.values(categories).map((posts, idx) => (
-						<Tab.Panel
-							key={idx}
-							className={classNames(
-								'rounded-xl bg-white p-3',
-								'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
-							)}
-						>
-							<ul>
-								{posts.map((post) => (
-									<li
-										key={post.id}
-										className="relative rounded-md p-3 hover:bg-gray-100"
-									>
-										<h3 className="text-sm font-medium leading-5">{post.title}</h3>
-
-										<ul className="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500">
-											<li>{post.date}</li>
-											<li>&middot;</li>
-											<li>{post.commentCount} comments</li>
-											<li>&middot;</li>
-											<li>{post.shareCount} shares</li>
-										</ul>
-
-										<a
-											href="#"
-											className={classNames(
-												'absolute inset-0 rounded-md',
-												'ring-blue-400 focus:z-10 focus:outline-none focus:ring-2',
-											)}
-										/>
-									</li>
-								))}
-							</ul>
-						</Tab.Panel>
-					))}
-				</Tab.Panels>
-			</Tab.Group>
+		<div>
+			<div className="fixed -ml-2 -mt-2 mb-20 flex w-full justify-around rounded-t-md border-b-2 border-gray-200 border-opacity-30 bg-gray-900 p-2 lg:w-[33%] lg:bg-gray-800">
+				{tabs.map((tab) => (
+					<div
+						className={`${
+							tab.name === activeTab ? 'text-sm text-sky-600 md:text-base' : ''
+						} my-auto flex cursor-pointer flex-col items-center text-xs hover:text-sky-600 md:text-sm`}
+						onClick={() => handleTabClick(tab.name)}
+					>
+						<span>{tab.slug === 'LIVE' ? '' : tab.slug}</span>
+						<p>{tab.name}</p>
+					</div>
+				))}
+			</div>
+			{tabs.map((tab) => tab.name === activeTab && <Tab {...tab} />)}
 		</div>
 	);
 }
+
+export default Tabs;
