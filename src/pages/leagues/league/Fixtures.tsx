@@ -1,8 +1,8 @@
 import { PlusIcon } from '@heroicons/react/20/solid';
 import { useEffect, useState } from 'react';
 import MainLoadingSpinner from '../../../components/MainLoadingSpinner';
-import LeagueFixturesDisplay from '../../../components/tabs/leagues/league/fixtures/FixturesDisplay';
-import LeagueFixturesSearch from '../../../components/tabs/leagues/league/fixtures/FixturesSearch';
+import LeagueFixturesDisplay from '../../../components/tabs/leagues/league/fixtures/Display';
+import LeagueFixturesSearch from '../../../components/tabs/leagues/league/fixtures/Search';
 import LeagueMobileSearch from '../../../components/tabs/leagues/league/fixtures/MobileSearch';
 import fetchData from '../../../lib/helpers/Fetch';
 import { IFixture } from '../../../types/Fixture.types';

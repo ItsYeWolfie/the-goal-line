@@ -3,7 +3,7 @@ import { XMarkIcon } from '@heroicons/react/20/solid';
 import { Fragment } from 'react';
 import { ILeagueFixturesSearchForm } from '../../../../../types/General.types';
 import { ITeamBasic } from '../../../../../types/Team.types';
-import LeagueFixturesSearch from './FixturesSearch';
+import LeagueFixturesSearch from './Search';
 
 export default function LeagueMobileSearch({
 	mobileFiltersOpen,

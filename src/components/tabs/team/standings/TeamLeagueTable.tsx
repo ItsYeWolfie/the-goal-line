@@ -1,10 +1,10 @@
 import React from 'react';
 import { ILeagueWithStanding } from '../../../../types/League.types';
 import FormIconArray from '../../../icons/FormIconArray';
-import TableCell from '../../../table/TableCell';
-import TableHead from '../../../table/TableHead';
-import TableHeader from '../../../table/TableHeader';
-import TableRow from '../../../table/TableRow';
+import TableCell from '../../../table/Cell';
+import TableHead from '../../../table/Head';
+import TableHeader from '../../../table/Header';
+import TableRow from '../../../table/Row';
 
 export default function TeamLeagueTable({ league }: { league: ILeagueWithStanding }) {
 	return (

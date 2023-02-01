@@ -3,9 +3,9 @@ import GetRankColor from '../../../../lib/helpers/rank-color';
 import { ILeagueStanding } from '../../../../types/League.types';
 import { ITeamAndVenue } from '../../../../types/Team.types';
 import FormIconArray from '../../../icons/FormIconArray';
-import SmallTableCell from '../../../table/SmallTableCell';
-import TableHead from '../../../table/TableHead';
-import TableHeader from '../../../table/TableHeader';
+import SmallTableCell from '../../../table/SmallCell';
+import TableHead from '../../../table/Head';
+import TableHeader from '../../../table/Header';
 
 export default function StandingsTable({ standings }: { standings: ILeagueStanding[] }) {
 	const { team: teamContext } = useOutletContext() as { team: ITeamAndVenue['team'] };

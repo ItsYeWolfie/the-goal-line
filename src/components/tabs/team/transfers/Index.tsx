@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState, useCallback } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import { ITeamAndVenue } from '../../../../types/Team.types';
 import { ITransferModified } from '../../../../types/Transfers.type';
-import PlayerTransfersTable from './PlayerTransfersTable';
+import PlayerTransfersTable from './Table';
 
 export default function PlayerTransfers({ transfers }: { transfers: ITransferModified[] }) {
 	const {

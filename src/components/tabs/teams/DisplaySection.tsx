@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { ITeamAndVenue } from '../../../types/Team.types';
-import PaginatedPrevAndNext from '../../pagination/PaginatedPrevAndNext';
+import PaginatedPrevAndNext from '../../pagination/PrevAndNext';
 
 const splitCount = 10;
 

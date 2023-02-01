@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 
-import TableHead from '../../../../table/TableHead';
-import TableHeader from '../../../../table/TableHeader';
+import TableHead from '../../../../table/Head';
+import TableHeader from '../../../../table/Header';
 import fetchData from '../../../../../lib/helpers/Fetch';
 import { ITeamBasic } from '../../../../../types/Team.types';
-import TableRow from '../../../../table/TableRow';
-import SmallTableCell from '../../../../table/SmallTableCell';
+import TableRow from '../../../../table/Row';
+import SmallTableCell from '../../../../table/SmallCell';
 
 export default function LeagueOverviewInjuriesTable() {
 	const [teams, setTeams] = useState<ITeamBasic[]>([]);

@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { filterSelfDuplicates, getPlayersByPosition } from '../../../../lib/helpers/ArrayMethods';
 import { ILeagueWithSeason } from '../../../../types/League.types';
 import { IPlayerWithStatistics } from '../../../../types/Player.types';
-import TeamPlayersTable from './TeamPlayersTable';
+import TeamPlayersTable from './Table';
 
 export default function TeamPlayersSection({ playersData }: { playersData: IPlayerWithStatistics[] }) {
 	const [activeLeagueId, setActiveLeagueId] = useState(0);

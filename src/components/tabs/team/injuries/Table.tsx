@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
 import { IPlayerInjury } from '../../../../types/Player.types';
-import TableCell from '../../../table/TableCell';
-import TableHead from '../../../table/TableHead';
-import TableHeader from '../../../table/TableHeader';
-import TableRow from '../../../table/TableRow';
+import TableCell from '../../../table/Cell';
+import TableHead from '../../../table/Head';
+import TableHeader from '../../../table/Header';
+import TableRow from '../../../table/Row';
 
 export default function TeamInjuriesTable({ injuriesData }: { injuriesData: IPlayerInjury[] }) {
 	useMemo(

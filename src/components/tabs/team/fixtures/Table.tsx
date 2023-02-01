@@ -1,9 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrophy } from '@fortawesome/free-solid-svg-icons';
 import { IFixture } from '../../../../types/Fixture.types';
-import TableHeader from '../../../table/TableHeader';
-import SmallTableCell from '../../../table/SmallTableCell';
-import TableHead from '../../../table/TableHead';
+import TableHeader from '../../../table/Header';
+import SmallTableCell from '../../../table/SmallCell';
+import TableHead from '../../../table/Head';
 
 export default function TeamFixturesTable({ fixtures, teamID: teamIDInt }: { fixtures: IFixture[]; teamID: number }) {
 	return (

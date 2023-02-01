@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { ITab } from '../../types/Tab.types';
-import DropdownList from '../dropdowns/DropdownList';
+import DropdownList from '../dropdowns/List';
 
 export default function HeaderTabs({ params, dir, tabs }: { params: string | undefined; dir: string; tabs: ITab[] }) {
 	const { pathname } = useLocation();

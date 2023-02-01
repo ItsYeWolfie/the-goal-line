@@ -1,5 +1,7 @@
 import { RouteObject } from 'react-router-dom';
-import PlayerIndex from '../pages/players/player/PlayerIndex';
+import PlayerOverview from '../components/tabs/players/player/overview/Index';
+import playerDataLoader from '../lib/loaders/player-loaders';
+import PlayerIndex from '../pages/players/player/Index';
 
 export const PlayerRoutes: RouteObject[] = [
 	{
@@ -9,22 +11,12 @@ export const PlayerRoutes: RouteObject[] = [
 	{
 		path: ':playerID',
 		element: <PlayerIndex />,
+		loader: playerDataLoader,
 		children: [
-			// {
-			// 	index: true,
-			// 	element: <LeagueOverview />,
-			// 	loader: leagueOverviewLoader,
-			// },
-			// {
-			// 	path: 'fixtures',
-			// 	element: <LeagueFixturesPage />,
-			// 	loader: leagueFixturesLoader,
-			// },
-			// {
-			// 	path: 'player-statistics',
-			// 	element: <LeaguePlayerStatistics />,
-			// 	loader: leaguePlayerStatisticsLoader,
-			// },
+			{
+				index: true,
+				element: <PlayerOverview />,
+			},
 		],
 	},
 ];

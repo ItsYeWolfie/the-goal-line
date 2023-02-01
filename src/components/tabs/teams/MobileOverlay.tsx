@@ -1,7 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { Fragment } from 'react';
-import TeamSearch from './TeamSearch';
+import TeamSearch from './Search';
 
 export default function TeamsPageMobileOverlay({
 	mobileFiltersOpen,

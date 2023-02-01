@@ -4,7 +4,7 @@ import { filterSelfDuplicates } from '../../../../lib/helpers/ArrayMethods';
 import { IFixture } from '../../../../types/Fixture.types';
 import { ILeagueWithSeason } from '../../../../types/League.types';
 import { ITeamAndVenue } from '../../../../types/Team.types';
-import TeamFixturesTable from './FixturesTable';
+import TeamFixturesTable from './Table';
 import TeamFixturesLeagueCard from './LeagueCard';
 import TeamFixturesLeagueSelection from './LeagueSelection';
 

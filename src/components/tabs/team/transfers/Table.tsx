@@ -1,8 +1,8 @@
 import { ITransferDetailsModified } from '../../../../types/Transfers.type';
-import SmallTableCell from '../../../table/SmallTableCell';
-import TableHead from '../../../table/TableHead';
-import TableHeader from '../../../table/TableHeader';
-import TableRow from '../../../table/TableRow';
+import SmallTableCell from '../../../table/SmallCell';
+import TableHead from '../../../table/Head';
+import TableHeader from '../../../table/Header';
+import TableRow from '../../../table/Row';
 
 export default function PlayerTransfersTable({
 	transfers,

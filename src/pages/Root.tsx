@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Outlet } from 'react-router';
 import MainBreadCrumb from '../components/header/MainBreadCrumb';
-import GlobalHeader from '../components/header/GlobalHeader';
+import GlobalHeader from '../components/header/Global';
 import { GlobalHeaderContext } from '../contexts/GlobalHeader.context';
 import { IBreadCrumb } from '../types/BreadCrumb.types';
 

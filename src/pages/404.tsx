@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import errorLinks from '../lib/ErrorLinks';
 import { IRouteError } from '../types/RouteError.types';
-import GlobalHeader from '../components/header/GlobalHeader';
+import GlobalHeader from '../components/header/Global';
 import MainBreadCrumb from '../components/header/MainBreadCrumb';
 
 export default function NotFound() {

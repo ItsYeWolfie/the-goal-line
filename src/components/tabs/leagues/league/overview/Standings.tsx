@@ -1,9 +1,9 @@
 import GetRankColor from '../../../../../lib/helpers/rank-color';
 import RankToString from '../../../../../lib/helpers/rank-string';
 import { ILeagueStanding } from '../../../../../types/League.types';
-import TableHead from '../../../../table/TableHead';
-import TableHeader from '../../../../table/TableHeader';
-import TinyTableCell from '../../../../table/TinyTableCell';
+import TableHead from '../../../../table/Head';
+import TableHeader from '../../../../table/Header';
+import TinyTableCell from '../../../../table/TinyCell';
 
 export default function LeagueOverviewStandings({ standings }: { standings: ILeagueStanding[] }) {
 	return (

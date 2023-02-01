@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import { Await, useLoaderData } from 'react-router';
 import { IPlayerInjury } from '../../../types/Player.types';
 import MainLoadingSpinner from '../../../components/MainLoadingSpinner';
-import TeamInjuriesTable from '../../../components/tabs/team/injuries/TeamInjuriesTable';
+import TeamInjuriesTable from '../../../components/tabs/team/injuries/Table';
 
 export default function TeamInjuriesPage() {
 	const { injuries } = useLoaderData() as { injuries: IPlayerInjury[] };

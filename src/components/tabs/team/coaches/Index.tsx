@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import { ICoach, ICoachTeamHistory } from '../../../../types/Coach.types';
 import { ITeamAndVenue } from '../../../../types/Team.types';
-import TeamCoachesTable from './TeamCoachesTable';
+import TeamCoachesTable from './Table';
 
 export default function TeamCoaches({ coaches }: { coaches: ICoach[] }) {
 	const {

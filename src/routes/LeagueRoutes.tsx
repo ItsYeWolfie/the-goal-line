@@ -6,10 +6,10 @@ import {
 	leagueOverviewLoader,
 	leaguePlayerStatisticsLoader,
 } from '../lib/loaders/league-loaders';
-import LeagueFixturesPage from '../pages/leagues/league/LeagueFixtures';
-import LeagueIndex from '../pages/leagues/league/LeagueIndex';
-import LeaguePlayerStatistics from '../pages/leagues/league/LeaguePlayerStatistics';
-import LeaguesIndex from '../pages/leagues/LeaguesIndex';
+import LeagueFixturesPage from '../pages/leagues/league/Fixtures';
+import LeagueIndex from '../pages/leagues/league/Index';
+import LeaguePlayerStatistics from '../pages/leagues/league/PlayerStatistics';
+import LeaguesIndex from '../pages/leagues/Index';
 
 export const LeagueRoutes: RouteObject[] = [
 	{

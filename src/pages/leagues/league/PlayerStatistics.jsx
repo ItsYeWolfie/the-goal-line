@@ -4,11 +4,11 @@
 import { useMemo, useState, useEffect } from 'react';
 import { useTable, useSortBy } from 'react-table';
 import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/20/solid';
-import TableHead from '../../../components/table/TableHead';
-import TinyTableCell from '../../../components/table/TinyTableCell';
+import TableHead from '../../../components/table/Head';
+import TinyTableCell from '../../../components/table/TinyCell';
 import fetchData from '../../../lib/helpers/Fetch';
-import TableRow from '../../../components/table/TableRow';
-import TableHeader from '../../../components/table/TableHeader';
+import TableRow from '../../../components/table/Row';
+import TableHeader from '../../../components/table/Header';
 import MainLoadingSpinner from '../../../components/MainLoadingSpinner';
 
 export default function LeaguePlayerStatistics() {

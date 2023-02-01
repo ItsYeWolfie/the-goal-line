@@ -1,10 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCrown, faFutbol, faRug, faShirt } from '@fortawesome/free-solid-svg-icons';
 import { IPlayerWithStatistics } from '../../../../types/Player.types';
-import TableHeader from '../../../table/TableHeader';
-import SmallTableCell from '../../../table/SmallTableCell';
-import TableHead from '../../../table/TableHead';
-import TableRow from '../../../table/TableRow';
+import TableHeader from '../../../table/Header';
+import SmallTableCell from '../../../table/SmallCell';
+import TableHead from '../../../table/Head';
+import TableRow from '../../../table/Row';
 
 export default function TeamPlayersTable({
 	title,

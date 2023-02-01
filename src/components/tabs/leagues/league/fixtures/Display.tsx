@@ -1,5 +1,5 @@
 import { IFixture } from '../../../../../types/Fixture.types';
-import PaginatedPrevAndNext from '../../../../pagination/PaginatedPrevAndNext';
+import PaginatedPrevAndNext from '../../../../pagination/PrevAndNext';
 
 export default function LeagueFixturesDisplay({
 	filteredFixtures,

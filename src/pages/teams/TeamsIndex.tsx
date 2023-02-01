@@ -3,10 +3,10 @@ import { PlusIcon } from '@heroicons/react/20/solid';
 import { ITeamAndVenue } from '../../types/Team.types';
 import { GlobalHeaderContext, IGlobalHeader } from '../../contexts/GlobalHeader.context';
 import TeamsPageMobileOverlay from '../../components/tabs/teams/MobileOverlay';
-import TeamsDisplaySection from '../../components/tabs/teams/TeamDisplaySection';
-import LoadingTeamsDisplaySection from '../../components/tabs/teams/loading/LoadingTeamDisplaySection';
+import TeamsDisplaySection from '../../components/tabs/teams/DisplaySection';
+import LoadingTeamsDisplaySection from '../../components/tabs/teams/loading/LoadingDisplaySection';
 import fetchData from '../../lib/helpers/Fetch';
-import TeamSearch from '../../components/tabs/teams/TeamSearch';
+import TeamSearch from '../../components/tabs/teams/Search';
 
 export default function TeamsIndex() {
 	const [teams, setTeams] = useState<ITeamAndVenue[]>([]);
