@@ -8,6 +8,7 @@ import Layout from '../Layout/Layout';
 import LogosSlider from '../logos/Logos';
 import NewsSlider from '../News/News-Slider';
 import Search from '../SearchBar-Main/Search';
+import Footer from '../Footer/Footer';
 
 export default function HomePage() {
 	return (
@@ -27,6 +28,7 @@ export default function HomePage() {
 			<HorizontalLine />
 			<NewsSlider />
 			<HorizontalLine />
+			<Footer />
 		</Layout>
 	);
 }
