@@ -9,15 +9,15 @@ import {
 import LeagueFixturesPage from '../pages/leagues/league/Fixtures';
 import LeagueIndex from '../pages/leagues/league/Index';
 import LeaguePlayerStatistics from '../pages/leagues/league/PlayerStatistics';
-import LeaguesIndex from '../pages/leagues/Index';
+// import LeaguesIndex from '../pages/leagues/Index';
 
 export const LeagueRoutes: RouteObject[] = [
+	// {
+	// 	// index: true,
+	// 	// element: <LeaguesIndex />,
+	// },
 	{
-		index: true,
-		element: <LeaguesIndex />,
-	},
-	{
-		path: ':leagueID',
+		path: '/leagues/:leagueID',
 		element: <LeagueIndex />,
 		loader: leagueLoader,
 		children: [

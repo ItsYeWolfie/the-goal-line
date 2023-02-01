@@ -3,12 +3,12 @@ import { playerDataLoader } from '../lib/loaders/player-loaders';
 import PlayerIndex from '../pages/players/player/Index';
 
 export const PlayerRoutes: RouteObject[] = [
+	// {
+	// 	index: true,
+	// 	element: <div>Players</div>,
+	// },
 	{
-		index: true,
-		element: <div>Players</div>,
-	},
-	{
-		path: ':playerID',
+		path: '/players/:playerID',
 		element: <PlayerIndex />,
 		loader: playerDataLoader,
 	},

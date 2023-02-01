@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { PlayerDataRow } from './overview/DataGroup';
 import { IPlayerWithStatistics } from '../../../../types/Player.types';
 
@@ -6,14 +7,18 @@ export default function PlayerCard({ playerData }: { playerData: IPlayerWithStat
 		<div className="col-span-full flex flex-none flex-col overflow-auto rounded-lg border border-gray-400 dark:border-gray-600 sm:col-span-6 md:col-span-4">
 			<div className="flex justify-evenly px-4">
 				<div className="flex w-3/12 shrink-0 grow-0 flex-col justify-evenly">
-					<img
-						src={playerData?.statistics[playerData.statistics.length - 1].team.logo}
-						alt={playerData?.statistics[playerData.statistics.length - 1].team.name}
-					/>
-					<img
-						src={playerData?.statistics[0].team.logo}
-						alt={playerData?.statistics[0].team.name}
-					/>
+					<Link to={`/teams/${playerData?.statistics[playerData.statistics.length - 1].team.id}/`}>
+						<img
+							src={playerData?.statistics[playerData.statistics.length - 1].team.logo}
+							alt={playerData?.statistics[playerData.statistics.length - 1].team.name}
+						/>
+					</Link>
+					<Link to={`/teams/${playerData?.statistics[0].team.id}/`}>
+						<img
+							src={playerData?.statistics[0].team.logo}
+							alt={playerData?.statistics[0].team.name}
+						/>
+					</Link>
 				</div>
 				<img
 					src={playerData?.player.photo}

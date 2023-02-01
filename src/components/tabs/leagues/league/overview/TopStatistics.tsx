@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import fetchData from '../../../../../lib/helpers/Fetch';
 import RankToString from '../../../../../lib/helpers/rank-string';
 import { IPlayerWithStatistics } from '../../../../../types/Player.types';
@@ -53,18 +54,30 @@ export default function LeagueOverviewTopStatistics({
 							key={playerStatistic.player.id}
 						>
 							<p className="col-span-1">{rankString}</p>
-							<img
-								src={playerStatistic.statistics[0].team.logo}
-								alt={playerStatistic.statistics[0].team.name}
-								className="col-span-2 mx-auto h-6 w-6 rounded-full"
-							/>
+							<Link
+								to={`/teams/${playerStatistic.statistics[0].team.id}/`}
+								className="col-span-1"
+							>
+								<img
+									src={playerStatistic.statistics[0].team.logo}
+									alt={playerStatistic.statistics[0].team.name}
+									className="mx-auto w-full rounded-full"
+									loading="lazy"
+								/>
+							</Link>
 							<img
 								src={playerStatistic.player.photo}
 								alt={playerStatistic.player.name}
-								className="col-span-2 h-8 w-8 rounded-full"
+								className="col-span-1 w-full rounded-full"
+								loading="lazy"
 							/>
 							<div className="col-span-6 flex flex-col gap-1">
-								<p className="text-sm font-semibold">{playerStatistic.player.name}</p>
+								<Link
+									to={`/players/${playerStatistic.player.id}/`}
+									className="text-sm font-semibold"
+								>
+									{playerStatistic.player.name}
+								</Link>
 								<p>{playerStatistic.statistics[0].team.name}</p>
 							</div>
 							<p className="col-span-1">{objectKey}</p>

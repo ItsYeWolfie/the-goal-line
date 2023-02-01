@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import GetRankColor from '../../../../../lib/helpers/rank-color';
 import RankToString from '../../../../../lib/helpers/rank-string';
 import { ILeagueStanding } from '../../../../../types/League.types';
@@ -31,14 +32,18 @@ export default function LeagueOverviewStandings({ standings }: { standings: ILea
 						>
 							<TinyTableCell>{rankString}</TinyTableCell>
 							<TinyTableCell>
-								<div className="flex items-center gap-2">
+								<Link
+									to={`/teams/${standing.team.id}/`}
+									className="flex items-center gap-2"
+								>
 									<img
 										src={standing.team.logo}
 										alt={standing.team.name}
+										loading="lazy"
 										className="h-4 w-4 rounded-full object-cover"
 									/>
 									<span>{standing.team.name}</span>
-								</div>
+								</Link>
 							</TinyTableCell>
 							<TinyTableCell className="text-center">{standing.all.played}</TinyTableCell>
 							<TinyTableCell className="text-center">{standing.all.win}</TinyTableCell>

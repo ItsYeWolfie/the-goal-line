@@ -25,10 +25,6 @@ export default function LeagueMain({ league }: { league: ILeagueData }) {
 	useEffect(() => {
 		setBreadcrumbs([
 			{
-				name: 'Leagues',
-				href: `/leagues/`,
-			},
-			{
 				name: (
 					<div className="flex gap-2">
 						<img

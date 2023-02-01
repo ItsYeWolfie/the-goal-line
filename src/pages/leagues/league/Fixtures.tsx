@@ -9,7 +9,7 @@ import { IFixture } from '../../../types/Fixture.types';
 import { ILeagueFixturesSearchForm } from '../../../types/General.types';
 import { ITeamBasic } from '../../../types/Team.types';
 
-const splitCount = 13;
+const splitCount = 8;
 
 export default function LeagueFixturesPage() {
 	const [fixtures, setFixtures] = useState<IFixture[]>([]);

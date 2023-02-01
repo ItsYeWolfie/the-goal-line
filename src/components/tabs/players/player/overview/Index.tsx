@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { DataGroup } from './DataGroup';
 import PlayerOverviewBiography from './Biography';
 import { IPlayerWithStatistics } from '../../../../../types/Player.types';
@@ -23,11 +24,13 @@ export default function PlayerOverview({ playerData }: { playerData: IPlayerWith
 						</option>
 					))}
 				</select>
-				<img
-					src={playerData.statistics[activeStatistic].league.logo}
-					alt={playerData.statistics[activeStatistic].league.name}
-					className="h-72 md:h-[17rem]"
-				/>
+				<Link to={`/leagues/${playerData.statistics[activeStatistic].league.id}/`}>
+					<img
+						src={playerData.statistics[activeStatistic].league.logo}
+						alt={playerData.statistics[activeStatistic].league.name}
+						className="h-72 w-full md:h-[17rem]"
+					/>
+				</Link>
 			</div>
 			<DataGroup
 				object={playerData.statistics[activeStatistic].games}

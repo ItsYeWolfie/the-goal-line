@@ -1,20 +1,19 @@
 import { ILeagueData } from '../../../../../types/League.types';
+import LogoAndImage from '../../../../image/LogoAndImage';
 
 export default function LeaguOverviewHeader({ league }: { league: ILeagueData }) {
 	return (
 		<header className="flex flex-col gap-4">
-			<div className="flex items-center">
-				<img
-					src={league.country.flag}
-					alt={league.country.name}
-					className="mr-2 h-6 w-6 rounded-full object-cover"
-				/>
-				<h3 className="text-sm font-medium uppercase">{league.country.name}</h3>
-			</div>
+			<LogoAndImage
+				src={league.country.flag}
+				alt={league.country.name}
+				name={league.country.name}
+			/>
 			<div className="flex gap-1">
 				<img
 					src={league.league.logo}
 					alt={league.league.name}
+					loading="lazy"
 					className="mr-2 h-12 w-12 rounded-md bg-white object-cover"
 				/>
 

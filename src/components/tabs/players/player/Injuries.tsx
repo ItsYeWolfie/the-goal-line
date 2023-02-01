@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { IPlayerInjury } from '../../../../types/Player.types';
 import LogoAndImage from '../../../image/LogoAndImage';
 import TableHead from '../../../table/Head';
@@ -26,13 +27,16 @@ export default function PlayerInjuries({ injuries }: { injuries: IPlayerInjury[]
 						>
 							<SmallTableCell className="pl-3">
 								{new Date(injury.fixture.date).toLocaleDateString()}
-								<div className="ml-2 sm:hidden">
+								<Link
+									className="ml-2 sm:hidden"
+									to={`/teams/${injury.team.id}/`}
+								>
 									<LogoAndImage
 										src={injury.team.logo}
 										alt={injury.team.name}
 										name={injury.team.name}
 									/>
-								</div>
+								</Link>
 							</SmallTableCell>
 
 							<SmallTableCell className="hidden pl-3 sm:table-cell">{injury.player.type}</SmallTableCell>
@@ -41,11 +45,13 @@ export default function PlayerInjuries({ injuries }: { injuries: IPlayerInjury[]
 								<span className="ml-2 block text-gray-500 sm:hidden">{injury.player.type}</span>
 							</SmallTableCell>
 							<SmallTableCell className="hidden px-3 sm:table-cell">
-								<LogoAndImage
-									src={injury.team.logo}
-									alt={injury.team.name}
-									name={injury.team.name}
-								/>
+								<Link to={`/teams/${injury.team.id}/`}>
+									<LogoAndImage
+										src={injury.team.logo}
+										alt={injury.team.name}
+										name={injury.team.name}
+									/>
+								</Link>
 							</SmallTableCell>
 						</TableRow>
 					))}

@@ -12,15 +12,12 @@ export default function PlayerMain({ playerData }: { playerData: IPlayerModified
 	useEffect(() => {
 		setBreadcrumbs([
 			{
-				name: 'Players',
-				href: '/players',
-			},
-			{
 				name: (
 					<div className="flex items-center gap-2">
 						<img
 							src={playerData.player.photo}
 							alt={playerData.player.name}
+							loading="lazy"
 							className="h-6 w-6 rounded-full"
 						/>
 						<span>{playerData.player.name}</span>

@@ -10,7 +10,7 @@ export default function NotFound() {
 	return (
 		<main className="flex">
 			<div className="flex flex-1 flex-col">
-				<div className="sticky top-0 z-20 flex flex-col bg-sky-900 p-2 dark:bg-gray-900">
+				<div className="sticky top-0 z-20 flex flex-col bg-sky-900 p-2 md:p-0">
 					<MainBreadCrumb />
 				</div>
 				<main className="overflow-auto">

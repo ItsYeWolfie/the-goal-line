@@ -27,11 +27,11 @@ export const router = createBrowserRouter([
 				element: <ContactPage />,
 			},
 			{
-				path: '/leagues',
+				// path: '/leagues',
 				children: LeagueRoutes,
 			},
 			{
-				path: '/players',
+				// path: '/players',
 				children: PlayerRoutes,
 			},
 		],
