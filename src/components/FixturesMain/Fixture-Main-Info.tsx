@@ -15,7 +15,7 @@ export default function FixtureMainInfo({ match, hoverdMatchId }: FixturesMainIn
 		>
 			<div className="grid h-full w-full grid-cols-2">
 				<div className="h-full w-full">
-					<p className="my-[5%] ml-[5%] w-[90%] text-center text-[18px]  font-semibold">{match.teams.home.name}</p>
+					<p className="3xl:text-[25px] my-[5%] ml-[5%] w-[90%] text-center  font-semibold">{match.teams.home.name}</p>
 					<img
 						className="mx-auto h-[100px] w-[100px]"
 						src={match.teams.home.logo}

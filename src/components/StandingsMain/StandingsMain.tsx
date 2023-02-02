@@ -21,13 +21,13 @@ export default function StandingsMain() {
 	}, []);
 
 	return (
-		<section className="m-[3%]">
+		<section className="mx-[1%] overflow-hidden  md:mx-[8%]">
 			<StandingMainHeader />
 			<div className="flex  w-full cursor-all-scroll flex-col items-center rounded-[20px]  bg-gray-800">
-				<h1 className="mt-[5%] pt-[2%]  text-lg font-medium text-gray-200 lg:mt-0 xl:mt-[0%]">2020-21 Season</h1>
-				<div className="mt-6 flex h-[390px] w-full flex-col overflow-scroll">
+				<h1 className="my-[1%]   text-lg font-medium text-gray-200  2xl:text-[25px]">2020-21 Season</h1>
+				<div className="mt-1 flex h-[390px] w-full flex-col overflow-scroll">
 					<div className="">
-						<div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+						<div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-0 ">
 							<div className=" overflow-scroll shadow  sm:rounded-lg">
 								{loading ? (
 									<StandingsMainLoader />
@@ -48,12 +48,12 @@ export default function StandingsMain() {
 						</div>
 					</div>
 				</div>
-				<div className=" mt-[4%] mb-[3%] ml-[5%] flex  w-full  items-center justify-start gap-5">
-					<p className=" flex items-center gap-2 text-gray-200">
+				<div className=" my-[1%] ml-[5%] flex w-full  items-center  justify-start gap-5">
+					<p className=" flex items-center gap-2 text-gray-200 2xl:text-[25px]">
 						<FaCircle className=" text-blue-400  " />
 						Champions League
 					</p>
-					<p className=" flex items-center gap-2 text-gray-200">
+					<p className=" flex items-center gap-2 text-gray-200 2xl:text-[25px]">
 						<FaCircle className=" text-red-400 " />
 						Europa League
 					</p>

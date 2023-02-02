@@ -33,10 +33,10 @@ export default function Banner() {
 	const gameTimeInSeconds = Math.floor(gameTime % 60);
 	const gameTimeInMinutes = Math.floor(gameTime / 60);
 	return (
-		<section className="m-[3%] mt-0 pt-[5%] ">
+		<section className="mx-[1%] overflow-hidden  pt-[5%] md:mx-[8%] ">
 			<div className="2xl:w-full">
 				<div
-					className=" banner flex h-[500px] flex-col justify-center space-y-4 shadow-lg sm:h-[650px] md:h-[270px] md:flex-row md:space-y-0 md:space-x-6 lg:h-[370px] lg:space-x-8 2xl:h-[420px]"
+					className=" banner flex h-[500px] flex-col justify-center space-y-4 shadow-lg sm:h-[650px] md:h-[240px] md:flex-row md:space-y-0 md:space-x-6 lg:h-[340px] lg:space-x-8 2xl:h-[420px]"
 					id="banner"
 				>
 					<div className=" relative flex h-full  w-full flex-col justify-between rounded-[20px]   bg-gray-50 shadow-lg shadow-slate-600 dark:bg-gray-900  md:w-8/12 md:flex-row  lg:w-7/12  xl:w-8/12  2xl:w-9/12">

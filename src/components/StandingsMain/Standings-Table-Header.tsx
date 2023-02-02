@@ -10,55 +10,55 @@ export default function StadingsTableHeader() {
 					Club
 				</th>
 				<th
-					className="px-6 py-3 text-left tracking-wider"
+					className="px-6 py-3 text-left tracking-wider 2xl:text-[20px]"
 					scope="col"
 				>
 					MP
 				</th>
 				<th
-					className="px-6 py-3 text-left tracking-wider"
+					className="px-6 py-3 text-left tracking-wider 2xl:text-[20px]"
 					scope="col"
 				>
 					W
 				</th>
 				<th
-					className="px-6 py-3 text-left tracking-wider"
+					className="px-6 py-3 text-left tracking-wider 2xl:text-[20px]"
 					scope="col"
 				>
 					D
 				</th>
 				<th
-					className="px-6 py-3 text-left tracking-wider"
+					className="px-6 py-3 text-left tracking-wider 2xl:text-[20px]"
 					scope="col"
 				>
 					L
 				</th>
 				<th
-					className="px-6 py-3 text-left tracking-wider"
+					className="px-6 py-3 text-left tracking-wider 2xl:text-[20px]"
 					scope="col"
 				>
 					GF
 				</th>
 				<th
-					className="px-6 py-3 text-left tracking-wider"
+					className="px-6 py-3 text-left tracking-wider 2xl:text-[20px]"
 					scope="col"
 				>
 					GA
 				</th>
 				<th
-					className="px-6 py-3 text-left tracking-wider"
+					className="px-6 py-3 text-left tracking-wider 2xl:text-[20px]"
 					scope="col"
 				>
 					GD
 				</th>
 				<th
-					className="px-6 py-3 text-left tracking-wider"
+					className="px-6 py-3 text-left tracking-wider 2xl:text-[20px]"
 					scope="col"
 				>
 					Pts
 				</th>
 				<th
-					className="px-6 py-3 text-left tracking-wider"
+					className="px-6 py-3 text-left tracking-wider 2xl:text-[20px]"
 					scope="col"
 				>
 					Last 5

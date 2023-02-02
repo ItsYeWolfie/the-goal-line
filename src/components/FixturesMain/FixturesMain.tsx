@@ -37,13 +37,13 @@ export default function FixturesMain() {
 	}, [currentUrl]);
 
 	return (
-		<section className="m-[3%]">
+		<section className="mx-[1%] overflow-hidden  md:mx-[8%]">
 			<div className="w-full rounded-t-[40px]">
 				<FixtureHeader
 					activeButton={activeButton}
 					handleButtonClick={handleButtonClick}
 				/>
-				<div className="no-scrollbar mx-auto mt-[10px] h-[600px] w-[95%] cursor-pointer">
+				<div className="no-scrollbar mx-auto mt-[10px] h-[600px] w-[100%] cursor-pointer overflow-x-scroll">
 					{loading ? (
 						<div>
 							<FixtureLoader />

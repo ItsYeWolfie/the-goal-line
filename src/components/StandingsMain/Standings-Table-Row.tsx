@@ -14,30 +14,32 @@ export default function StandingsTableRow({ item }: Props) {
 				item.rank > 6 ? 'bg-slate-900' : item.rank <= 4 ? 'bg-blue-900' : 'bg-red-900'
 			} border-b-[2px] border-gray-400 bg-opacity-[0.7]`}
 		>
-			<td className="pl-4">{item.rank}</td>
-			<td className="flex whitespace-nowrap px-6 py-4">
+			<td className="pl-4 2xl:text-[25px]">{item.rank}</td>
+			<td className="flex items-center whitespace-nowrap px-6 py-4 2xl:text-[25px]">
 				<img
-					className="h-5 w-5"
+					className="h-5 w-5 2xl:h-8 2xl:w-8 "
 					src={item.team.logo}
 					alt=""
 				/>
-				<span className="ml-2 font-medium">{item.team.name}</span>
+				<span className="ml-2 font-medium 2xl:text-[25px]">{item.team.name}</span>
 			</td>
-			<td className="whitespace-nowrap px-6 py-4">{item.all.played}</td>
-			<td className="whitespace-nowrap px-6 py-4">{item.all.win}</td>
-			<td className="whitespace-nowrap px-6 py-4">{item.all.draw}</td>
-			<td className="whitespace-nowrap px-6 py-4">{item.all.lose}</td>
-			<td className="whitespace-nowrap px-6 py-4">{item.home.goals.for + item.away.goals.for}</td>
-			<td className="whitespace-nowrap px-6 py-4">{item.home.goals.against + item.away.goals.against}</td>
-			<td className="whitespace-nowrap px-6 py-4">{item.goalsDiff}</td>
-			<td className="whitespace-nowrap px-6 py-4">{item.points}</td>
-			<td className="flex whitespace-nowrap px-6 py-4">
+			<td className="whitespace-nowrap px-6 py-4 2xl:text-[25px]">{item.all.played}</td>
+			<td className="whitespace-nowrap px-6 py-4 2xl:text-[25px]">{item.all.win}</td>
+			<td className="whitespace-nowrap px-6 py-4 2xl:text-[25px]">{item.all.draw}</td>
+			<td className="whitespace-nowrap px-6 py-4 2xl:text-[25px]">{item.all.lose}</td>
+			<td className="whitespace-nowrap px-6 py-4 2xl:text-[25px]">{item.home.goals.for + item.away.goals.for}</td>
+			<td className="whitespace-nowrap px-6 py-4 2xl:text-[25px]">
+				{item.home.goals.against + item.away.goals.against}
+			</td>
+			<td className="whitespace-nowrap px-6 py-4 2xl:text-[25px]">{item.goalsDiff}</td>
+			<td className="whitespace-nowrap px-6 py-4 2xl:text-[25px]">{item.points}</td>
+			<td className="flex whitespace-nowrap px-6 py-4 2xl:text-[25px]">
 				{item.form.split('').map((char, index) => {
 					if (char === 'W') {
 						return (
 							<svg
 								key={index}
-								className="w-4 fill-current text-green-600"
+								className="w-4 fill-current text-green-600 2xl:w-6"
 								xmlns="http://www.w3.org/2000/svg"
 								viewBox="0 0 20 20"
 								fill="currentColor"
@@ -54,7 +56,7 @@ export default function StandingsTableRow({ item }: Props) {
 						return (
 							<svg
 								key={index}
-								className="w-4 fill-current text-gray-400"
+								className="w-4 fill-current text-gray-400 2xl:w-6"
 								xmlns="http://www.w3.org/2000/svg"
 								viewBox="0 0 20 20"
 								fill="currentColor"
@@ -71,7 +73,7 @@ export default function StandingsTableRow({ item }: Props) {
 						return (
 							<svg
 								key={index}
-								className="w-4 fill-current text-red-500"
+								className="w-4 fill-current text-red-500 2xl:w-6"
 								xmlns="http://www.w3.org/2000/svg"
 								viewBox="0 0 20 20"
 								fill="currentColor"
@@ -86,7 +88,7 @@ export default function StandingsTableRow({ item }: Props) {
 					}
 				})}
 				<svg
-					className="w-4 fill-current text-red-500"
+					className="w-4 fill-current text-red-500 2xl:w-6"
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 20 20"
 					fill="currentColor"

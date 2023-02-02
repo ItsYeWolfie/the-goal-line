@@ -58,7 +58,7 @@ export default function NewsSlider() {
 	};
 
 	return (
-		<section className="m-[3%] mt-[6%]">
+		<section className="mx-[1%] overflow-hidden  md:mx-[8%]">
 			<div className="grid h-[350px] w-full  gap-[4%] text-gray-200 sm:h-[380px] md:h-[450px] lg:h-[500px] xl:h-[550px] 2xl:h-[600px]  ">
 				<div className="relative  h-[100%] w-full items-center border-b-4 border-gray-400 ">
 					<div className="md:[w-60%] absolute bottom-[-4px] left-[0%]  flex h-[50%] w-[80%] items-start gap-[5%] text-[0.8rem] text-gray-200 md:text-[1rem] xl:text-[1.1rem] ">
