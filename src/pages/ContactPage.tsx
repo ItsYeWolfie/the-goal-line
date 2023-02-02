@@ -1,13 +1,31 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import { FiPhone } from 'react-icons/fi';
 import { BsEnvelope } from 'react-icons/bs';
 import { AiOutlineGithub } from 'react-icons/ai';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import { GlobalHeaderContext, IGlobalHeader } from '../contexts/GlobalHeader.context';
 
+const SERVICE_ID = 'service_ecqoese';
+const TEMPLATE_ID = 'template_fclt1ap';
+const PUBLIC_KEY = 'R4csS9dWqyi7fuu-y';
+
 export default function ContactPage() {
+	const formRef = useRef<HTMLFormElement>(null);
 	const { setBreadcrumbs } = useContext<IGlobalHeader>(GlobalHeaderContext);
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
+		if (SERVICE_ID && TEMPLATE_ID && PUBLIC_KEY && formRef.current) {
+			emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY).then(
+				(result) => {
+					console.log(result.text);
+					formRef.current?.reset();
+				},
+				(error) => {
+					console.log(error.text);
+				},
+			);
+		}
 		const form = event.currentTarget;
 		if (form.checkValidity() === false) {
 			event.stopPropagation();
@@ -177,6 +195,7 @@ export default function ContactPage() {
 					<div className="py-10 px-6 dark:bg-gray-900 sm:px-10 lg:col-span-2 xl:p-12">
 						<h3 className="text-lg font-medium text-gray-900 dark:text-gray-100">Send us a message</h3>
 						<form
+							ref={formRef}
 							onSubmit={handleSubmit}
 							className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
 						>
@@ -188,7 +207,7 @@ export default function ContactPage() {
 									First name
 									<input
 										type="text"
-										name="first-name"
+										name="from_name"
 										id="first-name"
 										autoComplete="given-name"
 										className="mt-1 block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:border-gray-900 dark:bg-gray-700"
@@ -203,7 +222,7 @@ export default function ContactPage() {
 									Last name
 									<input
 										type="text"
-										name="last-name"
+										name="to_name"
 										id="last-name"
 										autoComplete="family-name"
 										className="mt-1 block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:border-gray-900 dark:bg-gray-700"
@@ -256,7 +275,7 @@ export default function ContactPage() {
 									Subject
 									<input
 										type="text"
-										name="subject"
+										name="form_subject"
 										id="subject"
 										className="mt-1 block w-full rounded-md border-gray-300 py-3 px-4 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:border-gray-900 dark:bg-gray-700"
 									/>
