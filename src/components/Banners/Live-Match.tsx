@@ -5,7 +5,7 @@ interface LiveMatchProps {
 
 export default function LiveMatch({ gameTimeInSeconds, gameTimeInMinutes }: LiveMatchProps) {
 	return (
-		<div className="relative ml-[20%] flex h-full w-[60%] flex-col justify-center overflow-hidden  rounded-[20px] bg-gray-50 px-4   shadow-lg shadow-slate-600 dark:bg-gray-800 sm:ml-[20%] sm:w-3/5 sm:align-middle md:w-4/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12">
+		<div className="relative ml-[20%] flex h-full w-[60%] flex-col justify-center overflow-hidden  rounded-[20px] bg-gray-200 px-4    dark:bg-gray-800 sm:ml-[20%] sm:w-3/5 sm:align-middle md:w-4/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12">
 			<div className="flex h-full flex-col justify-center">
 				<div className="relative col-span-1 h-[100%] w-[100%] rounded-[20px] bg-gray-800">
 					<h3 className="pt-[5%] text-center font-[450] text-gray-200 lg:text-xl xl:text-[1.3rem] 2xl:text-[1.5rem]">

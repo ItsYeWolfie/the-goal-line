@@ -1,7 +1,12 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
-// import emailjs from 'emailjs-com';
+import emailjs from 'emailjs-com';
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
+
+const SERVICE_ID = 'service_ecqoese';
+const TEMPLATE_ID = 'template_fclt1ap';
+const PUBLIC_KEY = 'R4csS9dWqyi7fuu-y';
 
 export default function Footer() {
 	const form = useRef<HTMLFormElement>(null);
@@ -9,24 +14,24 @@ export default function Footer() {
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 
-		// if (SERVICE_ID && TEMPLATE_ID && PUBLIC_KEY && form.current) {
-		// 	emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY).then(
-		// 		(result) => {
-		// 			console.log(result.text);
-		// 			form.current?.reset();
-		// 		},
-		// 		(error) => {
-		// 			console.log(error.text);
-		// 		},
-		// 	);
-		// } else {
-		// 	console.error('One or more of the required environment variables is missing.');
-		// }
+		if (SERVICE_ID && TEMPLATE_ID && PUBLIC_KEY && form.current) {
+			emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY).then(
+				(result) => {
+					console.log(result.text);
+					form.current?.reset();
+				},
+				(error) => {
+					console.log(error.text);
+				},
+			);
+		} else {
+			console.error('One or more of the required environment variables is missing.');
+		}
 	};
 
 	return (
 		<footer
-			aria-label="Site Footer"
+			aria-label="Site Footer md:mx-[5%] 2xl:container"
 			className="bg-gray-900"
 		>
 			<div className="mx-auto max-w-screen-xl px-4 pt-16 pb-8 sm:px-6 lg:px-8">
@@ -86,19 +91,19 @@ export default function Footer() {
 									className="text-gray-100 transition hover:text-gray-700/75"
 									href="/"
 								>
-									Marketing
+									Tailwind
 								</a>
 								<a
 									className="text-gray-100 transition hover:text-gray-700/75"
 									href="/"
 								>
-									Graphic Design
+									React
 								</a>
 								<a
 									className="text-gray-100 transition hover:text-gray-700/75"
 									href="/"
 								>
-									App Development
+									TypeScript
 								</a>
 								<a
 									className="text-gray-100 transition hover:text-gray-700/75"
@@ -161,7 +166,7 @@ export default function Footer() {
 									className="text-gray-100 transition hover:text-gray-700/75"
 									href="/"
 								>
-									Contact
+									<Link to="/contact-us">Contact</Link>
 								</a>
 
 								<a

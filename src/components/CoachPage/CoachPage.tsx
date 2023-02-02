@@ -27,8 +27,8 @@ export default function CoachPage() {
 	const Coach = coaches.find((coach) => coach.lastname === name);
 
 	return (
-		<div className="bg-gray-900 py-[6%]">
-			<div className="mx-auto h-auto w-full rounded-[20px] bg-white text-black  md:w-[85%]">
+		<div className="bg-gray-100 py-[6%] dark:bg-gray-900">
+			<div className="mx-auto h-auto w-full rounded-[20px] bg-gray-400 text-black dark:bg-gray-400 dark:text-white  md:w-[85%]">
 				{!Coach || loading ? (
 					<MagnifyingGlass
 						visible
@@ -59,7 +59,7 @@ export default function CoachPage() {
 										alt=""
 										className=" md:[10%] mx-auto mt-[15%] w-[50%] rounded-full  bg-gradient-to-r  from-red-400 to-slate-900 p-[2%]  md:w-1/2"
 									/>
-									<div className="mx-auto my-[4%] w-1/2 bg-gradient-to-r  from-red-400 to-slate-900 bg-clip-text text-center text-[22px] font-extrabold text-transparent">
+									<div className="mx-auto my-[4%] w-1/2 bg-gradient-to-r  from-red-400 to-slate-900 bg-clip-text text-center text-[22px] font-extrabold text-transparent dark:bg-gradient-to-r ">
 										Age: {Coach.age}
 									</div>
 								</div>
@@ -74,7 +74,7 @@ export default function CoachPage() {
 								<h1 className="my-[7%] text-center text-[28px] font-semibold">
 									{Coach.firstname} {Coach.lastname}
 								</h1>
-								<h1 className="p-2 pl-[2%] text-[16px] text-gray-700">
+								<h1 className="p-2 pl-[2%] text-[16px] text-black dark:text-gray-700">
 									Born in {Coach.birth.place} on <b>{moment(Coach.birth.date).format('MMM.DD.YYYY')}</b>,{' '}
 									{Coach.firstname} {Coach.lastname} became first team manager in{' '}
 									{

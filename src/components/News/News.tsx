@@ -59,7 +59,7 @@ export default function NewsPage() {
 
 	return (
 		<div className="bg-slate-900">
-			<section className="m-[3%] mt-0 pt-[6%]">
+			<section className="m-[3%] mt-0 pt-[6%] ">
 				{loading ? (
 					<Bars
 						height="80"

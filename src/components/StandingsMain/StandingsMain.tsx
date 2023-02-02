@@ -21,7 +21,7 @@ export default function StandingsMain() {
 	}, []);
 
 	return (
-		<section className="mx-[1%] overflow-hidden  md:mx-[8%]">
+		<section className="mx-[1%] overflow-hidden md:mx-[5%]   2xl:container 2xl:mx-auto">
 			<StandingMainHeader />
 			<div className="flex  w-full cursor-all-scroll flex-col items-center rounded-[20px]  bg-gray-800">
 				<h1 className="my-[1%]   text-lg font-medium text-gray-200  2xl:text-[25px]">2020-21 Season</h1>

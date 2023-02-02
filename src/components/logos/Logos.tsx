@@ -42,7 +42,7 @@ export default function LogosSlider() {
 	}
 
 	return (
-		<section className="mx-[1%] overflow-hidden  md:mx-[8%]">
+		<section className="mx-[1%] overflow-hidden  md:mx-[5%] 2xl:container 2xl:mx-auto">
 			<div className=" grid h-[100px] w-full grid-rows-6 gap-0 text-gray-200 sm:h-[150px] md:h-[150px] lg:h-[180px] xl:h-[180px] 2xl:h-[220px]">
 				<div className="relative row-span-1 h-[100%] w-full items-center">
 					<RiChatFollowUpFill className=" absolute top-[10%] left-[0%] text-yellow-400 lg:top-[10%] lg:text-2xl" />

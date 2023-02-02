@@ -37,13 +37,13 @@ export default function FixturesMain() {
 	}, [currentUrl]);
 
 	return (
-		<section className="mx-[1%] overflow-hidden  md:mx-[8%]">
+		<section className="mx-[1%]  md:mx-[5%]   2xl:container 2xl:mx-auto">
 			<div className="w-full rounded-t-[40px]">
 				<FixtureHeader
 					activeButton={activeButton}
 					handleButtonClick={handleButtonClick}
 				/>
-				<div className="no-scrollbar mx-auto mt-[10px] h-[600px] w-[100%] cursor-pointer overflow-x-scroll">
+				<div className="no-scrollbar mx-auto mt-[10px] h-[610px] w-[100%] cursor-pointer ">
 					{loading ? (
 						<div>
 							<FixtureLoader />
@@ -67,13 +67,13 @@ export default function FixturesMain() {
 											src={match.teams.home.logo}
 											alt=""
 										/>
-										<p className="absolute left-[15%] w-[25%] text-[15px] text-gray-200 sm:left-[12%] sm:text-[17px] md:left-[15%] md:text-[17px] lg:left-[15%] xl:left-[10%] xl:text-[17px]">
+										<p className="absolute left-[15%] w-[25%] text-[15px] text-gray-200 sm:left-[12%] sm:text-[17px] md:left-[15%] md:text-[17px] lg:left-[15%] xl:left-[10%] xl:text-[17px] 2xl:text-[22px]">
 											{match.teams.home.name}
 										</p>
-										<p className="absolute left-[42.5%] w-[15%] rounded-[20px] bg-slate-500 py-[5px] px-[10px] text-center text-lime-400 sm:text-[18px]">
+										<p className="absolute left-[42.5%] w-[15%] rounded-[20px] bg-slate-500 py-[5px] px-[10px] text-center text-lime-400 sm:text-[18px] 2xl:text-[23px]">
 											{match.goals.home}:{match.goals.away}
 										</p>
-										<p className=" absolute right-[13%] w-[25%] text-[15px] text-gray-200 sm:right-[10%] sm:text-[17px] md:right-[15%] md:text-[17px] lg:right-[10%] xl:right-[10%] xl:text-[17px]">
+										<p className=" absolute right-[13%] w-[25%] text-[15px] text-gray-200 sm:right-[10%] sm:text-[17px] md:right-[15%] md:text-[17px] lg:right-[10%] xl:right-[10%] xl:text-[17px] 2xl:text-[22px]">
 											{match.teams.away.name}
 										</p>
 										<img
@@ -89,16 +89,16 @@ export default function FixturesMain() {
 										<p
 											className={`${
 												match.fixture.status.short === 'FT' ? 'bg-red-200 text-red-500' : 'bg-lime-400 text-slate-800'
-											} ml-[10%] flex w-[20%] items-center justify-center rounded-[10px]  bg-red-200 px-[10px] py-[5px] text-red-500`}
+											} ml-[10%] flex w-[20%] items-center justify-center rounded-[10px] bg-red-200  px-[10px] py-[5px] text-red-500 2xl:text-[22px]`}
 										>
 											{match.fixture.status.short}
 										</p>
-										<p className="ml-[20%] w-[20%] text-yellow-400">
+										<p className="ml-[20%] w-[20%] text-yellow-400 2xl:text-[22px]">
 											Time: {moment(match.fixture.date).format('HH:MM')}
 										</p>
 										<p className="absolute right-[5%]">
 											<FaInfoCircle
-												className="text-[25px] text-yellow-400"
+												className="text-[25px] text-yellow-400 2xl:text-[30px]"
 												onMouseEnter={() => setHoveredMatchId(match.fixture.id)}
 												onMouseLeave={() => setHoveredMatchId(null)}
 											/>

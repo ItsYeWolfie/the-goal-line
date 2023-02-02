@@ -21,7 +21,7 @@ export default function SearchModal({
 		<div
 			className={`absolute top-[10%] z-10 ${
 				hidden ? 'hidden' : ''
-			} h-[600px] w-full rounded-[20px] border-[1px] bg-gray-900  bg-opacity-[1] sm:left-[10%] sm:h-[700px] sm:w-[80%] md:left-[20%] md:h-[500px] md:w-[60%] 2xl:h-[580px]`}
+			} h-[600px] w-full rounded-[20px] border-[1px] bg-gray-900  bg-opacity-[1] sm:left-[10%] sm:h-[700px] sm:w-[80%] md:left-[20%] md:h-[500px] md:w-[60%] 2xl:left-[30%] 2xl:mx-auto 2xl:h-[800px] 2xl:w-[40%]`}
 		>
 			<div className="relative mb-[2%] ml-[3%] mt-[1%] flex h-[7%]  items-center text-[22px]  font-semibold text-gray-100">
 				Search

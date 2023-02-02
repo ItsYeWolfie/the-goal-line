@@ -1,5 +1,6 @@
 import { BsChevronRight } from 'react-icons/Bs';
 import { GiTrophy } from 'react-icons/gi';
+import { Link } from 'react-router-dom';
 
 export default function StandingMainHeader() {
 	return (
@@ -9,8 +10,9 @@ export default function StandingMainHeader() {
 					<GiTrophy className=" mr-[1%]  mt-[2%] rounded-full text-[20px] text-yellow-500 md:mt-[0.5%] 2xl:text-[30px] " />
 					Standings
 				</p>
+
 				<p className="  flex w-1/3 justify-end gap-[2%] text-right text-[20px] text-gray-200 md:ml-[1%] 2xl:text-[25px] ">
-					View All <BsChevronRight className="mt-[3%] md:mt-[1%]" />
+					<Link to="/leagues/">View All</Link> <BsChevronRight className="mt-[3%] md:mt-[1%]" />
 				</p>
 			</div>
 			<div className="my-[1%] flex">

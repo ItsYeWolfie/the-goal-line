@@ -1,6 +1,7 @@
 /* eslint-disable consistent-return */
 /* eslint-disable array-callback-return */
 /* eslint-disable no-nested-ternary */
+import { Link } from 'react-router-dom';
 import { TeamStatistics } from '../../../types/Standings-Main.types';
 
 interface Props {
@@ -21,7 +22,10 @@ export default function StandingsTableRow({ item }: Props) {
 					src={item.team.logo}
 					alt=""
 				/>
-				<span className="ml-2 font-medium 2xl:text-[25px]">{item.team.name}</span>
+				<span className="ml-2 font-medium 2xl:text-[25px]">
+					{' '}
+					<Link to={`/teams/${item.team.id}`}>{item.team.name}</Link>
+				</span>
 			</td>
 			<td className="whitespace-nowrap px-6 py-4 2xl:text-[25px]">{item.all.played}</td>
 			<td className="whitespace-nowrap px-6 py-4 2xl:text-[25px]">{item.all.win}</td>
