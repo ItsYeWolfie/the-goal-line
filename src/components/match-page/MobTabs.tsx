@@ -1,21 +1,12 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable react/jsx-props-no-spreading */
-// @ts-nocheck
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable react/prop-types */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState } from 'react';
 import FixtureInfo from './MatchInfo';
-import LineUps from './Lineups';
 import H2h from './H2H';
 import Standings from './Standings';
 import Odds from './Odds';
 import Formation from './Formation';
 import Statistics from './Statistics';
 import MatchTabs from './LineupTabs';
-// @ts-ignore
+
 function Tab({ name, Component }) {
 	return <div>{Component}</div>;
 }
@@ -34,7 +25,7 @@ function Tabs() {
 					<H2h />
 					<img
 						className="mx-auto hidden w-4/5 md:block"
-						src="src/images/gjirafa.png"
+						src="/images/gjirafa.png"
 						alt=""
 					/>
 				</div>
@@ -66,7 +57,9 @@ function Tabs() {
 		<div className="lg:hidden">
 			<div className="my-4 flex w-full justify-around rounded-t-md border-b-2 border-gray-200 border-opacity-30 bg-gray-800 p-2 md:mx-auto md:w-4/5">
 				{tabs.map((tab) => (
-					<div
+					<button
+						type="button"
+						key={tab.name}
 						className={`${
 							tab.name === activeTab ? 'border-b-2 border-sky-600 text-sm text-sky-600 md:text-base' : ''
 						}my-auto flex cursor-pointer flex-col items-center text-xs hover:text-sky-600
@@ -74,10 +67,18 @@ function Tabs() {
 						onClick={() => handleTabClick(tab.name)}
 					>
 						<p>{tab.name}</p>
-					</div>
+					</button>
 				))}
 			</div>
-			{tabs.map((tab) => tab.name === activeTab && <Tab {...tab} />)}
+			{tabs.map(
+				(tab) =>
+					tab.name === activeTab && (
+						<Tab
+							key={tab.name}
+							{...tab}
+						/>
+					),
+			)}
 		</div>
 	);
 }

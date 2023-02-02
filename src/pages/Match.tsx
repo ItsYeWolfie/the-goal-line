@@ -14,7 +14,7 @@ export default function MatchPage() {
 			<div className="-mb-2 flex h-12 w-full justify-center md:mt-3 md:h-auto lg:hidden">
 				<span className="my-auto">
 					<img
-						src="src/images/logo-no-background.svg"
+						src="/images/logo-no-background.svg"
 						width="170px"
 						alt=""
 					/>
@@ -58,7 +58,7 @@ export default function MatchPage() {
 						<div className="rounded-md bg-gray-800">
 							<img
 								className="mt-4 ml-10 hidden overflow-hidden lg:flex"
-								src="src/images/gjirafa501.png"
+								src="/images/gjirafa501.png"
 								width="300px"
 								alt=""
 							/>

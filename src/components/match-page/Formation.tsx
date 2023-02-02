@@ -1,10 +1,9 @@
-/* eslint-disable tailwindcss/no-custom-classname */
-/* eslint-disable tailwindcss/enforces-negative-arbitrary-values */
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import FormationLoader from '../../loaders/match-page/FormationLoader';
+import { IFormation } from '../../types/Formation.types';
 
 function Formation() {
-	const [formation, setFormation] = useState([]);
+	const [formation, setFormation] = useState<IFormation[]>([] as IFormation[]);
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
@@ -13,10 +12,8 @@ function Formation() {
 			const data = await response.json();
 			setFormation(data);
 			setLoading(false);
-			// console.log(data);
 		};
 		fetchData();
-		// console.log(data);
 	}, []);
 
 	if (loading) {
@@ -46,21 +43,21 @@ function Formation() {
 			</span>
 			<div className="mx-auto flex h-[16rem] w-[23.9rem] bg-green-900 md:mx-0 lg:mx-0">
 				<div className="absolute h-64 w-48 border-2 border-solid border-white">
-					<div className="absolute -ml-0.5 -mt-[0.10rem] h-3 w-3 rounded-br-full border-2 border-solid border-white" />
+					<div className="absolute -ml-0.5 mt-[-0.10rem] h-3 w-3 rounded-br-full border-2 border-solid border-white" />
 					<div
-						className="-pl-1 absolute top-8 z-50 -ml-8 grid h-48 w-64
+						className="absolute top-8 z-50 -ml-8 grid h-48 w-64
 						-rotate-90 auto-rows-auto grid-cols-4 place-items-center justify-around pr-4"
 					>
 						{formation[0].startXI.map((player) => {
 							const grid = player.player.grid.split(':');
-							const row = parseInt(grid[0]);
-							const col = parseInt(grid[1]);
-							// console.log(row, col);
+							const row = parseInt(grid[0], 10);
+							const col = parseInt(grid[1], 10);
 							return (
 								<span
 									className={`row-start-${row} col-start-${
 										col * 3
 									} relative h-7 w-7 rounded-full bg-lime-700 text-center`}
+									key={player.player.id}
 								>
 									{player.player.pos}
 								</span>
@@ -82,11 +79,13 @@ function Formation() {
 					>
 						{formation[1].startXI.map((player) => {
 							const grid = player.player.grid.split(':');
-							const row = parseInt(grid[0]);
-							const col = parseInt(grid[1]);
-							// console.log(row, col);
+							const row = parseInt(grid[0], 10);
+							const col = parseInt(grid[1], 10);
 							return (
-								<span className={`row-start-${row} col-start-${col * 3} h-7 w-7 rounded-full bg-sky-600 text-center`}>
+								<span
+									className={`row-start-${row} col-start-${col * 3} h-7 w-7 rounded-full bg-sky-600 text-center`}
+									key={player.player.id}
+								>
 									{player.player.pos}
 								</span>
 							);

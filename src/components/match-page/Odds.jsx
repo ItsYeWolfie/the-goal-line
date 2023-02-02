@@ -14,7 +14,6 @@ function Odds() {
 			setLoading(false);
 		};
 		fetchData();
-		// console.log(data);
 	}, []);
 
 	if (loading) {

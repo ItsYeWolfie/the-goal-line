@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import StandingsLoader from '../../loaders/match-page/StandingsLoader';
+import { ILeagueWithStanding } from '../../types/League.types';
 
 function Standings() {
-	const [standings, setStandings] = useState([]);
+	const [standings, setStandings] = useState<ILeagueWithStanding>({} as ILeagueWithStanding);
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
@@ -13,7 +14,6 @@ function Standings() {
 			setLoading(false);
 		};
 		fetchData();
-		// console.log(data);
 	}, []);
 
 	if (loading) {
@@ -39,7 +39,10 @@ function Standings() {
 				</thead>
 				<tbody className="table-row-group">
 					{standings.standings.flat().map((standing) => (
-						<tr className="relative h-8 rounded-md border-b-[0.2px] border-solid border-gray-400 border-opacity-30">
+						<tr
+							className="relative h-8 rounded-md border-b-[0.2px] border-solid border-gray-400 border-opacity-30"
+							key={standing.team.id}
+						>
 							<td className="relative items-center pl-1 text-center text-sm">
 								{standings.standings.flat().slice(0, 4).includes(standing) ? (
 									<span className="absolute top-7 -ml-2 w-7 rounded-t-md border-b-4 border-blue-500" />

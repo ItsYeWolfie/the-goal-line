@@ -10,7 +10,7 @@ import { useState } from 'react';
 import Injuries from './Injuries';
 import Substitutes from './Substitutes';
 import LineUps from './Lineups';
-// @ts-ignore
+
 function Tab({ name, Component }) {
 	return <div>{Component}</div>;
 }
@@ -41,6 +41,7 @@ function LineupTabs() {
 			<div className="mt-4 flex w-full justify-between md:mx-auto md:w-4/5 lg:w-full">
 				{tabs.map((tab) => (
 					<div
+						key={tab.name}
 						className={`${
 							tab.name === activeTab ? 'border-b-[0.5px] border-sky-700 text-[0.78rem] text-sky-600' : ''
 						}my-auto flex cursor-pointer flex-col items-center text-xs hover:text-sky-600`}
@@ -50,7 +51,15 @@ function LineupTabs() {
 					</div>
 				))}
 			</div>
-			{tabs.map((tab) => tab.name === activeTab && <Tab {...tab} />)}
+			{tabs.map(
+				(tab) =>
+					tab.name === activeTab && (
+						<Tab
+							key={tab.name}
+							{...tab}
+						/>
+					),
+			)}
 		</div>
 	);
 }

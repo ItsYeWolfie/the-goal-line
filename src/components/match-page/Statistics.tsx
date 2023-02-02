@@ -13,7 +13,6 @@ function Statistics() {
 			setLoading(false);
 		};
 		fetchData();
-		// console.log(data);
 	}, []);
 
 	if (loading) {
@@ -37,7 +36,10 @@ function Statistics() {
 				const proportion2 = (value2 / maxValue) * 100;
 
 				return (
-					<div className="flex flex-col gap-1">
+					<div
+						className="flex flex-col gap-1"
+						key={index}
+					>
 						<span className="flex justify-between">
 							<span className="shrink-0 grow-0">{statistics.statistics[0].statistics[index].value || 0}</span>
 							<div className="block text-center">{statistic.type}</div>

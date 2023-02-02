@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { FaCalendarAlt, FaRing } from 'react-icons/fa';
 import MatchInfoLoader from '../../loaders/match-page/MatchInfoLoader';
 
@@ -38,7 +38,7 @@ function FixtureInfo() {
 			<p className="flex items-center text-xs md:text-base">
 				<img
 					className="pr-1"
-					src="src/images/icons8-whistle.svg"
+					src="/images/icons8-whistle.svg"
 					width="25px"
 					alt=""
 				/>

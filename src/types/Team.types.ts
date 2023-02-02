@@ -16,6 +16,10 @@ export interface ITeam extends ITeamBasic {
 	national: boolean;
 }
 
+export interface ITeamBasicWithColors extends ITeamBasic {
+	colors: null | string;
+}
+
 export interface ITeamBasic {
 	id: number;
 	logo: string;

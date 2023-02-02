@@ -1,19 +1,14 @@
-/* eslint-disable @typescript-eslint/no-shadow */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-// @ts-ignore
-// @ts-ignore
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { FaChevronLeft, FaSearch } from 'react-icons/fa';
+import { ICountry } from '../../types/Country.types';
+import { ILeagueAndCountry } from '../../types/General.types';
 
 function Countries() {
-	const [countries, setCountries] = useState([]);
+	const [countries, setCountries] = useState<ICountry[]>([] as ICountry[]);
 	const [loading, setLoading] = useState(true);
 	const [searchTerm, setSearchTerm] = useState('');
-	const [leagues, setLeagues] = useState([]);
-	const [groupedLeagues, setGroupedLeagues] = useState([]);
-	const [selectedCountry, setSelectedCountry] = useState(null);
-	const [showList, setShowList] = useState(true);
-	const [showLeagues, setShowLeagues] = useState(true);
+	const [groupedLeagues, setGroupedLeagues] = useState<ILeagueAndCountry[][]>([] as ILeagueAndCountry[][]);
+	const [selectedCountry, setSelectedCountry] = useState<ICountry>({} as ICountry);
 	useEffect(() => {
 		const fetchData = async () => {
 			const response = await fetch('https://api.npoint.io/c1b77191c0cc9d3ae051');
@@ -22,25 +17,18 @@ function Countries() {
 			setLoading(false);
 
 			const res = await fetch('https://api.npoint.io/484684e50cfa51dfed36');
-			const dataC = await res.json();
-			setLeagues(dataC);
+			const dataC: ILeagueAndCountry[] = await res.json();
 
-			const groupedLeagues = {};
-			// @ts-ignore
+			const tempGroupedLeagues: { [key: string]: ILeagueAndCountry[] } = {};
 			dataC.forEach((cup) => {
 				const country = cup.country.name;
-				// @ts-ignore
-				if (!groupedLeagues[country]) {
-					// @ts-ignore
-					groupedLeagues[country] = [cup];
+				if (!tempGroupedLeagues[country]) {
+					tempGroupedLeagues[country] = [cup];
 				} else {
-					// @ts-ignore
-					groupedLeagues[country].push(cup);
+					tempGroupedLeagues[country].push(cup);
 				}
-				// @ts-ignore
-				groupedLeagues[country].name = cup.name;
 			});
-			setGroupedLeagues(Object.values(groupedLeagues));
+			setGroupedLeagues(Object.values(tempGroupedLeagues));
 		};
 		fetchData();
 	}, []);
@@ -70,7 +58,7 @@ function Countries() {
 				/>
 			</span>
 			<span className="mt-2 w-full border-[0.2px] border-solid border-gray-200 opacity-30" />
-			{selectedCountry && showLeagues ? (
+			{selectedCountry ? (
 				<div className="mt-2">
 					<span className="flex items-center text-sky-600">
 						{' '}
@@ -82,11 +70,13 @@ function Countries() {
 							leagues
 								.filter((league) => league.country.name === selectedCountry.name)
 								.map((league) => (
-									<span className="flex items-center p-2">
+									<span
+										className="flex items-center p-2"
+										key={league.league.id}
+									>
 										<img
 											className="rounded-sm"
-											// @ts-ignore
-											src={league.league.logo === null ? 'src/images/noimg.png' : league.league.logo}
+											src={league.league.logo === null ? '/images/noimg.png' : league.league.logo}
 											width="20px"
 											height="20px"
 											alt=""
@@ -99,58 +89,48 @@ function Countries() {
 				</div>
 			) : null}
 			{countries
-				// @ts-ignore
+
 				.filter((c) => topCountries.includes(c.name))
-				// @ts-ignore
+
 				.filter((country) => country.name.toLowerCase().startsWith(searchTerm.toLowerCase()))
 				.map((country) => (
-					<div
+					<button
+						type="button"
 						className="flex h-auto p-2"
 						onClick={() => setSelectedCountry(country)}
+						key={country.name}
 					>
 						<span className="my-auto">
 							<img
 								className="rounded-sm"
-								// @ts-ignore
-								src={country.flag === null ? 'src/images/noimg.png' : country.flag}
+								src={country.flag === null ? '/images/noimg.png' : country.flag}
 								width="30px"
 								alt=""
 							/>
 						</span>
-						<span className="ml-2 cursor-pointer text-sm text-gray-300 hover:text-sky-600">
-							{
-								// @ts-ignore
-								country.name
-							}
-						</span>
-					</div>
+						<span className="ml-2 cursor-pointer text-sm text-gray-300 hover:text-sky-600">{country.name}</span>
+					</button>
 				))}
 			{countries
-				// @ts-ignore
 				.filter((c) => !topCountries.includes(c.name))
-				// @ts-ignore
 				.filter((country) => country.name.toLowerCase().startsWith(searchTerm.toLowerCase()))
 				.map((country) => (
-					<div
+					<button
+						key={country.name}
+						type="button"
 						className="flex h-auto p-2"
 						onClick={() => setSelectedCountry(country)}
 					>
 						<span className="my-auto">
 							<img
 								className="rounded-sm"
-								// @ts-ignore
-								src={country.flag === null ? 'src/images/noimg.png' : country.flag}
+								src={country.flag === null ? '/images/noimg.png' : country.flag}
 								width="30px"
 								alt=""
 							/>
 						</span>
-						<span className="ml-2 cursor-pointer text-sm text-gray-300 hover:text-sky-600">
-							{
-								// @ts-ignore
-								country.name
-							}
-						</span>
-					</div>
+						<span className="ml-2 cursor-pointer text-sm text-gray-300 hover:text-sky-600">{country.name}</span>
+					</button>
 				))}
 		</div>
 	);

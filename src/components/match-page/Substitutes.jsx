@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-// @ts-ignore
-// @ts-ignore
-// @ts-ignore
-// @ts-ignore
+
+
+
+
 import React, { useState, useEffect } from 'react';
 import LineupLoader from '../../loaders/match-page/LineupLoader';
 
@@ -18,7 +18,6 @@ function Substitutes() {
 			setLoading(false);
 		};
 		fetchData();
-		// console.log(data);
 	}, []);
 
 	if (loading) {
@@ -28,7 +27,7 @@ function Substitutes() {
 		<div className="flex h-auto w-full justify-around rounded-md bg-gray-800 p-2 text-xs md:mx-auto md:w-4/5 md:text-lg lg:w-full">
 			<span className="my-auto flex flex-col">
 				<img
-					// @ts-ignore
+					
 					src={substitutes[0].team.logo}
 					width="50px"
 					height="50px"
@@ -52,7 +51,7 @@ function Substitutes() {
 			</div>
 			<span className="my-auto flex flex-col">
 				<img
-					// @ts-ignore
+					
 					src={substitutes[1].team.logo}
 					width="50px"
 					height="50px"

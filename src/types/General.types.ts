@@ -1,3 +1,10 @@
+import { ILeagueBasicWithType } from './League.types';
+import { ICountry } from './Country.types';
+
+export interface IHumanBasicWithPhoto extends IHumanBasic {
+	photo: string;
+}
+
 export interface IHumanBasic {
 	id: number;
 	name: string;
@@ -23,4 +30,9 @@ export interface ILeagueFixturesSearchForm {
 	date: string;
 	referee: string;
 	status: 'FT' | 'PST' | 'NS' | 'All';
+}
+
+export interface ILeagueAndCountry {
+	league: ILeagueBasicWithType;
+	country: ICountry;
 }

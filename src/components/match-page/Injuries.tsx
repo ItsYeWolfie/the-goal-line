@@ -1,13 +1,9 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-// @ts-ignore
-// @ts-ignore
-// @ts-ignore
-// @ts-ignore
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import InjuriesLoader from '../../loaders/match-page/InjuriesLoader';
+import { IPlayerInjury } from '../../types/Player.types';
 
 function Injuries() {
-	const [injuries, setInjnuries] = useState([]);
+	const [injuries, setInjnuries] = useState<IPlayerInjury[]>([] as IPlayerInjury[]);
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
