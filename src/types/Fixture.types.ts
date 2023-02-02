@@ -63,6 +63,11 @@ interface IFixturePeriods {
 	second: EpochTimeStamp;
 }
 
+export interface IFixtureStatistic {
+	type: string;
+	value: string;
+}
+
 type ScoreNumber = number | null;
 export type FixtureSidesType = 'home' | 'away';
 export type TeamsSidesType = Record<FixtureSidesType, ITeamBasic>;

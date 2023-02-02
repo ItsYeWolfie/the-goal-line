@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-use-before-define */
 
+// @ts-ignore
 import React, { useEffect, useRef } from 'react';
 import Countries from '../components/allMatches/Countries';
 import DaysTab from '../components/allMatches/DaysTab';
@@ -11,17 +12,17 @@ export default function MatchesPage() {
 	const country = useRef(null);
 
 	useEffect(() => {
-		
+		// @ts-ignore
 		searchIcon.current.addEventListener('click', toggleCountry);
 
 		return () => {
-			
+			// @ts-ignore
 			searchIcon.current.removeEventListener('click', toggleCountry);
 		};
 	}, []);
 
 	function toggleCountry() {
-		
+		// @ts-ignore
 		country.current.classList.toggle('hidden');
 	}
 

@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react';
 import { FaCalendarAlt, FaRing } from 'react-icons/fa';
 import MatchInfoLoader from '../../loaders/match-page/MatchInfoLoader';
+import { IFixture } from '../../types/Fixture.types';
 
 function FixtureInfo() {
-	const [fixtures, setFixtures] = useState([]);
+	const [fixture, setFixture] = useState<IFixture>({} as IFixture);
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		const fetchData = async () => {
 			const response = await fetch('https://api.npoint.io/6c7dc019d30ed2833962');
 			const data = await response.json();
-			setFixtures(data);
+			setFixture(data);
 			setLoading(false);
 		};
 		fetchData();
@@ -20,7 +21,7 @@ function FixtureInfo() {
 		return <MatchInfoLoader />;
 	}
 
-	const day = fixtures.fixture.date;
+	const day = fixture.fixture.date;
 	const date = new Date(day).toLocaleDateString('en-GB', {
 		day: 'numeric',
 		month: 'short',
@@ -42,11 +43,11 @@ function FixtureInfo() {
 					width="25px"
 					alt=""
 				/>
-				{fixtures.fixture.referee}
+				{fixture.fixture.referee}
 			</p>
 			<p className="flex items-center text-xs md:text-base">
 				<FaRing className="mr-1 text-[20px] text-gray-200" />
-				{fixtures.fixture.venue.name}
+				{fixture.fixture.venue.name}
 			</p>
 		</div>
 	);

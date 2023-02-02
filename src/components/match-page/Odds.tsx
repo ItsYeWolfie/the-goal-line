@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { FaArrowDown, FaArrowUp } from 'react-icons/fa';
 import OddsLoader from '../../loaders/match-page/OddsLoader';
+import { IOdd } from '../../types/Odds.types';
 
 function Odds() {
-	const [odds, setOdds] = useState([]);
+	const [odds, setOdds] = useState<IOdd>({} as IOdd);
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
