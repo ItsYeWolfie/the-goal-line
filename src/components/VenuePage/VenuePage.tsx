@@ -27,7 +27,7 @@ export default function VenuePage() {
 	const Venue = venue.find((coach) => coach.name === name);
 
 	return (
-		<div className="bg-gray-100 py-[5%] dark:bg-gray-900">
+		<div className="bg-gray-100 py-[5%] dark:bg-gray-900 2xl:container 2xl:mx-auto">
 			<div className="mx-auto h-auto w-full rounded-[10px]  bg-white text-black dark:bg-gray-700 dark:text-gray-200  lg:w-[85%]">
 				{!Venue || loading ? (
 					<MagnifyingGlass
@@ -51,7 +51,7 @@ export default function VenuePage() {
 					/>
 				) : (
 					<>
-						<div className=" w-full rounded-t-[10px] bg-gradient-to-r from-gray-200 to-gray-400 px-[2%] pl-[1%] font-serif  text-[30px] font-extrabold text-black  md:text-[40px] lg:text-[45px] 2xl:text-[60px]">
+						<div className=" w-full rounded-t-[10px] bg-gradient-to-r from-gray-200 to-gray-400 px-[2%] pl-[1%] font-serif text-[30px] font-extrabold  text-black md:text-[40px] lg:text-[45px]  2xl:container 2xl:mx-auto 2xl:text-[60px]">
 							{Venue.name}
 							<div className=" ">
 								<span className="text-[15px] font-semibold  text-gray-600 md:text-[25px] 2xl:text-[35px]">
