@@ -1,5 +1,6 @@
 import { RouteObject } from 'react-router-dom';
-import teamOverviewLoader, {
+import {
+	teamOverviewLoader,
 	teamCoachesLoader,
 	teamFixturesLoader,
 	teamInjuriesLoader,

@@ -3,7 +3,7 @@ import { Suspense } from 'react';
 import { ILeagueWithStanding } from '../../../types/League.types';
 import StandingsTable from '../../../components/tabs/team/standings/StandingsTable';
 import TeamLeagueTable from '../../../components/tabs/team/standings/TeamLeagueTable';
-import MainLoadingSpinner from '../../../components/MainLoadingSpinner';
+import TeamStandingsLoader, { TeamLeagueStandingsLoader } from './loaders/Standings';
 
 export default function TeamStandings() {
 	const { leagueStandings, teamLeagueStandings } = useLoaderData() as {
@@ -13,14 +13,21 @@ export default function TeamStandings() {
 
 	return (
 		<section className="flex w-full flex-col justify-between gap-4 lg:flex-row">
-			<Suspense fallback={<MainLoadingSpinner />}>
+			<Suspense fallback={<TeamStandingsLoader />}>
 				<Await resolve={leagueStandings}>
 					{({ standings: standingsData }: ILeagueWithStanding) => <StandingsTable standings={standingsData} />}
 				</Await>
 			</Suspense>
 
 			<section className="order-[-1] flex basis-4/12 flex-col gap-4 lg:order-last">
-				<Suspense fallback={<MainLoadingSpinner />}>
+				<Suspense
+					fallback={
+						<div className="flex flex-col gap-4">
+							<TeamLeagueStandingsLoader />
+							<TeamLeagueStandingsLoader />
+						</div>
+					}
+				>
 					<Await resolve={teamLeagueStandings}>
 						{(teamStandings: ILeagueWithStanding[]) =>
 							teamStandings.map((league) => (

@@ -7,7 +7,7 @@ import { IPlayerInjury, IPlayerWithStatistics } from '../../types/Player.types';
 import { ITransfer } from '../../types/Transfers.type';
 import { ICoach } from '../../types/Coach.types';
 
-export default async function teamOverviewLoader() {
+export async function teamOverviewLoader() {
 	const teamStatistics = fetchData<ITeamStatistics>('https://api.npoint.io/259bb0faaedc5732aebe');
 
 	return defer({ teamStatistics });
