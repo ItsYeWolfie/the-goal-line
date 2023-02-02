@@ -4,6 +4,7 @@
 // @ts-ignore
 import React, { useState, useEffect } from 'react';
 import { FaChevronRight } from 'react-icons/fa';
+import MatchesLoader from '../../loaders/allMatches-page/MatchesLoader';
 
 function LiveMatches() {
 	const [fixture, setFixture] = useState([]);
@@ -39,15 +40,7 @@ function LiveMatches() {
 	}, [fixture]);
 
 	if (loading) {
-		return (
-			<div className="mt-14 flex h-14 w-full items-center justify-around rounded-md bg-gray-700 align-middle md:mx-auto lg:flex lg:w-full lg:justify-around">
-				<img
-					className="animate-spin"
-					src="src/images/icons8-wait.svg"
-					alt=""
-				/>
-			</div>
-		);
+		return <MatchesLoader />;
 	}
 
 	return (
@@ -55,7 +48,7 @@ function LiveMatches() {
 			{Object.keys(groupedMatches).map((leagueId) => {
 				return (
 					<div key={leagueId}>
-						<a href="../fixtures-page/league-matches.html">
+						<a href="x">
 							<div className="flex cursor-pointer p-2 hover:text-sky-600">
 								<span className="my-auto">
 									<img
@@ -63,7 +56,7 @@ function LiveMatches() {
 										src={
 											// @ts-ignore
 											groupedMatches[leagueId].league.flag === null
-												? 'src/images/noimg.png'
+												? '/images/noimg.png'
 												: // @ts-ignore
 												  groupedMatches[leagueId].league.flag
 										}
@@ -87,7 +80,7 @@ function LiveMatches() {
 									</span>
 								</span>
 								<span className="my-auto ml-auto">
-									<FaChevronRight className="mr-1 text-base text-gray-200" />
+									<FaChevronRight className="mr-1 text-base" />
 								</span>
 							</div>
 						</a>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FaChevronLeft, FaSearch } from 'react-icons/fa';
+import CountriesLoader from '../../loaders/allMatches-page/CountriesLoader';
 import { ICountry } from '../../types/Country.types';
 import { ILeagueAndCountry } from '../../types/General.types';
 
@@ -33,18 +34,10 @@ function Countries() {
 		fetchData();
 	}, []);
 
-	const topCountries = ['England', 'Italy', 'Spain', 'France', 'Germany', 'World'];
+	const topCountries = ['England', 'Italy', 'Spain', 'France', 'Germany'];
 
 	if (loading) {
-		return (
-			<div className="flex h-10 w-full items-center justify-around rounded-md bg-gray-800 align-middle md:mx-auto md:w-4/5 lg:flex lg:w-full lg:justify-around">
-				<img
-					className="animate-spin"
-					src="../images/icons8-wait.svg"
-					alt=""
-				/>
-			</div>
-		);
+		return <CountriesLoader />;
 	}
 	return (
 		<div className="flex flex-col">
@@ -58,12 +51,59 @@ function Countries() {
 				/>
 			</span>
 			<span className="mt-2 w-full border-[0.2px] border-solid border-gray-200 opacity-30" />
-			{selectedCountry ? (
+			{!selectedCountry ? (
+				<>
+					{countries
+						.filter((c) => topCountries.includes(c.name))
+						.filter((country) => country.name.toLowerCase().startsWith(searchTerm.toLowerCase()))
+						.map((country) => (
+							<button
+								type="button"
+								className="flex h-auto p-2"
+								onClick={() => setSelectedCountry(country)}
+								key={country.name}
+							>
+								<span className="my-auto">
+									<img
+										className="rounded-sm"
+										src={country.flag === null ? '/images/noimg.png' : country.flag}
+										width="30px"
+										alt=""
+									/>
+								</span>
+								<span className="ml-2 cursor-pointer text-sm text-gray-300 hover:text-sky-600">{country.name}</span>
+							</button>
+						))}
+					{countries
+						.filter((c) => !topCountries.includes(c.name))
+						.filter((country) => country.name.toLowerCase().startsWith(searchTerm.toLowerCase()))
+						.map((country) => (
+							<button
+								key={country.name}
+								type="button"
+								className="flex h-auto p-2"
+								onClick={() => setSelectedCountry(country)}
+							>
+								<span className="my-auto">
+									<img
+										className="rounded-sm"
+										src={country.flag === null ? '/images/noimg.png' : country.flag}
+										width="30px"
+										alt=""
+									/>
+								</span>
+								<span className="ml-2 cursor-pointer text-sm text-gray-300 hover:text-sky-600">{country.name}</span>
+							</button>
+						))}
+				</>
+			) : (
 				<div className="mt-2">
-					<span className="flex items-center text-sky-600">
-						{' '}
+					<span
+						className="mb-2 flex cursor-pointer items-center text-sky-600"
+						onClick={() => setSelectedCountry(null)}
+					>
 						<FaChevronLeft />
-						<p className="ml-2 text-base">Leagues of {selectedCountry.name}</p>
+						<p className="ml-2 text-lg">Leagues of {selectedCountry.name}</p>
 					</span>
 					<span>
 						{groupedLeagues.map((leagues) =>
@@ -81,57 +121,13 @@ function Countries() {
 											height="20px"
 											alt=""
 										/>
-										<p className="ml-2">{league.league.name}</p>
+										<p className="ml-2 cursor-pointer hover:text-sky-600">{league.league.name}</p>
 									</span>
 								)),
 						)}
 					</span>
 				</div>
-			) : null}
-			{countries
-
-				.filter((c) => topCountries.includes(c.name))
-
-				.filter((country) => country.name.toLowerCase().startsWith(searchTerm.toLowerCase()))
-				.map((country) => (
-					<button
-						type="button"
-						className="flex h-auto p-2"
-						onClick={() => setSelectedCountry(country)}
-						key={country.name}
-					>
-						<span className="my-auto">
-							<img
-								className="rounded-sm"
-								src={country.flag === null ? '/images/noimg.png' : country.flag}
-								width="30px"
-								alt=""
-							/>
-						</span>
-						<span className="ml-2 cursor-pointer text-sm text-gray-300 hover:text-sky-600">{country.name}</span>
-					</button>
-				))}
-			{countries
-				.filter((c) => !topCountries.includes(c.name))
-				.filter((country) => country.name.toLowerCase().startsWith(searchTerm.toLowerCase()))
-				.map((country) => (
-					<button
-						key={country.name}
-						type="button"
-						className="flex h-auto p-2"
-						onClick={() => setSelectedCountry(country)}
-					>
-						<span className="my-auto">
-							<img
-								className="rounded-sm"
-								src={country.flag === null ? '/images/noimg.png' : country.flag}
-								width="30px"
-								alt=""
-							/>
-						</span>
-						<span className="ml-2 cursor-pointer text-sm text-gray-300 hover:text-sky-600">{country.name}</span>
-					</button>
-				))}
+			)}
 		</div>
 	);
 }

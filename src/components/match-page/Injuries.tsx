@@ -32,7 +32,7 @@ function Injuries() {
 				<tbody>
 					{injuries.map((player) => (
 						<tr className="border-[0.2px] border-gray-300 border-opacity-30 text-center">
-							<td className="my-auto flex items-center justify-center">
+							<td className="flex items-center justify-center align-middle">
 								<img
 									className=""
 									src={player.team.logo}
