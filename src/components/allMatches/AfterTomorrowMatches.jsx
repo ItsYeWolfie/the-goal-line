@@ -87,7 +87,7 @@ function AfterTomorrowMatches() {
 									</span>
 								</span>
 								<span className="my-auto ml-auto">
-									<FaChevronRight className="mr-1 text-[20px] text-gray-200" />
+									<FaChevronRight className="mr-1 text-base text-gray-200" />
 								</span>
 							</div>
 						</a>

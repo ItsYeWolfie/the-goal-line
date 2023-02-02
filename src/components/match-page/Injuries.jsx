@@ -4,6 +4,7 @@
 // @ts-ignore
 // @ts-ignore
 import React, { useState, useEffect } from 'react';
+import InjuriesLoader from '../../loaders/match-page/InjuriesLoader';
 
 function Injuries() {
 	const [injuries, setInjnuries] = useState([]);
@@ -20,39 +21,35 @@ function Injuries() {
 	}, []);
 
 	if (loading) {
-		return (
-			<div className="flex h-10 w-full items-center justify-around rounded-md bg-gray-800 align-middle md:mx-auto md:w-4/5 lg:flex lg:w-full lg:justify-around">
-				<img
-					className="animate-spin"
-					src="src/images/icons8-wait.svg"
-					alt=""
-				/>
-			</div>
-		);
+		return <InjuriesLoader />;
 	}
 	return (
 		<div className="flex h-auto w-full justify-center rounded-md bg-gray-800 p-2 text-xs md:mx-auto md:w-4/5 md:text-lg lg:w-full">
-			<table className="w-[45rem]">
-				<tr className="border-[0.2px] border-gray-300 border-opacity-30">
-					<td className="w-1/3">Team</td>
-					<td className="w-1/3">Player</td>
-					<td className="w-1/3">Reason</td>
-				</tr>
-				{injuries.map((player) => (
+			<table className="w-[45rem] text-center">
+				<thead>
 					<tr className="border-[0.2px] border-gray-300 border-opacity-30">
-						<td>
-							<img
-								className="ml-4"
-								src={player.team.logo}
-								alt=""
-								width="15px"
-								height="15px"
-							/>
-						</td>
-						<td className="text-sm md:text-base">{player.player.name}</td>
-						<td className="text-sm md:text-base">{player.player.reason}</td>
+						<td className="w-1/6">Team</td>
+						<td className="w-1/3">Player</td>
+						<td className="w-1/3">Reason</td>
 					</tr>
-				))}
+				</thead>
+				<tbody>
+					{injuries.map((player) => (
+						<tr className="border-[0.2px] border-gray-300 border-opacity-30 text-center">
+							<td className="my-auto flex items-center justify-center">
+								<img
+									className=""
+									src={player.team.logo}
+									alt=""
+									width="15px"
+									height="15px"
+								/>
+							</td>
+							<td className="text-sm md:text-base">{player.player.name}</td>
+							<td className="text-sm md:text-base">{player.player.reason}</td>
+						</tr>
+					))}
+				</tbody>
 			</table>
 		</div>
 	);

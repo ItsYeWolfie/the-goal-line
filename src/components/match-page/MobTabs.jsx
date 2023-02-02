@@ -14,7 +14,7 @@ import Standings from './Standings';
 import Odds from './Odds';
 import Formation from './Formation';
 import Statistics from './Statistics';
-import MatchTabs from './MatchTabs';
+import MatchTabs from './LineupTabs';
 // @ts-ignore
 function Tab({ name, Component }) {
 	return <div>{Component}</div>;

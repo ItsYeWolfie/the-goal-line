@@ -3,6 +3,7 @@
 // @ts-ignore
 // @ts-ignore
 import React, { useState, useEffect } from 'react';
+import LineupLoader from '../../loaders/match-page/LineupLoader';
 
 function LineUps() {
 	const [lineups, setLineups] = useState([]);
@@ -20,15 +21,7 @@ function LineUps() {
 	}, []);
 
 	if (loading) {
-		return (
-			<div className="flex h-10 w-full items-center justify-around rounded-md bg-gray-800 align-middle md:mx-auto md:w-4/5 lg:flex lg:w-full lg:justify-around">
-				<img
-					className="animate-spin"
-					src="src/images/icons8-wait.svg"
-					alt=""
-				/>
-			</div>
-		);
+		return <LineupLoader />;
 	}
 	return (
 		<div className="flex h-auto w-full justify-around rounded-md bg-gray-800 p-2 text-xs md:mx-auto md:w-4/5 md:text-lg lg:w-full">

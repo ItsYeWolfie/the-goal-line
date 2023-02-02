@@ -1,6 +1,7 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 /* eslint-disable tailwindcss/enforces-negative-arbitrary-values */
 import React, { useState, useEffect } from 'react';
+import FormationLoader from '../../loaders/match-page/FormationLoader';
 
 function Formation() {
 	const [formation, setFormation] = useState([]);
@@ -12,22 +13,14 @@ function Formation() {
 			const data = await response.json();
 			setFormation(data);
 			setLoading(false);
-			console.log(data);
+			// console.log(data);
 		};
 		fetchData();
 		// console.log(data);
 	}, []);
 
 	if (loading) {
-		return (
-			<div className="flex h-10 w-full items-center justify-around rounded-md bg-gray-800 align-middle md:mx-auto md:w-4/5 lg:flex lg:w-full lg:justify-around">
-				<img
-					className="animate-spin"
-					src="../images/icons8-wait.svg"
-					alt=""
-				/>
-			</div>
-		);
+		return <FormationLoader />;
 	}
 	return (
 		<div className="h-auto w-full flex-col rounded-md bg-gray-800 py-4 md:mx-auto md:flex md:w-4/5 md:flex-row md:justify-evenly lg:flex lg:w-full lg:flex-row lg:justify-evenly">

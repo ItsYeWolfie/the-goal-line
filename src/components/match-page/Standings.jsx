@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import StandingsLoader from '../../loaders/match-page/StandingsLoader';
 
 function Standings() {
 	const [standings, setStandings] = useState([]);
@@ -16,22 +17,14 @@ function Standings() {
 	}, []);
 
 	if (loading) {
-		return (
-			<div className="flex h-10 w-full items-center justify-around rounded-md bg-gray-800 align-middle md:mx-auto md:w-4/5 lg:flex lg:w-full lg:justify-around">
-				<img
-					className="animate-spin"
-					src="../images/icons8-wait.svg"
-					alt=""
-				/>
-			</div>
-		);
+		return <StandingsLoader />;
 	}
 	return (
-		<div className="h-auto w-full rounded-md bg-gray-800 p-2 lg:h-auto">
-			<table className="mx-auto table rounded-t-md border-[0.5px] border-solid border-gray-400 border-opacity-30 p-2">
+		<div className="mx-auto h-auto w-full rounded-md bg-gray-800 p-2 md:w-4/5 lg:h-auto lg:w-full">
+			<table className="mx-auto table w-full rounded-t-md border-[0.5px] border-solid border-gray-400 border-opacity-30 p-2">
 				<thead className="table-row-group h-9 p-1">
 					<tr className="h-8 rounded-md border-b-[0.2px] border-solid border-gray-400 border-opacity-30">
-						<th>#</th>
+						<th className="md:w-6">#</th>
 						<th className="pl-2 text-left">Team</th>
 						<th className="w-9 text-center">
 							<span>P</span>
@@ -85,19 +78,19 @@ function Standings() {
 
 			{!loading && (
 				<div>
-					<div className="mt-4 ml-4 text-[11px] md:ml-36 lg:ml-1">
+					<div className="mt-4 ml-4 text-[11px] lg:ml-1">
 						<div className="flex">
 							<div className="relative mt-0.5 mr-2 h-3 w-3 rounded-full bg-blue-500" />
 							Champions League
 						</div>
 					</div>
-					<div className="mt-2 ml-4 text-[11px] md:ml-36 lg:ml-1">
+					<div className="mt-2 ml-4 text-[11px] lg:ml-1">
 						<div className="flex">
 							<div className="relative mt-0.5 mr-2 h-3 w-3 rounded-full bg-orange-500" />
 							Europa League
 						</div>
 					</div>
-					<div className="mt-2 ml-4 text-[11px] md:ml-36 lg:ml-1">
+					<div className="mt-2 ml-4 text-[11px] lg:ml-1">
 						<div className="flex">
 							<div className="relative mt-0.5 mr-2 h-3 w-3 rounded-full bg-red-700" />
 							Relegation

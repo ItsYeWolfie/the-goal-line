@@ -15,7 +15,7 @@ function Tab({ name, Component }) {
 	return <div>{Component}</div>;
 }
 
-function MatchTabs() {
+function LineupTabs() {
 	const tabs = [
 		{
 			name: 'TEAMS LINEUPS',
@@ -38,7 +38,7 @@ function MatchTabs() {
 
 	return (
 		<div className="">
-			<div className="mt-2 flex w-full justify-between md:mx-auto md:w-4/5 lg:w-full">
+			<div className="mt-4 flex w-full justify-between md:mx-auto md:w-4/5 lg:w-full">
 				{tabs.map((tab) => (
 					<div
 						className={`${
@@ -55,4 +55,4 @@ function MatchTabs() {
 	);
 }
 
-export default MatchTabs;
+export default LineupTabs;

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import StatisticsLoader from '../../loaders/match-page/StatisticsLoader';
 
 function Statistics() {
 	const [statistics, setStatistics] = useState([]);
@@ -16,15 +17,7 @@ function Statistics() {
 	}, []);
 
 	if (loading) {
-		return (
-			<div className="flex h-10 w-full items-center justify-around rounded-md bg-gray-800 align-middle md:mx-auto md:w-4/5 lg:flex lg:w-full lg:justify-around">
-				<img
-					className="animate-spin"
-					src="../images/icons8-wait.svg"
-					alt=""
-				/>
-			</div>
-		);
+		return <StatisticsLoader />;
 	}
 	return (
 		<div className="flex h-auto w-full flex-col justify-evenly gap-2 rounded-md bg-gray-800 p-8 md:mx-auto md:w-4/5 md:px-16 lg:mb-4 lg:ml-0 lg:w-full">
