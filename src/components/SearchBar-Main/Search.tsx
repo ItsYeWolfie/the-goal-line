@@ -11,8 +11,8 @@ import PlayerResult from './Search-Player';
 import SearchTeamResult from './Search-Team';
 import SearchVenueResult from './Search-Venue';
 
-export default function Search() {
-	const [hidden, setHidden] = useState(true);
+export default function QuickSearch() {
+	const [open, setOpen] = useState(false);
 	const [matches, setMatches] = useState<FootballMatch[]>([]);
 	const [players, setPlayers] = useState<SearchPlayer[]>([]);
 	const [filterPlayers, setFilterPlayers] = useState<SearchPlayer[]>([]);
@@ -23,6 +23,7 @@ export default function Search() {
 	const [filterCoach, setFilterCoach] = useState<ICoaches[]>([]);
 	const searchRef = useRef<HTMLInputElement>(null);
 	const [selectedOption, setSelectedOption] = useState('Team');
+	console.log(selectedOption);
 
 	useEffect(() => {
 		fetchData<FootballMatch[]>('https://api.npoint.io/cfdd9340ece0aa795c9e').then((data) => {
@@ -75,37 +76,34 @@ export default function Search() {
 	};
 
 	const handleSearchClick = () => {
-		setHidden(false);
-	};
-
-	const handleCloseClick = () => {
-		setHidden(true);
+		setOpen(true);
 	};
 
 	const showResults = () => {
 		switch (selectedOption) {
-			case 'Team':
+			case 'Teams':
 				return filteredMatches.map((match) => (
 					<SearchTeamResult
 						key={match.teams.home.id}
 						match={match}
 					/>
 				));
-			case 'Player':
+			case 'Players':
 				return filterPlayers.map((player) => (
 					<PlayerResult
 						key={player.id}
 						player={player}
+						onClick={() => setOpen(false)}
 					/>
 				));
-			case 'Coach':
+			case 'Coaches':
 				return filterCoach.map((coaches) => (
 					<SearchCoachResult
 						key={coaches.id}
 						coach={coaches}
 					/>
 				));
-			case 'Venue':
+			case 'Venues':
 				return filterVenue.map((venues) => (
 					<SearchVenueResult
 						key={venues.id}
@@ -123,9 +121,9 @@ export default function Search() {
 			<SearchModal
 				searchRef={searchRef}
 				setSelectedOption={setSelectedOption}
-				handleCloseClick={handleCloseClick}
-				hidden={hidden}
 				handleSearchChange={handleSearchChange}
+				open={open}
+				setOpen={setOpen}
 			>
 				{showResults()}
 			</SearchModal>

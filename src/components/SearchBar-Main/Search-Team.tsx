@@ -15,7 +15,7 @@ export default function SearchTeamResult({ match }: SearchTeamResultProps) {
 					className="m-auto mt-[5%]  h-[90%] w-[70%] rounded-full"
 				/>
 			</div>
-			<div className="grid h-full w-[70%] grid-rows-2 overflow-hidden md:w-[75%] ">
+			<div className="grid h-full w-[70%] grid-rows-2 md:w-[75%] ">
 				<div className="flex h-full items-end pl-[2%] text-[20px]">{match.teams.home.name}</div>
 				<div className="flex h-full items-end pl-[2%] text-[15px] text-gray-200">
 					{match.league.country}: {match.league.name}

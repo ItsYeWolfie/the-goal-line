@@ -4,6 +4,7 @@ import { HiOutlineChevronRight } from 'react-icons/hi';
 import { GlobalHeaderContext } from '../../contexts/GlobalHeader.context';
 import DarkModeToggle from './DarkModeToggle';
 import navigation from '../../lib/navigation-links';
+import QuickSearch from '../SearchBar-Main/Search';
 
 export default function MainBreadCrumb() {
 	const { breadcrumbs } = useContext(GlobalHeaderContext);
@@ -68,8 +69,9 @@ export default function MainBreadCrumb() {
 					</NavLink>
 				))}
 			</nav>
-			<div className="flex justify-end">
+			<div className="flex h-10 items-center justify-end">
 				<DarkModeToggle />
+				<QuickSearch />
 			</div>
 		</section>
 	);
