@@ -54,7 +54,7 @@ function Tabs() {
 				{tabs.map((tab) => (
 					<div
 						className={`${
-							tab.name === activeTab ? 'text-sm text-sky-600 md:text-[17px]' : ''
+							tab.name === activeTab ? 'text-sm text-sky-600 md:text-[17.5px]' : ''
 						} my-auto flex cursor-pointer flex-col items-center text-xs hover:text-sky-600 md:text-sm`}
 						onClick={() => handleTabClick(tab.name)}
 					>

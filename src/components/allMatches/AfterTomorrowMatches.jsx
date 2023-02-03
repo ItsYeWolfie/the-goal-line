@@ -4,6 +4,7 @@
 // @ts-ignore
 import React, { useState, useEffect } from 'react';
 import { FaChevronRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import MatchesLoader from '../../loaders/allMatches-page/MatchesLoader';
 
 function AfterTomorrowMatches() {
@@ -16,7 +17,6 @@ function AfterTomorrowMatches() {
 			const response = await fetch('https://api.npoint.io/21137151d671e81998f1');
 			const data = await response.json();
 			setFixture(data);
-			setLoading(false);
 
 			const groupedMatches = {};
 			fixture.forEach((fixture) => {
@@ -35,8 +35,9 @@ function AfterTomorrowMatches() {
 			});
 			setGroupedMatches(groupedMatches);
 		};
-
 		fetchData();
+
+		setLoading(false);
 	}, [loading]);
 
 	if (loading) {
@@ -93,9 +94,10 @@ function AfterTomorrowMatches() {
 									minute: '2-digit',
 								});
 								return (
-									<a
-										href="/matches/match"
+									<Link
+										to={`/matches/${fixture.fixture.id}`}
 										target="_blank"
+										rel="noreferrer"
 									>
 										<div className="mb-2 flex cursor-pointer items-center rounded-md border-gray-400 bg-gray-300 duration-150 ease-in hover:h-16 hover:border-2 hover:border-solid hover:bg-gray-200 dark:bg-gray-700 dark:hover:border-gray-700 dark:hover:bg-gray-800">
 											<span className="ml-2 flex w-8 justify-center">
@@ -133,7 +135,7 @@ function AfterTomorrowMatches() {
 												<span>{fixture.goals.away === null ? '-' : fixture.goals.away}</span>
 											</div>
 										</div>
-									</a>
+									</Link>
 								);
 							})
 						}

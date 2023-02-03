@@ -13,15 +13,20 @@ export const router = createBrowserRouter([
 				element: 'Home',
 				index: true,
 			},
+			{
+				path: '/matches',
+				children: [
+					{
+						element: <MatchesPage />,
+						index: true,
+					},
+					{
+						path: ':id',
+						element: <MatchPage />,
+					},
+				],
+			},
 		],
-	},
-	{
-		path: '/matches',
-		element: <MatchesPage />,
-	},
-	{
-		path: '/matches/match',
-		element: <MatchPage />,
 	},
 ]);
 

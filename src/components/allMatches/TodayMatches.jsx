@@ -4,6 +4,7 @@
 // @ts-ignore
 import React, { useState, useEffect } from 'react';
 import { FaChevronRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import MatchesLoader from '../../loaders/allMatches-page/MatchesLoader';
 
 function TodayMatches() {
@@ -35,7 +36,6 @@ function TodayMatches() {
 			});
 			setGroupedMatches(groupedMatches);
 		};
-
 		fetchData();
 	}, [loading]);
 
@@ -93,9 +93,10 @@ function TodayMatches() {
 									minute: '2-digit',
 								});
 								return (
-									<a
-										href="/matches/match"
+									<Link
+										to={`/matches/${fixture.fixture.id}`}
 										target="_blank"
+										rel="noreferrer"
 									>
 										<div className="mb-2 flex cursor-pointer items-center rounded-md border-gray-400 bg-gray-300 duration-150 ease-in hover:h-16 hover:border-2 hover:border-solid hover:bg-gray-200 dark:bg-gray-700 dark:hover:border-gray-700 dark:hover:bg-gray-800">
 											<span className="ml-2 flex w-8 justify-center">
@@ -133,7 +134,7 @@ function TodayMatches() {
 												<span>{fixture.goals.away === null ? '-' : fixture.goals.away}</span>
 											</div>
 										</div>
-									</a>
+									</Link>
 								);
 							})
 						}

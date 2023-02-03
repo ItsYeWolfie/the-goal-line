@@ -25,12 +25,12 @@ function Countries() {
 			const dataC: ILeagueAndCountry[] = await res.json();
 
 			const tempGroupedLeagues: { [key: string]: ILeagueAndCountry[] } = {};
-			dataC.forEach((cup) => {
-				const country = cup.country.name;
+			dataC.forEach((league) => {
+				const country = league.country.name;
 				if (!tempGroupedLeagues[country]) {
-					tempGroupedLeagues[country] = [cup];
+					tempGroupedLeagues[country] = [league];
 				} else {
-					tempGroupedLeagues[country].push(cup);
+					tempGroupedLeagues[country].push(league);
 				}
 			});
 			setGroupedLeagues(Object.values(tempGroupedLeagues));
