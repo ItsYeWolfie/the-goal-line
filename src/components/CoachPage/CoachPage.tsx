@@ -117,7 +117,7 @@ export default function CoachPage() {
 							</div>
 							<div className="col-span-1    text-left text-white">
 								<img
-									src="../src/images/33.png"
+									src="/33.png"
 									alt=""
 									className=" mx-auto h-auto w-auto md:mt-[20%]"
 								/>

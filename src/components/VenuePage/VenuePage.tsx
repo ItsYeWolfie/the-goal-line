@@ -75,7 +75,7 @@ export default function VenuePage() {
 									</div>
 									<div>
 										<img
-											src="../src/images/556.png"
+											src="..//556.png"
 											alt="a"
 										/>
 										<p className="absolute bottom-[10%] w-full bg-gray-200 bg-opacity-[0.3] py-[3%] font-mono text-[20px] font-semibold text-black text-opacity-10  hover:bg-opacity-[0.9] hover:text-opacity-100 md:text-[25px] 2xl:text-[35px]">
@@ -85,7 +85,7 @@ export default function VenuePage() {
 									</div>
 									<div>
 										<img
-											src="../src/images/556.png"
+											src="..//556.png"
 											alt="a"
 										/>
 										<p className="absolute bottom-[10%] w-full bg-gray-200 bg-opacity-[0.3] py-[3%] font-mono text-[20px] font-semibold text-black text-opacity-10  hover:bg-opacity-[0.9] hover:text-opacity-100 md:text-[25px] 2xl:text-[35px]">

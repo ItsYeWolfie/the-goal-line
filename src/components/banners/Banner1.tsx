@@ -5,14 +5,14 @@ export default function Banner1() {
 				<div className="absolute right-[5%] bottom-0 h-[100%] w-[40%]">
 					<img
 						className="float-right mt-[10%] h-[90%] w-1/2 rounded-t-[20px] opacity-[0.6] "
-						src="src/images/flashscore1.png"
+						src="/flashscore1.png"
 						alt=""
 					/>
 				</div>
 				<div className="absolute right-[24%] bottom-0 z-[1] h-[100%] w-[40%]">
 					<img
 						className="float-right mt-[25%] h-[75%] w-2/5 rounded-t-[20px] bg-transparent opacity-[0.6] "
-						src="src/images/livescore.png"
+						src="/livescore.png"
 						alt=""
 					/>
 				</div>
@@ -30,14 +30,14 @@ export default function Banner1() {
 						<div>
 							<img
 								className="float-left mx-auto h-[100%] w-[95%] animate-bounce rounded-[10px] border-2 border-gray-200 lg:h-[80%] lg:w-[80%]"
-								src="src/images/appstore.png"
+								src="/appstore.png"
 								alt=""
 							/>
 						</div>
 						<div>
 							<img
 								className="float-left h-[100%] w-[95%] animate-bounce rounded-[10px] border-2 border-gray-200 lg:h-[80%] lg:w-[80%]"
-								src="src/images/googleplay.png"
+								src="/googleplay.png"
 								alt=""
 							/>
 						</div>

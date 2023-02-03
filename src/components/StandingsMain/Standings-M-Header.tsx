@@ -1,4 +1,4 @@
-import { BsChevronRight } from 'react-icons/Bs';
+import { BsChevronRight } from 'react-icons/bs';
 import { GiTrophy } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
 
@@ -19,12 +19,12 @@ export default function StandingMainHeader() {
 				<p className="mt-[1%] ml-[3%] flex w-full items-center gap-[0.7%] text-[20px] text-gray-200 sm:mt-[2%] md:mt-[1%] md:ml-[1%]">
 					<img
 						className="h-[30px] w-[30px] rounded-full"
-						src="src/images/Flag-England.webp"
+						src="/Flag-England.webp"
 						alt=""
 					/>
 					<img
 						className="h-[30px] w-[30px] rounded-full bg-white"
-						src="src/images/39.png"
+						src="/39.png"
 						alt=""
 					/>
 					Premier League

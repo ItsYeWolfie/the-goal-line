@@ -1,0 +1,86 @@
+[
+	{
+		"id": 1,
+		"name": "Arsenal Home Kit 22/23",
+		"price": "150",
+		"image": "/images/kits/ARS_2223_HK_PL_S1.webp"
+	},
+	{
+		"id": 2,
+		"name": "Aston Home Kit 22/23",
+		"price": "120.50",
+		"image": "/images/kits/AVL_2223_HK_PL_S1.webp"
+	},
+	{
+		"id": 3,
+		"name": "Brighton Home Kit 22/23",
+		"price": "120",
+		"image": "/images/kits/BHA_2223_HK_PL_S1.webp"
+	},
+	{
+		"id": 4,
+		"name": "Bornemouth Home Kit 22/23",
+		"price": "111.50",
+		"image": "/images/kits/BOU_2223_HK_PL_S1.webp"
+	},
+	{
+		"id": 5,
+		"name": "Chelsea Home Kit 22/23",
+		"price": "165.70",
+		"image": "/images/kits/CHE_2223_HK_PL_S1.webp"
+	},
+	{
+		"id": 6,
+		"name": "Crystal Home Kit 22/23",
+		"price": "145.70",
+		"image": "/images/kits/CRY_2223_HK_PL_S1.webp"
+	},
+	{
+		"id": 7,
+		"name": "Fulham Home Kit 22/23",
+		"price": "123.30",
+		"image": "/images/kits/FUL_2223_HK_PL_S1.webp"
+	},
+	{
+		"id": 8,
+		"name": "Leicester Home Kit 22/23",
+		"price": "130.70",
+		"image": "/images/kits/LEE_2223_HK_PL_S1.webp"
+	},
+	{
+		"id": 9,
+		"name": "Leeds Home Kit 22/23",
+		"price": "111.00",
+		"image": "/images/kits/LEI_2223_HK_PL_S1.webp"
+	},
+	{
+		"id": 10,
+		"name": "Liverpool Home Kit 22/23",
+		"price": "165,70",
+		"image": "/images/kits/LIV_2223_HK_PL_S1.webp"
+	},
+	{
+		"id": 11,
+		"name": "Man City Home Kit 22/23",
+		"price": "165.70",
+		"image": "/images/kits/MCI_2223_HK_PL_S1.webp"
+	},
+	{
+		"id": 12,
+		"name": "Man Utd Home Kit 22/23",
+		"price": "165.70",
+		"image": "/images/kits/MUN_2223_HK_PL_S1.webp"
+	},
+	{
+		"id": 13,
+		"name": "NewCastel Home Kit 22/23",
+		"price": "165.70",
+		"image": "/images/kits/NFO_2223_HK_PL_S1.webp"
+	},
+	{
+		"id": 14,
+		"name": "Totenham Home Kit 22/23",
+		"price": "165.70",
+		"image": "/images/kits/TOT_2223_HK_PL_S1.webp"
+	}
+]

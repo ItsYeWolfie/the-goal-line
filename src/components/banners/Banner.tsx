@@ -42,7 +42,7 @@ export default function Banner() {
 					<div className=" relative flex h-full  w-full flex-col justify-between rounded-[20px]   bg-gray-100 shadow-lg shadow-slate-600 dark:bg-gray-900  md:w-8/12 md:flex-row  lg:w-7/12  xl:w-8/12  2xl:w-9/12">
 						<img
 							className="h-full w-full rounded-[20px] opacity-[0.6]"
-							src="src/images/140324050941-bernabeu.jpg"
+							src="/140324050941-bernabeu.jpg"
 							alt=""
 						/>
 						<div className="absolute top-[5%] left-[10%] z-[1] w-[80%]  px-3 py-[1%] text-center font-mono text-[1rem] font-semibold italic text-white  sm:left-[20%] sm:w-[60%] sm:text-[1.3rem] md:left-[5%] md:w-[90%] md:text-[1.3rem] lg:left-[15%] lg:w-[70%] xl:left-[25%] xl:w-[50%]">

@@ -96,7 +96,7 @@ export default function NewsPage() {
 									<div className="mt-[3%] flex w-full items-center space-x-4">
 										<img
 											className="  h-11 w-11 rounded-full"
-											src="src/images/news-user.png"
+											src="/news-user.png"
 											alt=""
 										/>
 										<div className="text-[0.8rem] font-medium text-gray-200 2xl:text-[1.5rem]">
@@ -123,7 +123,7 @@ export default function NewsPage() {
 									<div className="mt-[3%] h-[300px] w-full 2xl:h-[450px]">
 										<img
 											className="h-full w-full animate-pulse bg-white opacity-[0.8]"
-											src="src/images/gjirafa.png"
+											src="/gjirafa.png"
 											alt=""
 										/>
 									</div>
@@ -133,14 +133,14 @@ export default function NewsPage() {
 									<div className="mt-[5%] h-[300px] w-full 2xl:h-[450px]">
 										<img
 											className="h-full w-full animate-pulse bg-white opacity-[0.8]"
-											src="src/images/Bne.jpeg"
+											src="/Bne.jpeg"
 											alt=""
 										/>
 									</div>
 									<div className="mt-[5%] hidden h-[300px] w-full sm:block 2xl:h-[450px]">
 										<img
 											className="h-full w-full bg-white opacity-[0.8]"
-											src="src/images/gjirafavisa.png"
+											src="/gjirafavisa.png"
 											alt=""
 										/>
 									</div>
@@ -150,7 +150,7 @@ export default function NewsPage() {
 								<div className="my-[5%] h-[150px] w-full text-white sm:mt-[5%] sm:h-[240px] md:mt-[0%] md:h-[200px] 2xl:h-[300px]">
 									<img
 										className="newsImg mx-auto h-full w-[90%] rounded-[10px] opacity-[0.9]"
-										src="src/images/gjirafamall.jpeg"
+										src="/gjirafamall.jpeg"
 										alt=""
 									/>
 								</div>

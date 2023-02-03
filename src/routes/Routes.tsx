@@ -1,7 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import NotFound from '../pages/404';
 import Root from '../pages/Root';
-import IndexPage from '../pages/Index';
 import ContactPage from '../pages/ContactPage';
 import TeamRoutes from './TeamRoutes';
 import LeagueRoutes from './LeagueRoutes';
@@ -42,7 +41,7 @@ export const router = createBrowserRouter([
 						path: ':title',
 						element: <NewsByTitle />,
 					},
-				]
+				],
 			},
 			{
 				// path: '/leagues',

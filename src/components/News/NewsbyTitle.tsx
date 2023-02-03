@@ -61,7 +61,7 @@ export default function NewsByTitle() {
 							<div className="mt-[3%] flex w-full items-center space-x-4">
 								<img
 									className=" h-11  w-11 rounded-full md:w-16"
-									src="../src/images/news-user.png"
+									src="/news-user.png"
 									alt=""
 								/>
 								<div className="text-[0.8rem] font-medium text-gray-200 2xl:text-[1.5rem]">
@@ -88,7 +88,7 @@ export default function NewsByTitle() {
 							<div className="mt-[3%] h-[350px] w-full 2xl:h-[500px]">
 								<img
 									className="h-full w-full animate-pulse bg-white opacity-[0.8]"
-									src="../src/images/gjirafavideo.jpeg"
+									src="/gjirafavideo.jpeg"
 									alt=""
 								/>
 							</div>
