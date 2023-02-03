@@ -24,3 +24,9 @@ export interface ILeagueFixturesSearchForm {
 	referee: string;
 	status: 'FT' | 'PST' | 'NS' | 'All';
 }
+export interface ITeamsSearch {
+	name: string;
+	country: string;
+	season: string;
+	league: string;
+}

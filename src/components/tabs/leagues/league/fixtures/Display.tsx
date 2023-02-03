@@ -23,7 +23,7 @@ export default function LeagueFixturesDisplay({
 						index % 2 === 0 ? 'bg-gray-200 dark:bg-gray-700' : 'bg-gray-100 dark:bg-gray-800'
 					}`}
 				>
-					<div className="col-span-1 w-max rounded-md bg-sky-800 p-1 text-sm text-white">
+					<div className="col-span-1 ml-2 w-max rounded-md bg-sky-800 p-1 text-sm text-white">
 						{new Date(fixture.fixture.date).toLocaleTimeString('en-GB', {
 							hour: '2-digit',
 							minute: '2-digit',

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { FiPhone } from 'react-icons/fi';
 import { BsEnvelope } from 'react-icons/bs';
@@ -17,12 +18,12 @@ export default function ContactPage() {
 		event.preventDefault();
 		if (SERVICE_ID && TEMPLATE_ID && PUBLIC_KEY && formRef.current) {
 			emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY).then(
-				(result) => {
-					console.log(result.text);
+				(result: { status: number; text: string }) => {
+					console.log(result);
 					formRef.current?.reset();
 				},
-				(error) => {
-					console.log(error.text);
+				(error: unknown) => {
+					console.log(error);
 				},
 			);
 		}
@@ -30,9 +31,6 @@ export default function ContactPage() {
 		if (form.checkValidity() === false) {
 			event.stopPropagation();
 		}
-		const data = new FormData(form);
-		const value = Object.fromEntries(data.entries());
-		console.log(value);
 	};
 
 	useEffect(() => {
