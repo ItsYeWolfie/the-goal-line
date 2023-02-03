@@ -20,7 +20,7 @@ function Statistics() {
 		return <StatisticsLoader />;
 	}
 	return (
-		<div className="flex h-auto w-full flex-col justify-evenly gap-2 rounded-md bg-gray-800 p-8 md:mx-auto md:w-4/5 md:px-16 lg:mb-4 lg:ml-0 lg:w-full">
+		<div className="flex h-auto w-full flex-col justify-evenly gap-2 rounded-md bg-gray-200 p-8 dark:bg-gray-800 md:mx-auto md:w-4/5 md:px-16 lg:mb-4 lg:ml-0 lg:w-full">
 			{lineup.statistics[0].statistics.map((statistic, index) => {
 				const value1 = parseFloat(lineup.statistics[0].statistics[index].value);
 				const value2 = parseFloat(lineup.statistics[1].statistics[index].value);
@@ -40,15 +40,15 @@ function Statistics() {
 							<span className="shrink-0 grow-0">{lineup.statistics[1].statistics[index].value || 0}</span>
 						</span>
 						<span className="flex justify-center">
-							<span className="flex h-2 w-full justify-end rounded-md bg-slate-300">
+							<span className="flex h-2 w-full justify-end rounded-md bg-slate-400 dark:bg-slate-300">
 								<span
 									className="rounded-md bg-lime-700"
 									style={{ width: `${proportion1}%` }}
 								/>
 							</span>
-							<span className="ml-1 flex h-2 w-full rounded-md bg-slate-300">
+							<span className="ml-1 flex h-2 w-full rounded-md bg-slate-400 dark:bg-slate-300">
 								<span
-									className="rounded-md bg-sky-500"
+									className="rounded-md bg-sky-600"
 									style={{ width: `${proportion2}%` }}
 								/>
 							</span>

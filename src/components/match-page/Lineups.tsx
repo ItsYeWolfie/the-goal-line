@@ -20,7 +20,7 @@ function LineUps() {
 		return <LineupLoader />;
 	}
 	return (
-		<div className="flex h-auto w-full justify-around rounded-md bg-gray-800 p-2 text-xs md:mx-auto md:w-4/5 md:text-lg lg:w-full">
+		<div className="mt-2 flex h-auto w-full justify-around rounded-md bg-gray-200 p-2 text-xs dark:bg-gray-800 md:mx-auto md:w-4/5 md:text-lg lg:w-full">
 			<span className="my-auto flex flex-col">
 				<img
 					src={lineup.teams.home.logo}

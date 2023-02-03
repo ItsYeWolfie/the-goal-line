@@ -27,7 +27,7 @@ export default function MatchesPage() {
 	}
 
 	return (
-		<div className="bg-gray-900">
+		<div>
 			<div className="flex h-12 w-full justify-center lg:hidden">
 				<span className="my-auto ml-auto">
 					<img
@@ -52,11 +52,11 @@ export default function MatchesPage() {
 					className="absolute z-10 hidden w-full lg:relative lg:block lg:w-1/5 lg:pt-4"
 					ref={country}
 				>
-					<div className="scrollbar-hide relative flex h-[95vh] flex-col overflow-hidden overflow-y-auto rounded-md bg-gray-800 p-2 text-sm text-gray-200 lg:mr-4">
+					<div className="scrollbar-hide relative flex h-[95vh] flex-col overflow-hidden overflow-y-auto rounded-md bg-gray-200 p-2 text-sm dark:bg-gray-800 lg:mr-4">
 						<Countries />
 					</div>
 				</div>
-				<div className="scrollbar-hide relative mr-4 flex h-[95vh] w-full flex-col overflow-hidden overflow-y-auto rounded-md bg-gray-800 p-2 text-sm text-gray-200 lg:mt-4 lg:w-1/3">
+				<div className="scrollbar-hide relative mr-4 flex h-[95vh] w-full flex-col overflow-hidden overflow-y-auto rounded-md bg-gray-200 p-2 text-sm dark:bg-gray-800 lg:mt-4 lg:w-1/3">
 					<DaysTab />
 				</div>
 				<div className="hidden h-[95vh] overflow-hidden lg:ml-3 lg:mt-4 lg:flex lg:w-1/4 lg:flex-col">

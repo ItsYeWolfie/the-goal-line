@@ -97,7 +97,7 @@ function TomorrowMatches() {
 										href="/matches/match"
 										target="_blank"
 									>
-										<div className="mb-2 flex cursor-pointer items-center rounded-md bg-gray-700 duration-150 ease-in hover:h-16 hover:border-2 hover:border-solid hover:border-gray-700 hover:bg-gray-800">
+										<div className="mb-2 flex cursor-pointer items-center rounded-md border-gray-400 bg-gray-300 duration-150 ease-in hover:h-16 hover:border-2 hover:border-solid hover:bg-gray-200 dark:bg-gray-700 dark:hover:border-gray-700 dark:hover:bg-gray-800">
 											<span className="ml-2 flex w-8 justify-center">
 												{fixture.fixture.status.elapsed === null
 													? `${date}`

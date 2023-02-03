@@ -2,38 +2,36 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
 import { useState } from 'react';
-import Injuries from './Injuries';
-import Substitutes from './Substitutes';
-import LineUps from './Lineups';
+import FixtureInfo from './MatchInfo';
+import Summary from './Summary';
 
 function Tab({ Component }) {
 	return <div>{Component}</div>;
 }
 
-function LineupTabs() {
+function TabIS() {
 	const tabs = [
 		{
-			name: 'TEAMS LINEUPS',
-			Component: <LineUps />,
+			name: 'MATCH INFO',
+			Component: <FixtureInfo />,
 		},
 		{
-			name: 'SUBSTITUTES',
-			Component: <Substitutes />,
+			name: 'SUMMARY',
+			Component: <Summary />,
 		},
-		{ name: 'MISSING', Component: <Injuries /> },
 	];
-	const [activeTab, setActiveTab] = useState('TEAMS LINEUPS');
+	const [activeTab, setActiveTab] = useState('MATCH INFO');
 
 	const handleTabClick = (tabName) => {
 		setActiveTab(tabName);
-		const url = new URL(window.location.href);
-		url.searchParams.set('tab', tabs.find((tab) => tab.name === tabName).name);
-		window.history.replaceState({}, '', url);
+		// const url = new URL(window.location.href);
+		// url.searchParams.set('tab', tabs.find((tab) => tab.name === tabName).name);
+		// window.history.replaceState({}, '', url);
 	};
 
 	return (
 		<div className="">
-			<div className="mt-4 flex w-full justify-between px-2 md:mx-auto md:w-4/5 lg:w-full">
+			<div className="flex w-full justify-between px-4 md:mx-auto md:w-4/5 lg:mt-4 lg:w-full">
 				{tabs.map((tab) => (
 					<button
 						type="button"
@@ -60,4 +58,4 @@ function LineupTabs() {
 	);
 }
 
-export default LineupTabs;
+export default TabIS;

@@ -20,7 +20,7 @@ function Standings() {
 		return <StandingsLoader />;
 	}
 	return (
-		<div className="mx-auto h-auto w-full rounded-md bg-gray-800 p-2 md:w-4/5 lg:h-auto lg:w-full">
+		<div className="mx-auto h-auto w-full rounded-md bg-gray-200 p-2 dark:bg-gray-800 md:w-4/5 lg:h-auto lg:w-full">
 			<table className="mx-auto table w-full rounded-t-md border-[0.5px] border-solid border-gray-400 border-opacity-30 p-2">
 				<thead className="table-row-group h-9 p-1">
 					<tr className="h-8 rounded-md border-b-[0.2px] border-solid border-gray-400 border-opacity-30">

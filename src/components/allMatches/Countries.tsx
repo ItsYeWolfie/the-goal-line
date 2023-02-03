@@ -44,7 +44,7 @@ function Countries() {
 			<span className="my-auto flex items-center pl-2 text-lg">
 				<FaSearch />
 				<input
-					className="w-[85%] rounded-md border-0 bg-gray-800 p-2 placeholder-inherit outline-0 focus:border-0 focus:outline-0 active:border-0"
+					className="w-[85%] rounded-md border-0 bg-gray-200 p-2 placeholder-inherit outline-0 focus:border-0 focus:outline-0 active:border-0 dark:bg-gray-800"
 					type="text"
 					placeholder="Search..."
 					onChange={(e) => setSearchTerm(e.target.value)}
@@ -71,7 +71,7 @@ function Countries() {
 										alt=""
 									/>
 								</span>
-								<span className="ml-2 cursor-pointer text-sm text-gray-300 hover:text-sky-600">{country.name}</span>
+								<span className="ml-2 cursor-pointer text-sm hover:text-sky-600">{country.name}</span>
 							</button>
 						))}
 					{countries
@@ -92,7 +92,7 @@ function Countries() {
 										alt=""
 									/>
 								</span>
-								<span className="ml-2 cursor-pointer text-sm text-gray-300 hover:text-sky-600">{country.name}</span>
+								<span className="ml-2 cursor-pointer text-sm hover:text-sky-600">{country.name}</span>
 							</button>
 						))}
 				</>

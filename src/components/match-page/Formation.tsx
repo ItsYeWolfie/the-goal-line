@@ -20,7 +20,7 @@ function Formation() {
 		return <FormationLoader />;
 	}
 	return (
-		<div className="h-auto w-full flex-col rounded-md bg-gray-800 py-4 md:mx-auto md:flex md:w-4/5 md:flex-row md:justify-evenly lg:flex lg:w-full lg:flex-row lg:justify-evenly">
+		<div className="h-auto w-full flex-col rounded-md bg-gray-200 py-4 dark:bg-gray-800 md:mx-auto md:flex md:w-4/5 md:flex-row md:justify-evenly lg:flex lg:w-full lg:flex-row lg:justify-evenly">
 			<span className="flex justify-around">
 				<span className="flex flex-col items-center md:my-auto lg:my-auto">
 					<img
@@ -41,7 +41,7 @@ function Formation() {
 					<p>{formation[1].formation}</p>
 				</span>
 			</span>
-			<div className="mx-auto flex h-[16rem] w-[23.9rem] bg-green-900 md:mx-0 lg:mx-0">
+			<div className="mx-auto flex h-[16rem] w-[23.9rem] bg-green-800 dark:bg-green-900 md:mx-0 lg:mx-0">
 				<div className="absolute h-64 w-48 border-2 border-solid border-white">
 					<div className="absolute -ml-0.5 mt-[-0.10rem] h-3 w-3 rounded-br-full border-2 border-solid border-white" />
 					<div className="absolute top-8 z-50 mx-16 -ml-8 flex h-48 w-64 -rotate-90 flex-col justify-between px-4 py-2">

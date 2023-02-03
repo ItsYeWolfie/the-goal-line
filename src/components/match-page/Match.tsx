@@ -38,7 +38,7 @@ function Match() {
 		return <MatchLoader />;
 	}
 	return (
-		<div className="h-auto w-full justify-between rounded-md bg-gray-800 align-middle md:mx-auto md:w-4/5  md:justify-around lg:block  lg:w-full">
+		<div className="h-auto w-full justify-between rounded-md bg-gray-200 align-middle text-gray-900 dark:bg-gray-800 dark:text-gray-100 md:mx-auto md:w-4/5  md:justify-around lg:block  lg:w-full">
 			<div className="flex justify-around">
 				<div className="mt-6 flex flex-col">
 					<span className="mb-2 flex flex-col items-center md:flex md:flex-row">
@@ -54,7 +54,7 @@ function Match() {
 					</span>
 					{filteredEvents.map((event) => (
 						<span
-							className="flex text-[0.65rem] text-gray-300 md:ml-12 md:text-xs"
+							className="flex text-[0.65rem] text-gray-700 dark:text-gray-300 md:ml-12 md:text-xs"
 							key={event.time.elapsed}
 						>
 							<p>{event.player.name}</p>
@@ -68,12 +68,14 @@ function Match() {
 						<h3 className="text-base">{fixture.fixture.status.short}</h3>
 						<h1 className="text-xl md:text-2xl">{fixture.goals.away}</h1>
 					</div>
-					<div className="flex gap-1 text-gray-400 md:gap-3">
+					<div className="flex gap-1 text-gray-600 dark:text-gray-400 md:gap-3">
 						<h1 className="text-sm md:text-lg">{fixture.score.halftime.home}</h1>
 						<h3 className="text-xs md:text-sm">HT</h3>
 						<h1 className="text-sm md:text-lg">{fixture.score.halftime.away}</h1>
 					</div>
-					<div className="mt-11 flex justify-center text-sm text-gray-300">{fixture.league.round}</div>
+					<div className="mt-24 flex justify-center text-sm text-gray-700 dark:text-gray-300 md:mt-11">
+						{fixture.league.round}
+					</div>
 				</div>
 				<div className="mt-6 flex flex-col">
 					<span className="mb-2 flex flex-col items-center md:flex md:flex-row">
@@ -87,7 +89,7 @@ function Match() {
 					</span>
 					{filteredEvents1.map((event) => (
 						<span
-							className="flex text-[0.65rem] text-gray-300 md:ml-12 md:text-xs"
+							className="flex text-[0.65rem] text-gray-700 dark:text-gray-300 md:ml-12 md:text-xs"
 							key={event.time.elapsed}
 						>
 							<p>{event.player.name}</p>

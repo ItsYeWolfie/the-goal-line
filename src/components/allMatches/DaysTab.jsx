@@ -50,7 +50,7 @@ function Tabs() {
 
 	return (
 		<div>
-			<div className="fixed -ml-2 -mt-2 mb-20 flex w-full justify-around rounded-t-md border-b-2 border-gray-200 border-opacity-30 bg-gray-900 p-2 lg:w-[33%] lg:bg-gray-800">
+			<div className="fixed -ml-2 -mt-2 mb-20 flex w-full justify-around rounded-t-md border-b-2 border-gray-400 border-opacity-30 bg-gray-100 p-2 dark:border-gray-200 dark:bg-gray-900 lg:w-[33%] lg:bg-gray-200 dark:lg:bg-gray-800">
 				{tabs.map((tab) => (
 					<div
 						className={`${

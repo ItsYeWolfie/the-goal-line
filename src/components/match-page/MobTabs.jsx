@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { useState } from 'react';
-import FixtureInfo from './MatchInfo';
 import H2h from './H2H';
 import Standings from './Standings';
 import Odds from './Odds';
 import Formation from './Formation';
 import Statistics from './Statistics';
 import MatchTabs from './LineupTabs';
+import TabIS from './TabIS';
 
 // @ts-ignore
 function Tab({ Component }) {
@@ -19,11 +19,10 @@ function Tabs() {
 			name: 'INFO',
 			Component: (
 				<div className="flex flex-col gap-y-2">
-					<h6 className="pl-1 text-xs text-gray-300 md:ml-20">MATCH INFO</h6>
-					<FixtureInfo />
-					<h6 className="mt-2 pl-1 text-xs text-gray-300 md:ml-20">ODDS</h6>
+					<TabIS />
+					<h6 className="mt-2 pl-1 text-xs md:ml-20">ODDS</h6>
 					<Odds />
-					<h6 className="mt-2 pl-1 text-xs text-gray-300 md:ml-20">H2H</h6>
+					<h6 className="mt-2 pl-1 text-xs md:ml-20">H2H</h6>
 					<H2h />
 					<img
 						className="mx-auto hidden w-4/5 md:block"
@@ -59,7 +58,7 @@ function Tabs() {
 
 	return (
 		<div className="lg:hidden">
-			<div className="my-4 flex w-full justify-around rounded-t-md border-b-2 border-gray-200 border-opacity-30 bg-gray-800 p-2 md:mx-auto md:w-4/5">
+			<div className="my-4 flex w-full justify-around rounded-t-md border-b-2 border-gray-200 border-opacity-30 bg-gray-200 p-2 dark:bg-gray-800 md:mx-auto md:w-4/5">
 				{tabs.map((tab) => (
 					<button
 						type="button"
