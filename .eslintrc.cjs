@@ -43,7 +43,6 @@ module.exports = {
 				tabWidth: 2,
 				useTabs: true,
 				semi: true,
-				endOfLine: 'lf',
 				singleQuote: true,
 				plugins: ['prettier-plugin-organize-attributes', 'prettier-plugin-tailwindcss'],
 				attributeGroups: ['$CODE_GUIDE'],
@@ -53,5 +52,8 @@ module.exports = {
 			},
 		],
 		'react/no-array-index-key': 'warn',
+		'react/jsx-props-no-spreading': 'off',
+		'react/destructuring-assignment': 'off',
+		'tailwindcss/migration-from-tailwind-2': 0,
 	},
 };

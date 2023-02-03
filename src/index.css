@@ -2,8 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+	@apply h-screen dark:bg-gray-800 dark:text-white;
+}
+
 #root {
-	@apply h-screen bg-gray-900 text-white;
+	@apply h-full;
 }
 
 @layer utilities {
