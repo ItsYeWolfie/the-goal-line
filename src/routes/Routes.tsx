@@ -6,6 +6,11 @@ import ContactPage from '../pages/ContactPage';
 import TeamRoutes from './TeamRoutes';
 import LeagueRoutes from './LeagueRoutes';
 import PlayerRoutes from './PlayerRoutes';
+import CoachPage from '../components/CoachPage/CoachPage';
+import Home from '../components/Home/Home';
+import News from '../components/News/News';
+import NewsByTitle from '../components/News/NewsbyTitle';
+import VenuePage from '../components/VenuePage/VenuePage';
 
 export const router = createBrowserRouter([
 	{
@@ -15,7 +20,7 @@ export const router = createBrowserRouter([
 		children: [
 			{
 				path: '/',
-				element: <IndexPage />,
+				element: <Home />,
 				index: true,
 			},
 			{
@@ -27,12 +32,33 @@ export const router = createBrowserRouter([
 				element: <ContactPage />,
 			},
 			{
+				path: '/news',
+				children: [
+					{
+						element: <News />,
+						index: true,
+					},
+					{
+						path: ':title',
+						element: <NewsByTitle />,
+					},
+				]
+			},
+			{
 				// path: '/leagues',
 				children: LeagueRoutes,
 			},
 			{
 				// path: '/players',
 				children: PlayerRoutes,
+			},
+			{
+				path: '/coach/:name',
+				element: <CoachPage />,
+			},
+			{
+				path: '/venue/:name',
+				element: <VenuePage />,
 			},
 		],
 	},

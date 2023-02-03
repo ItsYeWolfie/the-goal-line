@@ -9,3 +9,54 @@ body {
 #root {
 	@apply h-full;
 }
+
+@layer utilities {
+	@variants responsive {
+		/* Hide scrollbar for Chrome, Safari and Opera */
+		.no-scrollbar::-webkit-scrollbar {
+			display: none;
+		}
+
+		/* Hide scrollbar for IE, Edge and Firefox */
+		.no-scrollbar {
+			-ms-overflow-style: none; /* IE and Edge */
+			scrollbar-width: none; /* Firefox */
+		}
+	}
+}
+
+#app {
+	@apply h-[100%] w-full  bg-gray-900;
+}
+
+.newsImg {
+	animation: bounces 3s;
+}
+
+@keyframes bounces {
+	0%,
+	100% {
+		transform: translateY(-25%);
+		animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+	}
+	50% {
+		transform: translateY(0);
+		animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+	}
+}
+
+@media (min-width: 530px) {
+	.banner {
+		@apply h-[560px];
+	}
+}
+
+.blue-circle {
+	animation-delay: 0.1s;
+}
+.green-circle {
+	animation-delay: 0.2s;
+}
+.red-circle {
+	animation-delay: 0.3s;
+}
