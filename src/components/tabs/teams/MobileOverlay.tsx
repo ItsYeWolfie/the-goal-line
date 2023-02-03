@@ -1,18 +1,17 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { Fragment } from 'react';
-import TeamSearch from './TeamSearch';
+import { ITeamsSearch } from '../../../types/General.types';
+import TeamSearch from './Search';
 
 export default function TeamsPageMobileOverlay({
 	mobileFiltersOpen,
 	setMobileFiltersOpen,
-	handleChange,
 	handleSearch,
 }: {
 	mobileFiltersOpen: boolean;
 	setMobileFiltersOpen: (open: boolean) => void;
-	handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
-	handleSearch: (e: React.FormEvent<HTMLFormElement>) => void;
+	handleSearch: (data: ITeamsSearch) => void;
 }) {
 	return (
 		<Transition.Root
@@ -63,10 +62,7 @@ export default function TeamsPageMobileOverlay({
 								</button>
 							</div>
 
-							<TeamSearch
-								handleSearch={handleSearch}
-								handleChange={handleChange}
-							/>
+							<TeamSearch handleSearch={handleSearch} />
 						</Dialog.Panel>
 					</Transition.Child>
 				</div>

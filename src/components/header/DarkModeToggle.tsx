@@ -18,23 +18,19 @@ export default function DarkModeToggle({ className }: { className?: string }) {
 	const toggleDarkMode = () => {
 		setDarkMode(!darkMode);
 
-		if (!localStorage.getItem('theme')) {
-			localStorage.setItem('theme', 'dark');
+		if (darkMode) {
+			localStorage.theme = 'light';
 		} else {
-			localStorage.removeItem('theme');
+			localStorage.theme = 'dark';
 		}
 	};
 	return (
 		<button
 			type="button"
 			onClick={toggleDarkMode}
-			className={`${className || ''} flex h-8 w-8`}
+			className={`${className || ''} flex h-8 w-8 items-center justify-center `}
 		>
-			{darkMode ? (
-				<BsMoonFill className="h-5 w-5 text-gray-200" />
-			) : (
-				<BsFillSunFill className="h-5 w-5 text-gray-200" />
-			)}
+			{darkMode ? <BsMoonFill className="h-full text-gray-200" /> : <BsFillSunFill className="h-full text-gray-200" />}
 		</button>
 	);
 }

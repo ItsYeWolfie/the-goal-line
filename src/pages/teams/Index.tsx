@@ -3,33 +3,22 @@ import { PlusIcon } from '@heroicons/react/20/solid';
 import { ITeamAndVenue } from '../../types/Team.types';
 import { GlobalHeaderContext, IGlobalHeader } from '../../contexts/GlobalHeader.context';
 import TeamsPageMobileOverlay from '../../components/tabs/teams/MobileOverlay';
-import TeamsDisplaySection from '../../components/tabs/teams/TeamDisplaySection';
-import LoadingTeamsDisplaySection from '../../components/tabs/teams/loading/LoadingTeamDisplaySection';
+import TeamsDisplaySection from '../../components/tabs/teams/DisplaySection';
+import LoadingTeamsDisplaySection from '../../components/tabs/teams/loading/LoadingDisplaySection';
 import fetchData from '../../lib/helpers/Fetch';
-import TeamSearch from '../../components/tabs/teams/TeamSearch';
+import TeamSearch from '../../components/tabs/teams/Search';
+import { ITeamsSearch } from '../../types/General.types';
 
-export default function TeamsIndexPage() {
+export default function TeamsIndex() {
 	const [teams, setTeams] = useState<ITeamAndVenue[]>([]);
 	const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 	const [loading, setLoading] = useState(true);
 	const [filteredTeams, setFilteredTeams] = useState<ITeamAndVenue[]>(teams);
-	const [searchData, setSearchData] = useState({
-		name: '',
-		country: 'All',
-		season: 'All',
-		league: 'All',
-	});
 
 	const { setBreadcrumbs } = useContext<IGlobalHeader>(GlobalHeaderContext);
 
-	const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-		const { name, value } = e.target;
-		setSearchData((prev) => ({ ...prev, [name]: value }));
-	};
-
-	const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
-		const { name, country } = searchData;
+	const handleSearch = (data: ITeamsSearch) => {
+		const { name, country } = data;
 		const filtered = teams.filter((team) => {
 			const nameMatch = team.team.name.toLowerCase().includes(name.toLowerCase());
 			const countryMatch = country === 'All' ? true : team.team.country === country;
@@ -48,6 +37,10 @@ export default function TeamsIndexPage() {
 				href: '/teams',
 			},
 		]);
+
+		return () => {
+			setBreadcrumbs([]);
+		};
 	}, [setBreadcrumbs]);
 
 	useEffect(() => {
@@ -62,11 +55,10 @@ export default function TeamsIndexPage() {
 		<main className="mx-auto max-w-2xl p-4 sm:py-8 sm:px-6 lg:max-w-7xl lg:px-8">
 			<TeamsPageMobileOverlay
 				handleSearch={handleSearch}
-				handleChange={handleChange}
 				mobileFiltersOpen={mobileFiltersOpen}
 				setMobileFiltersOpen={setMobileFiltersOpen}
 			/>
-			<div className="pt-12 lg:grid lg:grid-cols-3 lg:gap-x-8 xl:grid-cols-4">
+			<div className="lg:grid lg:grid-cols-3 lg:gap-x-8 xl:grid-cols-4">
 				<aside>
 					<h2 className="sr-only">Filters</h2>
 
@@ -83,10 +75,7 @@ export default function TeamsIndexPage() {
 					</button>
 
 					<div className="sticky hidden lg:block">
-						<TeamSearch
-							handleChange={handleChange}
-							handleSearch={handleSearch}
-						/>
+						<TeamSearch handleSearch={handleSearch} />
 					</div>
 				</aside>
 				<div className="mt-6 grid grid-cols-12 items-start gap-4 text-gray-900 dark:text-gray-100 lg:col-span-2 lg:mt-0 xl:col-span-3">

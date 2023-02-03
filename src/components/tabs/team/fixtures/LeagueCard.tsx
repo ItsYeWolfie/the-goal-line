@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { ILeagueWithSeason } from '../../../../types/League.types';
 
 export default function TeamFixturesLeagueCard({
@@ -14,7 +15,8 @@ export default function TeamFixturesLeagueCard({
 					return league.id === selectedLeague;
 				})
 				.map((league) => (
-					<div
+					<Link
+						to={`/leagues/${league.id}/`}
 						className="flex items-center md:justify-center"
 						key={league.id}
 					>
@@ -35,7 +37,7 @@ export default function TeamFixturesLeagueCard({
 							<span>-</span>
 							<span>{league.season}</span>
 						</span>
-					</div>
+					</Link>
 				))}
 		</div>
 	);

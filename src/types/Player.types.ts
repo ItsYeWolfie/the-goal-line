@@ -1,14 +1,31 @@
-import { IHumanBasic } from './General.types';
+import { IHuman, IHumanBasic } from './General.types';
 import { ITeamBasic } from './Team.types';
 import { IFixtureInfoBasic } from './Fixture.types';
 import { ILeagueWithSeason } from './League.types';
+import { ITransferDetails } from './Transfers.type';
+import { ITrophy } from './Trophy.types';
+import { ISideline } from './Sidelines.types';
 
-export interface IPlayerWithStatistics extends IHumanBasic {
-	player: IPlayerStatistics;
+export interface IPlayerWithStatistics {
+	player: IPlayer;
 	statistics: IPlayerStatistics[];
 }
 
-interface IPlayerStatistics extends IPlayer {
+interface IPlayer extends IHuman {
+	photo: string;
+	injured: boolean;
+}
+
+export interface IPlayerModified {
+	player: IPlayer;
+	statistics: IPlayerStatistics[];
+	transfers: ITransferDetails[];
+	injuries: IPlayerInjury[];
+	trophies: ITrophy[];
+	sidelines: ISideline[];
+}
+
+export interface IPlayerStatistics {
 	team: ITeamBasic;
 	league: ILeagueWithSeason;
 	games: IPlayerGamesStats;
@@ -29,7 +46,7 @@ interface IPlayer extends IHumanBasic {
 	firstname: string;
 	lastname: string;
 	photo: string;
-	injured: false;
+	injured: boolean;
 }
 
 interface IPlayerGamesStats {

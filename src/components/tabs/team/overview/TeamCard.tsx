@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 import { ILeagueWithSeason } from '../../../../types/League.types';
 import { ITeam, ITeamStatistics } from '../../../../types/Team.types';
 import FormIconArray from '../../../icons/FormIconArray';
@@ -20,9 +21,12 @@ export default function TeamOverviewTeamCard({
 				src={team.logo}
 				alt={`${team.name} Logo`}
 			/>
-			<div className="grid grid-cols-12 items-center gap-x-4">
+			<Link
+				className="grid grid-cols-12 items-center gap-x-4 p-2 hover:bg-gray-300 dark:hover:bg-gray-700"
+				to={`/leagues/${league.id}/`}
+			>
 				<img
-					className="col-span-2"
+					className="col-span-2 rounded-full bg-white"
 					src={league.logo}
 					alt={league.name}
 				/>
@@ -41,7 +45,7 @@ export default function TeamOverviewTeamCard({
 					<p className="text-sm font-bold">{league.season}</p>
 					<p className="text-xs">Season</p>
 				</div>
-			</div>
+			</Link>
 			<p className="order-last mx-auto max-w-sm" />
 			<div className="grid grid-cols-12 gap-y-2 px-2">
 				<div className="col-span-12 flex justify-between px-2">

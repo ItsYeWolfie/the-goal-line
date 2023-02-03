@@ -1,4 +1,4 @@
 export interface IBreadCrumb {
-	name: string;
-	href: string;
+	name: string | React.ReactNode;
+	href?: string;
 }

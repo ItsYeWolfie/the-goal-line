@@ -23,6 +23,12 @@ export interface IFixture {
 	fixture: IFixtureInfo;
 }
 
+export interface IFixtureMatch {
+	fixture: IFixtureInfo;
+	teams: FixtureTeamsType;
+	goals: SideGoalsType;
+}
+
 interface IFixtureTeam extends ITeamBasic {
 	winner: boolean;
 }
