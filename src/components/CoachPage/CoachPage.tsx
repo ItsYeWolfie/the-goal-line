@@ -15,7 +15,6 @@ export default function CoachPage() {
 		fetchData<ICoaches[]>('https://api.npoint.io/e471eb968617878ba05f')
 			.then((data) => {
 				setCoaches(data);
-				console.log(data.slice(0, 1));
 				setLoading(false);
 			})
 			.catch((error) => {
@@ -117,7 +116,7 @@ export default function CoachPage() {
 							</div>
 							<div className="col-span-1    text-left text-white">
 								<img
-									src="/33.png"
+									src={Coach.team.logo}
 									alt=""
 									className=" mx-auto h-auto w-auto md:mt-[20%]"
 								/>
