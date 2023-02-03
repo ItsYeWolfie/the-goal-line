@@ -22,8 +22,7 @@ export default function QuickSearch() {
 	const [filterVenue, setFilterVenue] = useState<IVenue[]>([]);
 	const [filterCoach, setFilterCoach] = useState<ICoaches[]>([]);
 	const searchRef = useRef<HTMLInputElement>(null);
-	const [selectedOption, setSelectedOption] = useState('Team');
-	console.log(selectedOption);
+	const [selectedOption, setSelectedOption] = useState('Teams');
 
 	useEffect(() => {
 		fetchData<FootballMatch[]>('https://api.npoint.io/cfdd9340ece0aa795c9e').then((data) => {
