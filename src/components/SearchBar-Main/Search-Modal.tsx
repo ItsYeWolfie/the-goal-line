@@ -46,7 +46,7 @@ export default function SearchModal({
 						<Transition.Child
 							as={Fragment}
 							enter="ease-out duration-300"
-							enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+							enterFrom="opacity-0 translate-y-4  sm:translate-y-0 sm:scale-95"
 							enterTo="opacity-100 translate-y-0 sm:scale-100"
 							leave="ease-in duration-200"
 							leaveFrom="opacity-100 translate-y-0 sm:scale-100"
@@ -62,15 +62,15 @@ export default function SearchModal({
 								<div className="relative mx-auto mt-4 flex cursor-pointer items-center rounded-md border-[1px]  px-4 py-2 text-sm leading-5">
 									<input
 										id="search"
-										className="block w-full rounded-md border-none bg-transparent py-2 pl-8 text-[19px] leading-5 text-white transition duration-150 ease-in-out placeholder:text-gray-400  focus:border-transparent focus:outline-none
-								 sm:text-[17px] sm:leading-5"
+										className="block w-full rounded-md border-none bg-transparent py-2 pl-8 text-[19px] leading-5 text-white transition duration-150 ease-in-out placeholder:text-[13px] placeholder:text-gray-400 focus:border-transparent focus:outline-none sm:text-[17px]
+								 sm:leading-5 md:placeholder:text-[19px]"
 										ref={searchRef}
 										onChange={handleSearchChange}
 										placeholder="Type to search..."
 									/>
-									<div className="absolute right-4 top-2 border-none">
+									<div className="absolute top-2 right-2 border-none">
 										<select
-											className="block w-full rounded-md border-[1px] bg-transparent py-2 pl-3 pr-10 leading-5 text-white focus:border-transparent  focus:outline-none  sm:text-[15px] sm:leading-5"
+											className="block w-full rounded-md border-[1px] bg-transparent py-2 pl-3 pr-10 text-[13px] leading-5 text-white  focus:border-transparent focus:outline-none  sm:text-[15px] sm:leading-5"
 											onChange={(event) => setSelectedOption(event.target.value)}
 										>
 											{['Teams', 'Players', 'Coaches', 'Venues'].map((option) => (
