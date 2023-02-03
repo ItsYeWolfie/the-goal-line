@@ -17,6 +17,7 @@ function YesterdayMatches() {
 			const response = await fetch('https://api.npoint.io/551f7ee0bf0c92dbddd2');
 			const data = await response.json();
 			setFixture(data);
+			setLoading(false);
 
 			const groupedMatches = {};
 			fixture.forEach((fixture) => {
@@ -34,7 +35,6 @@ function YesterdayMatches() {
 				groupedMatches[leagueId].league = fixture.league;
 			});
 			setGroupedMatches(groupedMatches);
-			setLoading(false);
 		};
 		fetchData();
 	}, [loading]);
@@ -48,7 +48,10 @@ function YesterdayMatches() {
 			{Object.keys(groupedMatches).map((leagueId) => {
 				return (
 					<div key={leagueId}>
-						<a href="x">
+						<Link
+							to={`/leagues/${groupedMatches[leagueId].league.id}/`}
+							rel="noreferrer"
+						>
 							<div className="flex cursor-pointer p-2 hover:text-sky-600">
 								<span className="my-auto">
 									<img
@@ -83,7 +86,7 @@ function YesterdayMatches() {
 									<FaChevronRight className="mr-1 text-base" />
 								</span>
 							</div>
-						</a>
+						</Link>
 						{
 							// @ts-ignore
 							groupedMatches[leagueId].map((fixture) => {

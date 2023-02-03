@@ -48,7 +48,10 @@ function TodayMatches() {
 			{Object.keys(groupedMatches).map((leagueId) => {
 				return (
 					<div key={leagueId}>
-						<a href="x">
+						<Link
+							to={`/leagues/${groupedMatches[leagueId].league.id}/`}
+							rel="noreferrer"
+						>
 							<div className="flex cursor-pointer p-2 hover:text-sky-600">
 								<span className="my-auto">
 									<img
@@ -83,7 +86,7 @@ function TodayMatches() {
 									<FaChevronRight className="mr-1 text-base" />
 								</span>
 							</div>
-						</a>
+						</Link>
 						{
 							// @ts-ignore
 							groupedMatches[leagueId].map((fixture) => {
@@ -94,7 +97,7 @@ function TodayMatches() {
 								});
 								return (
 									<Link
-										to={`/matches/${fixture.fixture.id}`}
+										to={`/matches/${fixture.fixture.id}/`}
 										target="_blank"
 										rel="noreferrer"
 									>

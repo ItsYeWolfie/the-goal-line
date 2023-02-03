@@ -31,14 +31,14 @@ export default function MatchPage() {
 						<TabIS />
 					</div>
 					<div className="hidden lg:block">
-						<h6 className="mt-4 hidden pl-1 text-xs md:ml-20 lg:ml-0 lg:flex">TEAM FORMATIONS</h6>
+						<h6 className="mt-4 hidden pl-1 text-xs md:ml-20 lg:ml-0 lg:flex">TEAMS FORMATIONS</h6>
 						<Formation />
 					</div>
 					<div className="mt-4 hidden lg:block">
 						<MatchTabs />
 					</div>
 					<div className="hidden lg:block">
-						<h6 className="mt-4 hidden pl-1 text-xs md:ml-20 lg:ml-0 lg:flex">TEAM STATISTIC</h6>
+						<h6 className="mt-4 hidden pl-1 text-xs md:ml-20 lg:ml-0 lg:flex">TEAMS STATISTIC</h6>
 						<Statistics />
 					</div>
 				</div>

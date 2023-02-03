@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState, useEffect } from 'react';
 import { FaChevronLeft, FaSearch } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import CountriesLoader from '../../loaders/allMatches-page/CountriesLoader';
 import { ICountry } from '../../types/Country.types';
 import { ILeagueAndCountry } from '../../types/General.types';
@@ -108,7 +109,7 @@ function Countries() {
 				<div className="mt-2">
 					<span
 						className="mb-2 flex cursor-pointer items-center text-sky-600"
-						onClick={() => setSelectedCountry(null)}
+						onClick={() => setSelectedCountry(false)}
 					>
 						<FaChevronLeft />
 						<p className="ml-2 text-lg">Leagues of {selectedCountry.name}</p>
@@ -119,19 +120,25 @@ function Countries() {
 								.filter((league) => league.country.name === selectedCountry.name)
 								.filter((league) => league.league.name.toLowerCase().startsWith(searchTerm.toLowerCase()))
 								.map((league) => (
-									<span
-										className="flex items-center p-2"
-										key={league.league.id}
+									<Link
+										to={`/leagues/${league.league.id}/`}
+										rel="noreferrer"
 									>
-										<img
-											className="rounded-sm"
-											src={league.league.logo === null ? '/images/noimg.png' : league.league.logo}
-											width="20px"
-											height="20px"
-											alt=""
-										/>
-										<p className="ml-2 cursor-pointer hover:text-sky-600">{league.league.name}</p>
-									</span>
+										<span
+											className="flex items-center p-2"
+											key={league.league.id}
+										>
+											<img
+												className="rounded-sm"
+												src={league.league.logo === null ? '/images/noimg.png' : league.league.logo}
+												width="20px"
+												height="20px"
+												alt=""
+											/>
+
+											<p className="ml-2 cursor-pointer hover:text-sky-600">{league.league.name}</p>
+										</span>
+									</Link>
 								)),
 						)}
 					</span>

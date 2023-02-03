@@ -1,4 +1,4 @@
-import { faPeopleGroup } from '@fortawesome/free-solid-svg-icons';
+import { faFutbol, faList, faList12, faNewspaper, faPeopleArrows, faPeopleGroup, faUser } from '@fortawesome/free-solid-svg-icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 interface ErrorLink {
@@ -10,10 +10,22 @@ interface ErrorLink {
 
 export const errorLinks: ErrorLink[] = [
 	{
+		title: 'Matches',
+		description: 'Find latest matches of your favorite team and get the latest data.',
+		icon: faFutbol,
+		href: '/matches',
+	},
+	{
 		title: 'Teams',
 		description: 'Find your favorite team and get the latest data.',
 		icon: faPeopleGroup,
 		href: '/teams',
+	},
+	{
+		title: 'News',
+		description: 'Find latest news about your favorite team.',
+		icon: faNewspaper,
+		href: '/news',
 	},
 ];
 
