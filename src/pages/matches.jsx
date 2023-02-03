@@ -4,6 +4,7 @@
 
 // @ts-ignore
 import React, { useEffect, useRef } from 'react';
+import { FaSearch } from 'react-icons/fa';
 import Countries from '../components/allMatches/Countries';
 import DaysTab from '../components/allMatches/DaysTab';
 
@@ -40,11 +41,7 @@ export default function MatchesPage() {
 					className="my-auto ml-auto cursor-pointer pr-2"
 					ref={searchIcon}
 				>
-					<img
-						src="/images/icons8-search.svg"
-						width="30px"
-						alt=""
-					/>
+					<FaSearch className="text-[20px] text-gray-900 dark:text-gray-100" />
 				</span>
 			</div>
 			<div className="justify-center lg:flex">

@@ -37,7 +37,7 @@ function BeforeYesterdayMatches() {
 		};
 
 		fetchData();
-	}, [fixture]);
+	}, [loading]);
 
 	if (loading) {
 		return <MatchesLoader />;

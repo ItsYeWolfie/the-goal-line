@@ -37,7 +37,7 @@ function AfterTomorrowMatches() {
 		};
 
 		fetchData();
-	}, [fixture]);
+	}, [loading]);
 
 	if (loading) {
 		return <MatchesLoader />;

@@ -16,7 +16,7 @@ import TomorrowMatches from './TomorrowMatches';
 import AfterTomorrowMatches from './AfterTomorrowMatches';
 
 // @ts-ignore
-function Tab({ name, Component }) {
+function Tab({ Component }) {
 	return <div>{Component}</div>;
 }
 
@@ -50,11 +50,11 @@ function Tabs() {
 
 	return (
 		<div>
-			<div className="fixed -ml-2 -mt-2 mb-20 flex w-full justify-around rounded-t-md border-b-2 border-gray-400 border-opacity-30 bg-gray-100 p-2 dark:border-gray-200 dark:bg-gray-900 lg:w-[33%] lg:bg-gray-200 dark:lg:bg-gray-800">
+			<div className="fixed z-10 -ml-2 -mt-2 mb-20 flex w-full justify-around rounded-t-md border-b-2 border-gray-200 border-opacity-30 bg-gray-100 p-2 dark:bg-gray-900 lg:w-[33.3%] lg:bg-gray-200 dark:lg:bg-gray-800">
 				{tabs.map((tab) => (
 					<div
 						className={`${
-							tab.name === activeTab ? 'text-sm text-sky-600 md:text-base' : ''
+							tab.name === activeTab ? 'text-sm text-sky-600 md:text-[17px]' : ''
 						} my-auto flex cursor-pointer flex-col items-center text-xs hover:text-sky-600 md:text-sm`}
 						onClick={() => handleTabClick(tab.name)}
 					>

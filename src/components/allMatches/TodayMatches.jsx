@@ -37,7 +37,7 @@ function TodayMatches() {
 		};
 
 		fetchData();
-	}, [fixture]);
+	}, [loading]);
 
 	if (loading) {
 		return <MatchesLoader />;

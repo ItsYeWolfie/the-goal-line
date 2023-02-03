@@ -46,7 +46,7 @@ function Formation() {
 					<div className="absolute -ml-0.5 mt-[-0.10rem] h-3 w-3 rounded-br-full border-2 border-solid border-white" />
 					<div className="absolute top-8 z-50 mx-16 -ml-8 flex h-48 w-64 -rotate-90 flex-col justify-between px-4 py-2">
 						<div className="flex items-center justify-center">
-							<span className="relative flex h-7 w-7 rotate-90 items-center justify-center rounded-full bg-lime-700 text-center">
+							<span className="relative flex h-7 w-7 rotate-90 items-center justify-center rounded-full bg-lime-600 text-center dark:bg-lime-700">
 								{formation[0].startXI[0].player.number}
 							</span>
 						</div>
@@ -56,7 +56,7 @@ function Formation() {
 									.filter((player) => player.player.pos === pos)
 									.map((player) => (
 										<span
-											className="relative flex h-7 w-7 shrink-0 rotate-90 items-center justify-center rounded-full bg-lime-700 text-center"
+											className="relative flex h-7 w-7 shrink-0 rotate-90 items-center justify-center rounded-full bg-lime-600 text-center dark:bg-lime-700"
 											key={player.player.id}
 										>
 											{player.player.number}
@@ -76,7 +76,7 @@ function Formation() {
 					<div className="absolute ml-[11.125rem] mt-[-0.10rem] h-3 w-3 rounded-bl-full border-2 border-solid border-white" />
 					<div className="absolute top-8 z-50 mx-16 -ml-8 flex h-48 w-64 -rotate-90 flex-col-reverse justify-between px-4 py-2">
 						<div className="flex items-center justify-center">
-							<span className="relative flex h-7 w-7 rotate-90 items-center justify-center rounded-full bg-sky-700 text-center">
+							<span className="relative flex h-7 w-7 rotate-90 items-center justify-center rounded-full bg-sky-500 text-center dark:bg-sky-700">
 								{formation[1].startXI[0].player.number}
 							</span>
 						</div>
@@ -86,7 +86,7 @@ function Formation() {
 									.filter((player) => player.player.pos === pos)
 									.map((player) => (
 										<span
-											className="relative flex h-7 w-7 shrink-0 rotate-90 items-center justify-center rounded-full bg-sky-700 text-center"
+											className="relative flex h-7 w-7 shrink-0 rotate-90 items-center justify-center rounded-full bg-sky-500 text-center dark:bg-sky-700"
 											key={player.player.id}
 										>
 											{player.player.number}

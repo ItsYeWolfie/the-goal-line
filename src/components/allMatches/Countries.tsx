@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState, useEffect } from 'react';
 import { FaChevronLeft, FaSearch } from 'react-icons/fa';
 import CountriesLoader from '../../loaders/allMatches-page/CountriesLoader';
@@ -9,7 +11,9 @@ function Countries() {
 	const [loading, setLoading] = useState(true);
 	const [searchTerm, setSearchTerm] = useState('');
 	const [groupedLeagues, setGroupedLeagues] = useState<ILeagueAndCountry[][]>([] as ILeagueAndCountry[][]);
-	const [selectedCountry, setSelectedCountry] = useState<ICountry>({} as ICountry);
+	const [selectedCountry, setSelectedCountry] = useState<ICountry>(
+		JSON.parse(localStorage.getItem('selectedCountry') || '{}'),
+	);
 	useEffect(() => {
 		const fetchData = async () => {
 			const response = await fetch('https://api.npoint.io/c1b77191c0cc9d3ae051');
@@ -34,6 +38,10 @@ function Countries() {
 		fetchData();
 	}, []);
 
+	useEffect(() => {
+		localStorage.setItem('selectedCountry', JSON.stringify(selectedCountry));
+	}, [selectedCountry]);
+
 	const topCountries = ['England', 'Italy', 'Spain', 'France', 'Germany'];
 
 	if (loading) {
@@ -44,7 +52,7 @@ function Countries() {
 			<span className="my-auto flex items-center pl-2 text-lg">
 				<FaSearch />
 				<input
-					className="w-[85%] rounded-md border-0 bg-gray-200 p-2 placeholder-inherit outline-0 focus:border-0 focus:outline-0 active:border-0 dark:bg-gray-800"
+					className="ml-2 w-full rounded-md border-0 bg-gray-200 p-2 placeholder-inherit outline-0 focus:border-0 focus:outline-0 active:border-0 dark:bg-gray-800"
 					type="text"
 					placeholder="Search..."
 					onChange={(e) => setSearchTerm(e.target.value)}

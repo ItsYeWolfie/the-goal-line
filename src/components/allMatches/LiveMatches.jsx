@@ -37,7 +37,7 @@ function LiveMatches() {
 		};
 
 		fetchData();
-	}, [fixture]);
+	}, [loading]);
 
 	if (loading) {
 		return <MatchesLoader />;
