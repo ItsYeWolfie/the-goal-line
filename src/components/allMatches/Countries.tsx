@@ -117,6 +117,7 @@ function Countries() {
 						{groupedLeagues.map((leagues) =>
 							leagues
 								.filter((league) => league.country.name === selectedCountry.name)
+								.filter((league) => league.league.name.toLowerCase().startsWith(searchTerm.toLowerCase()))
 								.map((league) => (
 									<span
 										className="flex items-center p-2"
