@@ -4,7 +4,7 @@ interface ITableHeadProps {
 }
 
 export default function TableHead({ children, className }: ITableHeadProps) {
-	return <thead className={`${className} bg-gray-200 text-sm dark:bg-gray-800`}>{children}</thead>;
+	return <thead className={`bg-gray-200 text-sm dark:bg-gray-800 ${className}`}>{children}</thead>;
 }
 
 TableHead.defaultProps = {

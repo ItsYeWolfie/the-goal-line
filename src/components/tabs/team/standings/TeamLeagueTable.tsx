@@ -75,7 +75,7 @@ export default function TeamLeagueTable({ league }: { league: ILeagueWithStandin
 						</TableRow>
 						<TableRow>
 							<TableCell>Form</TableCell>
-							<TableCell>
+							<TableCell className="text-base">
 								<FormIconArray array={standing.form.split('')} />
 							</TableCell>
 						</TableRow>

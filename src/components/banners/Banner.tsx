@@ -1,30 +1,30 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import React, { useState, useEffect } from 'react';
-import LiveMatch from './Live-Match';
+import { useState, useEffect } from 'react';
+import LiveMatch from './LiveMatch';
 
 export default function Banner() {
 	const [timer, setTimer] = useState('');
-	const [currentTime, setCurrentTime] = useState(Date.now());
 	const [gameTime, setGameTime] = useState(0);
-	const [startTime, setStartTime] = useState(Date.now() - 20 * 60 * 1000);
 
 	useEffect(() => {
 		const intervalId = setInterval(() => {
+			setGameTime((Date.now() - Date.now() - 20 * 60 * 1000) / 1000);
 			const countDownDate = new Date('March 19, 2023 20:45:00').getTime();
 			const now = new Date().getTime();
 			// Find the distance between now and the count down date
 			const distance = countDownDate - now;
 
 			// Time calculations for days, hours, minutes and seconds
-			const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-			const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-			const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-			const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+			const second = 1000;
+			const minute = second * 60;
+			const hour = minute * 60;
+			const days = Math.floor(distance / (hour * 24));
+			const hours = Math.floor((distance % days) / hour);
+			const minutes = Math.floor((distance % hour) / minute);
+			const seconds = Math.floor((distance % minute) / 1000);
 
-			setCurrentTime(Date.now());
-			setGameTime((Date.now() - startTime) / 1000);
-			setTimer(`${days}d : ${hours}h :  ${minutes}min : ${seconds}sec `);
+			setTimer(`${days}day(s), ${hours} hour(s), ${minutes} minute(s) and ${seconds}second(s) left. `);
 		}, 1000);
 
 		return () => clearInterval(intervalId);
@@ -33,40 +33,24 @@ export default function Banner() {
 	const gameTimeInSeconds = Math.floor(gameTime % 60);
 	const gameTimeInMinutes = Math.floor(gameTime / 60);
 	return (
-		<section className=" mx-[1%] overflow-hidden pt-[5%]  md:mx-[5%] 2xl:container 2xl:mx-auto ">
-			<div className="2xl:w-full">
-				<div
-					className=" banner flex h-[500px] flex-col justify-center space-y-4 shadow-lg sm:h-[650px] md:h-[240px] md:flex-row md:space-y-0 md:space-x-6 lg:h-[340px] lg:space-x-8 2xl:h-[420px]"
-					id="banner"
-				>
-					<div className=" relative flex h-full  w-full flex-col justify-between rounded-[20px]   bg-gray-100 shadow-lg shadow-slate-600 dark:bg-gray-900  md:w-8/12 md:flex-row  lg:w-7/12  xl:w-8/12  2xl:w-9/12">
-						<img
-							className="h-full w-full rounded-[20px] opacity-[0.6]"
-							src="/140324050941-bernabeu.jpg"
-							alt=""
-						/>
-						<div className="absolute top-[5%] left-[10%] z-[1] w-[80%]  px-3 py-[1%] text-center font-mono text-[1rem] font-semibold italic text-white  sm:left-[20%] sm:w-[60%] sm:text-[1.3rem] md:left-[5%] md:w-[90%] md:text-[1.3rem] lg:left-[15%] lg:w-[70%] xl:left-[25%] xl:w-[50%]">
-							Real Madrid vs Barcelona
-						</div>
-						<p className="absolute top-[45%]  left-[30%] z-[1] w-[40%] px-3 py-[1%] text-center font-mono text-[0.7rem] font-semibold italic text-white sm:left-[30%]  sm:w-[40%] sm:text-[1rem]  md:left-[27.5%] md:w-[45%] md:text-[1.1rem] lg:left-[30%] lg:w-[40%] xl:left-[35%] xl:w-[30%]">
-							19 March - 2023
-						</p>
-						<p className="absolute top-[25%] left-[20%] z-[1] w-[60%] px-3 py-[1%] text-center font-mono text-[0.7rem] font-extrabold italic text-white sm:left-[27.5%] sm:w-[45%] sm:text-[1.2rem] md:left-[20%] md:w-[60%] md:text-[1.2rem] lg:left-[22.5%] lg:w-[55%] xl:left-[32.5%] xl:w-[35%]">
-							Santiago Bernabeu
-						</p>
-						<p
-							className="  absolute bottom-[2%] right-[25%] z-[1] w-[50%] rounded-tl-[20px] rounded-br-[20px] px-3 py-[1%] text-center font-mono text-[0.8rem] font-semibold italic text-white sm:text-[1rem] md:text-[1rem] lg:text-[1.2rem]"
-							id="demo"
-						>
-							{timer}
-						</p>
-					</div>
-					<LiveMatch
-						gameTimeInSeconds={gameTimeInSeconds}
-						gameTimeInMinutes={gameTimeInMinutes}
-					/>
-				</div>
+		<div className="flex flex-col justify-between gap-4 shadow-lg lg:flex-row lg:gap-x-16">
+			<div className="relative flex h-96 flex-col justify-around gap-6 rounded-[20px] bg-gray-100 bg-cover py-4 text-center shadow-lg  shadow-slate-600  dark:bg-gray-900 lg:basis-8/12">
+				<img
+					src="/140324050941-bernabeu.jpg"
+					alt="Santiago Bernabeu"
+					className="absolute top-0 left-0 z-0 h-full w-full object-cover opacity-60"
+				/>
+				<header className="z-[1] text-lg font-bold lg:text-2xl">Real Madrid vs Barcelona</header>
+				<p className="z-[1] font-medium lg:text-xl">Santiago Bernabeu</p>
+				<p className="z-[1] text-sm lg:text-lg">19 March - 2023</p>
+				<p className="z-[1] mx-auto w-max rounded-tl-2xl rounded-br-2xl bg-black bg-opacity-60 px-4 py-2 text-sm">
+					{timer}
+				</p>
 			</div>
-		</section>
+			<LiveMatch
+				gameTimeInSeconds={gameTimeInSeconds}
+				gameTimeInMinutes={gameTimeInMinutes}
+			/>
+		</div>
 	);
 }

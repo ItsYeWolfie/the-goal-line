@@ -25,10 +25,6 @@ body {
 	}
 }
 
-#app {
-	@apply h-[100%] w-full  bg-gray-900;
-}
-
 .newsImg {
 	animation: bounces 3s;
 }
@@ -42,12 +38,6 @@ body {
 	50% {
 		transform: translateY(0);
 		animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-	}
-}
-
-@media (min-width: 530px) {
-	.banner {
-		@apply h-[560px];
 	}
 }
 

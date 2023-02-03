@@ -73,7 +73,7 @@ export default function TeamOverviewTeamCard({
 					<header className="shrink-0 grow-0 basis-6/12 text-xs font-bold uppercase dark:text-gray-400">
 						Recent Form
 					</header>
-					<div className="flex flex-nowrap gap-x-1">
+					<div className="flex flex-nowrap gap-x-1 text-base">
 						<FormIconArray array={form.split('')} />
 					</div>
 				</div>

@@ -10,38 +10,24 @@ interface FixtureHProps {
 
 export default function FixtureHeader({ activeButton, handleButtonClick }: FixtureHProps) {
 	return (
-		<div className="relative h-[115px] w-full border-b-[5px] border-gray-300 2xl:h-[140px]">
-			<div className="flex items-center">
-				<p className=" mt-[6%]  ml-[3%] flex w-full  gap-[1%] text-[20px] text-gray-200 sm:mt-[2%] md:mt-[1%] md:ml-[1%] lg:text-[25px] 2xl:text-[30px]">
-					<FaRegFutbol className=" mr-[0.4%] mt-[0.4%]  rounded-full text-[20px] text-yellow-500 2xl:text-[30px]" />
-					Football Matches
-				</p>
+		<div className="relative flex flex-col gap-4 border-b-2 border-gray-300">
+			<div className="flex items-center gap-2">
+				<FaRegFutbol className="text-4xl text-yellow-400" />
+				<span className="text-2xl text-gray-200">Football Matches</span>
 			</div>
-			<div className="absolute bottom-[-5px] flex h-[50px] w-[100%] items-start gap-[6%] md:gap-[6%] 2xl:h-[60px]">
-				<p
-					className={`h-full pl-[2.5%] text-center text-[14px] md:text-[17px] 2xl:text-[30px] ${
-						activeButton === 0 ? 'border-b-[5px] border-yellow-400 text-yellow-400' : ''
-					}`}
-					onClick={() => handleButtonClick(0)}
-				>
-					Latest Match
-				</p>
-				<p
-					className={`h-full text-center text-[14px] md:text-[17px] 2xl:text-[30px] ${
-						activeButton === 1 ? 'border-b-[5px] border-yellow-400 text-yellow-400' : ''
-					}`}
-					onClick={() => handleButtonClick(1)}
-				>
-					Live Matches
-				</p>
-				<p
-					className={`h-full text-center text-[14px] md:text-[17px] 2xl:text-[30px] ${
-						activeButton === 2 ? 'border-b-[5px] border-yellow-400 text-yellow-400' : ''
-					}`}
-					onClick={() => handleButtonClick(2)}
-				>
-					Coming Matches
-				</p>
+			<div className="flex items-start gap-8">
+				{['Latest Matches', 'Live Matches', 'Coming Matches'].map((item, index) => (
+					<button
+						type="button"
+						key={item}
+						className={`text-center text-xl ${
+							activeButton === index ? 'border-b-[5px] border-yellow-400 text-yellow-400' : ''
+						}`}
+						onClick={() => handleButtonClick(index)}
+					>
+						{item}
+					</button>
+				))}
 			</div>
 		</div>
 	);
