@@ -9,6 +9,7 @@ import MatchTabs from './LineupTabs';
 import TabIS from './TabIS';
 
 // @ts-ignore
+// eslint-disable-next-line react/prop-types
 function Tab({ Component }) {
 	return <div>{Component}</div>;
 }

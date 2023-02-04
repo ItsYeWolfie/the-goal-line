@@ -1,13 +1,11 @@
 import Formation from '../components/match-page/Formation';
 import H2h from '../components/match-page/H2H';
 import Match from '../components/match-page/Match';
-import MatchInfo from '../components/match-page/MatchInfo';
 import MatchTabs from '../components/match-page/LineupTabs';
 import Tabs from '../components/match-page/MobTabs';
 import Odds from '../components/match-page/Odds';
 import Standings from '../components/match-page/Standings';
 import Statistics from '../components/match-page/Statistics';
-import Summary from '../components/match-page/Summary';
 import TabIS from '../components/match-page/TabIS';
 
 export default function MatchPage() {

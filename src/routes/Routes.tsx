@@ -10,6 +10,8 @@ import Home from '../components/Home/Home';
 import News from '../components/News/News';
 import NewsByTitle from '../components/News/NewsbyTitle';
 import VenuePage from '../components/VenuePage/VenuePage';
+import MatchPage from '../pages/Match';
+import MatchesPage from '../pages/Matches';
 
 export const router = createBrowserRouter([
 	{
@@ -58,6 +60,19 @@ export const router = createBrowserRouter([
 			{
 				path: '/venue/:name',
 				element: <VenuePage />,
+			},
+			{
+				path: '/matches',
+				children: [
+					{
+						element: <MatchesPage />,
+						index: true,
+					},
+					{
+						path: ':id',
+						element: <MatchPage />,
+					},
+				],
 			},
 		],
 	},
