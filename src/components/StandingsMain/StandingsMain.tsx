@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { FaCircle } from 'react-icons/fa';
 import { BsChevronRight } from 'react-icons/bs';
-import { GiTrophy } from 'react-icons/gi';
+
 import { Link } from 'react-router-dom';
 import fetchData from '../../../lib/helpers/Fetch';
 import { TeamStatistics } from '../../../types/Standings-Main.types';
@@ -12,6 +12,7 @@ import GetRankColor from '../../lib/helpers/rank-color';
 import SmallTableCell from '../table/SmallCell';
 import LogoAndImage from '../image/LogoAndImage';
 import FormIconArray from '../icons/FormIconArray';
+import StandingMainHeader from './Standings-M-Header';
 
 export default function StandingsMain() {
 	const [data, setData] = useState<TeamStatistics[]>([]);
@@ -27,13 +28,10 @@ export default function StandingsMain() {
 
 	return (
 		<section className="md:mx-auto md:max-w-7xl">
-			<div className="flex items-center">
-				<GiTrophy className="rounded-full text-4xl text-yellow-500" />
-				<header className="flex text-xl font-bold text-gray-200">Standings</header>
-			</div>
-			<div className="mt-8 flex w-full flex-col items-center bg-gray-800">
+			<StandingMainHeader />
+			<div className="mt-8 flex w-full flex-col items-center rounded-[5px] bg-gray-100 dark:bg-gray-800">
 				<div className="flex w-full items-center justify-between">
-					<div className="flex items-center gap-2 text-gray-200">
+					<div className="flex items-center gap-2 text-gray-700 dark:text-gray-200">
 						<img
 							className="h-8 w-8 rounded-full bg-white"
 							src="/39.png"
@@ -41,12 +39,12 @@ export default function StandingsMain() {
 						/>
 						Premier League
 					</div>
-					<h1 className="text-lg font-medium text-gray-200">2020-21 Season</h1>
+					<h1 className="text-lg font-medium text-gray-700 dark:text-gray-200">2020-21 Season</h1>
 					<Link
-						to="/leagues/"
-						className="flex items-center gap-1 text-right text-gray-200"
+						to="/leagues/33/"
+						className="flex items-center gap-1 text-right text-gray-700 dark:text-gray-200"
 					>
-						<span>View All</span> <BsChevronRight className="text-xs" />
+						<span className="text-base font-semibold">View All</span> <BsChevronRight className="text-base" />
 					</Link>
 				</div>
 				<div className="mt-1 max-h-[30rem] w-full flex-col overflow-auto">
@@ -129,11 +127,11 @@ export default function StandingsMain() {
 					</div>
 				</div>
 				<div className="mt-1 flex w-full flex-col gap-2">
-					<p className=" flex items-center gap-2 text-gray-200">
+					<p className=" flex items-center gap-2 text-gray-700 dark:text-gray-200">
 						<FaCircle className=" text-green-800 dark:text-green-600" />
 						Champions League
 					</p>
-					<p className=" flex items-center gap-2 text-gray-200">
+					<p className=" flex items-center gap-2 text-gray-700 dark:text-gray-200">
 						<FaCircle className=" text-green-600 " />
 						Europa League
 					</p>

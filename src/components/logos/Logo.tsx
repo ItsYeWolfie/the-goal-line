@@ -7,7 +7,7 @@ interface LogoProps {
 export default function Logo({ logo }: LogoProps) {
 	return (
 		<img
-			className="flex-none basis-4/12 rounded-lg hover:border-2 hover:border-yellow-400 md:basis-1/12"
+			className="no-scrollbar flex-none basis-[20%] overflow-auto rounded-lg hover:border-[1px] hover:border-yellow-400 md:basis-[10%]"
 			src={logo.image}
 			alt={logo.name}
 		/>

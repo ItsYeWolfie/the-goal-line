@@ -52,23 +52,23 @@ export default function FixturesMain() {
 						key={match.fixture.id}
 						className={`${
 							index % 2 === 0 ? 'bg-slate-800' : 'bg-slate-600'
-						} relative grid grid-cols-12 items-center rounded-xl py-3`}
+						} relative grid grid-cols-3 items-center rounded-xl py-3 md:grid-cols-6`}
 					>
 						<FixtureMainInfo
 							match={match}
 							hoverdMatchId={hoveredMatchId}
 						/>
-						<div className="col-span-3 justify-self-end">
+						<div className="col-span-1 justify-self-end text-center text-sm md:text-lg">
 							<LogoAndImageReversed
 								src={match.teams.home.logo}
 								alt={match.teams.home.name}
 								name={match.teams.home.name}
 							/>
 						</div>
-						<p className="col-span-1 mx-auto w-max rounded-lg bg-slate-500 px-4 text-center text-lime-400">
+						<p className="col-span-1 mx-auto w-max rounded-lg bg-slate-500 px-4 text-center text-sm text-lime-400 md:text-lg">
 							{match.goals.home}:{match.goals.away}
 						</p>
-						<div className="col-span-3 justify-self-start">
+						<div className="col-span-1 justify-start text-center text-sm md:text-lg">
 							<LogoAndImage
 								src={match.teams.away.logo}
 								alt={match.teams.away.name}
@@ -78,13 +78,15 @@ export default function FixturesMain() {
 						<p
 							className={`${
 								match.fixture.status.short === 'FT' ? 'bg-red-200 text-red-500' : 'bg-lime-400 text-slate-800'
-							}col-span-1 w-max rounded-lg px-4 py-1 text-center text-sm font-semibold text-gray-600`}
+							} col-span-1 hidden w-max rounded-lg  px-4 py-1 text-center text-sm font-semibold text-gray-600  md:grid md:text-base`}
 						>
 							{match.fixture.status.short}
 						</p>
-						<p className="text-yellow-400">Time: {moment(match.fixture.date).format('HH:MM')}</p>
+						<p className="col-span-1 hidden text-sm text-yellow-400 md:grid md:text-lg">
+							Time: {moment(match.fixture.date).format('HH:MM')}
+						</p>
 						<FaInfoCircle
-							className="col-start-12 text-yellow-400"
+							className="col-span-1 hidden w-full text-right text-sm text-yellow-400 md:grid md:text-lg"
 							onMouseEnter={() => setHoveredMatchId(match.fixture.id)}
 							onMouseLeave={() => setHoveredMatchId(null)}
 						/>

@@ -42,7 +42,7 @@ export default function KitsSlider() {
 
 	return (
 		<section className="grid auto-rows-auto gap-4 text-gray-200">
-			<div className="row-span-1 flex items-center justify-between gap-2">
+			<div className="row-span-1 flex  items-center justify-between gap-2">
 				<div className="flex items-center gap-2">
 					<FaTshirt className="text-4xl text-yellow-400" />
 					<span className="text-2xl text-gray-200">Shopping</span>
@@ -59,7 +59,7 @@ export default function KitsSlider() {
 				</div>
 			</div>
 			<div
-				className="md:no-scrollbar flex flex-nowrap gap-8 overflow-x-auto scroll-smooth"
+				className=" no-scrollbar flex flex-nowrap gap-3 overflow-x-auto scroll-smooth"
 				ref={(el) => setScrollingDiv(el)}
 			>
 				{loading ? (

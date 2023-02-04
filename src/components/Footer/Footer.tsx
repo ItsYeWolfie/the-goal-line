@@ -87,30 +87,10 @@ export default function Footer() {
 								aria-label="Footer Services Nav"
 								className="mt-6 flex flex-col space-y-1"
 							>
-								<a
-									className="text-gray-100 transition hover:text-gray-700/75"
-									href="/"
-								>
-									Tailwind
-								</a>
-								<a
-									className="text-gray-100 transition hover:text-gray-700/75"
-									href="/"
-								>
-									React
-								</a>
-								<a
-									className="text-gray-100 transition hover:text-gray-700/75"
-									href="/"
-								>
-									TypeScript
-								</a>
-								<a
-									className="text-gray-100 transition hover:text-gray-700/75"
-									href="/"
-								>
-									Web Development
-								</a>
+								<span className="text-gray-100 transition hover:text-gray-700/75">Tailwind</span>
+								<span className="text-gray-100 transition hover:text-gray-700/75">React</span>
+								<span className="text-gray-100 transition hover:text-gray-700/75">TypeScript</span>
+								<span className="text-gray-100 transition hover:text-gray-700/75">Web Development</span>
 							</nav>
 						</div>
 
@@ -121,30 +101,10 @@ export default function Footer() {
 								aria-label="Footer About Nav"
 								className="mt-6 flex flex-col space-y-1"
 							>
-								<a
-									className="text-gray-100 transition hover:text-gray-700/75"
-									href="/"
-								>
-									About
-								</a>
-								<a
-									className="text-gray-100 transition hover:text-gray-700/75"
-									href="/"
-								>
-									Careers
-								</a>
-								<a
-									className="text-gray-100 transition hover:text-gray-700/75"
-									href="/"
-								>
-									History
-								</a>
-								<a
-									className="text-gray-100 transition hover:text-gray-700/75"
-									href="/"
-								>
-									Our Team
-								</a>
+								<span className="text-gray-100 transition hover:text-gray-700/75">About</span>
+								<span className="text-gray-100 transition hover:text-gray-700/75">Careers</span>
+								<span className="text-gray-100 transition hover:text-gray-700/75">History</span>
+								<span className="text-gray-100 transition hover:text-gray-700/75">Our Team</span>
 							</nav>
 						</div>
 
@@ -155,26 +115,13 @@ export default function Footer() {
 								aria-label="Footer Support Nav"
 								className="mt-6 flex flex-col space-y-1"
 							>
-								<a
-									className="text-gray-100 transition hover:text-gray-700/75"
-									href="/"
-								>
-									FAQs
-								</a>
+								<span className="text-gray-100 transition hover:text-gray-700/75">FAQs</span>
 
-								<a
-									className="text-gray-100 transition hover:text-gray-700/75"
-									href="/"
-								>
+								<span className="text-gray-100 transition hover:text-gray-700/75">
 									<Link to="/contact-us">Contact</Link>
-								</a>
+								</span>
 
-								<a
-									className="text-gray-100 transition hover:text-gray-700/75"
-									href="/"
-								>
-									Live Chat
-								</a>
+								<span className="text-gray-100 transition hover:text-gray-700/75">Live Chat</span>
 							</nav>
 						</div>
 					</div>
@@ -184,20 +131,8 @@ export default function Footer() {
 					<p className="text-center text-xs leading-relaxed text-gray-100">
 						© Company 2023. All rights reserved.
 						<br />
-						Built with{' '}
-						<a
-							href=" "
-							className="text-gray-100 underline transition hover:text-gray-700/75"
-						>
-							React{' '}
-						</a>
-						<a
-							href=" "
-							className="text-gray-100 underline transition hover:text-gray-700/75"
-						>
-							from JDQH
-						</a>
-						.
+						Built with <span className="text-gray-100 underline transition hover:text-gray-700/75">React </span>
+						<span className="text-gray-100 underline transition hover:text-gray-700/75">from JDQH</span>.
 					</p>
 				</div>
 			</div>

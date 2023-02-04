@@ -51,8 +51,8 @@ export default function NewsSlider() {
 		<section className="grid auto-rows-auto gap-8 text-gray-200">
 			<div className="row-span-1 flex items-center justify-between gap-2">
 				<div className="flex items-center gap-2">
-					<FaNewspaper className="text-4xl text-yellow-400" />
-					<span className="text-2xl text-gray-200">Follow any Club!</span>
+					<FaNewspaper className="text-2xl text-yellow-400 md:text-4xl" />
+					<span className="text-2xl text-gray-200 md:text-2xl">All News and Transfers </span>
 				</div>
 				<div className="flex items-center gap-8">
 					<FaArrowLeft

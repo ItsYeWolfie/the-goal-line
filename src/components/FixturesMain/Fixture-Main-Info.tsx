@@ -8,7 +8,7 @@ interface FixturesMainInfoProps {
 export default function FixtureMainInfo({ match, hoverdMatchId }: FixturesMainInfoProps) {
 	return (
 		<div
-			className={`absolute top-0  right-10 z-[10] ${
+			className={`absolute top-10 right-10 z-[10] ${
 				match.fixture.id === hoverdMatchId ? '' : 'hidden'
 			} h-[250px] w-[350px] overflow-hidden rounded-[20px] bg-slate-700 `}
 			id={`modal-info-${match.fixture.id}`}

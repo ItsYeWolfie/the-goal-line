@@ -17,10 +17,10 @@ export default function NewsCard({ news }: NewsProps) {
 				alt={news.title}
 			/>
 			<div className="text-left">
-				<div className="text-xl text-yellow-500">{news.league}</div>
+				<div className="text-sm text-yellow-500 md:text-xl">{news.league}</div>
 				<Link to={`/news/${news.title}`}>
-					<div className="mt-2 text-xl font-semibold text-gray-200">{news.title}</div>
-					<div className="mt-1 text-gray-400">{news.smallbody}</div>
+					<div className="mt-2 text-sm font-semibold text-gray-200 md:text-xl">{news.title}</div>
+					<div className="mt-1 text-sm text-gray-400 md:text-lg">{news.smallbody}</div>
 				</Link>
 			</div>
 		</Link>

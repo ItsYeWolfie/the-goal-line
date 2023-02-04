@@ -7,7 +7,7 @@ function MatchStat({ valueOne, valueTwo, label }: { valueOne: number; valueTwo: 
 	const valueOnePercentage = (valueOne / (valueOne + valueTwo)) * 100;
 	const valueTwoPercentage = (valueTwo / (valueOne + valueTwo)) * 100;
 	return (
-		<div className="flex flex-col justify-center gap-2">
+		<div className="mx-4 mb-5 flex flex-col justify-center gap-2">
 			<div className="flex justify-between">
 				<p className="text-blue-600">{valueOne}</p>
 				<p>{label}</p>
@@ -37,25 +37,29 @@ function MatchStat({ valueOne, valueTwo, label }: { valueOne: number; valueTwo: 
 
 export default function LiveMatch({ gameTimeInSeconds, gameTimeInMinutes }: LiveMatchProps) {
 	return (
-		<div className="relative flex flex-col justify-center gap-4 lg:basis-5/12">
-			<div className="flex flex-col justify-center">
-				<h3 className="mt-6 text-center font-medium text-gray-200">Live Match</h3>
+		<div className="relative mx-1 flex flex-col justify-center gap-4  rounded-[20px] dark:bg-gray-900 lg:basis-5/12">
+			<div className="flex flex-col justify-center rounded-[20px] ">
+				<h3 className="mt-2 text-center text-lg font-medium  text-gray-900 dark:text-gray-200 md:text-2xl">
+					Live Match
+				</h3>
 				<div className="mt-4 flex">
 					<img
 						alt="Italian flag"
-						className="h-20"
+						className="ml-16  h-16 w-16 rounded-full"
 						src=" https://i.pinimg.com/564x/6b/cf/50/6bcf5098d8250e99fadaeaa1c0fb04b8.jpg"
 					/>
 					<div className="flex flex-1 grow flex-col justify-center text-center">
-						<p className="text-center text-xl font-medium text-lime-500">
+						<p className="text-center text-xl font-medium text-violet-900 dark:text-lime-500">
 							{gameTimeInMinutes >= 20 ? gameTimeInMinutes : 20}:
 							{gameTimeInSeconds < 10 ? `0${gameTimeInSeconds}` : gameTimeInSeconds}{' '}
 						</p>
-						<p className="mx-auto mt-2 rounded-full bg-sky-600 px-4 py-1 text-center">0 - 0</p>
+						<p className="mx-auto mt-2 rounded-full bg-violet-200 px-4 py-1  text-center text-lg text-violet-900 dark:bg-sky-600 dark:text-black">
+							0 - 0
+						</p>
 					</div>
 					<img
 						alt="Swedish flag"
-						className="h-20"
+						className="mr-16 h-16 w-16 rounded-full"
 						src=" https://i.pinimg.com/564x/a6/7a/f9/a67af9c593ba25a687b95e35d294dc18.jpg"
 					/>
 				</div>
