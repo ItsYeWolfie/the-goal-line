@@ -1,0 +1,102 @@
+[
+	{
+		"id": 1,
+		"name": "Arsenal",
+		"image": "/club-logos/Arsenal.png"
+	},
+	{
+		"id": 2,
+		"name": "Aston",
+		"image": "/club-logos/AstonVilla.png"
+	},
+	{
+		"id": 3,
+		"name": "Brighton",
+		"image": "/club-logos/Brighton.png"
+	},
+	{
+		"id": 4,
+		"name": "Bornemouth",
+		"image": "/club-logos/Bournemouth.png"
+	},
+	{
+		"id": 5,
+		"name": "Chelsea",
+		"image": "/club-logos/Chelsea.png"
+	},
+	{
+		"id": 6,
+		"name": "Crystal",
+		"image": "/club-logos/Crystal.png"
+	},
+	{
+		"id": 7,
+		"name": "Fulham",
+		"image": "/club-logos/Fulham.png"
+	},
+	{
+		"id": 8,
+		"name": "Leicester",
+		"image": "/club-logos/Leeds.png"
+	},
+	{
+		"id": 9,
+		"name": "Leeds",
+		"image": "/club-logos/Leicester.png"
+	},
+	{
+		"id": 10,
+		"name": "Liverpool",
+		"image": "/club-logos/Liverpool.png"
+	},
+	{
+		"id": 11,
+		"name": "Man City",
+		"image": "/club-logos/ManchesterCity.png"
+	},
+	{
+		"id": 12,
+		"name": "Man Utd",
+		"image": "/club-logos/ManchesterUnited.png"
+	},
+	{
+		"id": 13,
+		"name": "Totenham",
+		"image": "/club-logos/Totenham.png"
+	},
+	{
+		"id": 14,
+		"name": "Totenham",
+		"image": "/club-logos/Arsenal.png"
+	},
+	{
+		"id": 15,
+		"name": "Totenham",
+		"image": "/club-logos/Crystal.png"
+	},
+	{
+		"id": 16,
+		"name": "Totenham",
+		"image": "/club-logos/Bournemouth.png"
+	},
+	{
+		"id": 17,
+		"name": "Totenham",
+		"image": "/club-logos/Chelsea.png"
+	},
+	{
+		"id": 18,
+		"name": "Totenham",
+		"image": "/club-logos/Liverpool.png"
+	},
+	{
+		"id": 19,
+		"name": "Totenham",
+		"image": "/club-logos/Leeds.png"
+	},
+	{
+		"id": 20,
+		"name": "Totenham",
+		"image": "/club-logos/AstonVilla.png"
+	}
+]
