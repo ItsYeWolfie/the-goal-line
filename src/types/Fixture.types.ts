@@ -1,3 +1,4 @@
+import { IEvent } from './Event.types';
 import { ILeague } from './League.types';
 import { ITeamBasic } from './Team.types';
 import { IVenueBasic } from './Venue.types';
@@ -13,6 +14,10 @@ enum EFixtureLongStatus {
 	MF = 'Match Finished',
 	HT = 'Half Time',
 	NS = 'Not Started',
+}
+
+export interface IFixtureWithEvents extends IFixture {
+	events: IEvent[];
 }
 
 export interface IFixture {
@@ -33,7 +38,7 @@ interface IFixtureTeam extends ITeamBasic {
 	winner: boolean;
 }
 
-interface IFixtureInfo extends IFixtureInfoBasic {
+export interface IFixtureInfo extends IFixtureInfoBasic {
 	venue: IVenueBasic;
 	status: IFixtureStatus;
 	periods: IFixturePeriods;
@@ -58,9 +63,15 @@ interface IFixturePeriods {
 	second: EpochTimeStamp;
 }
 
+export interface IFixtureStatistic {
+	type: string;
+	value: string;
+}
+
 type ScoreNumber = number | null;
 export type FixtureSidesType = 'home' | 'away';
-type SideGoalsType = Record<FixtureSidesType, ScoreNumber>;
+export type TeamsSidesType = Record<FixtureSidesType, ITeamBasic>;
+export type SideGoalsType = Record<FixtureSidesType, ScoreNumber>;
 type ScorePeriods = 'halftime' | 'fulltime' | 'extratime' | 'penalty';
-type ScorePeriodsSideGoalsType = Record<ScorePeriods, SideGoalsType>;
+export type ScorePeriodsSideGoalsType = Record<ScorePeriods, SideGoalsType>;
 type FixtureTeamsType = Record<FixtureSidesType, IFixtureTeam>;
