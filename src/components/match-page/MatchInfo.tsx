@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FaCalendarAlt, FaRing } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import MatchInfoLoader from '../../loaders/match-page/MatchInfoLoader';
 import { IFixture } from '../../types/Fixture.types';
 
@@ -45,10 +46,15 @@ function FixtureInfo() {
 				/>
 				{fixture.fixture.referee}
 			</p>
-			<p className="flex items-center text-xs md:text-base">
-				<FaRing className="mr-1 text-[20px]" />
-				{fixture.fixture.venue.name}
-			</p>
+			<Link
+				to={`/venue/${fixture.fixture.venue.name}/`}
+				rel="noreferrer"
+			>
+				<p className="flex items-center text-xs hover:text-sky-600 md:text-base">
+					<FaRing className="mr-1 text-[20px]" />
+					{fixture.fixture.venue.name}
+				</p>
+			</Link>
 		</div>
 	);
 }

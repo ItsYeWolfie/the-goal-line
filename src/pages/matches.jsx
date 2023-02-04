@@ -32,7 +32,7 @@ export default function MatchesPage() {
 			<div className="flex h-12 w-full justify-center lg:hidden">
 				<span className="my-auto ml-auto">
 					<img
-						src="/images/logo-no-background.svg"
+						src="/images/logo-sky-no-background.svg"
 						width="170px"
 						alt=""
 					/>

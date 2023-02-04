@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import MatchLoader from '../../loaders/match-page/MatchLoader';
 import { IEvent } from '../../types/Event.types';
 import { IFixture, IFixtureWithEvents } from '../../types/Fixture.types';
@@ -41,17 +42,22 @@ function Match() {
 		<div className="h-auto w-full justify-between rounded-md bg-gray-200 align-middle text-gray-900 dark:bg-gray-800 dark:text-gray-100 md:mx-auto md:w-4/5  md:justify-around lg:block  lg:w-full">
 			<div className="flex justify-around">
 				<div className="mt-6 flex flex-col">
-					<span className="mb-2 flex flex-col items-center md:flex md:flex-row">
-						<img
-							src={fixture.teams.home.logo}
-							width="50px"
-							height="50px"
-							alt=""
-						/>
-						<h2 className="my-auto ml-1 flex w-12 items-center justify-center text-center text-sm md:w-auto md:text-xl">
-							{fixture.teams.home.name}
-						</h2>
-					</span>
+					<Link
+						to={`/teams/${fixture.teams.home.id}/`}
+						rel="noreferrer"
+					>
+						<span className="mb-2 flex flex-col items-center hover:text-sky-600 md:flex md:flex-row">
+							<img
+								src={fixture.teams.home.logo}
+								width="50px"
+								height="50px"
+								alt=""
+							/>
+							<h2 className="my-auto ml-1 flex w-12 items-center justify-center text-center text-sm md:w-auto md:text-xl">
+								{fixture.teams.home.name}
+							</h2>
+						</span>
+					</Link>
 					{filteredEvents.map((event) => (
 						<span
 							className="flex text-[0.65rem] text-gray-700 dark:text-gray-300 md:ml-12 md:text-xs"
@@ -78,15 +84,20 @@ function Match() {
 					</div>
 				</div>
 				<div className="mt-6 flex flex-col">
-					<span className="mb-2 flex flex-col items-center md:flex md:flex-row">
-						<img
-							src={fixture.teams.away.logo}
-							width="50px"
-							height="50px"
-							alt=""
-						/>
-						<h2 className="my-auto ml-1 break-words text-sm md:text-xl">{fixture.teams.away.name}</h2>
-					</span>
+					<Link
+						to={`/teams/${fixture.teams.away.id}/`}
+						rel="noreferrer"
+					>
+						<span className="mb-2 flex flex-col items-center hover:text-sky-600 md:flex md:flex-row">
+							<img
+								src={fixture.teams.away.logo}
+								width="50px"
+								height="50px"
+								alt=""
+							/>
+							<h2 className="my-auto ml-1 break-words text-sm md:text-xl">{fixture.teams.away.name}</h2>
+						</span>
+					</Link>
 					{filteredEvents1.map((event) => (
 						<span
 							className="flex text-[0.65rem] text-gray-700 dark:text-gray-300 md:ml-12 md:text-xs"

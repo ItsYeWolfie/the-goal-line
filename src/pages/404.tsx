@@ -12,7 +12,7 @@ export default function NotFound() {
 				<div className="w-40 shrink-0 pt-4 md:w-60">
 					<img
 						className="-ml-2 h-8 w-auto lg:-ml-32"
-						src="/images/logo-no-background.svg"
+						src="/images/logo-sky-no-background.svg"
 						alt="Goal Line"
 					/>
 				</div>

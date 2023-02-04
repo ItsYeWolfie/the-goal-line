@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import LineupLoader from '../../loaders/match-page/LineupLoader';
 import { ILineup } from '../../types/Formation.types';
 
@@ -30,33 +31,53 @@ function LineUps() {
 				/>
 			</span>
 			<div className="flex flex-col">
-				<h3 className="text-left">
-					<span className="text-lime-700">Coach</span> {lineup.lineups[0].coach.name}
-				</h3>
+				<Link
+					to={`/coach/${lineup.lineups[0].coach.name}/`}
+					rel="noreferrer"
+				>
+					<h3 className="text-left hover:text-sky-600">
+						<span className="text-lime-700">Coach</span> {lineup.lineups[0].coach.name}
+					</h3>
+				</Link>
 				<span className="w-auto border-[0.2px] border-solid border-gray-200 text-left opacity-30" />
 				{lineup.lineups[0].startXI.map((player) => (
-					<h3
-						className="text-left"
-						key={player.player.id}
+					<Link
+						to={`/player/${player.player.id}/`}
+						rel="noreferrer"
 					>
-						<span className="text-lime-700">{player.player.pos}</span> {player.player.name}
-					</h3>
+						<h3
+							className="text-left hover:text-sky-600"
+							key={player.player.id}
+						>
+							<span className="text-lime-700">{player.player.pos}</span> {player.player.name}
+						</h3>
+					</Link>
 				))}
 			</div>
 			<div className="flex flex-col">
-				<h3 className="text-right">
-					{lineup.lineups[1].coach.name} <span className="text-sky-600">Coach</span>
-				</h3>
+				<Link
+					to={`/coach/${lineup.lineups[1].coach.name}/`}
+					rel="noreferrer"
+				>
+					<h3 className="text-right hover:text-sky-600">
+						{lineup.lineups[1].coach.name} <span className="text-sky-600">Coach</span>
+					</h3>
+				</Link>
 				<span className=" border-[0.2px] border-solid border-gray-200 text-right opacity-30" />
 
 				{lineup.lineups[1].startXI.map((player) => (
-					<h3
-						className="text-right"
-						key={player.player.id}
+					<Link
+						to={`/player/${player.player.id}/`}
+						rel="noreferrer"
 					>
-						{player.player.name}
-						<span className="text-sky-600"> {player.player.pos}</span>
-					</h3>
+						<h3
+							className="text-right hover:text-sky-600"
+							key={player.player.id}
+						>
+							{player.player.name}
+							<span className="text-sky-600"> {player.player.pos}</span>
+						</h3>
+					</Link>
 				))}
 			</div>
 			<span className="my-auto flex flex-col">

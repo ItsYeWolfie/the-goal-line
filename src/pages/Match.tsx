@@ -16,7 +16,7 @@ export default function MatchPage() {
 			<div className="-mb-2 flex h-12 w-full justify-center md:mt-3 md:h-auto lg:hidden">
 				<span className="my-auto">
 					<img
-						src="/images/logo-no-background.svg"
+						src="/images/logo-sky-no-background.svg"
 						width="170px"
 						alt=""
 					/>

@@ -23,10 +23,11 @@ function TabIS() {
 	const [activeTab, setActiveTab] = useState('MATCH INFO');
 
 	const handleTabClick = (tabName) => {
-		setActiveTab(tabName);
-		// const url = new URL(window.location.href);
-		// url.searchParams.set('tab', tabs.find((tab) => tab.name === tabName).name);
-		// window.history.replaceState({}, '', url);
+		if (tabName === activeTab) {
+			setActiveTab('MATCH INFO');
+		} else {
+			setActiveTab(tabName);
+		}
 	};
 
 	return (
