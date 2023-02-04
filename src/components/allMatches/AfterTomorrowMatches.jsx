@@ -2,13 +2,12 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-shadow */
 // @ts-ignore
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { FaChevronRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import MatchesLoader from '../../loaders/allMatches-page/MatchesLoader';
 
 function AfterTomorrowMatches() {
-	const [fixture, setFixture] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [groupedMatches, setGroupedMatches] = useState({});
 
@@ -16,11 +15,9 @@ function AfterTomorrowMatches() {
 		const fetchData = async () => {
 			const response = await fetch('https://api.npoint.io/21137151d671e81998f1');
 			const data = await response.json();
-			setFixture(data);
-			setLoading(false);
-
 			const groupedMatches = {};
-			fixture.forEach((fixture) => {
+			// @ts-ignore
+			data.forEach((fixture) => {
 				// @ts-ignore
 				const leagueId = fixture.league.id;
 				// @ts-ignore
@@ -35,9 +32,10 @@ function AfterTomorrowMatches() {
 				groupedMatches[leagueId].league = fixture.league;
 			});
 			setGroupedMatches(groupedMatches);
+			setLoading(false);
 		};
 		fetchData();
-	}, [loading]);
+	}, []);
 
 	if (loading) {
 		return <MatchesLoader />;
@@ -49,6 +47,7 @@ function AfterTomorrowMatches() {
 				return (
 					<div key={leagueId}>
 						<Link
+							// @ts-ignore
 							to={`/leagues/${groupedMatches[leagueId].league.id}/`}
 							rel="noreferrer"
 						>
@@ -96,11 +95,7 @@ function AfterTomorrowMatches() {
 									minute: '2-digit',
 								});
 								return (
-									<Link
-										to={`/matches/${fixture.fixture.id}/`}
-										target="_blank"
-										rel="noreferrer"
-									>
+									<Link to={`/matches/${fixture.fixture.id}/`}>
 										<div className="mb-2 flex cursor-pointer items-center rounded-md border-gray-400 bg-gray-300 duration-150 ease-in hover:h-16 hover:border-2 hover:border-solid hover:bg-gray-200 dark:bg-gray-700 dark:hover:border-gray-700 dark:hover:bg-gray-800">
 											<span className="ml-2 flex w-8 justify-center">
 												{fixture.fixture.status.elapsed === null

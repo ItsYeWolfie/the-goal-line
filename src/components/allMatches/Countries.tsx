@@ -12,7 +12,7 @@ function Countries() {
 	const [loading, setLoading] = useState(true);
 	const [searchTerm, setSearchTerm] = useState('');
 	const [groupedLeagues, setGroupedLeagues] = useState<ILeagueAndCountry[][]>([] as ILeagueAndCountry[][]);
-	const [selectedCountry, setSelectedCountry] = useState<ICountry>(
+	const [selectedCountry, setSelectedCountry] = useState<ICountry | false>(
 		JSON.parse(localStorage.getItem('selectedCountry') || '{}'),
 	);
 	useEffect(() => {

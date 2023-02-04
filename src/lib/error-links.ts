@@ -1,4 +1,4 @@
-import { faFutbol, faList, faList12, faNewspaper, faPeopleArrows, faPeopleGroup, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faFutbol, faNewspaper, faPeopleGroup } from '@fortawesome/free-solid-svg-icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 interface ErrorLink {

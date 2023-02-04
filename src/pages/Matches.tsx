@@ -1,31 +1,10 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable @typescript-eslint/no-use-before-define */
-
-// @ts-ignore
-import React, { useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import Countries from '../components/allMatches/Countries';
 import DaysTab from '../components/allMatches/DaysTab';
 
 export default function MatchesPage() {
-	const searchIcon = useRef(null);
-	const country = useRef(null);
-
-	useEffect(() => {
-		// @ts-ignore
-		searchIcon.current.addEventListener('click', toggleCountry);
-
-		return () => {
-			// @ts-ignore
-			searchIcon.current.removeEventListener('click', toggleCountry);
-		};
-	}, []);
-
-	function toggleCountry() {
-		// @ts-ignore
-		country.current.classList.toggle('hidden');
-	}
+	const [listHidden, setListHidden] = useState(true);
 
 	return (
 		<div>
@@ -37,18 +16,16 @@ export default function MatchesPage() {
 						alt=""
 					/>
 				</span>
-				<span
+				<button
+					type="button"
 					className="my-auto ml-auto cursor-pointer pr-2"
-					ref={searchIcon}
+					onClick={() => setListHidden(!listHidden)}
 				>
 					<FaSearch className="text-[20px] text-gray-900 dark:text-gray-100" />
-				</span>
+				</button>
 			</div>
 			<div className="justify-center lg:flex">
-				<div
-					className="absolute z-10 hidden w-full lg:relative lg:block lg:w-1/5 lg:pt-4"
-					ref={country}
-				>
+				<div className={`absolute z-10 w-full lg:relative lg:block lg:w-1/5 lg:pt-4 ${listHidden ? 'hidden' : ''}`}>
 					<div className="scrollbar-hide relative flex h-[95vh] flex-col overflow-hidden overflow-y-auto rounded-md bg-gray-200 p-2 text-sm dark:bg-gray-800 lg:mr-4">
 						<Countries />
 					</div>

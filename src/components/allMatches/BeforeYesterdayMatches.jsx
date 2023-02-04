@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 import MatchesLoader from '../../loaders/allMatches-page/MatchesLoader';
 
 function BeforeYesterdayMatches() {
-	const [fixture, setFixture] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [groupedMatches, setGroupedMatches] = useState({});
 
@@ -16,11 +15,9 @@ function BeforeYesterdayMatches() {
 		const fetchData = async () => {
 			const response = await fetch('https://api.npoint.io/f166532b54e6ad6616b6');
 			const data = await response.json();
-			setFixture(data);
-			setLoading(false);
-
 			const groupedMatches = {};
-			fixture.forEach((fixture) => {
+			// @ts-ignore
+			data.forEach((fixture) => {
 				// @ts-ignore
 				const leagueId = fixture.league.id;
 				// @ts-ignore
@@ -35,9 +32,10 @@ function BeforeYesterdayMatches() {
 				groupedMatches[leagueId].league = fixture.league;
 			});
 			setGroupedMatches(groupedMatches);
+			setLoading(false);
 		};
 		fetchData();
-	}, [loading]);
+	}, []);
 
 	if (loading) {
 		return <MatchesLoader />;
@@ -49,8 +47,8 @@ function BeforeYesterdayMatches() {
 				return (
 					<div key={leagueId}>
 						<Link
+							// @ts-ignore
 							to={`/leagues/${groupedMatches[leagueId].league.id}/`}
-							rel="noreferrer"
 						>
 							<div className="flex cursor-pointer p-2 hover:text-sky-600">
 								<span className="my-auto">
@@ -96,11 +94,7 @@ function BeforeYesterdayMatches() {
 									minute: '2-digit',
 								});
 								return (
-									<Link
-										to={`/matches/${fixture.fixture.id}/`}
-										target="_blank"
-										rel="noreferrer"
-									>
+									<Link to={`/matches/${fixture.fixture.id}/`}>
 										<div className="mb-2 flex cursor-pointer items-center rounded-md border-gray-400 bg-gray-300 duration-150 ease-in hover:h-16 hover:border-2 hover:border-solid hover:bg-gray-200 dark:bg-gray-700 dark:hover:border-gray-700 dark:hover:bg-gray-800">
 											<span className="ml-2 flex w-8 justify-center">
 												{fixture.fixture.status.elapsed === null

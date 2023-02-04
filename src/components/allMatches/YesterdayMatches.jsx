@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 import MatchesLoader from '../../loaders/allMatches-page/MatchesLoader';
 
 function YesterdayMatches() {
-	const [fixture, setFixture] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [groupedMatches, setGroupedMatches] = useState({});
 
@@ -16,11 +15,9 @@ function YesterdayMatches() {
 		const fetchData = async () => {
 			const response = await fetch('https://api.npoint.io/551f7ee0bf0c92dbddd2');
 			const data = await response.json();
-			setFixture(data);
-			setLoading(false);
-
 			const groupedMatches = {};
-			fixture.forEach((fixture) => {
+			// @ts-ignore
+			data.forEach((fixture) => {
 				// @ts-ignore
 				const leagueId = fixture.league.id;
 				// @ts-ignore
@@ -35,9 +32,10 @@ function YesterdayMatches() {
 				groupedMatches[leagueId].league = fixture.league;
 			});
 			setGroupedMatches(groupedMatches);
+			setLoading(false);
 		};
 		fetchData();
-	}, [loading]);
+	}, []);
 
 	if (loading) {
 		return <MatchesLoader />;
@@ -49,8 +47,8 @@ function YesterdayMatches() {
 				return (
 					<div key={leagueId}>
 						<Link
+							// @ts-ignore
 							to={`/leagues/${groupedMatches[leagueId].league.id}/`}
-							rel="noreferrer"
 						>
 							<div className="flex cursor-pointer p-2 hover:text-sky-600">
 								<span className="my-auto">
