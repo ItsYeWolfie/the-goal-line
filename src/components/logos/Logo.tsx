@@ -6,10 +6,12 @@ interface LogoProps {
 
 export default function Logo({ logo }: LogoProps) {
 	return (
-		<img
-			className="no-scrollbar flex-none basis-[20%] overflow-auto rounded-lg hover:border-[1px] hover:border-yellow-400 md:basis-[10%]"
-			src={logo.image}
-			alt={logo.name}
-		/>
+		<div className=" flex-none basis-[20%] overflow-auto rounded-full  bg-gray-100 hover:border-[2px]  hover:border-violet-600 dark:bg-gray-900  dark:hover:border-yellow-400 md:basis-[10%]">
+			<img
+				className="p-4"
+				src={logo.image}
+				alt={logo.name}
+			/>
+		</div>
 	);
 }

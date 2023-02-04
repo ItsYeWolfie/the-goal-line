@@ -10,7 +10,7 @@ interface FixtureHProps {
 
 export default function FixtureHeader({ activeButton, handleButtonClick }: FixtureHProps) {
 	return (
-		<div className="relative flex flex-col gap-4 border-b-2 border-gray-300">
+		<div className="relative mb-4  flex flex-col gap-4 border-gray-300">
 			<div className="flex items-center gap-2">
 				<FaRegFutbol className="text-4xl text-black  dark:text-yellow-400" />
 				<span className="text-2xl font-medium text-gray-700 dark:text-gray-200 ">Football Matches</span>
@@ -21,7 +21,9 @@ export default function FixtureHeader({ activeButton, handleButtonClick }: Fixtu
 						type="button"
 						key={item}
 						className={`text-center text-lg md:text-xl ${
-							activeButton === index ? 'border-b-[5px] border-yellow-400 text-yellow-400' : ''
+							activeButton === index
+								? 'border-b-[4px]  border-violet-600 text-violet-600 dark:border-yellow-400  dark:text-yellow-400'
+								: 'text-gray-700 dark:text-gray-200'
 						}`}
 						onClick={() => handleButtonClick(index)}
 					>

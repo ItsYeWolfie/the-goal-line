@@ -45,23 +45,23 @@ export default function LogosSlider() {
 		<section className="grid auto-rows-auto gap-8 text-gray-200">
 			<div className="row-span-1 flex items-center justify-between gap-2">
 				<div className="flex items-center gap-2">
-					<RiChatFollowUpFill className="text-4xl text-yellow-400" />
-					<span className="text-2xl text-gray-200">Follow any Club!</span>
+					<RiChatFollowUpFill className=" text-4xl text-sky-600 dark:text-yellow-400" />
+					<span className="text-2xl font-medium text-gray-700 dark:text-gray-200">Follow any Club!</span>
 				</div>
 				<div className="flex items-center gap-8">
 					<FaArrowLeft
-						className="text-2xl text-gray-200"
+						className="text-2xl text-gray-700 dark:text-gray-200"
 						onClick={scrollLeft}
 					/>
 					<FaArrowRight
-						className="text-2xl text-gray-200"
+						className="text-2xl text-gray-700 dark:text-gray-200"
 						onClick={scrollRight}
 					/>
 				</div>
 			</div>
 
 			<div
-				className="md:no-scrollbar flex flex-nowrap gap-8 overflow-x-auto scroll-smooth"
+				className="md:no-scrollbar flex flex-nowrap gap-3  overflow-x-auto scroll-smooth"
 				id="div-s"
 				ref={(el) => setScrollingDiv(el)}
 			>

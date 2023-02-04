@@ -10,7 +10,7 @@ interface SearchTeamResultProps {
 export default function SearchTeamResult({ match, onClick }: SearchTeamResultProps) {
 	return (
 		<div className="mt-2 flex h-[44px] w-full items-center sm:mt-[4] sm:h-[55px] md:mt-[2%]  md:h-[54px] ">
-			<div className="h-full w-[15%] rounded-[10px] bg-gray-200 md:w-[10%] ">
+			<div className="h-full w-[15%] rounded-[10px] bg-gray-400  dark:bg-gray-200 md:w-[10%] ">
 				<Link
 					to={`/teams/${match.teams.home.id}/`}
 					onClick={onClick}
@@ -32,7 +32,7 @@ export default function SearchTeamResult({ match, onClick }: SearchTeamResultPro
 						{match.teams.home.name}
 					</Link>
 				</div>
-				<div className="flex h-full items-end pl-[4%] text-[13px] text-gray-200 sm:text-[15px]">
+				<div className="flex h-full items-end pl-[4%] text-[13px] text-gray-600 dark:text-gray-200 sm:text-[15px]">
 					{match.league.country}: {match.league.name}
 				</div>
 			</div>
@@ -42,7 +42,7 @@ export default function SearchTeamResult({ match, onClick }: SearchTeamResultPro
 					onClick={onClick}
 				>
 					{' '}
-					<FiChevronsRight className=" mx-auto mt-[25%] text-[25px] text-gray-200  md:mt-[15%]  md:text-[25px]" />
+					<FiChevronsRight className=" mx-auto mt-[25%] text-[25px] text-gray-700 dark:text-gray-200  md:mt-[15%]  md:text-[25px]" />
 				</Link>
 			</div>
 		</div>

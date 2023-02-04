@@ -32,11 +32,11 @@ export default function Footer() {
 	return (
 		<footer
 			aria-label="Site Footer md:mx-[5%] 2xl:container"
-			className="bg-gray-900"
+			className="dark:bg-gray-900"
 		>
 			<div className="mx-auto max-w-screen-xl px-4 pt-16 pb-8 sm:px-6 lg:px-8">
 				<div className="mx-auto max-w-md">
-					<strong className="block text-center text-xl font-medium text-gray-100 sm:text-3xl">
+					<strong className="block text-center text-xl font-medium text-gray-800 dark:text-gray-100 sm:text-3xl">
 						Want us to email you with the latest news?
 					</strong>
 
@@ -54,7 +54,7 @@ export default function Footer() {
 							</label>
 
 							<input
-								className="w-full rounded-full border-gray-200 bg-gray-100 p-4 pr-32 text-sm font-medium text-black"
+								className="w-full rounded-full border-sky-600 bg-gray-100 p-4 pr-32 text-sm font-medium text-black dark:border-gray-200"
 								id="email"
 								type="email"
 								placeholder="john@doe.com"
@@ -72,7 +72,7 @@ export default function Footer() {
 
 				<div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-32">
 					<div className="mx-auto max-w-sm lg:max-w-none">
-						<p className="mt-4 text-center text-gray-100 lg:text-left lg:text-lg">
+						<p className="mt-4 text-center text-gray-800 dark:text-gray-100 lg:text-left lg:text-lg">
 							Football live scores page on TheGoalLine.com offers all the latest football results from CHAN 2023 and
 							more than 1000+ football leagues and tournaments all around the world including the most famous Premier
 							League, LaLiga, Serie A, Bundesliga, UEFA Champions League
@@ -87,10 +87,12 @@ export default function Footer() {
 								aria-label="Footer Services Nav"
 								className="mt-6 flex flex-col space-y-1"
 							>
-								<span className="text-gray-100 transition hover:text-gray-700/75">Tailwind</span>
-								<span className="text-gray-100 transition hover:text-gray-700/75">React</span>
-								<span className="text-gray-100 transition hover:text-gray-700/75">TypeScript</span>
-								<span className="text-gray-100 transition hover:text-gray-700/75">Web Development</span>
+								<span className="text-gray-800 transition hover:text-gray-700/75 dark:text-gray-100">Tailwind</span>
+								<span className="text-gray-800 transition hover:text-gray-700/75 dark:text-gray-100">React</span>
+								<span className="text-gray-800 transition hover:text-gray-700/75 dark:text-gray-100">TypeScript</span>
+								<span className="text-gray-800 transition hover:text-gray-700/75 dark:text-gray-100">
+									Web Development
+								</span>
 							</nav>
 						</div>
 
@@ -101,10 +103,10 @@ export default function Footer() {
 								aria-label="Footer About Nav"
 								className="mt-6 flex flex-col space-y-1"
 							>
-								<span className="text-gray-100 transition hover:text-gray-700/75">About</span>
-								<span className="text-gray-100 transition hover:text-gray-700/75">Careers</span>
-								<span className="text-gray-100 transition hover:text-gray-700/75">History</span>
-								<span className="text-gray-100 transition hover:text-gray-700/75">Our Team</span>
+								<span className="text-gray-800 transition hover:text-gray-700/75 dark:text-gray-100">About</span>
+								<span className="text-gray-800 transition hover:text-gray-700/75 dark:text-gray-100">Careers</span>
+								<span className="text-gray-800 transition hover:text-gray-700/75 dark:text-gray-100">History</span>
+								<span className="text-gray-800 transition hover:text-gray-700/75 dark:text-gray-100">Our Team</span>
 							</nav>
 						</div>
 
@@ -115,24 +117,28 @@ export default function Footer() {
 								aria-label="Footer Support Nav"
 								className="mt-6 flex flex-col space-y-1"
 							>
-								<span className="text-gray-100 transition hover:text-gray-700/75">FAQs</span>
+								<span className="text-gray-800 transition hover:text-gray-700/75 dark:text-gray-100">FAQs</span>
 
-								<span className="text-gray-100 transition hover:text-gray-700/75">
+								<span className="text-gray-800 transition hover:text-gray-700/75 dark:text-gray-100">
 									<Link to="/contact-us">Contact</Link>
 								</span>
 
-								<span className="text-gray-100 transition hover:text-gray-700/75">Live Chat</span>
+								<span className="text-gray-800 transition hover:text-gray-700/75 dark:text-gray-100">Live Chat</span>
 							</nav>
 						</div>
 					</div>
 				</div>
 
-				<div className="mt-16 border-t border-gray-100 pt-8">
-					<p className="text-center text-xs leading-relaxed text-gray-100">
+				<div className="mt-16 border-t pt-8 text-gray-800 dark:text-gray-100">
+					<p className="text-center text-xs leading-relaxed text-gray-800 dark:text-gray-100">
 						© Company 2023. All rights reserved.
 						<br />
-						Built with <span className="text-gray-100 underline transition hover:text-gray-700/75">React </span>
-						<span className="text-gray-100 underline transition hover:text-gray-700/75">from JDQH</span>.
+						Built with{' '}
+						<span className="text-gray-800 underline transition hover:text-gray-700/75 dark:text-gray-100">React </span>
+						<span className="text-gray-800 underline transition hover:text-gray-700/75 dark:text-gray-100">
+							from JDQH
+						</span>
+						.
 					</p>
 				</div>
 			</div>

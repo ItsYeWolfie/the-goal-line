@@ -51,7 +51,7 @@ export default function FixturesMain() {
 					<div
 						key={match.fixture.id}
 						className={`${
-							index % 2 === 0 ? 'bg-slate-800' : 'bg-slate-600'
+							index % 2 === 0 ? ' dark:bg-gray-800' : 'bg-gray-300 dark:bg-gray-600'
 						} relative grid grid-cols-3 items-center rounded-xl py-3 md:grid-cols-6`}
 					>
 						<FixtureMainInfo
@@ -65,7 +65,7 @@ export default function FixturesMain() {
 								name={match.teams.home.name}
 							/>
 						</div>
-						<p className="col-span-1 mx-auto w-max rounded-lg bg-slate-500 px-4 text-center text-sm text-lime-400 md:text-lg">
+						<p className="col-span-1 mx-auto w-max rounded-lg bg-sky-700 px-4 text-center text-sm text-white md:text-lg">
 							{match.goals.home}:{match.goals.away}
 						</p>
 						<div className="col-span-1 justify-start text-center text-sm md:text-lg">
@@ -77,16 +77,16 @@ export default function FixturesMain() {
 						</div>
 						<p
 							className={`${
-								match.fixture.status.short === 'FT' ? 'bg-red-200 text-red-500' : 'bg-lime-400 text-slate-800'
-							} col-span-1 hidden w-max rounded-lg  px-4 py-1 text-center text-sm font-semibold text-gray-600  md:grid md:text-base`}
+								match.fixture.status.short === 'FT' ? 'bg-red-200   text-red-500 ' : 'bg-sky-600  dark:text-white '
+							} col-span-1 hidden w-max rounded-lg  px-4 py-1 text-center text-sm font-semibold text-white  md:grid md:text-base`}
 						>
 							{match.fixture.status.short}
 						</p>
-						<p className="col-span-1 hidden text-sm text-yellow-400 md:grid md:text-lg">
+						<p className="col-span-1 hidden font-medium text-sky-600 dark:text-sky-400  md:grid md:text-lg">
 							Time: {moment(match.fixture.date).format('HH:MM')}
 						</p>
 						<FaInfoCircle
-							className="col-span-1 hidden w-full text-right text-sm text-yellow-400 md:grid md:text-lg"
+							className="col-span-1 hidden w-full text-right text-sky-600 dark:text-sky-400 md:grid md:text-lg"
 							onMouseEnter={() => setHoveredMatchId(match.fixture.id)}
 							onMouseLeave={() => setHoveredMatchId(null)}
 						/>
