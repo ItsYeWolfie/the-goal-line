@@ -32,7 +32,9 @@ export default function SearchCoachResult({ coach, onClick }: SearchCoachResultP
 						{coach.name}
 					</Link>
 				</div>
-				<div className="flex h-full items-end pl-[4%] text-[13px] text-gray-200 sm:text-[15px]">{coach.team.name}</div>
+				<div className="flex h-full items-end pl-[4%] text-[13px] text-gray-600 dark:text-gray-200 sm:text-[15px]">
+					{coach.team.name}
+				</div>
 			</div>
 			<div className="h-full w-[10%] ">
 				<Link
@@ -40,7 +42,7 @@ export default function SearchCoachResult({ coach, onClick }: SearchCoachResultP
 					onClick={onClick}
 				>
 					{' '}
-					<FiChevronsRight className=" mx-auto mt-[25%] text-[25px] text-gray-200  md:mt-[15%]  md:text-[25px]" />
+					<FiChevronsRight className=" mx-auto mt-[25%] text-[25px] text-gray-600 dark:text-gray-200  md:mt-[15%]  md:text-[25px]" />
 				</Link>
 			</div>
 		</div>

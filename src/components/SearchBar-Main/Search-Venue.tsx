@@ -32,7 +32,7 @@ export default function SearchVenueResult({ venue, onClick }: SearchVenueResultP
 						{venue.name}
 					</Link>
 				</div>
-				<div className="flex h-full items-end pl-[4%] text-[13px] text-gray-200 sm:text-[15px]">
+				<div className="flex h-full items-end pl-[4%] text-[13px] text-gray-600 dark:text-gray-200 sm:text-[15px]">
 					{venue.country}: {venue.city}
 				</div>
 			</div>
@@ -42,7 +42,7 @@ export default function SearchVenueResult({ venue, onClick }: SearchVenueResultP
 					onClick={onClick}
 				>
 					{' '}
-					<FiChevronsRight className=" mx-auto mt-[25%] text-[25px] text-gray-200  md:mt-[15%]  md:text-[25px]" />
+					<FiChevronsRight className=" mx-auto mt-[25%] text-[25px] text-gray-600 dark:text-gray-200  md:mt-[15%]  md:text-[25px]" />
 				</Link>
 			</div>
 		</div>

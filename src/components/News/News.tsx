@@ -58,8 +58,8 @@ export default function NewsPage() {
 	const threeHoursAgo = moment().subtract(3, 'hours').format('hh:mm A');
 
 	return (
-		<div className="bg-slate-900">
-			<section className="m-[3%] mt-0 pt-[6%] ">
+		<div className="">
+			<section className=" mt-0  md:m-[3%] md:mt-1 ">
 				{loading ? (
 					<Bars
 						height="80"
@@ -78,8 +78,8 @@ export default function NewsPage() {
 					/>
 				) : (
 					<>
-						<div className="relative h-[50px]  w-full md:h-[70px]">
-							<div className="absolute left-[0%] bottom-[20%] flex h-[80%] w-[90%] items-center gap-[3%]">
+						<div className="relative mb-4 w-full">
+							<div className=" flex items-center gap-[3%]">
 								<NewsHeader
 									activeCategory={activeCategory}
 									dataTofilter={dataTofilter}
@@ -87,10 +87,10 @@ export default function NewsPage() {
 								/>
 							</div>
 						</div>
-						<div className="h-auto w-full gap-[1%] bg-slate-900 md:grid md:grid-cols-5">
+						<div className="h-auto w-full gap-[1%] md:grid md:grid-cols-5">
 							<div className="w-full md:col-span-3">
 								<div className="rounded-[10px] border-[1px] border-gray-400">
-									<div className="mx-auto mt-[5%] w-[90%] text-[1.2rem] font-bold text-white sm:text-[1.5rem] md:text-[1.5rem] lg:text-[1.6rem] 2xl:text-[2.3rem]">
+									<div className="mx-auto mt-[5%] w-[90%] text-[1.2rem] font-bold text-gray-900 dark:text-white sm:text-[1.5rem] md:text-[1.5rem] lg:text-[1.6rem] 2xl:text-[2.3rem]">
 										{currentData?.title}
 									</div>
 									<div className="mt-[3%] flex w-full items-center space-x-4">
@@ -99,9 +99,11 @@ export default function NewsPage() {
 											src="/news-user.png"
 											alt=""
 										/>
-										<div className="text-[0.8rem] font-medium text-gray-200 2xl:text-[1.5rem]">
+										<div className="text-[0.8rem] font-medium text-gray-700 dark:text-gray-200 2xl:text-[1.5rem]">
 											<div>Jese Leos</div>
-											<div className="text-[0.8rem] text-gray-200 2xl:text-[1.5rem]">Joined in 2023</div>
+											<div className="text-[0.8rem] text-gray-700 dark:text-gray-200 2xl:text-[1.5rem]">
+												Joined in 2023
+											</div>
 										</div>
 									</div>
 									<div className="mt-[1%] h-[250px] w-full sm:h-[300px] md:h-[350px] lg:h-[400px] 2xl:h-[500px]">
@@ -111,23 +113,27 @@ export default function NewsPage() {
 											alt=""
 										/>
 									</div>
-									<div className="relative mt-[1%] w-[100%] text-[0.8rem] text-gray-300 sm:text-[1.1rem]">
-										<p className="absolute left-3 text-yellow-400">Date: {currentDate}</p>
-										<p className="absolute right-3 text-yellow-400">Time: {threeHoursAgo}</p>
+									<div className=" mt-[1%] grid w-[100%] grid-cols-2 sm:text-[1.1rem]">
+										<p className=" col-span-1 w-full justify-start px-3 text-violet-800 dark:text-yellow-400">
+											Date: {currentDate}
+										</p>
+										<p className="col-span-1 w-full px-3 text-right text-violet-800 dark:text-yellow-400">
+											Time: {threeHoursAgo}
+										</p>
 									</div>
 
-									<div className="mx-auto mt-[7%] w-[95%] break-words text-gray-300 sm:text-[1.2rem] lg:text-[1.1rem] 2xl:text-[1.8rem]">
+									<div className="mx-auto mt-[7%] w-[95%] break-words text-gray-700 dark:text-gray-300 sm:text-[1.2rem] lg:text-[1.1rem] 2xl:text-[1.8rem]">
 										{currentData?.body}
 									</div>
 
 									<div className="mt-[3%] h-[300px] w-full 2xl:h-[450px]">
 										<img
-											className="h-full w-full animate-pulse bg-white opacity-[0.8]"
+											className="h-full w-full  bg-white opacity-100 dark:opacity-[0.8]"
 											src="/gjirafa.png"
 											alt=""
 										/>
 									</div>
-									<div className="mx-auto mt-[5%] w-[95%] break-words text-gray-300 sm:text-[1.2rem] lg:text-[1.1rem] 2xl:text-[1.8rem]">
+									<div className="mx-auto mt-[5%] w-[95%] break-words dark:text-gray-300 sm:text-[1.2rem] lg:text-[1.1rem] 2xl:text-[1.8rem]">
 										{currentData?.body}
 									</div>
 									<div className="mt-[5%] h-[300px] w-full 2xl:h-[450px]">
@@ -155,8 +161,8 @@ export default function NewsPage() {
 									/>
 								</div>
 								<div className="rounded-[10px] border-[1px] border-gray-400">
-									<div className="w-full border-b-[1px] border-gray-400 text-lg text-white">
-										<p className="py-[2%] pl-[4%] text-[1rem] sm:text-[1.4rem]">Related News</p>
+									<div className="w-full border-b-[1px] border-gray-400 text-lg text-gray-900 dark:text-white">
+										<p className="py-[2%] pl-[4%] text-[1rem] sm:text-[1.4rem] ">Related News</p>
 									</div>
 									{data.map((item) => (
 										<RelatedNews
