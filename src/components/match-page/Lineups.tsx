@@ -21,7 +21,7 @@ function LineUps() {
 		return <LineupLoader />;
 	}
 	return (
-		<div className="mt-2 flex h-auto w-full justify-around rounded-md bg-gray-200 p-2 text-xs dark:bg-gray-800 md:mx-auto md:w-4/5 md:text-lg lg:w-full">
+		<div className="mt-2 flex h-auto w-full justify-around rounded-md bg-gray-200 p-2 text-xs dark:bg-gray-700 md:mx-auto md:text-lg">
 			<span className="my-auto flex flex-col">
 				<img
 					src={lineup.teams.home.logo}
@@ -32,7 +32,7 @@ function LineUps() {
 			</span>
 			<div className="flex flex-col">
 				<Link
-					to={`/coach/${lineup.lineups[0].coach.name}/`}
+					to="/coach/Solskjær"
 					rel="noreferrer"
 				>
 					<h3 className="text-left hover:text-sky-600">
@@ -42,7 +42,7 @@ function LineUps() {
 				<span className="w-auto border-[0.2px] border-solid border-gray-200 text-left opacity-30" />
 				{lineup.lineups[0].startXI.map((player) => (
 					<Link
-						to={`/player/${player.player.id}/`}
+						to={`/players/${player.player.id}/`}
 						rel="noreferrer"
 					>
 						<h3
@@ -56,7 +56,7 @@ function LineUps() {
 			</div>
 			<div className="flex flex-col">
 				<Link
-					to={`/coach/${lineup.lineups[1].coach.name}/`}
+					to="/coach/Solskjær"
 					rel="noreferrer"
 				>
 					<h3 className="text-right hover:text-sky-600">
@@ -67,7 +67,7 @@ function LineUps() {
 
 				{lineup.lineups[1].startXI.map((player) => (
 					<Link
-						to={`/player/${player.player.id}/`}
+						to={`/players/${player.player.id}/`}
 						rel="noreferrer"
 					>
 						<h3

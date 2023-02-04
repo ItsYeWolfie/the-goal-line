@@ -20,7 +20,7 @@ function Statistics() {
 		return <StatisticsLoader />;
 	}
 	return (
-		<div className="flex h-auto w-full flex-col justify-evenly gap-2 rounded-md bg-gray-200 p-8 dark:bg-gray-800 md:mx-auto md:w-4/5 md:px-16 lg:mb-4 lg:ml-0 lg:w-full">
+		<div className="flex h-auto w-full flex-col justify-evenly gap-2 rounded-md bg-gray-200 p-8 dark:bg-gray-700 md:mx-auto md:px-16 lg:mb-4 lg:ml-0">
 			{lineup.statistics[0].statistics.map((statistic, index) => {
 				const value1 = parseFloat(lineup.statistics[0].statistics[index].value);
 				const value2 = parseFloat(lineup.statistics[1].statistics[index].value);

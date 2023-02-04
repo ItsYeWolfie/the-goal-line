@@ -32,7 +32,7 @@ function FixtureInfo() {
 	});
 
 	return (
-		<div className="mt-2 flex h-12 w-full items-center justify-around rounded-md bg-gray-200 align-middle text-gray-900 dark:bg-gray-800 dark:text-gray-200 md:mx-auto md:w-4/5 lg:flex lg:w-full lg:justify-around">
+		<div className="mt-2 flex h-12 w-full items-center justify-around rounded-md bg-gray-200 align-middle text-gray-900 dark:bg-gray-700 dark:text-gray-200 md:mx-auto lg:flex lg:justify-around">
 			<p className="flex items-center text-xs md:text-base">
 				<FaCalendarAlt className="mr-1 text-[20px]" />
 				{date}

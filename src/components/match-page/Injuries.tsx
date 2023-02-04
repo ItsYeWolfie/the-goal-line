@@ -20,8 +20,8 @@ function Injuries() {
 		return <InjuriesLoader />;
 	}
 	return (
-		<div className="mt-2 flex h-auto w-full justify-center rounded-md bg-gray-200 p-2 text-xs dark:bg-gray-800 md:mx-auto md:w-4/5 md:text-lg lg:w-full">
-			<table className="w-[45rem] text-center">
+		<div className="mt-2 flex h-auto w-full justify-center rounded-md bg-gray-200 p-2 text-xs dark:bg-gray-700 md:mx-auto md:text-lg">
+			<table className="w-full text-center">
 				<thead>
 					<tr className="border-[0.2px] border-gray-700 border-opacity-30 dark:border-gray-300">
 						<td className="w-1/6">Team</td>

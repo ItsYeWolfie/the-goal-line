@@ -34,7 +34,7 @@ function LineupTabs() {
 
 	return (
 		<div className="">
-			<div className="mt-4 flex w-full justify-between px-2 md:mx-auto md:w-4/5 lg:w-full">
+			<div className="mt-4 flex w-full justify-between px-2 md:mx-auto">
 				{tabs.map((tab) => (
 					<button
 						type="button"

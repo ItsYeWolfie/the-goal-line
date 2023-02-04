@@ -21,7 +21,7 @@ function Standings() {
 		return <StandingsLoader />;
 	}
 	return (
-		<div className="mx-auto h-auto w-full rounded-md bg-gray-200 p-2 dark:bg-gray-800 md:w-4/5 lg:h-auto lg:w-full">
+		<div className="mx-auto h-auto w-full rounded-md bg-gray-200 p-2 dark:bg-gray-700 lg:h-auto">
 			<Link
 				to={`/leagues/${standings.id}/`}
 				rel="noreferrer"

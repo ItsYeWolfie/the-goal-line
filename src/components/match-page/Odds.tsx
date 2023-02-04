@@ -22,7 +22,7 @@ function Odds() {
 	}
 
 	return (
-		<div className="mx-auto flex h-auto w-full justify-around rounded-md bg-gray-200 p-4 text-gray-900 dark:bg-gray-800 dark:text-gray-200 md:w-4/5 lg:h-auto lg:w-full">
+		<div className="mx-auto flex h-auto w-full justify-around rounded-md bg-gray-200 p-4 text-gray-900 dark:bg-gray-700 dark:text-gray-200 lg:h-auto">
 			<div className="flex h-8 w-28 items-center justify-around rounded-md border-[1px] border-gray-400">
 				<span>1</span>
 				<span>

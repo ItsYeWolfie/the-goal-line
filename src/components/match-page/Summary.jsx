@@ -24,19 +24,19 @@ function Summary() {
 	}
 
 	return (
-		<div className="mx-auto mt-2 w-full rounded-md bg-gray-200 p-2 dark:bg-gray-800 md:w-4/5 lg:w-full">
+		<div className="mx-auto mt-2 w-full rounded-md bg-gray-200 p-2 dark:bg-gray-700">
 			<table className="w-full items-center">
 				{summary.events.map((event) => {
 					return (
 						<tr className="flex h-10 items-center rounded-md border-b-[0.2px] border-solid border-gray-400 border-opacity-30 text-center">
 							<td className="ml-2 w-8 items-center text-center">{event.time.elapsed}&apos;</td>
-							<td className="ml-10 flex items-center p-2 md:ml-36 lg:ml-52">
+							<td className="ml-10 flex items-center p-2 md:ml-40 lg:ml-52">
 								<span className="flex flex-col">
 									<p className="text-sm">{event.team.id === 33 ? event.player.name : ''}</p>
 									<p className="text-xs text-gray-400">{event.team.id === 33 ? event.assist.name : ''}</p>
 								</span>
 							</td>
-							<td className="absolute ml-52 flex items-center justify-center p-2 text-center md:ml-80 lg:ml-96">
+							<td className="absolute ml-52 flex items-center justify-center p-2 text-center md:ml-96 lg:ml-[29rem]">
 								{event.type === 'Goal' ? (
 									<FontAwesomeIcon
 										icon={faFutbol}
@@ -70,7 +70,7 @@ function Summary() {
 									''
 								)}
 							</td>
-							<td className="ml-40 flex items-center p-2 md:ml-[12rem]">
+							<td className="ml-40 flex items-center p-2 md:ml-[16rem] lg:ml-80">
 								<span className="flex flex-col">
 									<p className="text-sm">{event.team.id === 34 ? event.player.name : ''}</p>
 									<p className="text-xs text-gray-400">{event.team.id === 34 ? event.assist.name : ''}</p>

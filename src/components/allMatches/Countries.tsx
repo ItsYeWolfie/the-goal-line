@@ -50,7 +50,7 @@ function Countries() {
 	}
 	return (
 		<div className="flex flex-col">
-			<span className="my-auto flex items-center pl-2 text-lg">
+			<span className="my-auto flex h-14 w-52 items-center bg-gray-200 pl-2 text-lg dark:bg-gray-800 lg:fixed lg:-mt-2">
 				<FaSearch />
 				<input
 					className="ml-2 w-full rounded-md border-0 bg-gray-200 p-2 placeholder-inherit outline-0 focus:border-0 focus:outline-0 active:border-0 dark:bg-gray-800"
@@ -59,9 +59,9 @@ function Countries() {
 					onChange={(e) => setSearchTerm(e.target.value)}
 				/>
 			</span>
-			<span className="mt-2 w-full border-[0.2px] border-solid border-gray-200 opacity-30" />
+			<span className="w-64 border-[0.2px] border-solid border-gray-200 opacity-30 lg:fixed lg:mt-12" />
 			{!selectedCountry ? (
-				<>
+				<div className="lg:mt-12">
 					{countries
 						.filter((c) => topCountries.includes(c.name))
 						.filter((country) => country.name.toLowerCase().startsWith(searchTerm.toLowerCase()))
@@ -104,9 +104,9 @@ function Countries() {
 								<span className="ml-2 cursor-pointer text-sm hover:text-sky-600">{country.name}</span>
 							</button>
 						))}
-				</>
+				</div>
 			) : (
-				<div className="mt-2">
+				<div className="mt-14">
 					<span
 						className="mb-2 flex cursor-pointer items-center text-sky-600"
 						onClick={() => setSelectedCountry(false)}

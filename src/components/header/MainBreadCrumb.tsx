@@ -11,7 +11,7 @@ export default function MainBreadCrumb() {
 
 	return (
 		<section className="container mx-auto flex items-center justify-between p-2 sm:py-4 md:p-0">
-			<nav className="flex flex-1">
+			<nav className="flex flex-1 pl-2">
 				<ol className="flex items-center gap-x-2 sm:gap-x-4">
 					<li>
 						<Link
@@ -57,8 +57,8 @@ export default function MainBreadCrumb() {
 						className={({ isActive }) =>
 							`${
 								isActive
-									? `relative bg-gray-900 text-gray-100 before:absolute before:bottom-0 before:left-0 before:h-1 before:w-full before:rounded-b-md before:rounded-t-md before:bg-red-700`
-									: `text-gray-200 hover:bg-gray-900 hover:text-gray-100`
+									? `relative bg-gray-900 text-gray-100 before:absolute before:bottom-0 before:left-0 before:h-1 before:w-full before:rounded-b-md before:rounded-t-md before:bg-sky-700`
+									: `text-gray-200 hover:bg-gray-800 hover:text-gray-100`
 							} py-8 px-4 text-sm font-medium text-gray-900`
 						}
 					>
@@ -69,7 +69,7 @@ export default function MainBreadCrumb() {
 					</NavLink>
 				))}
 			</nav>
-			<div className="flex h-10 items-center justify-end">
+			<div className="flex h-10 items-center justify-end pr-2">
 				<DarkModeToggle />
 				<QuickSearch />
 			</div>

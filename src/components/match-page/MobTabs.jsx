@@ -21,12 +21,12 @@ function Tabs() {
 			Component: (
 				<div className="flex flex-col gap-y-2">
 					<TabIS />
-					<h6 className="mt-2 pl-1 text-xs md:ml-20">ODDS</h6>
+					<h6 className="mt-2 pl-1 text-xs">ODDS</h6>
 					<Odds />
-					<h6 className="mt-2 pl-1 text-xs md:ml-20">H2H</h6>
+					<h6 className="mt-2 pl-1 text-xs">H2H</h6>
 					<H2h />
 					<img
-						className="mx-auto hidden w-4/5 md:block"
+						className="mx-auto hidden md:block"
 						src="/images/gjirafa.png"
 						alt=""
 					/>
@@ -37,7 +37,7 @@ function Tabs() {
 			name: 'LINEUPS',
 			Component: (
 				<div className="flex flex-col">
-					<h6 className=" pl-1 text-xs md:ml-20">FORMATION</h6>
+					<h6 className=" pl-1 text-xs">FORMATION</h6>
 					<Formation />
 					<MatchTabs />
 				</div>
@@ -59,7 +59,7 @@ function Tabs() {
 
 	return (
 		<div className="lg:hidden">
-			<div className="my-4 flex w-full justify-around rounded-t-md border-b-2 border-gray-200 border-opacity-30 bg-gray-200 p-2 dark:bg-gray-800 md:mx-auto md:w-4/5">
+			<div className="my-4 flex w-full justify-around rounded-t-md border-b-2 border-gray-200 border-opacity-30 bg-gray-200 p-2 dark:bg-gray-800 md:mx-auto">
 				{tabs.map((tab) => (
 					<button
 						type="button"

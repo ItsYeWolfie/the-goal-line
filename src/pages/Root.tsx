@@ -23,7 +23,7 @@ export default function Root() {
 		<div className="flex flex-1 flex-col">
 			<GlobalHeader />
 			<GlobalHeaderContext.Provider value={value}>
-				<div className="sticky top-0 z-20 flex flex-col bg-sky-900 p-2 md:p-0">
+				<div className="sticky top-0 z-50 flex flex-col bg-gray-900 p-2 md:p-0">
 					<MainBreadCrumb />
 					{tabsComponent && tabsComponent}
 				</div>

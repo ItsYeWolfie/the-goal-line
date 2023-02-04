@@ -39,7 +39,7 @@ function Match() {
 		return <MatchLoader />;
 	}
 	return (
-		<div className="h-auto w-full justify-between rounded-md bg-gray-200 align-middle text-gray-900 dark:bg-gray-800 dark:text-gray-100 md:mx-auto md:w-4/5  md:justify-around lg:block  lg:w-full">
+		<div className="h-auto w-full justify-between rounded-md bg-gray-200 align-middle text-gray-900 dark:bg-gray-700 dark:text-gray-100 md:mx-auto md:justify-around lg:block">
 			<div className="flex justify-around">
 				<div className="mt-6 flex flex-col">
 					<Link

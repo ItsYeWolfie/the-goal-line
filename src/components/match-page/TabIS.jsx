@@ -32,7 +32,7 @@ function TabIS() {
 
 	return (
 		<div className="">
-			<div className="flex w-full justify-between px-4 md:mx-auto md:w-4/5 lg:mt-4 lg:w-full">
+			<div className="flex w-full justify-between px-2 md:mx-auto lg:mt-4">
 				{tabs.map((tab) => (
 					<button
 						type="button"
