@@ -22,7 +22,7 @@ export default function MatchPage() {
 			},
 			{
 				name: 'Match',
-				href: 'matches/157201',
+				href: 'matches/157201/',
 			},
 		]);
 

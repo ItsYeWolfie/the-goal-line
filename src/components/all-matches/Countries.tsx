@@ -49,7 +49,7 @@ function Countries() {
 		return <CountriesLoader />;
 	}
 	return (
-		<div className="flex flex-col">
+		<div className="flex flex-col rounded-b-md">
 			<span className="z-20 my-auto flex h-14 w-full items-center bg-gray-200 pl-2 text-lg dark:bg-gray-700 lg:sticky lg:top-0 lg:dark:bg-gray-800">
 				<FaSearch />
 				<input
@@ -135,7 +135,6 @@ function Countries() {
 												height="20px"
 												alt=""
 											/>
-
 											<p className="ml-2 cursor-pointer hover:text-sky-600">{league.league.name}</p>
 										</span>
 									</Link>
