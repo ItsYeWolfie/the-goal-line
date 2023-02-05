@@ -79,9 +79,9 @@ export default function Footer() {
 						</p>
 					</div>
 
-					<div className="grid grid-cols-1 gap-8 text-center lg:grid-cols-3 lg:text-left">
+					<div className="grid grid-cols-1 gap-8 text-center md:grid-cols-3 lg:grid-cols-3 lg:text-left">
 						<div>
-							<strong className="font-medium text-gray-900"> Services </strong>
+							<strong className="font-medium text-gray-700 dark:text-gray-100"> Services </strong>
 
 							<nav
 								aria-label="Footer Services Nav"
@@ -97,7 +97,7 @@ export default function Footer() {
 						</div>
 
 						<div>
-							<strong className="font-medium text-gray-900"> About </strong>
+							<strong className="font-medium  text-gray-700 dark:text-gray-100"> About </strong>
 
 							<nav
 								aria-label="Footer About Nav"
@@ -111,7 +111,7 @@ export default function Footer() {
 						</div>
 
 						<div>
-							<strong className="font-medium text-gray-900"> Support </strong>
+							<strong className="font-medium text-gray-700 dark:text-gray-100"> Support </strong>
 
 							<nav
 								aria-label="Footer Support Nav"
@@ -129,7 +129,7 @@ export default function Footer() {
 					</div>
 				</div>
 
-				<div className="mt-16 border-t pt-8 text-gray-800 dark:text-gray-100">
+				<div className="mt-16 border-t pt-8 text-gray-700 dark:text-gray-100">
 					<p className="text-center text-xs leading-relaxed text-gray-800 dark:text-gray-100">
 						© GoalLine 2023. All rights reserved.
 						<br />

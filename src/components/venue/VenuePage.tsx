@@ -50,13 +50,6 @@ export default function VenuePage() {
 	return (
 		<div className=" 2xl:mx-auto">
 			<div className="mx-auto h-auto w-full rounded-[10px] bg-gray-200   text-black dark:bg-slate-900 dark:text-gray-200  lg:w-[85%]">
-				<div className="w-full rounded-t-[10px] bg-gradient-to-r from-gray-200 to-gray-400 px-4 pt-3 pl-[1%] font-serif text-3xl font-medium text-black  dark:from-sky-800 dark:to-sky-900 dark:text-gray-200 md:text-3xl lg:text-5xl  2xl:mx-auto   2xl:text-4xl ">
-					{venue.name}
-					<div className=" ">
-						<span className=" text-base  text-gray-600 dark:text-gray-200 md:text-xl 2xl:text-2xl ">The club:</span>{' '}
-						<span className="font-serif text-xl md:text-xl lg:text-2xl"> {venue.country} </span>
-					</div>
-				</div>
 				<div className=" h-auto w-full border-b-[1px]  border-gray-400 md:grid md:grid-cols-2 ">
 					<div className=" col-span-1 border-r-[1px]  border-gray-400 bg-gray-200 dark:bg-gray-900 ">
 						<Carousel>
@@ -93,8 +86,9 @@ export default function VenuePage() {
 						</Carousel>
 					</div>
 					<div className="col-span-1">
-						<div className="mx-auto  flex h-[100%] w-[90%] flex-col items-center justify-center gap-5 text-center lg:gap-3 2xl:gap-20">
+						<div className="mx-auto  flex h-[100%] w-[90%] flex-col items-center justify-center gap-2 text-center lg:gap-3 2xl:gap-10">
 							<h1 className="font-mono text-2xl font-extrabold 2xl:text-4xl ">{venue.name}</h1>
+							<h1 className="font-mono text-xl font-extrabold 2xl:text-2xl ">{venue.country}</h1>
 							<p className="pb-3 text-left  font-serif md:text-base lg:text-xl 2xl:text-2xl">
 								Designed by Scottish architect Archibald Leitch, who designed several other stadia, the ground was
 								originally designed with a capacity of {venue.capacity + 20000} spectators and featured seating in the

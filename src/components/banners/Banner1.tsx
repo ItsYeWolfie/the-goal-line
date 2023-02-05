@@ -1,6 +1,6 @@
 export default function Banner1() {
 	return (
-		<section className=" h-[180px] rounded-3xl bg-opacity-70 bg-gradient-to-tr from-sky-500 to-sky-900  dark:from-gray-900  dark:to-gray-600 sm:h-[200px] md:h-[250px] ">
+		<section className=" h-[180px] rounded-3xl bg-opacity-70 bg-gradient-to-tr from-sky-500 to-sky-900  dark:from-gray-900  dark:to-gray-600 sm:h-[200px] md:h-[250px] 2xl:h-[300px] ">
 			<div className="relative h-full w-full">
 				<div className="flex h-full w-1/2 flex-col items-start justify-center gap-2 p-6">
 					<div className=" mt-5 text-sm text-gray-100 sm:text-base md:text-lg lg:text-2xl ">New Platform</div>
@@ -30,7 +30,7 @@ export default function Banner1() {
 					/>
 				</div>
 
-				<div className="absolute bottom-0 right-[10%] h-full w-[20%]  lg:right-[13%] 2xl:right-[15%] ">
+				<div className="absolute bottom-0 right-[10%] h-full w-[20%]  lg:right-[13%] 2xl:right-[13%] ">
 					<img
 						className="absolute bottom-0 h-[90%] w-full  rounded-t-lg opacity-70 "
 						src="/flashscore1.png"

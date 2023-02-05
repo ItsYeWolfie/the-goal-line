@@ -10,7 +10,7 @@ interface SearchTeamResultProps {
 export default function SearchTeamResult({ match, onClick }: SearchTeamResultProps) {
 	return (
 		<div className="mt-2 flex h-[44px] w-full items-center sm:mt-[4] sm:h-[55px] md:mt-[2%]  md:h-[54px] ">
-			<div className="h-full w-[15%] rounded-[10px] md:w-[10%] ">
+			<div className="h-full w-[15%] rounded-[10px]  md:w-[10%] ">
 				<Link
 					to={`/teams/${match.teams.home.id}/`}
 					onClick={onClick}
@@ -18,7 +18,7 @@ export default function SearchTeamResult({ match, onClick }: SearchTeamResultPro
 					<img
 						src={match.teams.home.logo}
 						alt="a"
-						className="m-auto mt-[5%] h-10 w-10 rounded-full"
+						className="m-auto mt-[8%] h-10 w-10 rounded-full"
 					/>
 				</Link>
 			</div>
