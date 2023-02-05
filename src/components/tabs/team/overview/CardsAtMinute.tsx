@@ -1,11 +1,13 @@
-import { ITeamStatistics } from '../../../../../types/Team.types';
-import SmallTableCell from '../../../table/SmallTableCell';
-import TableHeader from '../../../table/TableHeader';
+import { ITeamStatistics } from '../../../../types/Team.types';
+import SmallTableCell from '../../../table/SmallCell';
+import TableHead from '../../../table/Head';
+import TableHeader from '../../../table/Header';
+import TableRow from '../../../table/Row';
 
 export default function TeamOverviewCardsAtMinute({ cards }: { cards: ITeamStatistics['cards'] }) {
 	return (
-		<table className="bg-neutral-700 uppercase">
-			<thead className="bg-neutral-800 text-sm">
+		<table className="uppercase">
+			<TableHead className="text-xs">
 				<tr>
 					<TableHeader className="py-1 pl-3 text-left">Cards at Minute</TableHeader>
 					<TableHeader
@@ -21,11 +23,11 @@ export default function TeamOverviewCardsAtMinute({ cards }: { cards: ITeamStati
 						Red
 					</TableHeader>
 				</tr>
-			</thead>
-			<tbody className="text-xs">
+			</TableHead>
+			<tbody className="text-sm">
 				{Object.keys(cards.red).map((minute: string, index) => (
-					<tr
-						className={index % 2 === 0 ? 'bg-neutral-600' : ''}
+					<TableRow
+						even={index % 2 === 0}
 						key={minute}
 					>
 						<SmallTableCell className="w-48">{minute}</SmallTableCell>
@@ -33,7 +35,7 @@ export default function TeamOverviewCardsAtMinute({ cards }: { cards: ITeamStati
 						<SmallTableCell className="text-center">{cards.yellow[minute].percentage || '-'}</SmallTableCell>
 						<SmallTableCell className="text-center">{cards.red[minute].total || '-'}</SmallTableCell>
 						<SmallTableCell className="text-center">{cards.red[minute].percentage || '-'}</SmallTableCell>
-					</tr>
+					</TableRow>
 				))}
 			</tbody>
 		</table>

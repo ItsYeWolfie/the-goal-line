@@ -1,7 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
-import { ILeagueWithSeason } from '../../../../../types/League.types';
-import { ITeam, ITeamStatistics } from '../../../../../types/Team.types';
+import { Link } from 'react-router-dom';
+import { ILeagueWithSeason } from '../../../../types/League.types';
+import { ITeam, ITeamStatistics } from '../../../../types/Team.types';
 import FormIconArray from '../../../icons/FormIconArray';
 
 export default function TeamOverviewTeamCard({
@@ -14,76 +15,67 @@ export default function TeamOverviewTeamCard({
 	form: ITeamStatistics['form'];
 }) {
 	return (
-		<div className="relative shrink-0 grow-0 rounded-md bg-neutral-700 p-8 text-sm md:basis-6/12">
-			<div className="flex flex-col">
-				<header className="mb-4 uppercase text-sky-500">Club Details</header>
-				<div className="mb-8 flex w-full flex-col gap-4 md:flex-row">
-					<img
-						className="my-auto h-24 w-24"
-						src={team.logo}
-						alt={`${team.name} Logo`}
-					/>
-					<div className="flex flex-col gap-4">
-						<div className="flex flex-col flex-wrap gap-4 sm:flex-row lg:gap-8">
-							<div>
-								<span className="text-xs font-bold uppercase text-neutral-400">Team Name</span>
-								<header>{team.name}</header>
-							</div>
-							<div>
-								<span className="text-xs font-bold uppercase text-neutral-400">Founded</span>
-								<header>{team.founded}</header>
-							</div>
-							<div>
-								<span className="text-xs font-bold uppercase text-neutral-400">League Nation</span>
-								<header>{team.country}</header>
-							</div>
-						</div>
-						<div className="flex flex-col flex-wrap gap-4 sm:flex-row lg:gap-8">
-							<div>
-								<span className="text-xs font-bold uppercase text-neutral-400">Team Code</span>
-								<header>{team.code}</header>
-							</div>
-							{team.national && (
-								<div>
-									<span className="text-xs font-bold uppercase text-neutral-400">National Team</span>
-									<FontAwesomeIcon
-										icon={faCheckCircle}
-										className="block text-xl text-green-500"
-									/>
-								</div>
-							)}
-						</div>
-					</div>
-				</div>
-				<div className="mb-8 flex items-center space-x-16">
-					<div className="flex items-center space-x-4">
+		<div className="relative flex shrink-0 grow-0 basis-5/12 flex-col gap-y-8 rounded-sm py-8 px-4 text-sm dark:bg-gray-800 lg:basis-4/12">
+			<img
+				className="m-auto h-36 w-36"
+				src={team.logo}
+				alt={`${team.name} Logo`}
+			/>
+			<Link
+				className="grid grid-cols-12 items-center gap-x-4 rounded-lg p-2 transition-colors hover:bg-gray-300 dark:hover:bg-gray-700"
+				to={`/leagues/${league.id}/`}
+			>
+				<img
+					className="col-span-2 rounded-full bg-white"
+					src={league.logo}
+					alt={league.name}
+				/>
+				<div className="col-span-6">
+					<h1 className="font-bold">{league.name}</h1>
+					<div className="flex items-center gap-2 text-sm">
 						<img
-							className="h-12 w-12"
-							src={league.logo}
-							alt={league.name}
+							className="h-4 w-4"
+							src={league.flag ? league.flag : league.logo}
+							alt={`${league.country}'s flag`}
 						/>
-						<div className="flex flex-col">
-							<h1 className="font-bold">{league.name}</h1>
-							<div className="flex items-center gap-2 text-sm">
-								<img
-									className="h-4 w-4"
-									src={league.flag ? league.flag : league.logo}
-									alt={`${league.country}'s flag`}
-								/>
-								<h2 className="font-bold">{league.country}</h2>
-							</div>
-						</div>
-					</div>
-					<div className="md:text-center">
-						<p className="text-sm font-bold">{league.season}</p>
-						<p className="text-xs">Season</p>
+						<h2 className="font-bold">{league.country}</h2>
 					</div>
 				</div>
-				<div className="flex flex-col md:text-center">
-					<p className="order-last mx-auto max-w-sm">
+				<div className="col-span-4 text-right">
+					<p className="text-sm font-bold">{league.season}</p>
+					<p className="text-xs">Season</p>
+				</div>
+			</Link>
+			<p className="order-last mx-auto max-w-sm" />
+			<div className="grid grid-cols-12 gap-y-2 px-2">
+				<div className="col-span-12 flex justify-between px-2">
+					<span className="items-center text-sm font-medium uppercase text-gray-700 dark:text-gray-300">Founded</span>
+					<header className="text-right">{team.founded}</header>
+				</div>
+				<div className="col-span-12 flex items-center justify-between bg-gray-200 px-2 dark:bg-gray-700">
+					<span className="text-sm font-medium uppercase text-gray-700 dark:text-gray-300">League Nation</span>
+					<header className="text-right">{team.country}</header>
+				</div>
+				<div className="col-span-12 flex items-center justify-between px-2">
+					<span className="text-sm font-medium uppercase text-gray-700 dark:text-gray-300">Team Code</span>
+					<header className="text-right">{team.code}</header>
+					{team.national && (
+						<div className="flex items-center justify-center">
+							<span className="text-sm font-medium uppercase text-gray-700 dark:text-gray-300">National Team</span>
+							<FontAwesomeIcon
+								icon={faCheckCircle}
+								className="block text-right text-xl text-green-500"
+							/>
+						</div>
+					)}
+				</div>
+				<div className="col-span-12 flex flex-nowrap justify-between overflow-x-auto bg-gray-200 px-2 py-1 dark:bg-gray-700">
+					<header className="shrink-0 grow-0 basis-6/12 text-sm font-medium uppercase text-gray-700 dark:text-gray-300">
+						Recent Form
+					</header>
+					<div className="flex flex-nowrap gap-x-1 text-base">
 						<FormIconArray array={form.split('')} />
-					</p>
-					<p className="text-xs md:mb-2">Recent Form</p>
+					</div>
 				</div>
 			</div>
 		</div>

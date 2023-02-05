@@ -1,12 +1,18 @@
-import { ILeagueStanding } from '../../../../../types/League.types';
+import { useOutletContext, Link } from 'react-router-dom';
+import GetRankColor from '../../../../lib/helpers/rank-color';
+import { ILeagueStanding } from '../../../../types/League.types';
+import { ITeamAndVenue } from '../../../../types/Team.types';
 import FormIconArray from '../../../icons/FormIconArray';
-import SmallTableCell from '../../../table/SmallTableCell';
-import TableHeader from '../../../table/TableHeader';
+import SmallTableCell from '../../../table/SmallCell';
+import TableHead from '../../../table/Head';
+import TableHeader from '../../../table/Header';
+import LogoAndImage from '../../../image/LogoAndImage';
 
 export default function StandingsTable({ standings }: { standings: ILeagueStanding[] }) {
+	const { team: teamContext } = useOutletContext() as { team: ITeamAndVenue['team'] };
 	return (
 		<table className="basis-8/12">
-			<thead className="sticky top-0 bg-neutral-800 text-xs">
+			<TableHead className="sticky top-0">
 				<tr>
 					<TableHeader className="px-6 py-3">#</TableHeader>
 					<TableHeader className="p-3 text-left">Team</TableHeader>
@@ -19,49 +25,28 @@ export default function StandingsTable({ standings }: { standings: ILeagueStandi
 					<TableHeader className="p-3 text-left">PTS</TableHeader>
 					<TableHeader className="hidden p-3 text-left sm:table-cell">Form</TableHeader>
 				</tr>
-			</thead>
-			<tbody className="divide-y divide-neutral-500 text-sm text-neutral-300">
+			</TableHead>
+			<tbody className="text-sm text-gray-300">
 				{standings.map((standing, index) => {
-					let backgroundColor = index % 2 === 1 ? 'bg-neutral-600' : 'bg-neutral-700';
-					const teamRank = standing.rank;
-
-					switch (true) {
-						case teamRank === 1:
-							backgroundColor = 'bg-green-600';
-							break;
-						case teamRank < 5:
-							backgroundColor = 'bg-green-700';
-							break;
-						case teamRank < 7:
-							backgroundColor = 'bg-green-800';
-							break;
-						case teamRank > 16:
-							backgroundColor = 'bg-red-500';
-							break;
-						case teamRank > 14:
-							backgroundColor = 'bg-red-700';
-							break;
-						default:
-							break;
-					}
+					const backgroundColor = GetRankColor(standing.rank, index);
 
 					const { team, form } = standing;
 					const formArray = form.split('');
 					return (
 						<tr
-							className={`bg-opacity-40 transition-colors duration-300  hover:bg-neutral-600 ${backgroundColor}`}
+							className={`transition-colors duration-300 dark:bg-opacity-40  dark:hover:bg-gray-600 ${backgroundColor}`}
 							key={team.id}
 						>
 							<SmallTableCell className="w-16 text-center">{standing.rank}</SmallTableCell>
-							<SmallTableCell>
-								<img
-									className="inline-block h-6 w-6"
-									src={team.logo}
-									alt={`${team.name} Logo`}
-									loading="lazy"
-								/>
-								<span className="ml-2 font-semibold">{team.name}</span>
-								<div className="mt-1 flex flex-col text-xs text-neutral-300">
+							<SmallTableCell className={`${teamContext.id === team.id ? 'text-yellow-400' : ''}`}>
+								<Link to={`/teams/${team.id}/`}>
+									<LogoAndImage
+										src={team.logo}
+										alt={`${team.name} Logo`}
+										name={team.name}
+									/>
+								</Link>
+								<div className="mt-1 ml-2 flex flex-col text-xs">
 									<div className="flex items-center gap-1 md:hidden">
 										<span className="font-semibold">Matches:</span>
 										<span>
@@ -76,35 +61,7 @@ export default function StandingsTable({ standings }: { standings: ILeagueStandi
 									</div>
 									<div className="flex items-center gap-1 sm:hidden">
 										<span className="font-semibold">Form:</span>
-										{formArray.map((formItem, formIndex) => {
-											let formClass = '';
-
-											switch (formItem) {
-												case 'W':
-													formClass = 'bg-green-500';
-													break;
-
-												case 'D':
-													formClass = 'bg-yellow-500';
-													break;
-
-												case 'L':
-													formClass = 'bg-red-500';
-													break;
-
-												default:
-													formClass = 'bg-neutral-500';
-											}
-
-											return (
-												<i
-													key={formIndex}
-													className={`h-3 w-3 rounded-full ${formClass}`}
-												>
-													<span className="sr-only">{formItem}</span>
-												</i>
-											);
-										})}
+										<FormIconArray array={formArray} />
 									</div>
 								</div>
 							</SmallTableCell>

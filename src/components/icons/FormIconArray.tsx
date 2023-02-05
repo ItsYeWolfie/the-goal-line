@@ -24,8 +24,8 @@ export default function FormIconArray({ array }: { array: string[] }) {
 				}
 				return (
 					<icon.type
-						key={Math.floor(Math.random() * 1000 + index)}
-						className={`${icon.props.className} inline-block text-base`}
+						key={Math.floor(Math.random() * 1000000 + index)}
+						className={`${icon.props.className} inline-block`}
 					>
 						<span className="sr-only">{letter}</span>
 					</icon.type>
