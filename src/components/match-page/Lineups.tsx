@@ -45,6 +45,7 @@ function LineUps() {
 					<Link
 						to={`/players/${player.player.id}/`}
 						rel="noreferrer"
+						key={player.player.id}
 					>
 						<h3
 							className="text-left hover:text-sky-600"
@@ -70,11 +71,9 @@ function LineUps() {
 					<Link
 						to={`/players/${player.player.id}/`}
 						rel="noreferrer"
+						key={player.player.id}
 					>
-						<h3
-							className="text-right hover:text-sky-600"
-							key={player.player.id}
-						>
+						<h3 className="text-right hover:text-sky-600">
 							{player.player.name}
 							<span className="text-sky-600"> {player.player.pos}</span>
 						</h3>

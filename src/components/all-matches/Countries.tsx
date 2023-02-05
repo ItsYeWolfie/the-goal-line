@@ -117,6 +117,7 @@ function Countries() {
 									<Link
 										to={`/leagues/${league.league.id}/`}
 										rel="noreferrer"
+										key={league.league.id}
 									>
 										<span
 											className="flex items-center p-2"
