@@ -1,9 +1,10 @@
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import fetchData from '../../../lib/helpers/Fetch';
 import { IVenue } from '../../types/Venue.types';
 import MainLoadingSpinner from '../MainLoadingSpinner';
+import { GlobalHeaderContext, IGlobalHeader } from '../../contexts/GlobalHeader.context';
 
 export default function VenuePage() {
 	const [venue, setVenue] = useState<IVenue>({} as IVenue);
@@ -22,6 +23,21 @@ export default function VenuePage() {
 				console.error(error);
 			});
 	}, []);
+
+	const { setBreadcrumbs } = useContext<IGlobalHeader>(GlobalHeaderContext);
+
+	useEffect(() => {
+		setBreadcrumbs([
+			{
+				name: 'Old Trafford',
+				href: '/venue/556',
+			},
+		]);
+
+		return () => {
+			setBreadcrumbs([]);
+		};
+	}, [setBreadcrumbs]);
 
 	if (loading) {
 		return <MainLoadingSpinner />;
