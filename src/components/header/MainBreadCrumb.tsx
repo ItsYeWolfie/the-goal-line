@@ -55,7 +55,7 @@ export default function MainBreadCrumb() {
 						className={({ isActive }) =>
 							`${
 								isActive
-									? `relative bg-gray-100 text-gray-900 before:absolute before:bottom-0 before:left-0 before:h-1 before:w-full before:rounded-b-md before:rounded-t-md before:bg-sky-700 dark:bg-gray-900 dark:text-gray-100`
+									? `relative bg-gray-200 text-gray-900 before:absolute before:bottom-0 before:left-0 before:h-1 before:w-full before:rounded-b-md before:rounded-t-md before:bg-sky-700 dark:bg-gray-800 dark:text-gray-100`
 									: `text-gray-800 hover:bg-gray-200 hover:text-gray-900 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:text-gray-100`
 							} py-8 px-4 text-sm font-medium ${link.name === 'Home' ? 'lg:hidden' : 'block'}`
 						}

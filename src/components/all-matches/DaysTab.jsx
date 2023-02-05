@@ -19,11 +19,11 @@ import AfterTomorrowMatches from './AfterTomorrowMatches';
 import Countries from './Countries';
 
 // @ts-ignore
-function Tab({ Component }) {
+function DaysTab({ Component }) {
 	return <div>{Component}</div>;
 }
 
-function Tabs() {
+function DaysTabs() {
 	const dayBeforeYesterday = moment().subtract(2, 'days').format('D MMM').toLocaleUpperCase();
 	const yesterday = moment().subtract(1, 'days').format('D MMM').toLocaleUpperCase();
 	const today = moment().format('D MMM').toLocaleUpperCase();
@@ -61,6 +61,7 @@ function Tabs() {
 							tab.name === activeTab ? 'text-sm text-sky-600 md:text-base' : ''
 						} my-auto flex cursor-pointer flex-col items-center py-2 text-xs hover:text-sky-600 md:text-sm`}
 						onClick={() => handleTabClick(tab.name)}
+						key={tab.name}
 					>
 						<span>{tab.slug === 'LIVE' ? '' : tab.slug}</span>
 						<p>{tab.name}</p>
@@ -77,9 +78,17 @@ function Tabs() {
 					<Countries />
 				</div>
 			</div>
-			{tabs.map((tab) => tab.name === activeTab && <Tab {...tab} />)}
+			{tabs.map(
+				(tab) =>
+					tab.name === activeTab && (
+						<DaysTab
+							{...tab}
+							key={tab.name}
+						/>
+					),
+			)}
 		</>
 	);
 }
 
-export default Tabs;
+export default DaysTabs;

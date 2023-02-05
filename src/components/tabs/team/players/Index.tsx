@@ -34,7 +34,7 @@ export default function TeamPlayersSection({ playersData }: { playersData: IPlay
 				<label htmlFor="league">
 					<span className="mb-1 block text-sm font-medium text-gray-900 dark:text-gray-100">League</span>
 					<select
-						className="bg-gray-200 dark:bg-gray-800"
+						className="block rounded-md border-gray-200 bg-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-800 sm:text-sm"
 						name="league"
 						onChange={handleLeagueChange}
 					>

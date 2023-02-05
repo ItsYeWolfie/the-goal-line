@@ -17,7 +17,7 @@ export default function LeagueFixturesDisplay({
 		<div className="flex flex-col gap-y-4 px-2 lg:col-span-2 xl:col-span-3">
 			{displayedItems.map((fixture: IFixture, index) => (
 				<Link
-					to={`/fixtures/${fixture.teams.home.id}/`}
+					to={`/matches/${fixture.fixture.id}/`}
 					key={fixture.fixture.id}
 					className={`grid grid-cols-12 items-center gap-x-4 py-2 ${
 						index % 2 === 0 ? 'bg-gray-200 dark:bg-gray-700' : 'bg-gray-100 dark:bg-gray-800'
@@ -40,9 +40,12 @@ export default function LeagueFixturesDisplay({
 							className="h-8 w-8"
 						/>
 					</Link>
-					<div className="col-span-2 rounded-md bg-sky-600 p-1 text-center text-sm md:col-span-1">
+					<Link
+						className="col-span-2 rounded-md bg-sky-600 p-1 text-center text-sm md:col-span-1"
+						to={`/matches/${fixture.id}/`}
+					>
 						{fixture.goals.home} - {fixture.goals.away}
-					</div>
+					</Link>
 					<Link
 						to={`/teams/${fixture.teams.away.id}/`}
 						className="col-span-4 flex items-center gap-x-2 justify-self-start"
@@ -54,10 +57,13 @@ export default function LeagueFixturesDisplay({
 						/>
 						<div className="text-sm">{fixture.teams.away.name}</div>
 					</Link>
-					<div className="col-span-1 hidden shrink-0 grow-0 justify-self-end rounded-md bg-sky-800 p-1 text-sm text-white sm:block">
+					<Link
+						className="col-span-1 hidden shrink-0 grow-0 justify-self-end rounded-md bg-sky-800 p-1 text-sm text-white sm:block"
+						to={`/matches/${fixture.id}/`}
+					>
 						{fixture.fixture.status.short}
 						{fixture.fixture.status.elapsed && <span className="ml-1">{fixture.fixture.status.elapsed}&apos;</span>}
-					</div>
+					</Link>
 				</Link>
 			))}
 			<PaginatedPrevAndNext

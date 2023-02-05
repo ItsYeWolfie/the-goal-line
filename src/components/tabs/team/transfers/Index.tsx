@@ -84,7 +84,7 @@ export default function TeamTransfers({ transfers }: { transfers: ITransferModif
 					>
 						<span className="mb-1">Year</span>
 						<select
-							className="bg-gray-300 text-sm text-gray-700 dark:bg-gray-700 dark:text-gray-300"
+							className="block rounded-md border-gray-200 bg-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-800 sm:text-sm"
 							onChange={(e) => {
 								setYear(Number(e.target.value));
 							}}
@@ -107,7 +107,7 @@ export default function TeamTransfers({ transfers }: { transfers: ITransferModif
 					>
 						<span className="mb-1">Type</span>
 						<select
-							className="bg-gray-300 text-sm text-gray-700 dark:bg-gray-700 dark:text-gray-300"
+							className="block rounded-md border-gray-200 bg-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-800 sm:text-sm"
 							onChange={(e) => {
 								setType(e.target.value);
 							}}

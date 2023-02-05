@@ -19,6 +19,7 @@ import TeamPlayers from '../pages/teams/team/Players';
 import TeamStandings from '../pages/teams/team/Standings';
 import TeamTransfersPage from '../pages/teams/team/Transfers';
 import TeamsIndex from '../pages/teams/Index';
+import NotFound from '../pages/404';
 
 export const teamRoutes: RouteObject[] = [
 	{
@@ -30,6 +31,7 @@ export const teamRoutes: RouteObject[] = [
 		path: ':teamID',
 		element: <TeamIndex />,
 		loader: teamLoader,
+		errorElement: <NotFound />,
 		children: [
 			{
 				index: true,

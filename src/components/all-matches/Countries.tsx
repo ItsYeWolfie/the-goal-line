@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState, useEffect } from 'react';
 import { FaChevronLeft, FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -56,6 +54,7 @@ function Countries() {
 					className="ml-2 w-full rounded-md border-0 bg-gray-200 p-2 placeholder-inherit outline-0 focus:border-0 focus:outline-0 active:border-0 dark:bg-gray-700 lg:dark:bg-gray-800"
 					type="text"
 					placeholder="Search..."
+					disabled={selectedCountry !== false}
 					onChange={(e) => setSearchTerm(e.target.value)}
 				/>
 			</span>
@@ -107,18 +106,18 @@ function Countries() {
 				</div>
 			) : (
 				<div className="bg-gray-200 dark:bg-gray-700 lg:py-2">
-					<span
+					<button
+						type="button"
 						className="mb-2 flex cursor-pointer items-center text-sky-600"
 						onClick={() => setSelectedCountry(false)}
 					>
 						<FaChevronLeft />
 						<p className="ml-2 text-lg">Leagues of {selectedCountry.name}</p>
-					</span>
+					</button>
 					<span>
 						{groupedLeagues.map((leagues) =>
 							leagues
 								.filter((league) => league.country.name === selectedCountry.name)
-								.filter((league) => league.league.name.toLowerCase().startsWith(searchTerm.toLowerCase()))
 								.map((league) => (
 									<Link
 										to={`/leagues/${league.league.id}/`}

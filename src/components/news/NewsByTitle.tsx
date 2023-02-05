@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-shadow */
 import moment from 'moment';
 import { useEffect, useState } from 'react';
 import { Bars } from 'react-loader-spinner';
@@ -17,12 +16,12 @@ export default function NewsByTitle() {
 	useEffect(() => {
 		setLoading(true);
 		fetchData<INews[]>('../src/data/news.json')
-			.then((data) => {
-				setData(data);
+			.then((_data) => {
+				setData(_data);
 				setLoading(false);
 			})
-			.catch((error) => {
-				setError(error.message);
+			.catch((_error) => {
+				setError(_error.message);
 				setLoading(false);
 			});
 	}, []);
@@ -57,7 +56,7 @@ export default function NewsByTitle() {
 						</div>
 						<div className="mt-[3%] flex w-full items-center space-x-1">
 							<img
-								className=" h-11  w-11 rounded-full md:h-16 md:w-16"
+								className="h-11 w-11 rounded-full md:h-16 md:w-16"
 								src="/news-user.png"
 								alt=""
 							/>

@@ -1,12 +1,12 @@
-/* eslint-disable tailwindcss/enforces-negative-arbitrary-values */
 import { useEffect, useState } from 'react';
 import { faFutbol, faRug } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FaArrowDown, FaArrowUp } from 'react-icons/fa';
 import SummaryLoader from '../../loaders/match-page/SummaryLoader';
+import { ILineup } from '../../types/Formation.types';
 
 function Summary() {
-	const [summary, setSummary] = useState([]);
+	const [summary, setSummary] = useState<ILineup>({} as ILineup);
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {

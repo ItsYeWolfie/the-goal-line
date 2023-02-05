@@ -1,7 +1,7 @@
-import { FootballMatch } from '../../../types/Fixture-Main.types';
+import { IFixture } from '../../types/Fixture.types';
 
 interface FixturesMainInfoProps {
-	match: FootballMatch;
+	match: IFixture;
 	hoverdMatchId: number | null;
 }
 

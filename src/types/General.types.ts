@@ -49,3 +49,15 @@ export interface IPlayerSearch extends IHumanBasicWithPhoto {
 	number: number;
 	position: string;
 }
+
+export interface IError {
+	status: number;
+	statusText: string;
+	internal: boolean;
+	data: string;
+	error: {
+		message: string;
+		stack: string;
+	};
+	message: string;
+}
