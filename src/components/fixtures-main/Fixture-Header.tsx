@@ -20,7 +20,7 @@ export default function FixtureHeader({ activeButton, handleButtonClick }: Fixtu
 					<button
 						type="button"
 						key={item}
-						className={`text-center text-sm md:text-xl ${
+						className={`text-center text-sm sm:text-lg md:text-xl ${
 							activeButton === index
 								? 'border-b-[4px]  border-violet-600 text-violet-600 dark:border-yellow-400  dark:text-yellow-400'
 								: 'text-gray-700 dark:text-gray-200'

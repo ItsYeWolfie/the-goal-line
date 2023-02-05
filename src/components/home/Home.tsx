@@ -5,8 +5,8 @@ import HorizontalLine from '../layout/Horizontal-Line';
 import LogosSlider from '../logos/TeamsSlider';
 import NewsSlider from '../news/NewsSlider';
 import Footer from '../footer/Footer';
-import Banner from '../banners/Banner';
-import Banner1 from '../banners/Banner1';
+import Banner from '../Banners/Banner';
+import Banner1 from '../Banners/Banner1';
 
 export default function HomePage() {
 	return (

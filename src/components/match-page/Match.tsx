@@ -60,7 +60,7 @@ function Match() {
 					</Link>
 					{filteredEvents.map((event) => (
 						<span
-							className="flex text-[0.65rem] text-gray-700 dark:text-gray-300 md:ml-12 md:text-xs"
+							className="flex text-[0.65rem] text-gray-700 dark:text-gray-200 md:ml-12 md:text-sm"
 							key={event.time.elapsed}
 						>
 							<p>{event.player.name}</p>
@@ -74,7 +74,7 @@ function Match() {
 						<h3 className="text-base">{fixture.fixture.status.short}</h3>
 						<h1 className="text-xl md:text-2xl">{fixture.goals.away}</h1>
 					</div>
-					<div className="flex gap-1 text-gray-600 dark:text-gray-400 md:gap-3">
+					<div className="flex gap-1 text-gray-600 dark:text-gray-300 md:gap-3">
 						<h1 className="text-sm md:text-lg">{fixture.score.halftime.home}</h1>
 						<h3 className="text-xs md:text-sm">HT</h3>
 						<h1 className="text-sm md:text-lg">{fixture.score.halftime.away}</h1>
@@ -100,7 +100,7 @@ function Match() {
 					</Link>
 					{filteredEvents1.map((event) => (
 						<span
-							className="flex text-[0.65rem] text-gray-700 dark:text-gray-300 md:ml-12 md:text-xs"
+							className="flex text-[0.65rem] text-gray-700 dark:text-gray-200 md:ml-12 md:text-sm"
 							key={event.time.elapsed}
 						>
 							<p>{event.player.name}</p>

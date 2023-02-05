@@ -18,7 +18,7 @@ export default function SearchCoachResult({ coach, onClick }: SearchCoachResultP
 					<img
 						src={coach.photo}
 						alt="a"
-						className="m-auto h-10 w-10 rounded-full"
+						className="m-auto mt-1  h-10 w-10 rounded-full"
 					/>
 				</Link>
 			</div>

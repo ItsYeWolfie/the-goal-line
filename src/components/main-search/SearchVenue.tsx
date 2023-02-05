@@ -9,7 +9,7 @@ interface SearchVenueResultProps {
 
 export default function SearchVenueResult({ venue, onClick }: SearchVenueResultProps) {
 	return (
-		<div className="mt-2 flex h-[44px] w-full items-center sm:mt-[4] sm:h-[55px] md:mt-[2%]  md:h-[54px] ">
+		<div className="mt-2   flex h-[44px] w-full items-center sm:mt-[4] sm:h-[55px] md:mt-[2%]  md:h-[54px] ">
 			<div className=" h-full w-[15%] rounded-[10px] md:w-[10%] ">
 				<Link
 					to={`/venue/${venue.id}`}

@@ -73,8 +73,8 @@ function DaysTabs() {
 					onClick={() => setListHidden(!listHidden)}
 				/>
 			</div>
-			<div className={`absolute mt-12 w-[98%] md:w-[92.5%] lg:hidden ${listHidden ? 'hidden' : ''}`}>
-				<div className="no-scrollbar relative z-10 -ml-2 flex max-h-[80vh] flex-col overflow-hidden overflow-y-auto rounded-md bg-gray-200 p-2 text-sm dark:bg-gray-800 md:h-full">
+			<div className={`container absolute -ml-2 mt-12 lg:hidden ${listHidden ? 'hidden' : ''}`}>
+				<div className="no-scrollbar relative z-10 flex max-h-[80vh] flex-col overflow-hidden overflow-y-auto rounded-md bg-gray-200 p-2 text-sm dark:bg-gray-800 md:h-full">
 					<Countries />
 				</div>
 			</div>

@@ -6,6 +6,7 @@ import { IPlayerSearch } from '../../types/General.types';
 import { IVenue } from '../../types/Venue.types';
 import SearchCoachResult from './SearchCoach';
 import SearchIcon from './SearchIcon';
+import SearchLoader, { SearchLoaderArray } from './SearchLoader';
 import SearchModal from './SearchModal';
 import PlayerResult from './SearchPlayer';
 import SearchTeamResult from './SearchTeam';
@@ -13,6 +14,7 @@ import SearchVenueResult from './SearchVenue';
 
 export default function QuickSearch() {
 	const [open, setOpen] = useState(false);
+	const [loading, setLoading] = useState(true);
 	const [matches, setMatches] = useState<IFixture[]>([]);
 	const [players, setPlayers] = useState<IPlayerSearch[]>([]);
 	const [filterPlayers, setFilterPlayers] = useState<IPlayerSearch[]>([]);
@@ -56,9 +58,11 @@ export default function QuickSearch() {
 	};
 
 	const handleSearchClick = async () => {
+		setLoading(true);
 		fetchData<IFixture[]>('https://api.npoint.io/cfdd9340ece0aa795c9e').then((data) => {
 			setMatches(data);
 			setFilteredMatches(data.slice(0, 10));
+			setLoading(false);
 		});
 		fetchData<IPlayerSearch[]>('https://api.npoint.io/8d996f27035b708c6e9f').then((result) => {
 			setPlayers(result);
@@ -132,7 +136,11 @@ export default function QuickSearch() {
 				open={open}
 				setOpen={setOpen}
 			>
-				{showResults()}
+				{loading
+					? SearchLoaderArray.map((item, index) => {
+							return <SearchLoader key={index} />;
+					  })
+					: showResults()}
 			</SearchModal>
 		</>
 	);

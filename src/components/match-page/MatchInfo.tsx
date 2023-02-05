@@ -32,35 +32,39 @@ function FixtureInfo() {
 	});
 
 	return (
-		<div className="mt-2 flex h-12 w-full items-center justify-around rounded-md bg-gray-200 align-middle text-gray-900 dark:bg-gray-700 dark:text-gray-200 md:mx-auto lg:flex lg:justify-around">
-			<p className="flex items-center text-xs md:text-base">
-				<FaCalendarAlt className="mr-1 text-[20px]" />
-				{date}
-			</p>
-			<p className="flex items-center text-xs md:text-base">
-				<img
-					className="hidden pr-1 dark:flex"
-					src="/images/icons8-whistle.svg"
-					width="25px"
-					alt=""
-				/>
-				<img
-					className="flex pr-1 dark:hidden"
-					src="/images/blackwhistle.svg"
-					width="25px"
-					alt=""
-				/>
-				{fixture.fixture.referee}
-			</p>
-			<Link
-				to={`/venue/${fixture.fixture.venue.id}/`}
-				rel="noreferrer"
-			>
-				<p className="flex items-center text-xs hover:text-sky-600 md:text-base">
-					<FaRing className="mr-1 text-[20px]" />
-					{fixture.fixture.venue.name}
+		<div className="mt-2 flex h-auto flex-col items-center justify-center gap-4 rounded-md bg-gray-200 p-2 align-middle text-gray-900 dark:bg-gray-700 dark:text-gray-200 sm:flex-row sm:gap-16 md:mx-auto md:flex lg:justify-around lg:gap-4">
+			<div className="flex items-center justify-center gap-4 sm:gap-16 lg:gap-32">
+				<p className="flex items-center text-center text-sm md:text-base">
+					<FaCalendarAlt className="mr-1 text-[20px]" />
+					{date}
 				</p>
-			</Link>
+				<p className="flex items-center text-center text-sm md:text-base">
+					<img
+						className="hidden pr-1 dark:flex"
+						src="/images/icons8-whistle.svg"
+						width="25px"
+						alt=""
+					/>
+					<img
+						className="flex pr-1 dark:hidden"
+						src="/images/blackwhistle.svg"
+						width="25px"
+						alt=""
+					/>
+					{fixture.fixture.referee}
+				</p>
+			</div>
+			<div className="flex">
+				<Link
+					to={`/venue/${fixture.fixture.venue.id}/`}
+					rel="noreferrer"
+				>
+					<p className="flex items-center text-center text-sm hover:text-sky-600 md:text-base">
+						<FaRing className="mr-1 text-[20px]" />
+						{fixture.fixture.venue.name}
+					</p>
+				</Link>
+			</div>
 		</div>
 	);
 }

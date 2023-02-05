@@ -41,10 +41,10 @@ function H2h() {
 									<p>{_h2h.teams.home.name}</p>{' '}
 								</div>
 							</td>
-							<td className="pl-1 text-sm">{_h2h.goals.home}</td>
-							<td className="pl-1 text-sm">-</td>
-							<td className="pl-1 text-sm">{_h2h.goals.away}</td>
-							<td className="pl-1 text-left text-sm">
+							<td className="pl-1 text-base">{_h2h.goals.home}</td>
+							<td className="pl-1 text-base">-</td>
+							<td className="pl-1 text-base">{_h2h.goals.away}</td>
+							<td className="pl-1 text-left text-base">
 								<span className="flex items-center justify-center">
 									<img
 										src={_h2h.teams.away.logo}
@@ -71,10 +71,10 @@ function H2h() {
 									<p>{_h2h.teams.home.name}</p>{' '}
 								</div>
 							</td>
-							<td className="pl-1 text-sm">{_h2h.goals.home}</td>
-							<td className="pl-1 text-sm">-</td>
-							<td className="pl-1 text-sm">{_h2h.goals.away}</td>
-							<td className="pl-1 text-left text-sm">
+							<td className="pl-1 text-base">{_h2h.goals.home}</td>
+							<td className="pl-1 text-base">-</td>
+							<td className="pl-1 text-base">{_h2h.goals.away}</td>
+							<td className="pl-1 text-left text-base">
 								<span className="flex items-center justify-center">
 									<img
 										src={_h2h.teams.away.logo}
