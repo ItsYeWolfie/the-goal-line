@@ -6,8 +6,8 @@ import TableRow from '../../../table/Row';
 
 export default function TeamOverviewGoalsAtMinute({ goals }: { goals: ITeamStatistics['goals'] }) {
 	return (
-		<table className="text-xs uppercase">
-			<TableHead>
+		<table className="uppercase">
+			<TableHead className="text-xs">
 				<tr>
 					<TableHeader className="py-1 px-3 text-left">Goals at Minute</TableHeader>
 					<TableHeader
@@ -24,7 +24,7 @@ export default function TeamOverviewGoalsAtMinute({ goals }: { goals: ITeamStati
 					</TableHeader>
 				</tr>
 			</TableHead>
-			<tbody>
+			<tbody className="text-sm">
 				{Object.keys(goals.for.minute).map((minute: string, index) => {
 					return (
 						<TableRow

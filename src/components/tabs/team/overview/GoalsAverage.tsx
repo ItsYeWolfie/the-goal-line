@@ -6,8 +6,8 @@ import TableRow from '../../../table/Row';
 
 export default function TeamOverviewGoalsAverage({ goals }: { goals: ITeamStatistics['goals'] }) {
 	return (
-		<table className="text-xs uppercase">
-			<TableHead>
+		<table className="uppercase">
+			<TableHead className="text-xs">
 				<tr>
 					<TableHeader className="py-1 pl-3 text-left">Average Goals Per Match</TableHeader>
 					<TableHeader className="py-1 pl-3">Home</TableHeader>
@@ -15,7 +15,7 @@ export default function TeamOverviewGoalsAverage({ goals }: { goals: ITeamStatis
 					<TableHeader className="py-1 px-3">Total</TableHeader>
 				</tr>
 			</TableHead>
-			<tbody>
+			<tbody className="text-sm">
 				<TableRow even>
 					<SmallTableCell>Scored</SmallTableCell>
 					<SmallTableCell className="text-center">{goals.for.average.home || '-'}</SmallTableCell>

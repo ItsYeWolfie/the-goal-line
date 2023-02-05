@@ -21,7 +21,7 @@ export default function TeamOverviewStatistics({
 					<TableHeader className="py-1 px-3">Total</TableHeader>
 				</tr>
 			</TableHead>
-			<tbody className="text-xs">
+			<tbody className="text-sm">
 				<TableRow even>
 					<SmallTableCell>Matches With a Clean Sheet</SmallTableCell>
 					<SmallTableCell className="text-center">{cleanSheet.home || '-'}</SmallTableCell>

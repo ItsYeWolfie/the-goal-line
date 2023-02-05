@@ -8,6 +8,7 @@ export default function Banner() {
 	const [currentTime, setCurrentTime] = useState(Date.now());
 	const [gameTime, setGameTime] = useState(0);
 	const [startTime, setStartTime] = useState(Date.now() - 20 * 60 * 1000);
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		const intervalId = setInterval(() => {
@@ -23,6 +24,7 @@ export default function Banner() {
 			setCurrentTime(Date.now());
 			setGameTime((Date.now() - startTime) / 1000);
 			setTimer(`${days}d : ${hours}h :  ${minutes}min : ${seconds}sec `);
+			setLoading(false);
 		}, 1000);
 		return () => clearInterval(intervalId);
 	});
@@ -40,7 +42,13 @@ export default function Banner() {
 				<header className="z-[1] text-lg font-bold text-white lg:text-2xl">Real Madrid vs Barcelona</header>
 				<p className="z-[1] font-medium text-white lg:text-xl">Santiago Bernabeu</p>
 				<p className="z-[1] text-sm text-white lg:text-lg">19 March - 2023</p>
-				<p className="z-[1] mx-auto w-max bg-black bg-opacity-80  px-8 py-2 text-base text-white ">{timer}</p>
+				{loading ? (
+					<p className="z-[1] mx-auto w-52 animate-pulse bg-black bg-opacity-80 px-8  py-2 text-base text-transparent">
+						Loading...
+					</p>
+				) : (
+					<p className="z-[1] mx-auto w-max bg-black bg-opacity-80  px-8 py-2 text-base text-white ">{timer}</p>
+				)}
 			</div>
 			<LiveMatch
 				gameTimeInSeconds={gameTimeInSeconds}

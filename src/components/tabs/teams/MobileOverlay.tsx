@@ -20,7 +20,7 @@ export default function TeamsPageMobileOverlay({
 		>
 			<Dialog
 				as="div"
-				className="relative z-40 lg:hidden"
+				className="relative z-50 lg:hidden"
 				onClose={setMobileFiltersOpen}
 			>
 				<Transition.Child

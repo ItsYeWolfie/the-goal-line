@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 
+import { Link } from 'react-router-dom';
 import TableHead from '../../../../table/Head';
 import TableHeader from '../../../../table/Header';
 import fetchData from '../../../../../lib/helpers/Fetch';
@@ -48,13 +49,15 @@ export default function LeagueOverviewInjuriesTable() {
 									even={index % 2 === 0}
 								>
 									<SmallTableCell>
-										<img
-											src={team.logo}
-											alt={team.name}
-											className="mr-2 inline-block h-4 w-4"
-											loading="lazy"
-										/>
-										{team.name}
+										<Link to={`/teams/${team.id}`}>
+											<img
+												src={team.logo}
+												alt={team.name}
+												className="mr-2 inline-block h-4 w-4"
+												loading="lazy"
+											/>
+											{team.name}
+										</Link>
 									</SmallTableCell>
 									<SmallTableCell className="text-right">{teamInjuries && teamInjuries[team.id]}</SmallTableCell>
 								</TableRow>

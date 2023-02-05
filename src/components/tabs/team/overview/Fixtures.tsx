@@ -19,7 +19,7 @@ export default function TeamOverviewFixtures({ fixtures }: { fixtures: ITeamStat
 					</tr>
 				</TableHead>
 
-				<tbody className="text-xs">
+				<tbody className="text-sm">
 					<TableRow even>
 						<SmallTableCell>Home</SmallTableCell>
 						<SmallTableCell className="text-center">{wins.home || '-'}</SmallTableCell>

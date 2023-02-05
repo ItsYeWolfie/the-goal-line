@@ -14,7 +14,7 @@ export default function TeamOverviewGoals({ goals }: { goals: ITeamStatistics['g
 					<TableHeader className="py-1 px-3">Received</TableHeader>
 				</tr>
 			</TableHead>
-			<tbody className="text-xs">
+			<tbody className="text-sm">
 				<TableRow even>
 					<SmallTableCell>Home</SmallTableCell>
 					<SmallTableCell className="text-center">{goals.for.total.home || '-'}</SmallTableCell>
@@ -26,7 +26,7 @@ export default function TeamOverviewGoals({ goals }: { goals: ITeamStatistics['g
 					<SmallTableCell className="text-center">{goals.against.total.away || '-'}</SmallTableCell>
 				</TableRow>
 			</tbody>
-			<tfoot className="border-t bg-gray-400 text-xs dark:bg-gray-800">
+			<tfoot className="border-t bg-gray-400 text-sm dark:bg-gray-800">
 				<tr>
 					<SmallTableCell>Total</SmallTableCell>
 					<SmallTableCell className="text-center">{goals.for.total.total || '-'}</SmallTableCell>
