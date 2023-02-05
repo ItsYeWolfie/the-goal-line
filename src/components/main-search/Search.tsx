@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import fetchData from '../../../lib/helpers/Fetch';
 import { ICoach } from '../../types/Coach.types';
 import { IFixture } from '../../types/Fixture.types';

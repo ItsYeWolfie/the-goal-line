@@ -12,6 +12,7 @@ import VenuePage from '../components/venue/VenuePage';
 import MatchPage from '../pages/matches/match/Match';
 import MatchesPage from '../pages/matches/Matches';
 import NewsByTitle from '../components/news/NewsByTitle';
+import coachLoader from '../lib/loaders/coach-loaders';
 
 export const router = createBrowserRouter([
 	{
@@ -56,6 +57,7 @@ export const router = createBrowserRouter([
 			{
 				path: '/coach/:id',
 				element: <CoachPage />,
+				loader: coachLoader,
 			},
 			{
 				path: '/venue/:id',

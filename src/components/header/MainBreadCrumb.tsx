@@ -11,8 +11,8 @@ export default function MainBreadCrumb() {
 	const { breadcrumbs } = useContext(GlobalHeaderContext);
 
 	return (
-		<section className="container mx-auto flex items-center justify-between p-2 sm:py-4 md:p-0">
-			<nav className="flex h-16 flex-1">
+		<section className="container mx-auto flex items-center justify-between p-2 sm:py-4 lg:p-0">
+			<nav className="flex flex-1">
 				<ol className="flex items-center gap-x-2 sm:gap-x-4">
 					<li>
 						<Link to="/">
