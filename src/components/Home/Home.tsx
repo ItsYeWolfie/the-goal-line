@@ -1,12 +1,12 @@
-import FixturesMain from '../FixturesMain/FixturesMain';
-import StandingsMain from '../StandingsMain/StandingsMain';
+import FixturesMain from '../fixtures-main/FixturesMain';
+import StandingsMain from '../standings-main/StandingsMain';
 import KitsSlider from '../kits/kits';
 import HorizontalLine from '../Layout/Horizontal-Line';
-import LogosSlider from '../logos/Logos';
-import NewsSlider from '../News/News-Slider';
-import Footer from '../Footer/Footer';
-import Banner from '../Banners/Banner';
-import Banner1 from '../Banners/Banner1';
+import LogosSlider from '../logos/TeamsSlider';
+import NewsSlider from '../news/NewsSlider';
+import Footer from '../footer/Footer';
+import Banner from '../banners/Banner';
+import Banner1 from '../banners/Banner1';
 
 export default function HomePage() {
 	return (

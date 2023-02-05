@@ -5,13 +5,13 @@ import ContactPage from '../pages/ContactPage';
 import TeamRoutes from './TeamRoutes';
 import LeagueRoutes from './LeagueRoutes';
 import PlayerRoutes from './PlayerRoutes';
-import CoachPage from '../components/CoachPage/CoachPage';
+import CoachPage from '../components/coach-page/CoachPage';
 import Home from '../components/Home/Home';
-import News from '../components/News/News';
-import NewsByTitle from '../components/News/NewsbyTitle';
-import VenuePage from '../components/VenuePage/VenuePage';
-import MatchPage from '../pages/Match';
-import MatchesPage from '../pages/Matches';
+import News from '../components/news/News';
+import VenuePage from '../components/venue/VenuePage';
+import MatchPage from '../pages/matches/match/Match';
+import MatchesPage from '../pages/matches/Matches';
+import NewsByTitle from '../components/news/NewsByTitle';
 
 export const router = createBrowserRouter([
 	{

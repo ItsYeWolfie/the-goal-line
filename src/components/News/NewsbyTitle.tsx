@@ -5,18 +5,18 @@ import { useEffect, useState } from 'react';
 import { Bars } from 'react-loader-spinner';
 import { useParams } from 'react-router-dom';
 import { fetchData } from '../../../lib/helpers/Fetch';
-import { News } from '../../../types/News.types';
+import { INews } from '../../types/News.types';
 
 export default function NewsByTitle() {
 	const { title } = useParams();
-	const [data, setData] = useState<News[]>([]);
+	const [data, setData] = useState<INews[]>([]);
 	const [loading, setLoading] = useState(true);
 
 	const [error, setError] = useState<string | null>(null);
 
 	useEffect(() => {
 		setLoading(true);
-		fetchData<News[]>('../src/data/news.json')
+		fetchData<INews[]>('../src/data/news.json')
 			.then((data) => {
 				setData(data);
 				setLoading(false);

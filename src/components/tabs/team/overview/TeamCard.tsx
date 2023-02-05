@@ -22,7 +22,7 @@ export default function TeamOverviewTeamCard({
 				alt={`${team.name} Logo`}
 			/>
 			<Link
-				className="grid grid-cols-12 items-center gap-x-4 p-2 hover:bg-gray-300 dark:hover:bg-gray-700"
+				className="grid grid-cols-12 items-center gap-x-4 rounded-lg p-2 transition-colors hover:bg-gray-300 dark:hover:bg-gray-700"
 				to={`/leagues/${league.id}/`}
 			>
 				<img

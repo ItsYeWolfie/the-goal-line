@@ -42,7 +42,7 @@ function BeforeYesterdayMatches() {
 	}
 
 	return (
-		<div className="mt-14 lg:mt-12">
+		<>
 			{Object.keys(groupedMatches).map((leagueId) => {
 				return (
 					<div key={leagueId}>
@@ -138,7 +138,7 @@ function BeforeYesterdayMatches() {
 					</div>
 				);
 			})}
-		</div>
+		</>
 	);
 }
 export default BeforeYesterdayMatches;

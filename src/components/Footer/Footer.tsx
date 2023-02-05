@@ -32,7 +32,7 @@ export default function Footer() {
 	return (
 		<footer
 			aria-label="Site Footer md:mx-[5%] 2xl:container"
-			className="-ml-2 -mb-10 w-[104.5%] dark:bg-gray-900 md:mb-0 md:-ml-10 md:w-[110%] lg:-mb-8 lg:w-[103%]"
+			className="dark:bg-gray-900"
 		>
 			<div className="mx-auto max-w-screen-xl px-4 pt-16 pb-8 sm:px-6 lg:px-8">
 				<div className="mx-auto max-w-md">

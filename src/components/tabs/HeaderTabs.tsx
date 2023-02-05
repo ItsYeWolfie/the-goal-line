@@ -42,7 +42,7 @@ export default function HeaderTabs({ params, dir, tabs }: { params: string | und
 						className={({ isActive }) =>
 							`${
 								isActive ? 'border-indigo-400 text-indigo-500' : 'border-transparent hover:border-gray-300'
-							} border-b-2 px-3 py-2 text-center text-sm font-medium text-gray-200 transition-colors duration-300 ease-in-out hover:text-gray-400`
+							} border-b-2 px-3 py-2 text-center text-sm font-medium text-gray-800 transition-colors duration-300 ease-in-out hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-400`
 						}
 						type="button"
 					>

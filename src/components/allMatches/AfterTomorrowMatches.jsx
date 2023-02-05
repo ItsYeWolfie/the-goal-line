@@ -42,7 +42,7 @@ function AfterTomorrowMatches() {
 	}
 
 	return (
-		<div className="mt-14 lg:mt-12">
+		<>
 			{Object.keys(groupedMatches).map((leagueId) => {
 				return (
 					<div key={leagueId}>
@@ -139,7 +139,7 @@ function AfterTomorrowMatches() {
 					</div>
 				);
 			})}
-		</div>
+		</>
 	);
 }
 export default AfterTomorrowMatches;

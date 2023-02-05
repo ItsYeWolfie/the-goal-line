@@ -46,7 +46,7 @@ function Formation() {
 			<div className="mx-auto flex h-[16rem] w-[21.9rem] bg-green-800 dark:bg-green-900 md:mx-0 lg:mx-0">
 				<div className="absolute h-64 w-44 border-2 border-solid border-white">
 					<div className="absolute -ml-0.5 mt-[-0.10rem] h-3 w-3 rounded-br-full border-2 border-solid border-white" />
-					<div className="absolute top-8 z-20 mx-16 -ml-8 flex h-48 w-60 -rotate-90 flex-col justify-between p-4">
+					<div className="absolute top-8 z-10 mx-16 -ml-8 flex h-48 w-60 -rotate-90 flex-col justify-between p-4">
 						<div className="flex items-center justify-center">
 							<span className="relative flex h-7 w-7 rotate-90 items-center justify-center rounded-full bg-lime-600 text-center dark:bg-lime-700">
 								{formation[0].startXI[0].player.number}
@@ -76,7 +76,7 @@ function Formation() {
 				</div>
 				<div className="absolute ml-[10.9rem] h-64 w-44 border-2 border-solid border-white">
 					<div className="absolute ml-[10.15rem] mt-[-0.10rem] h-3 w-3 rounded-bl-full border-2 border-solid border-white" />
-					<div className="absolute top-8 z-20 mx-16 -ml-8 flex h-48 w-60 -rotate-90 flex-col-reverse justify-between p-4">
+					<div className="absolute top-8 z-10 mx-16 -ml-8 flex h-48 w-60 -rotate-90 flex-col-reverse justify-between p-4">
 						<div className="flex items-center justify-center">
 							<span className="relative flex h-7 w-7 rotate-90 items-center justify-center rounded-full bg-sky-500 text-center dark:bg-sky-700">
 								{formation[1].startXI[0].player.number}

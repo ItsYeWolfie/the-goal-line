@@ -21,7 +21,7 @@ function Substitutes() {
 		return <LineupLoader />;
 	}
 	return (
-		<div className="mt-2 flex h-auto w-full justify-around rounded-md bg-gray-200 p-2 text-xs dark:bg-gray-700 md:mx-auto md:text-lg">
+		<div className="mt-2 flex h-auto w-full justify-around rounded-md bg-gray-200 p-2 dark:bg-gray-700 md:mx-auto md:text-lg">
 			<span className="my-auto flex flex-col">
 				<img
 					src={formation[0].team.logo}

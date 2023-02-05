@@ -1,21 +1,22 @@
 import { useState, useEffect } from 'react';
-import { FaTshirt, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { RiChatFollowUpFill } from 'react-icons/ri';
+import Logo from './TeamSlider';
 import fetchData from '../../../lib/helpers/Fetch';
-import Kit from './kit';
 import SliderLoader from '../index-loaders/Slider-Loader';
-import { IKit } from '../../types/Kit.types';
+import { ITeamBasic } from '../../types/Team.types';
 
-export default function KitsSlider() {
-	const [kit, setKits] = useState<IKit[]>([]);
+export default function LogosSlider() {
+	const [data, setData] = useState<ITeamBasic[]>([]);
 	const [error, setError] = useState<string | null>(null);
 	const [loading, setLoading] = useState(true);
 	const [scrollingDiv, setScrollingDiv] = useState<HTMLDivElement | null>(null);
 
 	useEffect(() => {
 		setLoading(true);
-		fetchData<IKit[]>('src/data/kits.json')
-			.then((data) => {
-				setKits(data);
+		fetchData<ITeamBasic[]>('src/data/footballclubs.json')
+			.then((res) => {
+				setData(res);
 				setLoading(false);
 			})
 			.catch((e) => {
@@ -41,11 +42,11 @@ export default function KitsSlider() {
 	}
 
 	return (
-		<section className="grid auto-rows-auto gap-4 text-gray-200">
-			<div className="row-span-1 flex  items-center justify-between gap-2">
+		<section className="grid auto-rows-auto gap-8 text-gray-200">
+			<div className="row-span-1 flex items-center justify-between gap-2">
 				<div className="flex items-center gap-2">
-					<FaTshirt className="text-4xl text-sky-600 dark:text-yellow-400" />
-					<span className="text-2xl font-medium text-gray-700 dark:text-gray-200">Shopping</span>
+					<RiChatFollowUpFill className=" text-4xl text-sky-600 dark:text-yellow-400" />
+					<span className="text-2xl font-medium text-gray-700 dark:text-gray-200">Follow any Club!</span>
 				</div>
 				<div className="flex items-center gap-8">
 					<FaArrowLeft
@@ -58,17 +59,19 @@ export default function KitsSlider() {
 					/>
 				</div>
 			</div>
+
 			<div
-				className=" no-scrollbar flex flex-nowrap gap-3 overflow-x-auto scroll-smooth"
+				className="md:no-scrollbar flex flex-nowrap gap-3  overflow-x-auto scroll-smooth"
+				id="div-s"
 				ref={(el) => setScrollingDiv(el)}
 			>
 				{loading ? (
 					<SliderLoader />
 				) : (
-					kit.map((item) => (
-						<Kit
+					data.map((item) => (
+						<Logo
 							key={item.id}
-							kit={item}
+							team={item}
 						/>
 					))
 				)}

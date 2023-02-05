@@ -1,8 +1,10 @@
+import { Link } from 'react-router-dom';
 import { IVenue } from '../../../../types/Venue.types';
 
 export default function TeamOverviewVenueCard({ venue }: { venue: IVenue }) {
 	return (
-		<div
+		<Link
+			to={`/venue/${venue.id}`}
 			className="relative h-96 basis-7/12 rounded-sm p-2 md:h-auto md:p-8 lg:basis-8/12"
 			style={{ backgroundImage: `url(${venue.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
 		>
@@ -26,6 +28,6 @@ export default function TeamOverviewVenueCard({ venue }: { venue: IVenue }) {
 					</div>
 				</div>
 			</div>
-		</div>
+		</Link>
 	);
 }

@@ -80,20 +80,28 @@ export default function TeamFixturesTable({ fixtures, teamID: teamIDInt }: { fix
 										</div>
 									</div>
 								</SmallTableCell>
-								<SmallTableCell className="hidden lg:table-cell">{league.round}</SmallTableCell>
-								<SmallTableCell className="hidden md:table-cell">{formattedDate}</SmallTableCell>
-								<SmallTableCell className="hidden text-xs uppercase md:table-cell">
-									{isHome ? 'Home' : 'Away'}
+								<SmallTableCell className="hidden lg:table-cell">
+									<Link to={`/matches/${match.id}/`}>{league.round}</Link>
 								</SmallTableCell>
-								<SmallTableCell className="text-xs uppercase">{status.short}</SmallTableCell>
+								<SmallTableCell className="hidden md:table-cell">
+									<Link to={`/matches/${match.id}/`}>{formattedDate}</Link>
+								</SmallTableCell>
+								<SmallTableCell className="hidden text-xs uppercase md:table-cell">
+									<Link to={`/matches/${match.id}/`}>{isHome ? 'Home' : 'Away'}</Link>
+								</SmallTableCell>
 								<SmallTableCell className="text-xs uppercase">
-									{goals.home} - {goals.away}
-									{isWinner && (
-										<FontAwesomeIcon
-											icon={faTrophy}
-											className="ml-2 text-green-500"
-										/>
-									)}
+									<Link to={`/matches/${match.id}/`}>{status.short}</Link>
+								</SmallTableCell>
+								<SmallTableCell className="text-xs uppercase">
+									<Link to={`/matches/${match.id}/`}>
+										{goals.home} - {goals.away}
+										{isWinner && (
+											<FontAwesomeIcon
+												icon={faTrophy}
+												className="ml-2 text-green-500"
+											/>
+										)}
+									</Link>
 								</SmallTableCell>
 							</tr>
 						);

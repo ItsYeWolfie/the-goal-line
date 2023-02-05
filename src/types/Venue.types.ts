@@ -3,6 +3,7 @@ export interface IVenue extends IVenueBasic {
 	address: string;
 	surface: string;
 	capacity: number;
+	country: string;
 }
 
 export interface IVenueBasic {

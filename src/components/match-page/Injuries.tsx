@@ -20,7 +20,7 @@ function Injuries() {
 		return <InjuriesLoader />;
 	}
 	return (
-		<div className="mt-2 flex h-auto w-full justify-center rounded-md bg-gray-200 p-2 text-xs dark:bg-gray-700 md:mx-auto md:text-lg">
+		<div className="mt-2 flex h-auto w-full justify-center rounded-md bg-gray-200 p-2 text-sm dark:bg-gray-700 md:mx-auto md:text-lg">
 			<table className="w-full text-center">
 				<thead>
 					<tr className="border-[0.2px] border-gray-700 border-opacity-30 dark:border-gray-300">
@@ -34,15 +34,13 @@ function Injuries() {
 						<tr className="border-[0.2px] border-gray-700 border-opacity-30 text-center dark:border-gray-300">
 							<td className="flex items-center justify-center align-middle">
 								<img
-									className="mt-1"
+									className="mt-1 h-6 w-6 rounded-full object-cover"
 									src={player.team.logo}
-									alt=""
-									width="15px"
-									height="15px"
+									alt={player.team.name}
 								/>
 							</td>
-							<td className="text-sm md:text-base">{player.player.name}</td>
-							<td className="text-sm md:text-base">{player.player.reason}</td>
+							<td>{player.player.name}</td>
+							<td>{player.player.reason}</td>
 						</tr>
 					))}
 				</tbody>

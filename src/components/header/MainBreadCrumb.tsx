@@ -5,7 +5,7 @@ import { FaInfoCircle } from 'react-icons/fa';
 import { GlobalHeaderContext } from '../../contexts/GlobalHeader.context';
 import DarkModeToggle from './DarkModeToggle';
 import navigation from '../../lib/navigation-links';
-import QuickSearch from '../SearchBar-Main/Search';
+import QuickSearch from '../main-search/Search';
 
 export default function MainBreadCrumb() {
 	const { breadcrumbs } = useContext(GlobalHeaderContext);

@@ -53,32 +53,32 @@ function Tabs() {
 	const [listHidden, setListHidden] = useState(true);
 
 	return (
-		<div>
-			<div className="fixed z-20 -ml-4 -mt-2 flex w-full justify-around border-b-2 border-gray-700 border-opacity-30 bg-gray-100 p-2 pt-4 dark:border-gray-200 dark:border-opacity-30 dark:bg-gray-900 md:-ml-[2.65rem] lg:-ml-2 lg:w-[37.7rem] lg:bg-gray-200 lg:pt-2 dark:lg:bg-gray-800">
-				<FaChevronRight
-					className="absolute left-0 z-50 mt-2 pl-2 text-base md:mt-3 lg:hidden"
-					style={{ transform: `rotate(${listHidden ? 0 : 90}deg)` }}
-					onClick={() => setListHidden(!listHidden)}
-				/>
+		<>
+			<div className="sticky top-0 z-20 flex justify-around border-b-2 border-gray-700 border-opacity-30 bg-gray-100 dark:border-gray-200 dark:border-opacity-30 dark:bg-gray-900 lg:bg-gray-200 dark:lg:bg-gray-800">
 				{tabs.map((tab) => (
 					<div
 						className={`${
-							tab.name === activeTab ? 'text-sm text-sky-600 md:text-[18px]' : ''
-						} my-auto flex cursor-pointer flex-col items-center text-xs hover:text-sky-600 md:text-sm`}
+							tab.name === activeTab ? 'text-sm text-sky-600 md:text-base' : ''
+						} my-auto flex cursor-pointer flex-col items-center py-2 text-xs hover:text-sky-600 md:text-sm`}
 						onClick={() => handleTabClick(tab.name)}
 					>
 						<span>{tab.slug === 'LIVE' ? '' : tab.slug}</span>
 						<p>{tab.name}</p>
 					</div>
 				))}
+				<FaChevronRight
+					className="my-auto -translate-y-1/2 text-base lg:hidden"
+					style={{ transform: `rotate(${listHidden ? 0 : 90}deg)` }}
+					onClick={() => setListHidden(!listHidden)}
+				/>
 			</div>
-			<div className={`absolute  mt-12 w-full lg:hidden ${listHidden ? 'hidden' : ''}`}>
+			<div className={`absolute w-full lg:hidden ${listHidden ? 'hidden' : ''}`}>
 				<div className="no-scrollbar relative z-10 -ml-4 flex h-[78vh] flex-col overflow-hidden overflow-y-auto rounded-md bg-gray-200 p-2 text-sm dark:bg-gray-800 md:h-full">
 					<Countries />
 				</div>
 			</div>
 			{tabs.map((tab) => tab.name === activeTab && <Tab {...tab} />)}
-		</div>
+		</>
 	);
 }
 

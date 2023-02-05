@@ -1,10 +1,6 @@
-import { Kits } from '../../../types/Kits.types';
+import { IKit } from '../../types/Kit.types';
 
-interface KitProps {
-	kit: Kits;
-}
-
-export default function Kit({ kit }: KitProps) {
+export default function Kit({ kit }: { kit: IKit }) {
 	return (
 		<div className=" flex-none basis-3/6 rounded-lg bg-gray-100 hover:border-2 hover:border-violet-500 dark:bg-gray-900 dark:hover:border-yellow-400 md:basis-1/4  lg:basis-1/5 ">
 			<img

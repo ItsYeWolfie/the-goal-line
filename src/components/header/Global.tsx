@@ -3,7 +3,7 @@ import navigation from '../../lib/navigation-links';
 
 export default function GlobalHeader() {
 	return (
-		<div className="fixed -bottom-0.5 z-10 flex h-14 bg-white dark:border-gray-800 dark:bg-gray-900 lg:hidden">
+		<div className="fixed -bottom-0.5 z-20 flex h-14 bg-white dark:border-gray-800 dark:bg-gray-900 lg:hidden">
 			<nav className="flex w-screen justify-around bg-white dark:bg-gray-900">
 				{navigation.map((item) => (
 					<NavLink

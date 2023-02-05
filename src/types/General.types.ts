@@ -36,3 +36,16 @@ export interface ILeagueAndCountry {
 	league: ILeagueBasicWithType;
 	country: ICountry;
 }
+
+export interface ITeamsSearch {
+	name: string;
+	country: string;
+	season: string;
+	league: string;
+}
+
+export interface IPlayerSearch extends IHumanBasicWithPhoto {
+	age: number;
+	number: number;
+	position: string;
+}

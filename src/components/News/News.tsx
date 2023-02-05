@@ -5,19 +5,19 @@ import moment from 'moment';
 import { useContext, useEffect, useState } from 'react';
 import { Bars } from 'react-loader-spinner';
 import { fetchData } from '../../../lib/helpers/Fetch';
-import { News } from '../../../types/News.types';
 import { GlobalHeaderContext, IGlobalHeader } from '../../contexts/GlobalHeader.context';
-import NewsHeader from './News-header';
-import RelatedNews from './Related-News';
+import { INews } from '../../types/News.types';
+import NewsHeader from './NewsHeader';
+import RelatedNews from './RelatedNews';
 
 export default function NewsPage() {
-	const [data, setData] = useState<News[]>([]);
+	const [data, setData] = useState<INews[]>([]);
 	const [error, setError] = useState<string | null>(null);
 	const [loading, setLoading] = useState(true);
 	const [activeCategory, setActiveCategory] = useState<string | null>(null);
 	const dataTofilter = [null, 'Champions', 'Transfer'];
-	const [originalData, setOriginalData] = useState<News[]>([]);
-	const [currentData, setCurrentData] = useState<News | null>(null);
+	const [originalData, setOriginalData] = useState<INews[]>([]);
+	const [currentData, setCurrentData] = useState<INews | null>(null);
 	const { setBreadcrumbs } = useContext<IGlobalHeader>(GlobalHeaderContext);
 
 	useEffect(() => {
@@ -34,7 +34,7 @@ export default function NewsPage() {
 	}, [setBreadcrumbs]);
 	useEffect(() => {
 		setLoading(true);
-		fetchData<News[]>('src/data/news.json')
+		fetchData<INews[]>('src/data/news.json')
 			.then((res) => {
 				setOriginalData(res);
 				setCurrentData(res[0]);

@@ -21,13 +21,13 @@ function LineUps() {
 		return <LineupLoader />;
 	}
 	return (
-		<div className="mt-2 flex h-auto w-full justify-around rounded-md bg-gray-200 p-2 text-xs dark:bg-gray-700 md:mx-auto md:text-lg">
+		<div className="mt-2 flex h-auto w-full justify-around rounded-md bg-gray-200 p-2 dark:bg-gray-700 md:mx-auto md:text-lg">
 			<span className="my-auto flex flex-col">
 				<img
 					src={lineup.teams.home.logo}
 					width="50px"
 					height="50px"
-					alt=""
+					alt={lineup.teams.home.name}
 				/>
 			</span>
 			<div className="flex flex-col">
