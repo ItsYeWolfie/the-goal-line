@@ -38,8 +38,8 @@ function TabIS() {
 						type="button"
 						key={tab.name}
 						className={`${
-							tab.name === activeTab ? 'border-b-[0.7px] border-sky-700 text-[0.78rem] text-sky-600' : ''
-						}my-auto flex cursor-pointer flex-col items-center text-xs hover:text-sky-600`}
+							tab.name === activeTab ? 'border-b-2 border-sky-700 text-[0.78rem] text-sky-600' : ''
+						}my-auto flex cursor-pointer flex-col items-center border-b-2 border-gray-300 text-xs hover:border-sky-700 hover:text-sky-600`}
 						onClick={() => handleTabClick(tab.name)}
 					>
 						<p>{tab.name}</p>

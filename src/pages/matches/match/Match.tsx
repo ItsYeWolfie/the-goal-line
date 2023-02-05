@@ -29,7 +29,7 @@ export default function MatchPage() {
 	return (
 		<div className=" text-gray-900 dark:text-gray-200">
 			<div className="container flex-col justify-center gap-4 p-0.5 md:flex md:flex-col lg:flex lg:flex-row lg:p-0">
-				<div className="w-full lg:w-3/5">
+				<div className="w-full lg:w-[55%]">
 					<h6 className="-mt-2 pl-1 text-xs">MATCH</h6>
 					<Match />
 					<Tabs />
@@ -63,12 +63,6 @@ export default function MatchPage() {
 							<Standings />
 						</div>
 						<div className="mt-4 w-full">
-							{/* <img
-								className="hidden mt-4 ml-10 overflow-hidden lg:flex"
-								src="/images/gjirafa501.png"
-								width="292px"
-								alt=""
-							/> */}
 							<img
 								src="/images/reklam1.png"
 								className="mt-4 hidden overflow-hidden lg:flex"

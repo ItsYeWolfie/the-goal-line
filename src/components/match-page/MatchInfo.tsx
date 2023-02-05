@@ -32,8 +32,8 @@ function FixtureInfo() {
 	});
 
 	return (
-		<div className="mt-2 flex h-auto flex-col items-center justify-center gap-4 rounded-md bg-gray-200 p-2 align-middle text-gray-900 dark:bg-gray-700 dark:text-gray-200 sm:flex-row sm:gap-16 md:mx-auto md:flex lg:justify-around lg:gap-4">
-			<div className="flex items-center justify-center gap-4 sm:gap-16 lg:gap-32">
+		<div className="mt-2 flex h-auto flex-col items-center justify-center gap-4 rounded-md bg-gray-200 p-2 align-middle text-gray-900 dark:bg-gray-700 dark:text-gray-200 sm:flex-row sm:gap-16 md:flex lg:gap-20">
+			<div className="flex items-center justify-center gap-4 sm:gap-16 lg:gap-20">
 				<p className="flex items-center text-center text-sm md:text-base">
 					<FaCalendarAlt className="mr-1 text-[20px]" />
 					{date}
@@ -54,7 +54,7 @@ function FixtureInfo() {
 					{fixture.fixture.referee}
 				</p>
 			</div>
-			<div className="flex">
+			<div className="flex items-center justify-center gap-4">
 				<Link
 					to={`/venue/${fixture.fixture.venue.id}/`}
 					rel="noreferrer"

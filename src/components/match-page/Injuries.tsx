@@ -32,15 +32,15 @@ function Injuries() {
 				<tbody>
 					{injuries.map((player) => (
 						<tr className="border-[0.2px] border-gray-700 border-opacity-30 text-center dark:border-gray-300">
-							<td className="flex items-center justify-center align-middle">
+							<td className="mt-0.5 flex items-center justify-center align-middle">
 								<img
-									className="mt-1 h-6 w-6 rounded-full object-cover"
+									className="h-4 w-4 rounded-full object-cover sm:h-6 sm:w-6"
 									src={player.team.logo}
 									alt={player.team.name}
 								/>
 							</td>
-							<td>{player.player.name}</td>
-							<td>{player.player.reason}</td>
+							<td className="text-xs sm:text-sm">{player.player.name}</td>
+							<td className="text-xs sm:text-sm">{player.player.reason}</td>
 						</tr>
 					))}
 				</tbody>
