@@ -14,7 +14,7 @@ export default function NewsCard({ news }: { news: INews }) {
 			<div className="text-left">
 				<div className="text-sm text-violet-600 dark:text-yellow-500 md:text-base">{news.league}</div>
 				<Link to={`/news/${news.title}`}>
-					<div className="mt-2  text-sm font-semibold  text-gray-700 dark:text-gray-200  md:text-lg">{news.title}</div>
+					<div className="mt-2  text-sm font-medium text-gray-700 dark:text-gray-200  md:text-lg">{news.title}</div>
 					<div className="mt-1 text-xs text-gray-600 dark:text-gray-300 md:text-lg">{news.smallbody}</div>
 				</Link>
 			</div>
