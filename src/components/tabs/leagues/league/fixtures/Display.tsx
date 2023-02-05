@@ -42,7 +42,7 @@ export default function LeagueFixturesDisplay({
 					</Link>
 					<Link
 						className="col-span-2 rounded-md bg-sky-600 p-1 text-center text-sm md:col-span-1"
-						to={`/matches/${fixture.id}/`}
+						to={`/matches/${fixture.fixture.id}/`}
 					>
 						{fixture.goals.home} - {fixture.goals.away}
 					</Link>
@@ -59,7 +59,7 @@ export default function LeagueFixturesDisplay({
 					</Link>
 					<Link
 						className="col-span-1 hidden shrink-0 grow-0 justify-self-end rounded-md bg-sky-800 p-1 text-sm text-white sm:block"
-						to={`/matches/${fixture.id}/`}
+						to={`/matches/${fixture.fixture.id}/`}
 					>
 						{fixture.fixture.status.short}
 						{fixture.fixture.status.elapsed && <span className="ml-1">{fixture.fixture.status.elapsed}&apos;</span>}
