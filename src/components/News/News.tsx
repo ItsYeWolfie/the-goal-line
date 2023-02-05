@@ -157,7 +157,7 @@ export default function NewsPage() {
 											alt=""
 										/>
 									</div>
-									<div className="hidden mt-[5%] h-[300px] w-full sm:block 2xl:h-[450px]">
+									<div className="mt-[5%] hidden h-[300px] w-full sm:block 2xl:h-[450px]">
 										<img
 											className="h-full w-full bg-white opacity-[0.8]"
 											src="/gjirafavisa.png"

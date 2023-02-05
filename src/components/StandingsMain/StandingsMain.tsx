@@ -31,14 +31,17 @@ export default function StandingsMain() {
 			<StandingMainHeader />
 			<div className="mt-8 flex w-full flex-col items-center rounded-[5px] bg-gray-100 dark:bg-gray-800">
 				<div className="flex w-full items-center justify-between">
-					<div className="flex items-center gap-2 text-gray-700 dark:text-gray-200">
+					<Link
+						className="flex items-center gap-2 text-gray-700 dark:text-gray-200"
+						to="/leagues/33/"
+					>
 						<img
 							className="h-8 w-8 rounded-full bg-white"
 							src="/39.png"
 							alt="Premier League Logo"
 						/>
 						Premier League
-					</div>
+					</Link>
 					<h1 className="text-lg font-medium text-gray-700 dark:text-gray-200">2020-21 Season</h1>
 					<Link
 						to="/leagues/33/"

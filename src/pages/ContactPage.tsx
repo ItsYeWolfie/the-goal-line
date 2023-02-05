@@ -87,7 +87,7 @@ export default function ContactPage() {
 								</defs>
 							</svg>
 						</div>
-						<div className="hidden pointer-events-none absolute inset-y-0 right-0 w-1/2 sm:block lg:hidden">
+						<div className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/2 sm:block lg:hidden">
 							<svg
 								className="absolute inset-0 h-full w-full"
 								width={359}
@@ -121,7 +121,7 @@ export default function ContactPage() {
 								</defs>
 							</svg>
 						</div>
-						<div className="hidden pointer-events-none absolute inset-y-0 right-0 w-1/2 lg:block">
+						<div className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/2 lg:block">
 							<svg
 								className="absolute inset-0 h-full w-full"
 								width={160}

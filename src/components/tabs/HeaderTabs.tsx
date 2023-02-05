@@ -34,7 +34,7 @@ export default function HeaderTabs({ params, dir, tabs }: { params: string | und
 					))}
 				</div>
 			</DropdownList>
-			<nav className="hidden container mx-auto flex-wrap items-center space-x-4 pb-2 md:flex">
+			<nav className="container mx-auto hidden flex-wrap items-center space-x-4 pb-2 md:flex">
 				{tabs.map((tab: ITab) => (
 					<NavLink
 						to={`/${dir}/${params}${tab.href}`}

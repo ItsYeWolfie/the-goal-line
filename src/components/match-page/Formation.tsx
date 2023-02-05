@@ -104,7 +104,7 @@ function Formation() {
 					</div>
 				</div>
 			</div>
-			<span className="hidden my-auto items-center md:flex md:flex-col lg:flex lg:flex-col">
+			<span className="my-auto hidden items-center md:flex md:flex-col lg:flex lg:flex-col">
 				<img
 					src={formation[1].team.logo}
 					width="50px"

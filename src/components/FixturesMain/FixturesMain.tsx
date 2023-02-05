@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import moment from 'moment';
 import { FaInfoCircle } from 'react-icons/fa';
 
+import { Link } from 'react-router-dom';
 import fetchData from '../../../lib/helpers/Fetch';
 import { FootballMatch } from '../../../types/Fixture-Main.types';
 import FixtureHeader from './Fixture-Header';
@@ -48,7 +49,8 @@ export default function FixturesMain() {
 				</div>
 			) : (
 				matches.map((match: FootballMatch, index: number) => (
-					<div
+					<Link
+						to={`/matches/${match.fixture.id}/`}
 						key={match.fixture.id}
 						className={`${
 							index % 2 === 0 ? ' dark:bg-gray-800' : 'bg-gray-300 dark:bg-gray-600'
@@ -90,7 +92,7 @@ export default function FixturesMain() {
 							onMouseEnter={() => setHoveredMatchId(match.fixture.id)}
 							onMouseLeave={() => setHoveredMatchId(null)}
 						/>
-					</div>
+					</Link>
 				))
 			)}
 		</section>

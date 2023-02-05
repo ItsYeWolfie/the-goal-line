@@ -21,29 +21,29 @@ export default function MatchPage() {
 						<TabIS />
 					</div>
 					<div className="hidden lg:block">
-						<h6 className="hidden mt-4 pl-1 text-xs lg:flex">TEAMS FORMATIONS</h6>
+						<h6 className="mt-4 hidden pl-1 text-xs lg:flex">TEAMS FORMATIONS</h6>
 						<Formation />
 					</div>
-					<div className="hidden mt-4 lg:block">
+					<div className="mt-4 hidden lg:block">
 						<MatchTabs />
 					</div>
 					<div className="hidden lg:block">
-						<h6 className="hidden mt-4 pl-1 text-xs lg:flex">TEAMS STATISTIC</h6>
+						<h6 className="mt-4 hidden pl-1 text-xs lg:flex">TEAMS STATISTIC</h6>
 						<Statistics />
 					</div>
 				</div>
 				<div className="mt-[1px]">
 					<div className="md:mx-auto md:w-4/5 lg:ml-0 lg:w-[30rem]">
 						<div className="hidden lg:block">
-							<h6 className="hidden -mt-2 pl-1 text-xs lg:flex">ODDS</h6>
+							<h6 className="-mt-2 hidden pl-1 text-xs lg:flex">ODDS</h6>
 							<Odds />
 						</div>
 						<div className="hidden lg:block">
-							<h6 className="hidden mt-4 pl-1 text-xs lg:flex">HEAD-TO-HEAD MATCHES</h6>
+							<h6 className="mt-4 hidden pl-1 text-xs lg:flex">HEAD-TO-HEAD MATCHES</h6>
 							<H2h />
 						</div>
 						<div className="hidden lg:block">
-							<h6 className="hidden mt-4 pl-1 text-xs lg:flex">TABLE</h6>
+							<h6 className="mt-4 hidden pl-1 text-xs lg:flex">TABLE</h6>
 							<Standings />
 						</div>
 						<div className="mt-4 w-full">
@@ -55,7 +55,7 @@ export default function MatchPage() {
 							/> */}
 							<img
 								src="/images/reklam1.png"
-								className="hidden mt-4 overflow-hidden lg:flex"
+								className="mt-4 hidden overflow-hidden lg:flex"
 								alt=""
 							/>
 						</div>
