@@ -1,21 +1,20 @@
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
 import fetchData from '../../../lib/helpers/Fetch';
 import { IVenue } from '../../types/Venue.types';
 import MainLoadingSpinner from '../MainLoadingSpinner';
 
 export default function VenuePage() {
-	const [venue, setVenue] = useState<IVenue[]>([]);
+	const [venue, setVenue] = useState<IVenue>({} as IVenue);
 	const [loading, setLoading] = useState(false);
-	const { id } = useParams();
 
 	useEffect(() => {
 		setLoading(true);
 		fetchData<IVenue[]>('https://api.npoint.io/383138d98ef41e68a0ce')
 			.then((data) => {
-				setVenue(data);
+				const [venueObject] = data;
+				setVenue(venueObject);
 				setLoading(false);
 			})
 			.catch((error) => {
@@ -24,13 +23,11 @@ export default function VenuePage() {
 			});
 	}, []);
 
-	const Venue = venue.find((_venue) => _venue.id === Number(id));
-
 	if (loading) {
 		return <MainLoadingSpinner />;
 	}
 
-	if (!Venue) {
+	if (!venue) {
 		throw new Error('No venue found');
 	}
 
@@ -38,10 +35,10 @@ export default function VenuePage() {
 		<div className=" 2xl:mx-auto">
 			<div className="mx-auto h-auto w-full rounded-[10px] bg-gray-200   text-black dark:bg-slate-900 dark:text-gray-200  lg:w-[85%]">
 				<div className="w-full rounded-t-[10px] bg-gradient-to-r from-gray-200 to-gray-400 px-4 pt-3 pl-[1%] font-serif text-3xl font-medium text-black  dark:from-sky-800 dark:to-sky-900 dark:text-gray-200 md:text-3xl lg:text-5xl  2xl:mx-auto   2xl:text-4xl ">
-					{Venue.name}
+					{venue.name}
 					<div className=" ">
 						<span className=" text-base  text-gray-600 dark:text-gray-200 md:text-xl 2xl:text-2xl ">The club:</span>{' '}
-						<span className="font-serif text-xl md:text-xl lg:text-2xl"> {Venue.country} </span>
+						<span className="font-serif text-xl md:text-xl lg:text-2xl"> {venue.country} </span>
 					</div>
 				</div>
 				<div className=" h-auto w-full border-b-[1px]  border-gray-400 md:grid md:grid-cols-2 ">
@@ -49,7 +46,7 @@ export default function VenuePage() {
 						<Carousel>
 							<div>
 								<img
-									src={Venue.image}
+									src={venue.image}
 									alt="a"
 								/>
 								<p className="absolute bottom-[10%] w-full bg-gray-200 bg-opacity-[0.3] py-[3%] font-mono text-base font-semibold text-black text-opacity-20  hover:bg-opacity-[0.8] hover:text-opacity-100 md:text-lg 2xl:text-2xl">
@@ -64,7 +61,7 @@ export default function VenuePage() {
 								/>
 								<p className="absolute bottom-[10%] w-full bg-gray-200 bg-opacity-[0.3] py-[3%] font-mono text-base font-semibold text-black text-opacity-10  hover:bg-opacity-[0.9] hover:text-opacity-100 md:text-lg 2xl:text-2xl">
 									{' '}
-									The Whites` stadium is in the heart of the {Venue.city}{' '}
+									The Whites` stadium is in the heart of the {venue.city}{' '}
 								</p>
 							</div>
 							<div>
@@ -74,22 +71,22 @@ export default function VenuePage() {
 								/>
 								<p className="absolute bottom-[10%] w-full bg-gray-200 bg-opacity-[0.3] py-[3%] font-mono text-base font-semibold text-black text-opacity-10  hover:bg-opacity-[0.9] hover:text-opacity-100 md:text-lg 2xl:text-2xl">
 									{' '}
-									The {Venue.name}, a stadium with all the mod cons{' '}
+									The {venue.name}, a stadium with all the mod cons{' '}
 								</p>
 							</div>
 						</Carousel>
 					</div>
 					<div className="col-span-1">
 						<div className="mx-auto  flex h-[100%] w-[90%] flex-col items-center justify-center gap-5 text-center lg:gap-3 2xl:gap-20">
-							<h1 className="font-mono text-2xl font-extrabold 2xl:text-4xl ">{Venue.name}</h1>
+							<h1 className="font-mono text-2xl font-extrabold 2xl:text-4xl ">{venue.name}</h1>
 							<p className="pb-3 text-left  font-serif md:text-base lg:text-xl 2xl:text-2xl">
 								Designed by Scottish architect Archibald Leitch, who designed several other stadia, the ground was
-								originally designed with a capacity of {Venue.capacity + 20000} spectators and featured seating in the
+								originally designed with a capacity of {venue.capacity + 20000} spectators and featured seating in the
 								south stand under cover, while the remaining three stands were left as terraces and uncovered. Including
-								the purchase of the {Venue.surface}, the construction of the stadium was originally to have cost £60,000
+								the purchase of the {venue.surface}, the construction of the stadium was originally to have cost £60,000
 								all told. However, as costs began to rise, to reach the intended capacity would have cost an extra
 								£30,000 over the original estimate and, at the suggestion of club secretary J. J. Bentley, the capacity
-								was reduced to approximately {Venue.capacity}.
+								was reduced to approximately {venue.capacity}.
 							</p>
 						</div>
 					</div>
@@ -123,7 +120,7 @@ export default function VenuePage() {
 								<p className=" font-mono text-[15px] text-black dark:text-gray-100 lg:text-[17px] 2xl:text-2xl">
 									CAPACITY
 								</p>
-								{Venue.capacity}
+								{venue.capacity}
 							</div>
 							<div className="text-[14px] text-gray-700 dark:text-gray-300 2xl:text-xl ">
 								<p className=" font-mono text-[15px] text-black dark:text-gray-100 lg:text-[17px] 2xl:text-2xl">
@@ -145,17 +142,17 @@ export default function VenuePage() {
 								<p className=" font-mono text-[15px] text-black dark:text-gray-100 lg:text-[17px] 2xl:text-2xl">
 									SUBWAY
 								</p>
-								{Venue.country} L10
+								{venue.country} L10
 							</div>
 							<div className="text-[14px] text-gray-700 dark:text-gray-300 2xl:text-xl ">
 								<p className=" font-mono text-[15px] text-black dark:text-gray-100 lg:text-[17px] 2xl:text-2xl">
 									ADDRESS
 								</p>
-								{Venue.name} - {Venue.country}
+								{venue.name} - {venue.country}
 							</div>
 							<div className="text-[14px] text-gray-700 dark:text-gray-300 2xl:text-xl ">
 								<p className=" font-mono text-[15px] text-black dark:text-gray-100 lg:text-[17px] 2xl:text-2xl">NAME</p>
-								{Venue.name}
+								{venue.name}
 							</div>
 						</div>
 					</div>
