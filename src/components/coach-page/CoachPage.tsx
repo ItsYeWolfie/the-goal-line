@@ -1,11 +1,27 @@
 import moment from 'moment';
-import { Suspense } from 'react';
+import { Suspense, useContext, useEffect } from 'react';
 import { Await, useLoaderData } from 'react-router-dom';
+import { GlobalHeaderContext, IGlobalHeader } from '../../contexts/GlobalHeader.context';
 import { ICoach } from '../../types/Coach.types';
 import MainLoadingSpinner from '../MainLoadingSpinner';
 
 export default function CoachPage() {
 	const { coach: coachData } = useLoaderData() as { coach: ICoach };
+
+	const { setBreadcrumbs } = useContext<IGlobalHeader>(GlobalHeaderContext);
+
+	useEffect(() => {
+		setBreadcrumbs([
+			{
+				name: 'O. Solskjær',
+				href: '/coach/19',
+			},
+		]);
+
+		return () => {
+			setBreadcrumbs([]);
+		};
+	}, [setBreadcrumbs]);
 
 	return (
 		<Suspense fallback={<MainLoadingSpinner />}>
@@ -53,7 +69,7 @@ export default function CoachPage() {
 									</h1>
 								</div>
 							</div>
-							<div className="mt-[2%] h-auto w-full bg-gradient-to-r  from-red-600 to-slate-700 dark:from-sky-700 dark:to-sky-900 md:grid md:grid-cols-3">
+							<div className="mt-[2%] h-auto w-full bg-gradient-to-r from-red-600  to-slate-700 p-3 dark:from-sky-700 dark:to-sky-900 md:grid md:grid-cols-3">
 								<div className="col-span-1  text-left text-white">
 									<div className="mt-[5%] w-full  rounded-[2px] border-b-[5px]  border-yellow-300 dark:border-gray-300">
 										<p className="p-[2%] text-2xl font-semibold"> HISTORY</p>

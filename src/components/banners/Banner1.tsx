@@ -1,48 +1,41 @@
 export default function Banner1() {
 	return (
-		<section className="flex h-[150px] flex-col items-center justify-between overflow-y-hidden rounded-3xl bg-opacity-70 bg-gradient-to-tr  from-sky-500 to-sky-900 px-4 py-1 text-center dark:from-gray-900 dark:to-gray-600 sm:h-[210px] md:h-[250px] md:flex-row md:px-16 md:py-4 md:text-left lg:h-[230px] xl:h-[260px]">
-			<div className="relative  w-full overflow-hidden rounded-[20px]  ">
-				<div className="absolute right-[5%] bottom-0 h-[100%] w-[40%]">
-					<img
-						className="float-right mt-[10%] h-[90%] w-1/2 rounded-t-[20px] opacity-80 dark:opacity-[0.6] "
-						src="/flashscore1.png"
-						alt=""
-					/>
+		<section className=" h-[170px] rounded-3xl bg-opacity-70 bg-gradient-to-tr from-sky-500 to-sky-900  dark:from-gray-900  dark:to-gray-600 sm:h-[200px] md:h-[250px] ">
+			<div className="relative h-full w-full">
+				<div className="flex h-full w-1/2 flex-col items-start justify-center gap-2 p-5">
+					<div className=" mt-5 text-sm text-gray-100 sm:text-base md:text-lg lg:text-2xl ">New Platform</div>
+					<div className=" text-sm text-white sm:text-lg md:text-2xl lg:text-3xl 2xl:text-4xl">
+						Get one of our sports apps, which is only available on
+					</div>
+					<div className=" text-xs text-gray-100 md:text-lg">Download App:</div>
+					<div className="mt-2 flex w-full gap-4">
+						<img
+							src="/appstore.png"
+							alt="/appstore.png"
+							className="h-2/3 w-2/3 md:h-3/4 md:w-1/3 "
+						/>
+						<img
+							src="/googleplay.png"
+							alt="/appstore.png"
+							className="h-2/3 w-2/3 md:h-3/4  md:w-1/3"
+						/>
+					</div>
 				</div>
-				<div className="absolute right-[24%] bottom-0 z-[1] h-[100%] w-[40%]">
+
+				<div className="absolute bottom-0 right-[30%] h-full  w-[15%] ">
 					<img
-						className="float-right mt-[25%] h-[75%] w-2/5 rounded-t-[20px] bg-transparent opacity-80 dark:opacity-[0.6] "
+						className="absolute bottom-0 h-[75%] rounded-t-lg opacity-70 "
 						src="/livescore.png"
-						alt=""
+						alt="/livescore.png"
 					/>
 				</div>
-				<div className="flex flex-col flex-wrap">
-					<div className="m-0 mt-[3%] p-0 text-left text-[0.7rem] text-white dark:text-yellow-500 sm:text-[1.2rem] md:mt-[1%] md:text-[1.4rem] lg:mt-[1%] lg:text-[1.2rem] xl:mt-[1%]">
-						New Platform
-					</div>
-					<div className="m-0 mt-[2%] w-[40%] p-0 text-left text-[0.8rem] text-gray-100 antialiased  dark:text-gray-200 sm:text-[1.1rem] md:text-[1.4rem] lg:text-[1.5rem] xl:text-[1.6rem]">
-						Get one of our sports apps,which is only available on
-					</div>
-					<div className="mt-[1%] text-left text-[0.5rem] text-gray-100  dark:text-gray-200 sm:text-[0.8rem] md:text-[1rem]">
-						Download Apps:
-					</div>
-					<div className="mt-[2%] flex h-[30%] w-[30%] text-left lg:h-[30%]">
-						<div>
-							<img
-								className="float-left mx-auto h-[100%] w-[95%] animate-bounce rounded-[10px] border-2 border-gray-200 lg:h-[80%] lg:w-[80%]"
-								src="/appstore.png"
-								alt=""
-							/>
-						</div>
-						<div>
-							<img
-								className="float-left h-[100%] w-[95%] animate-bounce rounded-[10px] border-2 border-gray-200 lg:h-[80%] lg:w-[80%]"
-								src="/googleplay.png"
-								alt=""
-							/>
-						</div>
-					</div>
-					<div className="mt-3 flex flex-row" />
+
+				<div className="absolute bottom-0 right-[10%] h-full w-[20%]  lg:right-[13%] ">
+					<img
+						className="absolute bottom-0 h-[90%] w-full  rounded-t-lg opacity-70 "
+						src="/flashscore1.png"
+						alt="/livescore.png"
+					/>
 				</div>
 			</div>
 		</section>

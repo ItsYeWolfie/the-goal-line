@@ -25,27 +25,27 @@ function H2h() {
 	return (
 		<div className="h-auto rounded-md bg-gray-200 dark:bg-gray-700 lg:h-auto">
 			<table className="w-full text-center">
-				<tbody className="table-row-group lg:mx-auto">
+				<tbody className="table-row-group">
 					{firstThree.map((_h2h) => (
 						<tr
-							className="h-8 rounded-md border-b-[0.2px] border-solid border-gray-400 border-opacity-30 text-center"
+							className="h-8 w-full rounded-md border-b-[0.2px] border-solid border-gray-400 border-opacity-30"
 							key={_h2h.fixture.id}
 						>
-							<td className="text-right text-sm">
-								<div className="flex w-full items-center justify-end gap-2">
-									<p>{_h2h.teams.home.name}</p>{' '}
+							<td className="text-center text-sm">
+								<div className="flex w-full items-center justify-center">
 									<img
 										src={_h2h.teams.home.logo}
 										alt={_h2h.teams.home.name}
 										className="h-4 w-4"
 									/>
+									<p>{_h2h.teams.home.name}</p>{' '}
 								</div>
 							</td>
 							<td className="pl-1 text-sm">{_h2h.goals.home}</td>
 							<td className="pl-1 text-sm">-</td>
 							<td className="pl-1 text-sm">{_h2h.goals.away}</td>
 							<td className="pl-1 text-left text-sm">
-								<span className="flex items-center justify-start">
+								<span className="flex items-center justify-center">
 									<img
 										src={_h2h.teams.away.logo}
 										alt={_h2h.teams.away.name}
@@ -62,20 +62,20 @@ function H2h() {
 							key={_h2h.fixture.id}
 						>
 							<td className="text-right text-sm">
-								<div className="flex items-center justify-end gap-2">
-									<p>{_h2h.teams.home.name}</p>{' '}
+								<div className="flex items-center justify-center gap-2">
 									<img
 										src={_h2h.teams.home.logo}
 										alt={_h2h.teams.home.name}
 										className="h-4 w-4"
 									/>
+									<p>{_h2h.teams.home.name}</p>{' '}
 								</div>
 							</td>
 							<td className="pl-1 text-sm">{_h2h.goals.home}</td>
 							<td className="pl-1 text-sm">-</td>
 							<td className="pl-1 text-sm">{_h2h.goals.away}</td>
 							<td className="pl-1 text-left text-sm">
-								<span className="flex items-center justify-start">
+								<span className="flex items-center justify-center">
 									<img
 										src={_h2h.teams.away.logo}
 										alt={_h2h.teams.away.name}

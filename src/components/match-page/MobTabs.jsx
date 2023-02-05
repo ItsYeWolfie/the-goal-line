@@ -51,10 +51,6 @@ function Tabs() {
 	// @ts-ignore
 	const handleTabClick = (tabName) => {
 		setActiveTab(tabName);
-		const url = new URL(window.location.href);
-		// @ts-ignore
-		url.searchParams.set('tab', tabs.find((tab) => tab.name === tabName).name);
-		window.history.replaceState({}, '', url);
 	};
 
 	return (

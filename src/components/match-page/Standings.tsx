@@ -58,19 +58,19 @@ function Standings() {
 							className="relative h-8 rounded-md border-b-[0.2px] border-solid border-gray-400 border-opacity-30"
 							key={standing.team.id}
 						>
-							<td className="relative items-center pl-1 text-center text-sm">
+							<td className="relative items-center text-center text-sm">
 								{standings.standings.flat().slice(0, 4).includes(standing) ? (
-									<span className="absolute top-7 -ml-2 w-7 rounded-t-md border-b-4 border-blue-500" />
+									<span className="absolute top-7 -ml-2 w-8 rounded-t-md border-b-4 border-blue-500" />
 								) : (
 									''
 								)}
 								{standing === standings.standings.flat()[4] ? (
-									<span className="absolute top-7 -ml-2 w-7 rounded-t-md border-b-4 border-orange-500" />
+									<span className="absolute top-7 -ml-2 w-8 rounded-t-md border-b-4 border-orange-500" />
 								) : (
 									''
 								)}
 								{standings.standings.flat().slice(-3).includes(standing) ? (
-									<span className="absolute top-7 -ml-1 w-7 rounded-t-md border-b-4 border-red-700" />
+									<span className="absolute top-7 -ml-1 w-8 rounded-t-md border-b-4 border-red-700" />
 								) : (
 									''
 								)}

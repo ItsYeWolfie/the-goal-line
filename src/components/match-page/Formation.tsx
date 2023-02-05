@@ -72,7 +72,7 @@ function Formation() {
 						<span className="absolute ml-[4.813rem] mt-12 h-14 rounded-r-full border-2 border-solid border-white px-3" />
 						<div className="absolute ml-[-0.14rem] mt-[12.05rem] h-3 w-3 rounded-tr-full border-2 border-solid border-white" />
 					</div>
-					<div className="absolute ml-[8.8rem] mt-[5.625rem] rounded-full border-2 border-solid border-white p-8" />
+					<div className="absolute ml-[8.75rem] mt-[5.625rem] rounded-full border-2 border-solid border-white p-8" />
 				</div>
 				<div className="absolute ml-[10.9rem] h-64 w-44 border-2 border-solid border-white">
 					<div className="absolute ml-[10.15rem] mt-[-0.10rem] h-3 w-3 rounded-bl-full border-2 border-solid border-white" />

@@ -26,6 +26,7 @@ function Statistics() {
 				const value2 = parseFloat(lineup.statistics[1].statistics[index].value);
 
 				const maxValue = value1 + value2;
+				// const proportion1 = (value1 / maxValue) * 100;
 				const proportion1 = (value1 / maxValue) * 100;
 				const proportion2 = (value2 / maxValue) * 100;
 
