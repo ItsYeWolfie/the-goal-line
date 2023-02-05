@@ -10,9 +10,7 @@ function Countries() {
 	const [loading, setLoading] = useState(true);
 	const [searchTerm, setSearchTerm] = useState('');
 	const [groupedLeagues, setGroupedLeagues] = useState<ILeagueAndCountry[][]>([] as ILeagueAndCountry[][]);
-	const [selectedCountry, setSelectedCountry] = useState<ICountry | false>(
-		JSON.parse(localStorage.getItem('selectedCountry') || '{}'),
-	);
+	const [selectedCountry, setSelectedCountry] = useState<ICountry | false>();
 	useEffect(() => {
 		const fetchData = async () => {
 			const response = await fetch('https://api.npoint.io/c1b77191c0cc9d3ae051');
@@ -50,7 +48,7 @@ function Countries() {
 					className="ml-2 w-full rounded-md border-0 bg-gray-200 p-2 placeholder-inherit outline-0 focus:border-0 focus:outline-0 active:border-0 dark:bg-gray-700 lg:dark:bg-gray-800"
 					type="text"
 					placeholder="Search..."
-					disabled={selectedCountry !== false}
+					disabled={!!selectedCountry}
 					onChange={(e) => setSearchTerm(e.target.value)}
 				/>
 			</span>
