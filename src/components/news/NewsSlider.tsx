@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import { FaNewspaper, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import fetchData from '../../../lib/helpers/Fetch';
-import SliderLoader from '../index-loaders/Slider-Loader';
+import SliderLoader from '../index-loaders/SliderLoader';
 import { INews } from '../../types/News.types';
 import NewsCard from './NewsCard';
 import NewsHeader from './NewsHeader';

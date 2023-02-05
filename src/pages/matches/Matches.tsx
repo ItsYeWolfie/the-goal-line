@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
-import Countries from '../../components/allMatches/Countries';
-import DaysTab from '../../components/allMatches/DaysTab';
+import Countries from '../../components/all-matches/Countries';
+import DaysTab from '../../components/all-matches/DaysTab';
 import { GlobalHeaderContext, IGlobalHeader } from '../../contexts/GlobalHeader.context';
 
 export default function MatchesPage() {

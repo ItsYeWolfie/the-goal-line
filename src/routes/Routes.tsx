@@ -6,7 +6,7 @@ import TeamRoutes from './TeamRoutes';
 import LeagueRoutes from './LeagueRoutes';
 import PlayerRoutes from './PlayerRoutes';
 import CoachPage from '../components/coach-page/CoachPage';
-import Home from '../components/Home/Home';
+import Home from '../components/home/Home';
 import News from '../components/news/News';
 import VenuePage from '../components/venue/VenuePage';
 import MatchPage from '../pages/matches/match/Match';

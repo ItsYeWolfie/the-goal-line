@@ -3,7 +3,7 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { RiChatFollowUpFill } from 'react-icons/ri';
 import Logo from './TeamSlider';
 import fetchData from '../../../lib/helpers/Fetch';
-import SliderLoader from '../index-loaders/Slider-Loader';
+import SliderLoader from '../index-loaders/SliderLoader';
 import { ITeamBasic } from '../../types/Team.types';
 
 export default function LogosSlider() {

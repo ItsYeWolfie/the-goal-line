@@ -7,7 +7,7 @@ import FixtureHeader from './Fixture-Header';
 import FixtureMainInfo from './Fixture-Main-Info';
 import LogoAndImage, { LogoAndImageReversed } from '../image/LogoAndImage';
 import { IFixture } from '../../types/Fixture.types';
-import FixtureLoader from '../Index-Loaders/Fixtures-Loader';
+import FixtureLoader from '../index-loaders/FixturesLoader';
 
 const urls = [
 	'https://api.npoint.io/cfdd9340ece0aa795c9e',

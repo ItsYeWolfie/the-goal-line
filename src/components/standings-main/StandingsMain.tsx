@@ -3,7 +3,7 @@ import { FaCircle } from 'react-icons/fa';
 import { BsChevronRight } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import fetchData from '../../../lib/helpers/Fetch';
-import StandingsMainLoader from '../index-loaders/Standings-Loader-Main';
+import StandingsMainLoader from '../index-loaders/StandingsLoaderMain';
 import TableHead from '../table/Head';
 import TableHeader from '../table/Header';
 import GetRankColor from '../../lib/helpers/rank-color';

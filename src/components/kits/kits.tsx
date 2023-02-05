@@ -3,7 +3,7 @@ import { FaTshirt, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import fetchData from '../../../lib/helpers/Fetch';
 import Kit from './kit';
 import { IKit } from '../../types/Kit.types';
-import SliderLoader from '../index-loaders/Slider-Loader';
+import SliderLoader from '../index-loaders/SliderLoader';
 
 export default function KitsSlider() {
 	const [kit, setKits] = useState<IKit[]>([]);
