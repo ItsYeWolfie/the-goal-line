@@ -46,7 +46,7 @@ export default function StandingsTable({ standings }: { standings: ILeagueStandi
 										name={team.name}
 									/>
 								</Link>
-								<div className="mt-1 ml-2 flex flex-col text-xs text-gray-300">
+								<div className="mt-1 ml-2 flex flex-col text-xs">
 									<div className="flex items-center gap-1 md:hidden">
 										<span className="font-semibold">Matches:</span>
 										<span>
@@ -61,35 +61,7 @@ export default function StandingsTable({ standings }: { standings: ILeagueStandi
 									</div>
 									<div className="flex items-center gap-1 sm:hidden">
 										<span className="font-semibold">Form:</span>
-										{formArray.map((formItem, formIndex) => {
-											let formClass = '';
-
-											switch (formItem) {
-												case 'W':
-													formClass = 'bg-green-500';
-													break;
-
-												case 'D':
-													formClass = 'bg-yellow-500';
-													break;
-
-												case 'L':
-													formClass = 'bg-red-500';
-													break;
-
-												default:
-													formClass = 'bg-gray-500';
-											}
-
-											return (
-												<i
-													key={formIndex}
-													className={`h-3 w-3 rounded-full ${formClass}`}
-												>
-													<span className="sr-only">{formItem}</span>
-												</i>
-											);
-										})}
+										<FormIconArray array={formArray} />
 									</div>
 								</div>
 							</SmallTableCell>

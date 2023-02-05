@@ -7,7 +7,7 @@ import TableRow from '../../../table/Row';
 export default function TeamOverviewCardsAtMinute({ cards }: { cards: ITeamStatistics['cards'] }) {
 	return (
 		<table className="uppercase">
-			<TableHead>
+			<TableHead className="text-xs">
 				<tr>
 					<TableHeader className="py-1 pl-3 text-left">Cards at Minute</TableHeader>
 					<TableHeader
@@ -24,7 +24,7 @@ export default function TeamOverviewCardsAtMinute({ cards }: { cards: ITeamStati
 					</TableHeader>
 				</tr>
 			</TableHead>
-			<tbody className="text-xs">
+			<tbody className="text-sm">
 				{Object.keys(cards.red).map((minute: string, index) => (
 					<TableRow
 						even={index % 2 === 0}

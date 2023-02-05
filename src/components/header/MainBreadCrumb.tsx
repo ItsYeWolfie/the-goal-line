@@ -48,28 +48,34 @@ export default function MainBreadCrumb() {
 				</ol>
 			</nav>
 			<nav className="hidden flex-1 lg:flex">
-				{navigation.map((link) => (
-					<NavLink
-						to={link.href}
-						key={link.name}
-						className={({ isActive }) =>
-							`${
-								isActive
-									? `relative bg-gray-200 text-gray-900 before:absolute before:bottom-0 before:left-0 before:h-1 before:w-full before:rounded-b-md before:rounded-t-md before:bg-sky-700 dark:bg-gray-800 dark:text-gray-100`
-									: `text-gray-800 hover:bg-gray-200 hover:text-gray-900 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:text-gray-100`
-							} py-8 px-4 text-sm font-medium ${link.name === 'Home' ? 'lg:hidden' : 'block'}`
-						}
-					>
-						<div className="flex items-center gap-2">
-							<link.icon className="h-6 w-6" />
-							{link.name}
-						</div>
-					</NavLink>
-				))}
+				{navigation.map(
+					(link) =>
+						!link.mobileOnly && (
+							<NavLink
+								to={link.href}
+								key={link.name}
+								className={({ isActive }) =>
+									`${
+										isActive
+											? `relative bg-gray-200 text-gray-900 before:absolute before:bottom-0 before:left-0 before:h-1 before:w-full before:rounded-b-md before:rounded-t-md before:bg-sky-700 dark:bg-gray-800 dark:text-gray-100`
+											: `text-gray-800 hover:bg-gray-200 hover:text-gray-900 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:text-gray-100`
+									} py-8 px-4 text-sm font-medium ${link.name === 'Home' ? 'lg:hidden' : 'block'}`
+								}
+							>
+								<div className="flex items-center gap-2">
+									<link.icon className="h-6 w-6" />
+									{link.name}
+								</div>
+							</NavLink>
+						),
+				)}
 			</nav>
 			<div className="flex h-10 items-center justify-end gap-2 text-gray-800 dark:text-gray-200 lg:pr-2">
 				<DarkModeToggle />
-				<Link to="/contact-us">
+				<Link
+					to="/contact-us"
+					className="hidden sm:block"
+				>
 					<FaInfoCircle className="flex h-6 w-10 items-center justify-center transition-colors duration-300 ease-in-out hover:text-sky-600" />
 				</Link>
 				<QuickSearch />

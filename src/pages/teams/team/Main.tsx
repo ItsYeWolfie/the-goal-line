@@ -20,7 +20,7 @@ export default function TeamMainPage({ team, venue }: ITeamAndVenue) {
 				name: (
 					<div className="flex items-center">
 						<img
-							className="mr-2 h-6 w-6 rounded-full"
+							className="mr-2 h-4 w-4 rounded-full sm:h-6 sm:w-6"
 							src={team.logo}
 							alt={team.name}
 						/>

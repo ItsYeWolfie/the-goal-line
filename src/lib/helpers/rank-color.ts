@@ -1,7 +1,7 @@
 export default function GetRankColor(rank: number, index: number) {
 	let backgroundColor = `${
 		index % 2 === 0 ? 'bg-gray-100 dark:bg-gray-800' : 'bg-gray-200 dark:bg-gray-700'
-	} text-gray-600 dark:text-gray-300`;
+	} text-gray-800 dark:text-gray-300`;
 	const teamRank = rank;
 
 	switch (true) {

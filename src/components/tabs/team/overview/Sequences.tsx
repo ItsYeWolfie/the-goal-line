@@ -7,8 +7,8 @@ import TableRow from '../../../table/Row';
 export default function TeamOverviewSequences({ biggest }: { biggest: ITeamStatistics['biggest'] }) {
 	const { wins, goals, loses, streak } = biggest;
 	return (
-		<table className="w-full bg-gray-700 text-xs">
-			<TableHead>
+		<table className="w-full bg-gray-700">
+			<TableHead className="text-xs">
 				<tr>
 					<TableHeader
 						className="py-1 pl-3 text-left"
@@ -19,7 +19,7 @@ export default function TeamOverviewSequences({ biggest }: { biggest: ITeamStati
 				</tr>
 			</TableHead>
 
-			<tbody>
+			<tbody className="text-sm">
 				<TableRow even>
 					<SmallTableCell className="w-64">Most goals scored (Home)</SmallTableCell>
 					<SmallTableCell>{goals.for.home || '-'}</SmallTableCell>

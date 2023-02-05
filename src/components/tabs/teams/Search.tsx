@@ -25,7 +25,7 @@ export default function TeamSearch({ handleSearch }: { handleSearch: (data: ITea
 					</label>
 				</fieldset>
 			</div>
-			<div className="pt-10">
+			<div className="pt-6">
 				<fieldset>
 					<label
 						htmlFor="league"
@@ -43,7 +43,7 @@ export default function TeamSearch({ handleSearch }: { handleSearch: (data: ITea
 					</label>
 				</fieldset>
 			</div>
-			<div className="pt-10">
+			<div className="pt-6">
 				<fieldset>
 					<label
 						htmlFor="country"
@@ -61,7 +61,7 @@ export default function TeamSearch({ handleSearch }: { handleSearch: (data: ITea
 					</label>
 				</fieldset>
 			</div>
-			<div className="pt-10">
+			<div className="pt-6">
 				<fieldset>
 					<label
 						htmlFor="season"

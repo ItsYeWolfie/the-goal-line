@@ -23,6 +23,7 @@ export default function TeamFixturesLeagueSelection({
 					<option
 						key={league.id}
 						value={league.id}
+						className="text-base"
 					>
 						{league.name}
 					</option>

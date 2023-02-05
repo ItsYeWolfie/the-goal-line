@@ -8,7 +8,7 @@ export default function TableHeader(props: ITableHeaderProps) {
 	return (
 		<th
 			{...props}
-			className={`font-medium uppercase tracking-wider text-gray-700 dark:text-gray-300 ${props.className}`}
+			className={`font-medium uppercase tracking-wider text-gray-800 dark:text-gray-200 ${props.className}`}
 			colSpan={props.colSpan}
 		>
 			{props.children}

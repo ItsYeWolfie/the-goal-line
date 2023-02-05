@@ -21,7 +21,7 @@ export default function TeamFixturesLeagueCard({
 						key={league.id}
 					>
 						<img
-							className="mr-2 h-6 w-6"
+							className="mr-2 h-8 w-8 rounded-md bg-white"
 							src={league.logo}
 							alt={`${league.name} logo`}
 						/>

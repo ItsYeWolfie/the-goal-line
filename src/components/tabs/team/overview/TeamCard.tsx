@@ -49,19 +49,19 @@ export default function TeamOverviewTeamCard({
 			<p className="order-last mx-auto max-w-sm" />
 			<div className="grid grid-cols-12 gap-y-2 px-2">
 				<div className="col-span-12 flex justify-between px-2">
-					<span className="items-center text-xs font-bold uppercase dark:text-gray-400">Founded</span>
+					<span className="items-center text-sm font-medium uppercase text-gray-700 dark:text-gray-300">Founded</span>
 					<header className="text-right">{team.founded}</header>
 				</div>
 				<div className="col-span-12 flex items-center justify-between bg-gray-200 px-2 dark:bg-gray-700">
-					<span className="text-xs font-bold uppercase dark:text-gray-400">League Nation</span>
+					<span className="text-sm font-medium uppercase text-gray-700 dark:text-gray-300">League Nation</span>
 					<header className="text-right">{team.country}</header>
 				</div>
 				<div className="col-span-12 flex items-center justify-between px-2">
-					<span className="text-xs font-bold uppercase dark:text-gray-400">Team Code</span>
+					<span className="text-sm font-medium uppercase text-gray-700 dark:text-gray-300">Team Code</span>
 					<header className="text-right">{team.code}</header>
 					{team.national && (
 						<div className="flex items-center justify-center">
-							<span className="text-xs font-bold uppercase dark:text-gray-400">National Team</span>
+							<span className="text-sm font-medium uppercase text-gray-700 dark:text-gray-300">National Team</span>
 							<FontAwesomeIcon
 								icon={faCheckCircle}
 								className="block text-right text-xl text-green-500"
@@ -70,7 +70,7 @@ export default function TeamOverviewTeamCard({
 					)}
 				</div>
 				<div className="col-span-12 flex flex-nowrap justify-between overflow-x-auto bg-gray-200 px-2 py-1 dark:bg-gray-700">
-					<header className="shrink-0 grow-0 basis-6/12 text-xs font-bold uppercase dark:text-gray-400">
+					<header className="shrink-0 grow-0 basis-6/12 text-sm font-medium uppercase text-gray-700 dark:text-gray-300">
 						Recent Form
 					</header>
 					<div className="flex flex-nowrap gap-x-1 text-base">

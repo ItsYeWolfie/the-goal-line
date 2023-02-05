@@ -19,9 +19,7 @@ export default function NotFound() {
 			<section className="container mx-auto mb-16 shrink-0 grow-0 p-4 px-2 sm:py-8 md:mb-0">
 				<div className="mx-auto max-w-xl py-8 sm:py-14">
 					<div className="text-center">
-						<p className="text-base font-semibold text-sky-600">
-							{error.status || error.error.message || error.message}
-						</p>
+						<p className="text-base font-semibold text-sky-600">{error.status || error.message}</p>
 						<h1 className="mt-2 text-4xl font-bold tracking-tight text-gray-800 dark:text-gray-200 sm:text-5xl">
 							Something went wrong.
 						</h1>
