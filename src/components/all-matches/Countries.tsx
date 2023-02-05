@@ -38,7 +38,7 @@ function Countries() {
 	}, []);
 
 	useEffect(() => {
-		localStorage.setItem('selectedCountry', JSON.stringify(selectedCountry));
+		localStorage.setItem('', JSON.stringify(selectedCountry));
 	}, [selectedCountry]);
 
 	const topCountries = ['England', 'Italy', 'Spain', 'France', 'Germany'];
