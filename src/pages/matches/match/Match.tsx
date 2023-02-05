@@ -1,4 +1,5 @@
 /* eslint-disable tailwindcss/classnames-order */
+import { useContext, useEffect } from 'react';
 import Formation from '../../../components/match-page/Formation';
 import H2h from '../../../components/match-page/H2H';
 import Match from '../../../components/match-page/Match';
@@ -8,8 +9,27 @@ import Odds from '../../../components/match-page/Odds';
 import Standings from '../../../components/match-page/Standings';
 import Statistics from '../../../components/match-page/Statistics';
 import TabIS from '../../../components/match-page/TabIS';
+import { GlobalHeaderContext, IGlobalHeader } from '../../../contexts/GlobalHeader.context';
 
 export default function MatchPage() {
+	const { setBreadcrumbs } = useContext<IGlobalHeader>(GlobalHeaderContext);
+
+	useEffect(() => {
+		setBreadcrumbs([
+			{
+				name: 'Matches',
+				href: '/matches',
+			},
+			{
+				name: 'Match',
+				href: 'matches/157201',
+			},
+		]);
+
+		return () => {
+			setBreadcrumbs([]);
+		};
+	}, [setBreadcrumbs]);
 	return (
 		<div className=" text-gray-900 dark:text-gray-200">
 			<div className="container flex-col justify-center gap-4 p-0.5 md:flex md:flex-col lg:flex lg:flex-row lg:p-0">

@@ -25,7 +25,7 @@ export default function MatchesPage() {
 					<Countries />
 				</div>
 			</div>
-			<div className="no-scrollbar flex max-h-[75vh] w-full flex-col overflow-hidden overflow-y-auto rounded-md bg-gray-200 text-sm dark:bg-gray-800 lg:w-2/5">
+			<div className="no-scrollbar flex max-h-[78vh] w-full flex-col overflow-hidden overflow-y-auto rounded-md bg-gray-200 text-sm dark:bg-gray-800 md:max-h-[83vh] lg:max-h-[75vh] lg:w-2/5">
 				<DaysTab />
 			</div>
 			<div className="hidden max-h-[75vh] overflow-hidden lg:flex lg:w-1/4 lg:flex-col">

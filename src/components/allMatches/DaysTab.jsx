@@ -72,8 +72,8 @@ function Tabs() {
 					onClick={() => setListHidden(!listHidden)}
 				/>
 			</div>
-			<div className={`absolute w-full lg:hidden ${listHidden ? 'hidden' : ''}`}>
-				<div className="no-scrollbar relative z-10 -ml-4 flex h-[78vh] flex-col overflow-hidden overflow-y-auto rounded-md bg-gray-200 p-2 text-sm dark:bg-gray-800 md:h-full">
+			<div className={`absolute mt-12 w-[98%] md:w-[92.5%] lg:hidden ${listHidden ? 'hidden' : ''}`}>
+				<div className="no-scrollbar relative z-10 -ml-2 flex max-h-[80vh] flex-col overflow-hidden overflow-y-auto rounded-md bg-gray-200 p-2 text-sm dark:bg-gray-800 md:h-full">
 					<Countries />
 				</div>
 			</div>

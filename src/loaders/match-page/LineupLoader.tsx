@@ -1,7 +1,7 @@
 export default function LineupLoader() {
 	return (
 		<div className="mx-auto flex h-auto w-full items-center justify-around rounded-md border border-slate-300 bg-gray-200 p-3 shadow dark:border-slate-700 dark:bg-gray-700">
-			<span className="h-10 w-10 animate-pulse rounded-full bg-slate-300 dark:bg-slate-800" />
+			<span className="hidden h-10 w-10 animate-pulse rounded-full bg-slate-300 dark:bg-slate-800 md:flex" />
 			<span className="flex animate-pulse flex-col gap-4">
 				{[...Array(10)].map((_, i) => (
 					<span
@@ -18,7 +18,7 @@ export default function LineupLoader() {
 					/>
 				))}
 			</span>
-			<span className="h-10 w-10 animate-pulse rounded-full bg-slate-300 dark:bg-slate-800" />
+			<span className="hidden h-10 w-10 animate-pulse rounded-full bg-slate-300 dark:bg-slate-800 md:flex" />
 		</div>
 	);
 }

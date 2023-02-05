@@ -23,7 +23,7 @@ function H2h() {
 	}
 
 	return (
-		<div className="mx-auto h-auto rounded-md bg-gray-200 p-2 dark:bg-gray-700 lg:h-auto">
+		<div className="h-auto rounded-md bg-gray-200 dark:bg-gray-700 lg:h-auto">
 			<table className="w-full text-center">
 				<tbody className="table-row-group lg:mx-auto">
 					{firstThree.map((_h2h) => (

@@ -21,12 +21,13 @@ function Substitutes() {
 		return <LineupLoader />;
 	}
 	return (
-		<div className="mt-2 flex h-auto w-full justify-around rounded-md bg-gray-200 p-2 dark:bg-gray-700 md:mx-auto md:text-lg">
+		<div className="mt-2 flex h-auto w-full justify-between rounded-md bg-gray-200 p-2 dark:bg-gray-700 md:mx-auto md:justify-around md:text-lg">
 			<span className="my-auto flex flex-col">
 				<img
 					src={formation[0].team.logo}
 					width="50px"
 					height="50px"
+					className="hidden md:flex"
 					alt=""
 				/>
 			</span>
@@ -60,6 +61,7 @@ function Substitutes() {
 					src={formation[1].team.logo}
 					width="50px"
 					height="50px"
+					className="hidden md:flex"
 					alt=""
 				/>
 			</span>
