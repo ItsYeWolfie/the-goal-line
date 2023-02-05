@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { HiOutlineChevronRight } from 'react-icons/hi';
+import { FaInfoCircle } from 'react-icons/fa';
 import { GlobalHeaderContext } from '../../contexts/GlobalHeader.context';
 import DarkModeToggle from './DarkModeToggle';
 import navigation from '../../lib/navigation-links';
@@ -11,7 +12,7 @@ export default function MainBreadCrumb() {
 
 	return (
 		<section className="container mx-auto flex items-center justify-between p-2 sm:py-4 md:p-0">
-			<nav className="flex flex-1 pl-2">
+			<nav className="flex h-16 flex-1">
 				<ol className="flex items-center gap-x-2 sm:gap-x-4">
 					<li>
 						<Link
@@ -19,12 +20,12 @@ export default function MainBreadCrumb() {
 							className="text-gray-200 hover:text-gray-100"
 						>
 							<img
-								className="h-8 w-auto sm:hidden"
+								className="h-12 w-12 sm:hidden"
 								src="/logo-no-background-sm.png"
 								alt="The Goal Line"
 							/>
 							<img
-								className="hidden h-4 w-auto sm:block"
+								className="hidden h-4 w-auto sm:block lg:pl-2"
 								src="/logo-no-background.svg"
 								alt="The Goal Line"
 							/>
@@ -49,7 +50,7 @@ export default function MainBreadCrumb() {
 					))}
 				</ol>
 			</nav>
-			<nav className="hidden flex-1 md:flex">
+			<nav className="hidden flex-1 lg:flex">
 				{navigation.map((link) => (
 					<NavLink
 						to={link.href}
@@ -59,7 +60,7 @@ export default function MainBreadCrumb() {
 								isActive
 									? `relative bg-gray-900 text-gray-100 before:absolute before:bottom-0 before:left-0 before:h-1 before:w-full before:rounded-b-md before:rounded-t-md before:bg-sky-700`
 									: `text-gray-200 hover:bg-gray-800 hover:text-gray-100`
-							} py-8 px-4 text-sm font-medium text-gray-900`
+							} py-8 px-4 text-sm font-medium text-gray-900 ${link.name === 'Home' ? 'lg:hidden' : 'block'}`
 						}
 					>
 						<div className="flex items-center gap-2">
@@ -69,8 +70,11 @@ export default function MainBreadCrumb() {
 					</NavLink>
 				))}
 			</nav>
-			<div className="flex h-10 items-center justify-end pr-2">
+			<div className="flex h-10 items-center justify-end gap-2 text-gray-200 lg:pr-2">
 				<DarkModeToggle />
+				<Link to="/contact-us">
+					<FaInfoCircle className="text-xl hover:text-blue-600" />
+				</Link>
 				<QuickSearch />
 			</div>
 		</section>

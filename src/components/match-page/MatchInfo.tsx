@@ -39,8 +39,14 @@ function FixtureInfo() {
 			</p>
 			<p className="flex items-center text-xs md:text-base">
 				<img
-					className="pr-1"
+					className="hidden pr-1 dark:flex"
 					src="/images/icons8-whistle.svg"
+					width="25px"
+					alt=""
+				/>
+				<img
+					className="flex pr-1 dark:hidden"
+					src="/images/blackwhistle.svg"
 					width="25px"
 					alt=""
 				/>

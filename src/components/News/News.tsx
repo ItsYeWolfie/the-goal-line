@@ -2,10 +2,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
 import moment from 'moment';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Bars } from 'react-loader-spinner';
 import { fetchData } from '../../../lib/helpers/Fetch';
 import { News } from '../../../types/News.types';
+import { GlobalHeaderContext, IGlobalHeader } from '../../contexts/GlobalHeader.context';
 import NewsHeader from './News-header';
 import RelatedNews from './Related-News';
 
@@ -17,7 +18,20 @@ export default function NewsPage() {
 	const dataTofilter = [null, 'Champions', 'Transfer'];
 	const [originalData, setOriginalData] = useState<News[]>([]);
 	const [currentData, setCurrentData] = useState<News | null>(null);
+	const { setBreadcrumbs } = useContext<IGlobalHeader>(GlobalHeaderContext);
 
+	useEffect(() => {
+		setBreadcrumbs([
+			{
+				name: 'News',
+				href: '/news',
+			},
+		]);
+
+		return () => {
+			setBreadcrumbs([]);
+		};
+	}, [setBreadcrumbs]);
 	useEffect(() => {
 		setLoading(true);
 		fetchData<News[]>('src/data/news.json')
@@ -143,7 +157,7 @@ export default function NewsPage() {
 											alt=""
 										/>
 									</div>
-									<div className="mt-[5%] hidden h-[300px] w-full sm:block 2xl:h-[450px]">
+									<div className="hidden mt-[5%] h-[300px] w-full sm:block 2xl:h-[450px]">
 										<img
 											className="h-full w-full bg-white opacity-[0.8]"
 											src="/gjirafavisa.png"

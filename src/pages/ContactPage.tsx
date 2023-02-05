@@ -87,7 +87,7 @@ export default function ContactPage() {
 								</defs>
 							</svg>
 						</div>
-						<div className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/2 sm:block lg:hidden">
+						<div className="hidden pointer-events-none absolute inset-y-0 right-0 w-1/2 sm:block lg:hidden">
 							<svg
 								className="absolute inset-0 h-full w-full"
 								width={359}
@@ -121,7 +121,7 @@ export default function ContactPage() {
 								</defs>
 							</svg>
 						</div>
-						<div className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/2 lg:block">
+						<div className="hidden pointer-events-none absolute inset-y-0 right-0 w-1/2 lg:block">
 							<svg
 								className="absolute inset-0 h-full w-full"
 								width={160}
@@ -155,11 +155,11 @@ export default function ContactPage() {
 								</defs>
 							</svg>
 						</div>
-						<h3 className="text-lg font-medium text-white">Contact information</h3>
+						<h3 className="text-lg font-medium text-white">How Can We Help You?</h3>
 						<p className="mt-6 max-w-3xl text-base text-indigo-50">
-							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis vitae eius pariatur magnam
-							voluptatibus reiciendis odit sequi consequuntur illo ipsam, perspiciatis, natus beatae ipsum sunt
-							quibusdam? Natus soluta optio cumque.
+							Have a question or a topic you&apos;d like to see covered on our site? Reach out to us! <br />
+							Our team of expert writers and analysts are always here to help and provide you with the information you
+							need. Send us a message and we&apos;ll get back to you as soon as possible.
 						</p>
 						<dl className="mt-8 space-y-6">
 							<dt>
@@ -184,7 +184,8 @@ export default function ContactPage() {
 									href="https://github.com/ItsYeWolfie/the-goal-line/"
 								>
 									<span className="sr-only">GitHub</span>
-									<AiOutlineGithub className="h-6 w-6" />
+									<AiOutlineGithub className="inline h-6 w-6 shrink-0 text-indigo-200" />
+									<span className="ml-3">Goal Line</span>
 								</a>
 							</li>
 						</ul>

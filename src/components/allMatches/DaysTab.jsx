@@ -1,3 +1,4 @@
+/* eslint-disable tailwindcss/enforces-negative-arbitrary-values */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable react/jsx-props-no-spreading */
 // @ts-nocheck
@@ -7,6 +8,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState } from 'react';
+import { FaChevronRight } from 'react-icons/fa';
 import moment from 'moment/moment';
 import TodayMatches from './TodayMatches';
 import LiveMatches from './LiveMatches';
@@ -14,6 +16,7 @@ import YesterdayMatches from './YesterdayMatches';
 import BeforeYesterdayMatches from './BeforeYesterdayMatches';
 import TomorrowMatches from './TomorrowMatches';
 import AfterTomorrowMatches from './AfterTomorrowMatches';
+import Countries from './Countries';
 
 // @ts-ignore
 function Tab({ Component }) {
@@ -47,14 +50,20 @@ function Tabs() {
 		url.searchParams.set('tab', tabs.find((tab) => tab.name === tabName).name);
 		window.history.replaceState({}, '', url);
 	};
+	const [listHidden, setListHidden] = useState(true);
 
 	return (
 		<div>
-			<div className="fixed z-10 -ml-4 -mt-2 flex w-full justify-around border-b-2 border-gray-200 border-opacity-30 bg-gray-100 p-2 dark:bg-gray-900 md:w-[92%] lg:w-[33.3%] lg:bg-gray-200 dark:lg:bg-gray-800">
+			<div className="fixed z-20 -ml-4 -mt-2 flex w-full justify-around border-b-2 border-gray-700 border-opacity-30 bg-gray-100 p-2 pt-4 dark:border-gray-200 dark:border-opacity-30 dark:bg-gray-900 md:-ml-[2.65rem] lg:-ml-2 lg:w-[39.5%] lg:bg-gray-200 lg:pt-2 dark:lg:bg-gray-800">
+				<FaChevronRight
+					className="absolute left-0 z-50 mt-2 pl-2 text-base md:mt-3 lg:hidden"
+					style={{ transform: `rotate(${listHidden ? 0 : 90}deg)` }}
+					onClick={() => setListHidden(!listHidden)}
+				/>
 				{tabs.map((tab) => (
 					<div
 						className={`${
-							tab.name === activeTab ? 'text-sm text-sky-600 md:text-[17.5px]' : ''
+							tab.name === activeTab ? 'text-sm text-sky-600 md:text-[18px]' : ''
 						} my-auto flex cursor-pointer flex-col items-center text-xs hover:text-sky-600 md:text-sm`}
 						onClick={() => handleTabClick(tab.name)}
 					>
@@ -62,6 +71,11 @@ function Tabs() {
 						<p>{tab.name}</p>
 					</div>
 				))}
+			</div>
+			<div className={`absolute  mt-12 w-full lg:hidden ${listHidden ? 'hidden' : ''}`}>
+				<div className="no-scrollbar relative z-10 -ml-4 flex h-[78vh] flex-col overflow-hidden overflow-y-auto rounded-md bg-gray-200 p-2 text-sm dark:bg-gray-800 md:h-full">
+					<Countries />
+				</div>
 			</div>
 			{tabs.map((tab) => tab.name === activeTab && <Tab {...tab} />)}
 		</div>

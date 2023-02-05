@@ -1,3 +1,5 @@
+/* eslint-disable tailwindcss/classnames-order */
+/* eslint-disable tailwindcss/enforces-negative-arbitrary-values */
 import { useState, useEffect } from 'react';
 import FormationLoader from '../../loaders/match-page/FormationLoader';
 import { IFormation } from '../../types/Formation.types';
@@ -65,7 +67,7 @@ function Formation() {
 							</div>
 						))}
 					</div>
-					<div className="absolute ml-[-0.08rem] mt-12 h-40 w-20 border-2 border-solid border-white">
+					<div className="absolute ml-[-0.09rem] mt-12 h-40 w-20 border-2 border-solid border-white">
 						<div className="absolute mt-7 ml-[-0.14rem] h-24 w-12 border-2 border-solid border-white" />
 						<span className="absolute ml-[4.813rem] mt-12 h-14 rounded-r-full border-2 border-solid border-white px-3" />
 						<div className="absolute ml-[-0.14rem] mt-[12.05rem] h-3 w-3 rounded-tr-full border-2 border-solid border-white" />
@@ -96,7 +98,7 @@ function Formation() {
 						))}
 					</div>
 					<div className="absolute mt-12 ml-[5.9rem] h-40 w-20 border-2 border-solid border-white">
-						<div className="absolute mt-7 ml-[1.906rem] h-24 w-12 border-2 border-solid border-white" />
+						<div className="absolute mt-7 ml-[1.9rem] h-24 w-12 border-2 border-solid border-white" />
 						<span className="absolute -ml-[1.7rem] mt-12 h-14 rounded-l-full border-2 border-solid border-white px-3" />
 						<div className="absolute ml-[4.15rem] mt-[12.05rem] h-3 w-3 rounded-tl-full border-2 border-solid border-white" />
 					</div>

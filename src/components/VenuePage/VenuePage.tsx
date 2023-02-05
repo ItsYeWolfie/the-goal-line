@@ -66,14 +66,14 @@ export default function VenuePage() {
 											src={Venue.image}
 											alt="a"
 										/>
-										<p className="absolute bottom-[10%] w-full bg-gray-200 bg-opacity-[0.3] py-[3%] font-mono text-base font-semibold text-black text-opacity-10  hover:bg-opacity-[0.9] hover:text-opacity-100 md:text-lg 2xl:text-2xl">
+										<p className="absolute bottom-[10%] w-full bg-gray-200 bg-opacity-[0.3] py-[3%] font-mono text-base font-semibold text-black text-opacity-20  hover:bg-opacity-[0.8] hover:text-opacity-100 md:text-lg 2xl:text-2xl">
 											{' '}
 											The stadium owes its name to the legendary president of the club
 										</p>
 									</div>
 									<div>
 										<img
-											src="..//556.png"
+											src="/556.png"
 											alt="a"
 										/>
 										<p className="absolute bottom-[10%] w-full bg-gray-200 bg-opacity-[0.3] py-[3%] font-mono text-base font-semibold text-black text-opacity-10  hover:bg-opacity-[0.9] hover:text-opacity-100 md:text-lg 2xl:text-2xl">
@@ -83,7 +83,7 @@ export default function VenuePage() {
 									</div>
 									<div>
 										<img
-											src="..//556.png"
+											src="/556.png"
 											alt="a"
 										/>
 										<p className="absolute bottom-[10%] w-full bg-gray-200 bg-opacity-[0.3] py-[3%] font-mono text-base font-semibold text-black text-opacity-10  hover:bg-opacity-[0.9] hover:text-opacity-100 md:text-lg 2xl:text-2xl">
