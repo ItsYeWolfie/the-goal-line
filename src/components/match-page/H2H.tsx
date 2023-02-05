@@ -23,7 +23,7 @@ function H2h() {
 	}
 
 	return (
-		<div className="h-auto rounded-md bg-gray-200 dark:bg-gray-700 lg:h-auto">
+		<div className="h-auto rounded-md bg-gray-200 p-2 dark:bg-gray-700 lg:h-auto">
 			<table className="w-full text-center">
 				<tbody className="table-row-group">
 					{firstThree.map((_h2h) => (
@@ -36,7 +36,7 @@ function H2h() {
 									<img
 										src={_h2h.teams.home.logo}
 										alt={_h2h.teams.home.name}
-										className="h-4 w-4"
+										className="mr-1 h-4 w-4"
 									/>
 									<p>{_h2h.teams.home.name}</p>{' '}
 								</div>

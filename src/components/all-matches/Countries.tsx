@@ -37,10 +37,6 @@ function Countries() {
 		fetchData();
 	}, []);
 
-	useEffect(() => {
-		localStorage.setItem('', JSON.stringify(selectedCountry));
-	}, [selectedCountry]);
-
 	const topCountries = ['England', 'Italy', 'Spain', 'France', 'Germany'];
 
 	if (loading) {
@@ -48,7 +44,7 @@ function Countries() {
 	}
 	return (
 		<div className="flex flex-col rounded-b-md">
-			<span className="z-20 my-auto flex h-14 w-full items-center bg-gray-200 pl-2 text-lg dark:bg-gray-700 lg:sticky lg:top-0 lg:dark:bg-gray-800">
+			<span className="z-20 my-auto flex h-14 w-full items-center border-b-2 border-solid border-gray-700 border-opacity-30 bg-gray-200 pl-2 text-lg dark:border-gray-500 dark:bg-gray-700 lg:sticky lg:top-0 lg:dark:bg-gray-800">
 				<FaSearch />
 				<input
 					className="ml-2 w-full rounded-md border-0 bg-gray-200 p-2 placeholder-inherit outline-0 focus:border-0 focus:outline-0 active:border-0 dark:bg-gray-700 lg:dark:bg-gray-800"
@@ -58,9 +54,8 @@ function Countries() {
 					onChange={(e) => setSearchTerm(e.target.value)}
 				/>
 			</span>
-			<span className="w-full border-[0.2px] border-solid border-gray-700 opacity-30 dark:border-gray-100 lg:dark:border-gray-200" />
 			{!selectedCountry ? (
-				<div className="bg-gray-200 dark:bg-gray-700">
+				<div className="rounded-md bg-gray-200 dark:bg-gray-700">
 					{countries
 						.filter((c) => topCountries.includes(c.name))
 						.filter((country) => country.name.toLowerCase().startsWith(searchTerm.toLowerCase()))
