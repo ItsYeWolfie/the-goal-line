@@ -95,11 +95,7 @@ function AfterTomorrowMatches() {
 									minute: '2-digit',
 								});
 								return (
-									<Link
-										to={`/matches/${fixture.fixture.id}/`}
-										target="_blank"
-										rel="noreferrer"
-									>
+									<Link to={`/matches/${fixture.fixture.id}/`}>
 										<div className="mb-2 flex cursor-pointer items-center rounded-md border-gray-400 bg-gray-300 duration-150 ease-in hover:h-16 hover:border-2 hover:border-solid hover:bg-gray-200 dark:bg-gray-700 dark:hover:border-gray-700 dark:hover:bg-gray-800">
 											<span className="ml-2 flex w-8 justify-center">
 												{fixture.fixture.status.elapsed === null
