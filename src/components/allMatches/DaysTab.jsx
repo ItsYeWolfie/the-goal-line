@@ -54,7 +54,7 @@ function Tabs() {
 
 	return (
 		<div>
-			<div className="fixed z-20 -ml-4 -mt-2 flex w-full justify-around border-b-2 border-gray-700 border-opacity-30 bg-gray-100 p-2 pt-4 dark:border-gray-200 dark:border-opacity-30 dark:bg-gray-900 md:-ml-[2.65rem] lg:-ml-2 lg:w-[39.5%] lg:bg-gray-200 lg:pt-2 dark:lg:bg-gray-800">
+			<div className="fixed z-20 -ml-4 -mt-2 flex w-full justify-around border-b-2 border-gray-700 border-opacity-30 bg-gray-100 p-2 pt-4 dark:border-gray-200 dark:border-opacity-30 dark:bg-gray-900 md:-ml-[2.65rem] lg:-ml-2 lg:w-[37.7rem] lg:bg-gray-200 lg:pt-2 dark:lg:bg-gray-800">
 				<FaChevronRight
 					className="absolute left-0 z-50 mt-2 pl-2 text-base md:mt-3 lg:hidden"
 					style={{ transform: `rotate(${listHidden ? 0 : 90}deg)` }}
