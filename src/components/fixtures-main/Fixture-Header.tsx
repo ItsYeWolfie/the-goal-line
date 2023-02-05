@@ -12,8 +12,8 @@ export default function FixtureHeader({ activeButton, handleButtonClick }: Fixtu
 	return (
 		<div className="relative mb-4  flex flex-col gap-4 border-gray-300">
 			<div className="flex items-center gap-2">
-				<FaRegFutbol className="text-4xl text-black  dark:text-yellow-400" />
-				<span className="text-2xl font-medium text-gray-700 dark:text-gray-200 ">Football Matches</span>
+				<FaRegFutbol className="text-3xl text-black dark:text-yellow-400  md:text-4xl" />
+				<span className="text-xl font-medium text-gray-700 dark:text-gray-200 md:text-2xl ">Football Matches</span>
 			</div>
 			<div className="flex items-start gap-8">
 				{['Latest Matches', 'Live Matches', 'Coming Matches'].map((item, index) => (
