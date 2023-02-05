@@ -10,15 +10,15 @@ interface SearchCoachResultProps {
 export default function SearchCoachResult({ coach, onClick }: SearchCoachResultProps) {
 	return (
 		<div className="mt-2 flex h-[44px] w-full items-center sm:mt-[4] sm:h-[55px] md:mt-[2%]  md:h-[54px] ">
-			<div className="h-full w-[15%] rounded-[10px] bg-gray-200 md:w-[10%] ">
+			<div className="h-full w-[15%] rounded-[10px] md:w-[10%] ">
 				<Link
-					to={`/coach/${coach.lastname}`}
+					to={`/coach/${coach.id}`}
 					onClick={onClick}
 				>
 					<img
 						src={coach.photo}
 						alt="a"
-						className="m-auto   h-full w-[100%]  "
+						className="m-auto h-full rounded-full"
 					/>
 				</Link>
 			</div>
@@ -26,7 +26,7 @@ export default function SearchCoachResult({ coach, onClick }: SearchCoachResultP
 				<div className="flex h-full items-end pl-[4%] text-[17px] sm:text-[20px]">
 					{' '}
 					<Link
-						to={`/coach/${coach.lastname}`}
+						to={`/coach/${coach.id}`}
 						onClick={onClick}
 					>
 						{coach.name}
@@ -38,7 +38,7 @@ export default function SearchCoachResult({ coach, onClick }: SearchCoachResultP
 			</div>
 			<div className="h-full w-[10%] ">
 				<Link
-					to={`/coach/${coach.lastname}`}
+					to={`/coach/${coach.id}`}
 					onClick={onClick}
 				>
 					{' '}

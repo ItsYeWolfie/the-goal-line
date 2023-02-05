@@ -45,7 +45,7 @@ export default function TeamCoaches({ coaches }: { coaches: ICoach[] }) {
 				<div className="col-span-8 flex flex-col gap-2 leading-loose sm:col-span-4 lg:col-span-3 xl:col-span-3 xl:border-b xl:border-gray-500">
 					<Link
 						className="text-xl"
-						to={`/coaches/${activeCoach.coachObject.id}/`}
+						to={`/coach/${activeCoach.coachObject.id}/`}
 					>
 						{activeCoach.coachObject.firstName} {activeCoach.coachObject.lastName}
 					</Link>

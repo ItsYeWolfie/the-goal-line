@@ -53,7 +53,7 @@ function FixtureInfo() {
 				{fixture.fixture.referee}
 			</p>
 			<Link
-				to={`/venue/${fixture.fixture.venue.name}/`}
+				to={`/venue/${fixture.fixture.venue.id}/`}
 				rel="noreferrer"
 			>
 				<p className="flex items-center text-xs hover:text-sky-600 md:text-base">

@@ -12,7 +12,7 @@ export default function SearchVenueResult({ venue, onClick }: SearchVenueResultP
 		<div className="mt-2 flex h-[44px] w-full items-center sm:mt-[4] sm:h-[55px] md:mt-[2%]  md:h-[54px] ">
 			<div className=" h-full w-[15%] rounded-[10px] md:w-[10%] ">
 				<Link
-					to={`/venue/${venue.name}`}
+					to={`/venue/${venue.id}`}
 					onClick={onClick}
 				>
 					<img
@@ -26,7 +26,7 @@ export default function SearchVenueResult({ venue, onClick }: SearchVenueResultP
 				<div className="flex h-full items-end pl-[4%] text-[17px] sm:text-[20px]">
 					{' '}
 					<Link
-						to={`/venue/${venue.name}`}
+						to={`/venue/${venue.id}`}
 						onClick={onClick}
 					>
 						{venue.name}
@@ -38,7 +38,7 @@ export default function SearchVenueResult({ venue, onClick }: SearchVenueResultP
 			</div>
 			<div className="h-full w-[10%] ">
 				<Link
-					to={`/venue/${venue.name}`}
+					to={`/venue/${venue.id}`}
 					onClick={onClick}
 				>
 					{' '}

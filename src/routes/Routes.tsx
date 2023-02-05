@@ -54,11 +54,11 @@ export const router = createBrowserRouter([
 				children: PlayerRoutes,
 			},
 			{
-				path: '/coach/:name',
+				path: '/coach/:id',
 				element: <CoachPage />,
 			},
 			{
-				path: '/venue/:name',
+				path: '/venue/:id',
 				element: <VenuePage />,
 			},
 			{

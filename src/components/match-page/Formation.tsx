@@ -83,7 +83,10 @@ function Formation() {
 							</span>
 						</div>
 						{['D', 'M', 'F'].map((pos) => (
-							<div className="flex items-center justify-center gap-6">
+							<div
+								className="flex items-center justify-center gap-6"
+								key={pos}
+							>
 								{formation[1].startXI
 									.filter((player) => player.player.pos === pos)
 									.map((player) => (

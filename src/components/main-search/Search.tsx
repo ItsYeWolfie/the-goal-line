@@ -24,30 +24,6 @@ export default function QuickSearch() {
 	const searchRef = useRef<HTMLInputElement>(null);
 	const [selectedOption, setSelectedOption] = useState('Teams');
 
-	useEffect(() => {
-		if (selectedOption === 'Teams') {
-			fetchData<IFixture[]>('https://api.npoint.io/cfdd9340ece0aa795c9e').then((data) => {
-				setMatches(data);
-				setFilteredMatches(data.slice(0, 10));
-			});
-		} else if (selectedOption === 'Players') {
-			fetchData<IPlayerSearch[]>('https://api.npoint.io/8d996f27035b708c6e9f').then((result) => {
-				setPlayers(result);
-				setFilterPlayers(result.slice(0, 10));
-			});
-		} else if (selectedOption === 'Coaches') {
-			fetchData<ICoach[]>('https://api.npoint.io/e471eb968617878ba05f').then((result) => {
-				setCoach(result);
-				setFilterCoach(result.slice(0, 1));
-			});
-		} else if (selectedOption === 'Venues') {
-			fetchData<IVenue[]>('https://api.npoint.io/383138d98ef41e68a0ce').then((result) => {
-				setVenue(result);
-				setFilterVenue(result.slice(0, 1));
-			});
-		}
-	}, [selectedOption]);
-
 	const handleSearchChange = () => {
 		if (searchRef.current) {
 			const searchText = searchRef.current.value;
@@ -79,7 +55,23 @@ export default function QuickSearch() {
 		}
 	};
 
-	const handleSearchClick = () => {
+	const handleSearchClick = async () => {
+		fetchData<IFixture[]>('https://api.npoint.io/cfdd9340ece0aa795c9e').then((data) => {
+			setMatches(data);
+			setFilteredMatches(data.slice(0, 10));
+		});
+		fetchData<IPlayerSearch[]>('https://api.npoint.io/8d996f27035b708c6e9f').then((result) => {
+			setPlayers(result);
+			setFilterPlayers(result.slice(0, 10));
+		});
+		fetchData<ICoach[]>('https://api.npoint.io/e471eb968617878ba05f').then((result) => {
+			setCoach(result);
+			setFilterCoach(result.slice(0, 1));
+		});
+		fetchData<IVenue[]>('https://api.npoint.io/383138d98ef41e68a0ce').then((result) => {
+			setVenue(result);
+			setFilterVenue(result.slice(0, 1));
+		});
 		setOpen(true);
 	};
 

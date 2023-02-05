@@ -30,11 +30,7 @@ export default function DarkModeToggle({ className }: { className?: string }) {
 			onClick={toggleDarkMode}
 			className={`${className || ''} flex h-10 w-10 items-center justify-center `}
 		>
-			{darkMode ? (
-				<BsMoonFill className="h-full text-gray-800 dark:text-gray-200" />
-			) : (
-				<BsFillSunFill className="h-full text-gray-800 dark:text-gray-200" />
-			)}
+			{darkMode ? <BsMoonFill /> : <BsFillSunFill />}
 		</button>
 	);
 }

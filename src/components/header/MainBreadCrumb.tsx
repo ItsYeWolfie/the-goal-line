@@ -70,7 +70,7 @@ export default function MainBreadCrumb() {
 			<div className="flex h-10 items-center justify-end gap-2 text-gray-800 dark:text-gray-200 lg:pr-2">
 				<DarkModeToggle />
 				<Link to="/contact-us">
-					<FaInfoCircle className="text-xl hover:text-blue-600" />
+					<FaInfoCircle className="flex h-6 w-10 items-center justify-center transition-colors duration-300 ease-in-out hover:text-sky-600" />
 				</Link>
 				<QuickSearch />
 			</div>

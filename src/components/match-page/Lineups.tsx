@@ -32,7 +32,7 @@ function LineUps() {
 			</span>
 			<div className="flex flex-col">
 				<Link
-					to="/coach/Solskjær"
+					to={`/coach/${lineup.lineups[0].coach.id}`}
 					rel="noreferrer"
 				>
 					<h3 className="text-left hover:text-sky-600">
@@ -56,7 +56,7 @@ function LineUps() {
 			</div>
 			<div className="flex flex-col">
 				<Link
-					to="/coach/Solskjær"
+					to={`/coach/${lineup.lineups[1].coach.id}/`}
 					rel="noreferrer"
 				>
 					<h3 className="text-right hover:text-sky-600">
