@@ -20,10 +20,6 @@ export default function MatchPage() {
 				name: 'Matches',
 				href: '/matches',
 			},
-			{
-				name: 'Match',
-				href: 'matches/157201/',
-			},
 		]);
 
 		return () => {

@@ -76,6 +76,14 @@ export default function QuickSearch() {
 	};
 
 	const showResults = () => {
+		if (
+			(filteredMatches.length === 0 && selectedOption === 'Teams') ||
+			(filterPlayers.length === 0 && selectedOption === 'Players') ||
+			(filterCoach.length === 0 && selectedOption === 'Coaches') ||
+			(filterVenue.length === 0 && selectedOption === 'Venues')
+		) {
+			return <p className="text-center">No results</p>;
+		}
 		switch (selectedOption) {
 			case 'Teams':
 				return filteredMatches.map((match) => (

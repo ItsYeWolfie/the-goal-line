@@ -10,7 +10,7 @@ interface PlayerResultProps {
 export default function PlayerResult({ player, onClick }: PlayerResultProps) {
 	return (
 		<div className="mt-2 flex h-[44px] w-full items-center sm:mt-[4] sm:h-[55px] md:mt-[2%]  md:h-[54px] ">
-			<div className="h-full w-[15%] rounded-[10px] bg-gray-400 dark:bg-gray-200 md:w-[10%] ">
+			<div className="h-full w-[15%] md:w-[10%] ">
 				<Link
 					to={`/teams/${player.id}/`}
 					onClick={onClick}
@@ -18,7 +18,7 @@ export default function PlayerResult({ player, onClick }: PlayerResultProps) {
 					<img
 						src={player.photo}
 						alt="a"
-						className="m-auto mt-[5%]  h-[90%] w-[70%] rounded-full"
+						className="m-auto mt-[5%] h-10 w-10 rounded-full"
 					/>
 				</Link>
 			</div>

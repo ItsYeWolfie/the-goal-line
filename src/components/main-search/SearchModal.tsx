@@ -76,7 +76,7 @@ export default function SearchModal({
 											{['Teams', 'Players', 'Coaches', 'Venues'].map((option) => (
 												<option
 													key={option}
-													className="bg-sky-900 dark:text-white"
+													className="dark:bg-sky-900 dark:text-white"
 													value={option}
 												>
 													{option}

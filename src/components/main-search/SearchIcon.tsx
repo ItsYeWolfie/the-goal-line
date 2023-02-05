@@ -7,7 +7,7 @@ export default function SearchIcon({ handleSearchClick }: SearchIconProps) {
 		<button
 			type="submit"
 			onClick={handleSearchClick}
-			className="rounded-lg border  bg-gray-800 p-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none"
+			className="rounded-lg border  bg-gray-800 p-2.5 text-sm font-medium text-white transition-all duration-300 ease-in-out hover:bg-sky-600 focus:outline-none"
 		>
 			<svg
 				className="h-5 w-5 text-white"
