@@ -3,8 +3,8 @@ import { FaNewspaper, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import fetchData from '../../../lib/helpers/Fetch';
 import SliderLoader from '../index-loaders/Slider-Loader';
 import { INews } from '../../types/News.types';
-import NewsHeader from './NewsHeader';
 import NewsCard from './NewsCard';
+import NewsHeader from './NewsHeader';
 
 export default function NewsSlider() {
 	const [data, setData] = useState<INews[]>([]);
@@ -52,7 +52,7 @@ export default function NewsSlider() {
 			<div className="row-span-1 flex items-center justify-between gap-2">
 				<div className="flex items-center gap-2">
 					<FaNewspaper className="text-2xl text-sky-600 dark:text-yellow-400 md:text-4xl" />
-					<span className="text-2xl font-medium text-gray-700 dark:text-gray-200 md:text-2xl">
+					<span className="text-xl font-medium text-gray-700 dark:text-gray-200 md:text-2xl">
 						All News and Transfers{' '}
 					</span>
 				</div>

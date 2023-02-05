@@ -4,11 +4,11 @@
 import moment from 'moment';
 import { useContext, useEffect, useState } from 'react';
 import { Bars } from 'react-loader-spinner';
+import RelatedNews from './RelatedNews';
 import { fetchData } from '../../../lib/helpers/Fetch';
 import { GlobalHeaderContext, IGlobalHeader } from '../../contexts/GlobalHeader.context';
 import { INews } from '../../types/News.types';
 import NewsHeader from './NewsHeader';
-import RelatedNews from './RelatedNews';
 
 export default function NewsPage() {
 	const [data, setData] = useState<INews[]>([]);
@@ -136,7 +136,7 @@ export default function NewsPage() {
 										</p>
 									</div>
 
-									<div className="mx-auto mt-[7%] w-[95%] break-words text-gray-700 dark:text-gray-300 sm:text-[1.2rem] lg:text-[1.1rem] 2xl:text-[1.8rem]">
+									<div className="mx-auto mt-2  w-[95%] break-words text-gray-700 dark:text-gray-300 sm:text-base lg:text-lg 2xl:text-xl">
 										{currentData?.body}
 									</div>
 
@@ -147,7 +147,7 @@ export default function NewsPage() {
 											alt=""
 										/>
 									</div>
-									<div className="mx-auto mt-[5%] w-[95%] break-words dark:text-gray-300 sm:text-[1.2rem] lg:text-[1.1rem] 2xl:text-[1.8rem]">
+									<div className="mx-auto mt-[5%] w-[95%] break-words dark:text-gray-300 sm:text-base lg:text-lg 2xl:text-xl">
 										{currentData?.body}
 									</div>
 									<div className="mt-[5%] h-[300px] w-full 2xl:h-[450px]">

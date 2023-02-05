@@ -52,7 +52,7 @@ export default function NewsByTitle() {
 					/>
 				) : (
 					<div className="rounded-[10px] border-[2px] border-violet-400 dark:border-gray-400">
-						<div className="mx-auto mt-[5%] w-[90%] text-[1.2rem] font-bold text-gray-800 dark:text-white sm:text-[1.5rem] md:text-[1.5rem] lg:text-3xl 2xl:text-4xl">
+						<div className="mx-auto mt-[5%] w-[90%] text-base font-bold text-gray-800 dark:text-white sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl">
 							{currentNews.title}
 						</div>
 						<div className="mt-[3%] flex w-full items-center space-x-1">
@@ -82,7 +82,7 @@ export default function NewsByTitle() {
 							</p>
 						</div>
 
-						<div className="mx-auto mt-5 w-[95%] break-words text-gray-800 dark:text-gray-300 sm:text-[1.2rem] lg:text-[1.1rem] 2xl:text-[1.8rem]">
+						<div className="mx-auto mt-5 w-[95%] break-words text-gray-800 dark:text-gray-300 sm:text-base lg:text-lg 2xl:text-xl">
 							{currentNews.body}
 						</div>
 
@@ -93,7 +93,7 @@ export default function NewsByTitle() {
 								alt=""
 							/>
 						</div>
-						<div className="dark:text-gray-300sm:text-[1.2rem] mx-auto my-[5%] w-[95%]  break-words text-gray-800 dark:text-gray-300 lg:text-[1.1rem] 2xl:text-[1.8rem]">
+						<div className="mx-auto mt-5 w-[95%] break-words text-gray-800 dark:text-gray-300 sm:text-base lg:text-lg 2xl:text-xl">
 							{currentNews.body}
 						</div>
 					</div>

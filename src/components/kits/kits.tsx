@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { FaTshirt, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import fetchData from '../../../lib/helpers/Fetch';
 import Kit from './kit';
-import SliderLoader from '../index-loaders/Slider-Loader';
 import { IKit } from '../../types/Kit.types';
+import SliderLoader from '../index-loaders/Slider-Loader';
 
 export default function KitsSlider() {
 	const [kit, setKits] = useState<IKit[]>([]);
@@ -59,7 +59,7 @@ export default function KitsSlider() {
 				</div>
 			</div>
 			<div
-				className=" no-scrollbar flex flex-nowrap gap-3 overflow-x-auto scroll-smooth"
+				className=" no-scrollbar flex flex-nowrap gap-3 overflow-auto scroll-smooth"
 				ref={(el) => setScrollingDiv(el)}
 			>
 				{loading ? (
