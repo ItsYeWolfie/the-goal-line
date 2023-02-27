@@ -13,7 +13,7 @@ export default function KitsSlider() {
 
 	useEffect(() => {
 		setLoading(true);
-		fetchData<IKit[]>('src/data/kits.json')
+		fetchData<IKit[]>('/kits.json')
 			.then((data) => {
 				setKits(data);
 				setLoading(false);

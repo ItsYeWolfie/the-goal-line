@@ -34,7 +34,7 @@ export default function NewsPage() {
 	}, [setBreadcrumbs]);
 	useEffect(() => {
 		setLoading(true);
-		fetchData<INews[]>('src/data/news.json')
+		fetchData<INews[]>('/news.json')
 			.then((res) => {
 				setOriginalData(res);
 				setCurrentData(res[0]);

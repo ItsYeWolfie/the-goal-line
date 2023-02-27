@@ -15,7 +15,7 @@ export default function NewsSlider() {
 	const [originalData, setOriginalData] = useState<INews[]>([]);
 
 	useEffect(() => {
-		fetchData<INews[]>('src/data/news.json').then((res) => {
+		fetchData<INews[]>('/news.json').then((res) => {
 			setOriginalData(res);
 			setActiveCategory(dataTofilter[0]);
 			if (dataTofilter[0] === null) {

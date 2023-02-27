@@ -14,7 +14,7 @@ export default function LogosSlider() {
 
 	useEffect(() => {
 		setLoading(true);
-		fetchData<ITeamBasic[]>('src/data/footballclubs.json')
+		fetchData<ITeamBasic[]>('/footballclubs.json')
 			.then((res) => {
 				setData(res);
 				setLoading(false);

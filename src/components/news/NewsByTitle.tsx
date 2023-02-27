@@ -15,7 +15,7 @@ export default function NewsByTitle() {
 
 	useEffect(() => {
 		setLoading(true);
-		fetchData<INews[]>('../src/data/news.json')
+		fetchData<INews[]>('/news.json')
 			.then((_data) => {
 				setData(_data);
 				setLoading(false);
